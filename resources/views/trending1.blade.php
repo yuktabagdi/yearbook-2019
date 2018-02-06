@@ -162,9 +162,9 @@
               <li class="head text-dark bg-light">
                 <a class="nav-link text-dark" href="/details">Edit Details</a>
               </li>
-              <li class="head text-dark bg-light">
+              <!--<li class="head text-dark bg-light">
                 <a class="nav-link text-dark" href="#">Change Password </a>
-              </li>
+              </li>-->
               <li class="head text-dark bg-light">
                 <a class="nav-link text-dark" href="/logout">Logout </a>
               </li>
