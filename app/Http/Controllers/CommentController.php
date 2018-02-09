@@ -26,14 +26,14 @@ Image::where('id',request('pic_id'))->increment('totalcount', 2);
    $mydata = Comment::where('pic_id',request('pic_id'))->latest()->get();
 
 
-   $content= '<table class="table-striped col l12 s12 m12 table-scrollable">
+   $content= '<table class="table-striped col l12 s12 m12 table-scrollable" style="background-color: rgba(255,255,255,1);font-size: 110%;">
    <tbody>  '; 
 
    foreach($mydata as $view)   
    {   
     $name = User::find($view['user_id'])->name;
     $content=$content. '    
-    <tr class="row"><td style = "word-wrap: break-word;padding:20px; " class="col l9"> <b>'.$name.' said:</b><br>
+    <tr class="row"><td style = "word-wrap: break-word;padding:10px; " class="col l9"> <b>'.$name.' :</b><br>
     '.$view['comments'].'
     </td>'
     ;
@@ -55,14 +55,14 @@ public function new()
 
   $mydata = Comment::where('pic_id',request('pic_id'))->latest()->get();
 
-  $content= '<table class="table-striped col l12 s12 m12 table-scrollable">
+  $content= '<table class="table-striped col l12 s12 m12 table-scrollable" style="background-color: rgba(255,255,255,1);font-size: 110%;">
   <tbody>  '; 
 
   foreach($mydata as $view)   
   {   
     $name = User::find($view['user_id'])->name;
     $content=$content. '    
-    <tr class="row"><td style = "word-wrap: break-word;padding:20px; " class="col l9"> <b>'.$name.' said:</b><br>
+    <tr class="row"><td style = "word-wrap: break-word;padding:10px; " class="col l9"> <b>'.$name.' :</b><br>
     '.$view['comments'].'
     </td>'
     ;
