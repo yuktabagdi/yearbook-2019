@@ -1,8 +1,19 @@
+
+<style type="text/css">
+  .table-scrollable
+  {
+
+    height: 350px;
+    overflow: scroll;
+  }
+</style>
+
+
 <div  class="modal fade" id="enlargeImageModal" tabindex="-1" role="dialog" aria-labelledby="enlargeImageModal" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
+    <div class="modal-content" style="background-color: rgba(67,100,107,0.75);">
       <div class="modal-header">
-
+        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
       </div>
       <div class="modal-body">
@@ -24,9 +35,10 @@
                 <div class="col approval" id="like"></div>
               </div>
             </form>
+<br>
 
 
-            <div id="comments" class="table-scrollable">
+            <div id="comments" class="table-scrollable" style="text-align: center;">
             </div>
           </div>
         </div>
