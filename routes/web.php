@@ -101,3 +101,4 @@ Route::get('accept/{token}', 'InviteController@accept')->name('accept');
 
 //referenced by navbar2
 Route::get('/trending','CountController@index');
+

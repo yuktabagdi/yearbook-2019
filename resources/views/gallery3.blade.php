@@ -13,7 +13,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content" style="background-color: rgba(67,100,107,0.75);">
       <div class="modal-header">
-        <img  width="20px"; height= "20px";  src="<?php if (!empty($data['pro_pic'])){echo '../'.$data['pro_pic']; } else { echo '../ind/shot.jpg';}?>" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 30px;height: 30px;"><span class="section-heading-lower" style="color: white;font-weight: bold;font-size: 110%;"> <?php echo '  '.$data['name']; ?></span>
+        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
       </div>
       <div class="modal-body">
@@ -38,7 +38,7 @@
 <br>
 
 
-            <div id="comments" class="table-scrollable">
+            <div id="comments" class="table-scrollable" style="text-align: center;">
             </div>
           </div>
         </div>

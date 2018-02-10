@@ -54,6 +54,11 @@
     border:10px solid #343A40;
     border-color: transparent transparent #343A40 transparent;
   }
+  tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
   .head{
     padding:5px 15px;
     border-radius: 3px 3px 0px 0px;
@@ -83,6 +88,9 @@
   .cta .cta-inner:before
   {
     content: none;
+  }
+   table{
+    table-layout: fixed;
   }
 </style>
 </head>
