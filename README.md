@@ -11,4 +11,4 @@
 upload_max_filesize = 100M
 post_max_size = 125M
 #Restart apache
-systemctl restart apache2.service
+systemctl restart apache2.service   
