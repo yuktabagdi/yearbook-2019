@@ -42,7 +42,13 @@ class HomeController extends Controller
             return view('home1',compact('user','notifications'));
         }
 
-
+         public function index1()
+        {
+            $user = User::get();
+            $roll = Auth::user()->rollno;
+            $notifications = views::where('depmate',$roll)->where('read','1')->get()->toArray();
+            return view('home',compact('user','notifications'));
+        }
 
         public function search()
         {

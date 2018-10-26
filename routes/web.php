@@ -26,6 +26,7 @@ Auth::routes()
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout'); //Just added to fix issue
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/homenew', 'HomeController@index1');
 Route::get('/profile_index', 'profile@index');
 Route::get('/profile_index/{roll}', 'profile@testimonials');
 Route::post('/search','HomeController@search');
