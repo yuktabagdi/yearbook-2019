@@ -18,20 +18,20 @@
     <!-- ==============================================
     Favicons
     =============================================== --> 
-    <link rel="icon" href="img_fluff/logo.jpg">
-    <link rel="apple-touch-icon" href="img_fluff/favicons/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="img_fluff/favicons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img_fluff/favicons/apple-touch-icon-114x114.png">
+    <link rel="icon" href="img/logo.jpg">
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
     
       <!-- ==============================================
     CSS
     =============================================== -->
-        <link type="text/css" href="css_fluff/demos/photo.css" rel="stylesheet" />
+        <link type="text/css" href="css/demos/photo.css" rel="stylesheet" />
         
     <!-- ==============================================
     Feauture Detection
     =============================================== -->
-    <script src="js_fluff/modernizr-custom.js"></script>
+    <script src="js/modernizr-custom.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -146,27 +146,27 @@
         <div class="slimscroll" style="max-height: 230px; overflow: hidden; width: auto; height: 416.983px;">
          <div id="Slim2">
         <a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
-         <div class="notify-icon"><img src="img_fluff/users/1.jpg" class="img-responsive img-circle" alt=""> </div>
+         <div class="notify-icon"><img src="img/users/1.jpg" class="img-responsive img-circle" alt=""> </div>
          <p class="notify-details">Cristina Pride</p>
          <p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
         </a><!--/ dropdown-item-->
         <a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
-         <div class="notify-icon"><img src="img_fluff/users/2.jpg" class="img-responsive img-circle" alt=""> </div>
+         <div class="notify-icon"><img src="img/users/2.jpg" class="img-responsive img-circle" alt=""> </div>
          <p class="notify-details">Sam Garret</p>
          <p class="text-muted font-13 mb-0 user-msg">Yeah everything is fine</p>
         </a><!--/ dropdown-item-->
         <a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
-         <div class="notify-icon"><img src="img_fluff/users/3.jpg" class="img-responsive img-circle" alt=""> </div>
+         <div class="notify-icon"><img src="img/users/3.jpg" class="img-responsive img-circle" alt=""> </div>
          <p class="notify-details">Karen Robinson</p>
          <p class="text-muted font-13 mb-0 user-msg">Wow that's great</p>
         </a><!--/ dropdown-item-->
         <a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
-         <div class="notify-icon"><img src="img_fluff/users/4.jpg" class="img-responsive img-circle" alt=""> </div>
+         <div class="notify-icon"><img src="img/users/4.jpg" class="img-responsive img-circle" alt=""> </div>
          <p class="notify-details">Sherry Marshall</p>
          <p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
         </a><!--/ dropdown-item-->
         <a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
-         <div class="notify-icon"><img src="img_fluff/users/5.jpg" class="img-responsive img-circle" alt=""> </div>
+         <div class="notify-icon"><img src="img/users/5.jpg" class="img-responsive img-circle" alt=""> </div>
          <p class="notify-details">Shawn Millard</p>
          <p class="text-muted font-13 mb-0 user-msg">Yeah everything is fine</p>
         </a><!--/ dropdown-item-->
@@ -183,7 +183,7 @@
       
      <li class="dropdown mega-avatar">
       <a href="photo_home.html#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-       <span class="avatar w-32"><img src="img_fluff/users/2.jpg" class="img-resonsive img-circle" width="25" height="25" alt="..."></span>
+       <span class="avatar w-32"><img src="img/users/2.jpg" class="img-resonsive img-circle" width="25" height="25" alt="..."></span>
        <!-- hidden-xs hides the username on small devices so only the image appears. -->
        <span class="hidden-xs">
       Alex Grantte
@@ -250,14 +250,14 @@
     
      <a href="photo_home.html#">
      <div class="storybox" 
-       style="background: linear-gradient( rgba(34,34,34,0.78), rgba(34,34,34,0.78)), url('img_fluff/posts/2.gif') no-repeat;
+       style="background: linear-gradient( rgba(34,34,34,0.78), rgba(34,34,34,0.78)), url('img/posts/2.gif') no-repeat;
               background-size: cover;
                   background-position: center center;
                   -webkit-background-size: cover;
                   -moz-background-size: cover;
                   -o-background-size: cover;">
           <div class="story-body text-center">
-           <div class=""><img class="img-circle" src="img_fluff/users/10.jpg" alt="user"></div>
+           <div class=""><img class="img-circle" src="img/users/10.jpg" alt="user"></div>
            <h4>Clifford Graham</h4>
            <p>2 hours ago</p>
           </div>      
@@ -266,14 +266,14 @@
     
      <a href="photo_home.html#">
      <div class="storybox" 
-       style="background: linear-gradient( rgba(34,34,34,0.78), rgba(34,34,34,0.78)), url('img_fluff/posts/3.gif') no-repeat;
+       style="background: linear-gradient( rgba(34,34,34,0.78), rgba(34,34,34,0.78)), url('img/posts/3.gif') no-repeat;
               background-size: cover;
                   background-position: center center;
                   -webkit-background-size: cover;
                   -moz-background-size: cover;
                   -o-background-size: cover;">
           <div class="story-body text-center">
-           <div class=""><img class="img-circle" src="img_fluff/users/13.jpeg" alt="user"></div>
+           <div class=""><img class="img-circle" src="img/users/13.jpeg" alt="user"></div>
            <h4>Eleanor Harper</h4>
            <p>4 hours ago</p>
           </div>      
@@ -282,14 +282,14 @@
     
      <a href="photo_home.html#">
      <div class="storybox" 
-       style="background: linear-gradient( rgba(34,34,34,0.78), rgba(34,34,34,0.78)), url('img_fluff/posts/4.jpg') no-repeat;
+       style="background: linear-gradient( rgba(34,34,34,0.78), rgba(34,34,34,0.78)), url('img/posts/4.jpg') no-repeat;
               background-size: cover;
                   background-position: center center;
                   -webkit-background-size: cover;
                   -moz-background-size: cover;
                   -o-background-size: cover;">
           <div class="story-body text-center">
-           <div class=""><img class="img-circle" src="img_fluff/users/12.jpg" alt="user"></div>
+           <div class=""><img class="img-circle" src="img/users/12.jpg" alt="user"></div>
            <h4>Sean Coleman</h4>
            <p>5 hours ago</p>
           </div>      
@@ -298,14 +298,14 @@
     
      <a href="photo_home.html#">
      <div class="storybox" 
-       style="background: linear-gradient( rgba(34,34,34,0.78), rgba(34,34,34,0.78)), url('img_fluff/posts/15.jpg') no-repeat;
+       style="background: linear-gradient( rgba(34,34,34,0.78), rgba(34,34,34,0.78)), url('img/posts/15.jpg') no-repeat;
               background-size: cover;
                   background-position: center center;
                   -webkit-background-size: cover;
                   -moz-background-size: cover;
                   -o-background-size: cover;">
           <div class="story-body text-center">
-           <div class=""><img class="img-circle" src="img_fluff/users/15.jpg" alt="user"></div>
+           <div class=""><img class="img-circle" src="img/users/15.jpg" alt="user"></div>
            <h4>Vanessa Wells</h4>
            <p>5 hours ago</p>
           </div>      
@@ -340,7 +340,7 @@
            <!-- END dropdown-->
            <div class="media m-0">
             <div class="d-flex mr-3">
-       <a href="photo_home.html#"><img class="img-responsive img-circle" src="img_fluff/users/18.jpg" alt="User"></a>
+       <a href="photo_home.html#"><img class="img-responsive img-circle" src="img/users/18.jpg" alt="User"></a>
       </div>
             <div class="media-body">
              <p class="m-0">Benjamin Robinson</p>
@@ -351,21 +351,21 @@
           
       <div class="cardbox-item">
        <a href="photo_home.html#myModal" data-toggle="modal">
-        <img class="img-responsive" src="img_fluff/posts/1.jpg" alt="MaterialImg">
+        <img class="img-responsive" src="img/posts/1.jpg" alt="MaterialImg">
        </a> 
           </div><!--/ cardbox-item -->
         <div class="cardbox-base">
        <ul>
-      <li><a href="photo_home.html#"><img src="img_fluff/users/1.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/2.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/3.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/4.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/5.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/6.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/7.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/8.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/9.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/10.jpg" class="img-responsive img-circle" alt="User"></a></li>
+      <li><a href="photo_home.html#"><img src="img/users/1.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/2.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/3.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/4.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/5.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/6.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/7.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/8.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/9.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/10.jpg" class="img-responsive img-circle" alt="User"></a></li>
        </ul>
       </div><!--/ cardbox-base -->
           <div class="cardbox-like">
@@ -394,7 +394,7 @@
            <!-- END dropdown-->
            <div class="media m-0">
             <div class="d-flex mr-3">
-       <a href="photo_home.html#"><img class="img-responsive img-circle" src="img_fluff/users/7.jpg" alt="User"></a>
+       <a href="photo_home.html#"><img class="img-responsive img-circle" src="img/users/7.jpg" alt="User"></a>
       </div>
             <div class="media-body">
              <p class="m-0">Vanessa Wells</p>
@@ -405,21 +405,21 @@
           
       <div class="cardbox-item">
        <a href="photo_home.html#myModal" data-toggle="modal">
-        <img class="img-responsive" src="img_fluff/posts/5.jpg" alt="MaterialImg">
+        <img class="img-responsive" src="img/posts/5.jpg" alt="MaterialImg">
        </a> 
           </div><!--/ cardbox-item -->
         <div class="cardbox-base">
        <ul>
-      <li><a href="photo_home.html#"><img src="img_fluff/users/1.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/2.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/3.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/4.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/5.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/6.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/7.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/8.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/9.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/10.jpg" class="img-responsive img-circle" alt="User"></a></li>
+      <li><a href="photo_home.html#"><img src="img/users/1.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/2.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/3.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/4.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/5.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/6.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/7.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/8.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/9.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/10.jpg" class="img-responsive img-circle" alt="User"></a></li>
        </ul>
       </div><!--/ cardbox-base -->
           <div class="cardbox-like">
@@ -448,7 +448,7 @@
            <!-- END dropdown-->
            <div class="media m-0">
             <div class="d-flex mr-3">
-       <a href="photo_home.html#"><img class="img-responsive img-circle" src="img_fluff/users/2.jpg" alt="User"></a>
+       <a href="photo_home.html#"><img class="img-responsive img-circle" src="img/users/2.jpg" alt="User"></a>
       </div>
             <div class="media-body">
              <p class="m-0">Alex Grantte</p>
@@ -459,21 +459,21 @@
           
       <div class="cardbox-item">
        <a href="photo_home.html#myModal" data-toggle="modal">
-        <img class="img-responsive" src="img_fluff/posts/14.jpg" alt="MaterialImg">
+        <img class="img-responsive" src="img/posts/14.jpg" alt="MaterialImg">
        </a> 
           </div><!--/ cardbox-item -->
         <div class="cardbox-base">
        <ul>
-      <li><a href="photo_home.html#"><img src="img_fluff/users/1.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/2.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/3.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/4.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/5.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/6.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/7.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/8.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/9.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/10.jpg" class="img-responsive img-circle" alt="User"></a></li>
+      <li><a href="photo_home.html#"><img src="img/users/1.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/2.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/3.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/4.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/5.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/6.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/7.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/8.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/9.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/10.jpg" class="img-responsive img-circle" alt="User"></a></li>
        </ul>
       </div><!--/ cardbox-base -->
           <div class="cardbox-like">
@@ -502,7 +502,7 @@
            <!-- END dropdown-->
            <div class="media m-0">
             <div class="d-flex mr-3">
-       <a href="photo_home.html#"><img class="img-responsive img-circle" src="img_fluff/users/9.jpg" alt="User"></a>
+       <a href="photo_home.html#"><img class="img-responsive img-circle" src="img/users/9.jpg" alt="User"></a>
       </div>
             <div class="media-body">
              <p class="m-0">Anna Morgan</p>
@@ -513,21 +513,21 @@
           
       <div class="cardbox-item">
        <a href="photo_home.html#myModal" data-toggle="modal">
-        <img class="img-responsive" src="img_fluff/posts/18.jpg" alt="MaterialImg">
+        <img class="img-responsive" src="img/posts/18.jpg" alt="MaterialImg">
        </a> 
           </div><!--/ cardbox-item -->
         <div class="cardbox-base">
        <ul>
-      <li><a href="photo_home.html#"><img src="img_fluff/users/1.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/2.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/3.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/4.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/5.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/6.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/7.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/8.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/9.jpg" class="img-responsive img-circle" alt="User"></a></li>
-        <li><a href="photo_home.html#"><img src="img_fluff/users/10.jpg" class="img-responsive img-circle" alt="User"></a></li>
+      <li><a href="photo_home.html#"><img src="img/users/1.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/2.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/3.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/4.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/5.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/6.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/7.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/8.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/9.jpg" class="img-responsive img-circle" alt="User"></a></li>
+        <li><a href="photo_home.html#"><img src="img/users/10.jpg" class="img-responsive img-circle" alt="User"></a></li>
        </ul>
       </div><!--/ cardbox-base -->
           <div class="cardbox-like">
@@ -545,7 +545,7 @@
          <div class="suggestion-box full-width">
       <div class="suggestions-list">
         <div class="suggestion-body">
-          <img class="img-responsive img-circle" src="img_fluff/users/17.jpeg" alt="Image">
+          <img class="img-responsive img-circle" src="img/users/17.jpeg" alt="Image">
           <div class="name-box">
             <h4>Anthony McCartney</h4>
             <span>@antony</span>
@@ -553,7 +553,7 @@
           <span><i class="fa fa-plus"></i></span>
         </div>
         <div class="suggestion-body">
-          <img class="img-responsive img-circle" src="img_fluff/users/16.jpg" alt="Image">
+          <img class="img-responsive img-circle" src="img/users/16.jpg" alt="Image">
           <div class="name-box">
             <h4>Sean Coleman</h4>
             <span>@sean</span>
@@ -561,7 +561,7 @@
           <span><i class="fa fa-plus"></i></span>
         </div>
         <div class="suggestion-body">
-          <img class="img-responsive img-circle" src="img_fluff/users/14.jpg" alt="Image">
+          <img class="img-responsive img-circle" src="img/users/14.jpg" alt="Image">
           <div class="name-box">
             <h4>Francis Long</h4>
             <span>@francis</span>
@@ -569,7 +569,7 @@
           <span><i class="fa fa-plus"></i></span>
         </div>
         <div class="suggestion-body">
-          <img class="img-responsive img-circle" src="img_fluff/users/11.jpg" alt="Image">
+          <img class="img-responsive img-circle" src="img/users/11.jpg" alt="Image">
           <div class="name-box">
             <h4>Vanessa Wells</h4>
             <span>@vannessa</span>
@@ -577,7 +577,7 @@
           <span><i class="fa fa-plus"></i></span>
         </div>
         <div class="suggestion-body">
-          <img class="img-responsive img-circle" src="img_fluff/users/9.jpg" alt="Image">
+          <img class="img-responsive img-circle" src="img/users/9.jpg" alt="Image">
           <div class="name-box">
             <h4>Anna Morgan</h4>
             <span>@anna</span>
@@ -585,7 +585,7 @@
           <span><i class="fa fa-plus"></i></span>
         </div>
         <div class="suggestion-body">
-          <img class="img-responsive img-circle" src="img_fluff/users/8.jpg" alt="Image">
+          <img class="img-responsive img-circle" src="img/users/8.jpg" alt="Image">
           <div class="name-box">
             <h4>Clifford Graham</h4>
             <span>@clifford</span>
@@ -606,26 +606,26 @@
         <div class="trending-box">
      <div class="row">
       <div class="col-lg-6">
-       <a href="photo_home.html#"><img src="img_fluff/posts/17.jpg" class="img-responsive" alt="Image"/></a>
+       <a href="photo_home.html#"><img src="img/posts/17.jpg" class="img-responsive" alt="Image"/></a>
       </div>
       <div class="col-lg-6">
-       <a href="photo_home.html#"><img src="img_fluff/posts/12.jpg" class="img-responsive" alt="Image"/></a>
-      </div>
-     </div>
-     <div class="row">
-      <div class="col-lg-6">
-       <a href="photo_home.html#"><img src="img_fluff/posts/21.gif" class="img-responsive" alt="Image"/></a>
-      </div>
-      <div class="col-lg-6">
-       <a href="photo_home.html#"><img src="img_fluff/posts/23.gif" class="img-responsive" alt="Image"/></a>
+       <a href="photo_home.html#"><img src="img/posts/12.jpg" class="img-responsive" alt="Image"/></a>
       </div>
      </div>
      <div class="row">
       <div class="col-lg-6">
-       <a href="photo_home.html#"><img src="img_fluff/posts/11.jpg" class="img-responsive" alt="Image"/></a>
+       <a href="photo_home.html#"><img src="img/posts/21.gif" class="img-responsive" alt="Image"/></a>
       </div>
       <div class="col-lg-6">
-       <a href="photo_home.html#"><img src="img_fluff/posts/20.jpg" class="img-responsive" alt="Image"/></a>
+       <a href="photo_home.html#"><img src="img/posts/23.gif" class="img-responsive" alt="Image"/></a>
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-lg-6">
+       <a href="photo_home.html#"><img src="img/posts/11.jpg" class="img-responsive" alt="Image"/></a>
+      </div>
+      <div class="col-lg-6">
+       <a href="photo_home.html#"><img src="img/posts/20.jpg" class="img-responsive" alt="Image"/></a>
       </div>
      </div>
         </div>    
@@ -648,7 +648,7 @@
          <div class="row">
      
           <div class="col-md-8 modal-image">
-           <img class="img-responsive" src="img_fluff/posts/1.jpg" alt="Image"/>
+           <img class="img-responsive" src="img/posts/1.jpg" alt="Image"/>
           </div><!--/ col-md-8 -->
           <div class="col-md-4 modal-meta">
            <div class="modal-meta-top">
@@ -656,7 +656,7 @@
        <span aria-hidden="true">×</span><span class="sr-only">Close</span>
       </button><!--/ button -->
             <div class="img-poster clearfix">
-             <a href="photo_home.html"><img class="img-responsive img-circle" src="img_fluff/users/18.jpg" alt="Image"/></a>
+             <a href="photo_home.html"><img class="img-responsive img-circle" src="img/users/18.jpg" alt="Image"/></a>
              <strong><a href="photo_home.html">Benjamin</a></strong>
              <span>12 minutes ago</span><br/>
          <a href="photo_home.html" class="kafe kafe-btn-mint-small"><i class="fa fa-check-square"></i> Following</a>
@@ -665,7 +665,7 @@
             <ul class="img-comment-list">
              <li>
               <div class="comment-img">
-               <img src="img_fluff/users/17.jpeg" class="img-responsive img-circle" alt="Image"/>
+               <img src="img/users/17.jpeg" class="img-responsive img-circle" alt="Image"/>
               </div>
               <div class="comment-text">
                <strong><a href="photo_home.html">Anthony McCartney</a></strong>
@@ -674,7 +674,7 @@
              </li><!--/ li -->
              <li>
               <div class="comment-img">
-               <img src="img_fluff/users/15.jpg" class="img-responsive img-circle" alt="Image"/>
+               <img src="img/users/15.jpg" class="img-responsive img-circle" alt="Image"/>
               </div>
               <div class="comment-text">
                <strong><a href="photo_home.html">Vanessa Wells</a></strong>
@@ -683,7 +683,7 @@
              </li><!--/ li -->
              <li>
               <div class="comment-img">
-               <img src="img_fluff/users/14.jpg" class="img-responsive img-circle" alt="Image"/>
+               <img src="img/users/14.jpg" class="img-responsive img-circle" alt="Image"/>
               </div>
               <div class="comment-text">
                <strong><a href="photo_home.html">Sean Coleman</a></strong>
@@ -692,7 +692,7 @@
              </li><!--/ li -->
              <li>
               <div class="comment-img">
-               <img src="img_fluff/users/13.jpeg" class="img-responsive img-circle" alt="Image"/>
+               <img src="img/users/13.jpeg" class="img-responsive img-circle" alt="Image"/>
               </div>
               <div class="comment-text">
                <strong><a href="photo_home.html">Anna Morgan</a></strong>
@@ -701,7 +701,7 @@
              </li><!--/ li -->
              <li>
               <div class="comment-img">
-               <img src="img_fluff/users/3.jpg" class="img-responsive img-circle" alt="Image"/>
+               <img src="img/users/3.jpg" class="img-responsive img-circle" alt="Image"/>
               </div>
               <div class="comment-text">
                <strong><a href="photo_home.html">Allison Fowler</a></strong>
@@ -716,7 +716,7 @@
             <a class="modal-comment" href="photo_home.html#"><i class="fa fa-comments"></i></a><span> 786,286</span> </li>
         <li>
          <span class="thumb-xs">
-        <img class="img-responsive img-circle" src="http://bootdey.com/img_fluff/Content/user_3.jpg" alt="Image">
+        <img class="img-responsive img-circle" src="http://bootdey.com/img/Content/user_3.jpg" alt="Image">
          </span>
          <div class="comment-body">
          <input class="form-control input-sm" type="text" placeholder="Write your comment...">
@@ -739,9 +739,9 @@
      <!-- ==============================================
    Scripts
    =============================================== -->
-  <script src="js_fluff/jquery.min.js"></script>
-  <script src="js_fluff/bootstrap.min.js"></script>
-  <script src="js_fluff/base.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/base.js"></script>
   <script src="plugins/slimscroll/jquery.slimscroll.js"></script>
   <script>
   $('#Slim,#Slim2').slimScroll({
