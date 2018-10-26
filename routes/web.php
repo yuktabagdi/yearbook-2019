@@ -46,7 +46,6 @@ FileController
 
 	Route::get('/upload_pic_moto','HomeController@index');
 
-
 	Route::get('/upload','ImageController@index');
 
 	Route::post('/upload','ImageController@upload');
@@ -101,4 +100,4 @@ Route::get('accept/{token}', 'InviteController@accept')->name('accept');
 
 //referenced by navbar2
 Route::get('/trending','CountController@index');
-
+Route::get('/trendingnew','CountController@index1');
