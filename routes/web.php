@@ -51,6 +51,10 @@ FileController
 
 	Route::post('/upload','ImageController@upload');
 
+	Route::get('/upload1','ImageController@index1');
+
+	Route::post('/upload1','ImageController@upload1');
+	
 	Route::get('/details',function(){
 		$user = App\User::get();
 		$roll = Auth::user()->rollno;

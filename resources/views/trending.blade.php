@@ -23,6 +23,21 @@
     <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
     
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/business-casual.min.css" rel="stylesheet">
+
+
+  <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
+  <script src="js/autocomplete.js"></script>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropper/3.1.3/cropper.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropper/3.1.3/cropper.js"></script>
       <!-- ==============================================
     CSS
     =============================================== -->
@@ -38,7 +53,68 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->  
+   <style>
+
+.tablink {
+    background-color: #fff;
+    color: #000;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 50%;
+}
+
+.tablink:hover {
+    background-color: #777;
+    color:white;
+}
+
+.tablink:active {
+    color:white;
+}
+
+.tabcontent {
     
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+.dropdown-menu{
+    top: 60px;
+    right: 0px;
+    left: unset;
+    width: 460px;
+    box-shadow: 0px 5px 7px -1px #c1c1c1;
+    padding-bottom: 0px;
+    padding: 0px;
+  }
+  .dropdown-menu:before{
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 12px;
+    border:10px solid #343A40;
+    border-color: transparent transparent #343A40 transparent;
+  }
+  tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+  .head{
+    padding:5px 15px;
+    border-radius: 3px 3px 0px 0px;
+  }
+  .notification-box{
+    padding: 10px 0px; 
+  }
+  .bg-gray{
+    background-color: #eee;
+  }
+</style> 
   </head>
 
 <body>
@@ -56,7 +132,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
      </button>
-     <a class="navbar-brand" href="index.html"><i class="fab fa-instagram"></i> Fluffs</a>
+     <a class="navbar-brand" href="index.html"><img src="img/navbar/SACLogo.png" width="150px" height="75px" style="margin-top:-23px;" /></a>
     </div><!-- /.navbar-header -->
     <div class="navbar-left">
      <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -75,17 +151,28 @@
           </div>              
        </li>
 
+       <li class="active">
+            <a class="text-uppercase text-expanded" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+          <li class="">
+            <a class="text-uppercase text-expanded" href="#"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
+          </li>
+
+
+
        <li class="dropdown notification-list">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="photo_home.html#" role="button" aria-haspopup="false" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="photo_profile.html#" role="button" aria-haspopup="false" aria-expanded="false">
        <i class="fa fa-bell noti-icon"></i>
-       <span class="badge badge-danger badge-pill noti-icon-badge">4</span>
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-lg">
              
        <div class="dropdown-item noti-title">
         <h6 class="m-0">
          <span class="pull-right">
-          <a href="photo_home.html" class="text-dark"><small>Clear All</small></a> 
+          <a href="photo_profile.html" class="text-dark"><small>Clear All</small></a> 
          </span>Notification
         </h6>
        </div>
@@ -128,61 +215,32 @@
             </div><!--/ dropdown-menu-->
        </li>
 
-       <li class="dropdown notification-list">
-      <a class="nav-link dropdown-toggle arrow-none waves-effect" data-toggle="dropdown" href="photo_home.html#" role="button" aria-haspopup="false" aria-expanded="false">
-       <i class="fa fa-envelope noti-icon"></i>
-       <span class="badge badge-success badge-pill noti-icon-badge">6</span>
+          <li class="dropdown notification-list">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="photo_profile.html#" role="button" aria-haspopup="false" aria-expanded="false">
+              <i class="fa fa-cog"></i>
       </a>
-      <div class="dropdown-menu dropdown-menu-right dropdown-lg dropdown-new">
-             <div class="dropdown-item noti-title">
-        <h6 class="m-0">
-         <span class="float-right">
-          <a href="photo_home.html" class="text-dark"><small>Clear All</small></a> 
-         </span>Chat
-        </h6>
-       </div>
+      <div class="dropdown-menu dropdown-menu-right dropdown-lg" style="width: 100px; height:100.983px; left:-160px;">
+             
+        <div class="dropdown-item noti-title">
+          <h6 class="m-0">
+           <span class="pull-right">
+            <a href="photo_profile.html" class="text-dark"></a> 
+           </span>Settings
+          </h6>
+         </div>
 
-       <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 416.983px;">
-        <div class="slimscroll" style="max-height: 230px; overflow: hidden; width: auto; height: 416.983px;">
-         <div id="Slim2">
-        <a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
-         <div class="notify-icon"><img src="img/users/1.jpg" class="img-responsive img-circle" alt=""> </div>
-         <p class="notify-details">Cristina Pride</p>
-         <p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
-        </a><!--/ dropdown-item-->
-        <a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
-         <div class="notify-icon"><img src="img/users/2.jpg" class="img-responsive img-circle" alt=""> </div>
-         <p class="notify-details">Sam Garret</p>
-         <p class="text-muted font-13 mb-0 user-msg">Yeah everything is fine</p>
-        </a><!--/ dropdown-item-->
-        <a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
-         <div class="notify-icon"><img src="img/users/3.jpg" class="img-responsive img-circle" alt=""> </div>
-         <p class="notify-details">Karen Robinson</p>
-         <p class="text-muted font-13 mb-0 user-msg">Wow that's great</p>
-        </a><!--/ dropdown-item-->
-        <a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
-         <div class="notify-icon"><img src="img/users/4.jpg" class="img-responsive img-circle" alt=""> </div>
-         <p class="notify-details">Sherry Marshall</p>
-         <p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
-        </a><!--/ dropdown-item-->
-        <a href="javascript:void(0);" class="dropdown-item notify-item nav-user">
-         <div class="notify-icon"><img src="img/users/5.jpg" class="img-responsive img-circle" alt=""> </div>
-         <p class="notify-details">Shawn Millard</p>
-         <p class="text-muted font-13 mb-0 user-msg">Yeah everything is fine</p>
-        </a><!--/ dropdown-item-->
-         </div><!--/ .Slim-->
-         <div class="slimScrollBar" style="background: rgb(158, 165, 171) none repeat scroll 0% 0%; width: 8px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
-         <div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div>
-        </div><!--/ slimscroll-->
-       </div> <!--/ slimScrollDiv-->
-       <a href="photo_chat.html" class="dropdown-item text-center notify-all">
-        View all <i class="fa fa-arrow-right"></i>
-       </a>
+        <div >
+              <a class="dropdown-item " href="/details"><p style="font-family: 'Abhaya Libre', serif;">Edit Details</p></a>
+          </div>
+          <div >
+                  <a class="dropdown-item " href="/logout"><p <p style="font-family: 'Abhaya Libre', serif;">Logout</p> </a>
+          </div>
+
             </div><!--/ dropdown-menu-->
        </li>
       
      <li class="dropdown mega-avatar">
-      <a href="photo_home.html#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+      <a href="photo_profile.html#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
        <span class="avatar w-32"><img src="img/users/2.jpg" class="img-resonsive img-circle" width="25" height="25" alt="..."></span>
        <!-- hidden-xs hides the username on small devices so only the image appears. -->
        <span class="hidden-xs">
@@ -190,14 +248,14 @@
        </span>
       </a>
       <div class="dropdown-menu w dropdown-menu-scale pull-right">
-       <a class="dropdown-item" href="photo_home.html#"><span>New Story</span></a> 
-       <a class="dropdown-item" href="photo_home.html#"><span>Become a Member</span></a> 
+       <a class="dropdown-item" href="photo_profile.html#"><span>New Story</span></a> 
+       <a class="dropdown-item" href="photo_profile.html#"><span>Become a Member</span></a> 
        <div class="dropdown-divider"></div>
-       <a class="dropdown-item" href="photo_home.html#"><span>Profile</span></a> 
-       <a class="dropdown-item" href="photo_home.html#"><span>Settings</span></a> 
-       <a class="dropdown-item" href="photo_home.html#">Need help?</a> 
+       <a class="dropdown-item" href="photo_profile.html#"><span>Profile</span></a> 
+       <a class="dropdown-item" href="photo_profile.html#"><span>Settings</span></a> 
+       <a class="dropdown-item" href="photo_profile.html#">Need help?</a> 
        <div class="dropdown-divider"></div>
-       <a class="dropdown-item" href="photo_home.html#">Sign out</a>
+       <a class="dropdown-item" href="photo_profile.html#">Sign out</a>
       </div>
      </li><!-- /navbar-item --> 
      
@@ -322,7 +380,50 @@
      
     </div><!--/ col-lg-3 -->
       <div class="col-lg-6">
+        <div class="tab_bar" style="margin-left: 26%;align-items: center;
+          margin-right: 26%">
+        <button class="tablink kafe-btn" onclick="openPage('Home', this, '#0fc19e','white')">Articles</button>
+      <button class="tablink kafe-btn" onclick="openPage('News', this, '#0fc19e','white')" id="defaultOpen">Photos</button>
+      </div>
+      <div id="Home" class="tabcontent">
+      <div class="row">
+          <div class="col-lg-12">  
+        
+           <div class="box">
+          <form>
+           <textarea class="form-control no-border" rows="3" placeholder="Your caption here"></textarea>
+          </form>
+          <div class="box-footer clearfix">
+           <button class="kafe-btn kafe-btn-mint-small pull-right btn-sm">Upload</button>
+          </div>
+         </div> 
+     
+        </div>
+         </div>
+        <h3>Articles</h3>
+        <p>Home is where the heart is..</p>
+      </div>
+    <div id="News" class="tabcontent">
+      
+      <div class="row">
+      <div class="col-lg-12">  
     
+       <div class="box">
+      <form>
+       <textarea class="form-control no-border" rows="3" placeholder="Type something..."></textarea>
+      </form>
+      <div class="box-footer clearfix">
+       <button class="kafe-btn kafe-btn-mint-small pull-right btn-sm">Upload</button>
+       <ul class="nav nav-pills nav-sm">
+      <li class="nav-item"><a class="nav-link" href="photo_upload.html"><i class="fa fa-camera text-muted"></i></a></li>
+      <li class="nav-item"><a class="nav-link" href="photo_upload.html"><i class="fa fa-video text-muted"></i></a></li>
+       </ul>
+      </div>
+     </div> 
+     
+    </div>
+     </div>
+
          <div class="cardbox">
      
           <div class="cardbox-heading">
@@ -538,7 +639,7 @@
           </div><!--/ cardbox-like -->        
                 
      </div><!--/ cardbox -->
-    
+    </div>
     </div><!--/ col-lg-6 -->
     <div class="col-lg-3">
     
@@ -735,10 +836,26 @@
       </div><!--/ modal-dialog -->
      </div><!--/ modal -->
    
-   
      <!-- ==============================================
    Scripts
    =============================================== -->
+  <script>
+function openPage(pageName,elmnt,color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+
+}
+document.getElementById("defaultOpen").click();
+</script>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/base.js"></script>
@@ -752,6 +869,92 @@
       size:"8px",
     });   
   </script>
+<script type="text/javascript">
+ /*jslint browser: true, white: true, eqeq: true, plusplus: true, sloppy: true, vars: true*/
+ /*global $, console, alert, FormData, FileReader*/
+ function selectImage(e) {
+  $('#file').css("color", "green");
+  console.log("selectImage called"); 
+  $('#bootstrap-modal').modal('show');
+  $("#bootstrap-modal").on("shown.bs.modal", function() {
+    $('#image-preview-div').css("display", "block");
+    $('#preview-img').attr('src', e.target.result);
+    $('#preview-img').css('width', '200px');
+    $('#preview-img').css('height', '400px');
+    console.log("modal opened");
+    $('#preview-img').cropper({
+      viewMode : 1,
+      preview : '.preview',
+      crop : function(e) {
 
+      }
+    });
+  }).on("hidden.bs.modal", function() {
+    originalData = $("#preview-img").cropper("getCroppedCanvas");
+    var originalPng = originalData.toDataURL("image/png");
+    console.log(originalData);
+    $("#preview-img").cropper("destroy");
+    $('#cropp-image-div').css("display", "block");
+    $('#crop-image').attr('src', originalPng);
+    $('#crop-image').css('max-width', '200px');
+  });
+}
+$(document).ready(function (e) {
+  $('form#upload-image-form').on('submit', function(e) {
+    e.preventDefault();
+    $('#message').empty();
+    $('#loading').show();
+    console.log(originalData);
+    var formdata = new FormData(this); 
+    var i=0;
+    for (var value of formdata.entries()) {
+      console.log("before",value[i]);
+      i++;
+    }
+    i=0;
+    originalData.toBlob(function (blob){
+     formdata.append('croppedImage',blob);
+     for (var value of formdata.entries()) {
+       console.log("after",value[i]);
+       i++; 
+     }
+     console.log("crop image",originalData);
+     $.ajax({
+      url: "/upload",
+      type: "POST",
+      data: formdata,
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function(response)
+      {
+        alert('Your pic has been succesfully added.');
+        $('#loading').hide();
+        $('#cropp-image-div').css("display", "none");
+        var $el = $('#image');
+        $el.wrap('<form>').closest('form').get(0).reset();
+        $el.unwrap();
+        console.log(response);
+       // document.getElementById('posts').innerHTML += response;
+       location.reload();
+     },
+     error: function(data)
+     {
+      alert("Sorry, there was an error uploading image");
+      console.log("error",data);
+      window.location.reload();
+    }
+  });
+
+   });
+  });
+  $('#image').change(function() {
+    $('#upload-button').removeAttr("disabled");
+    var reader = new FileReader();
+    reader.onload = selectImage;
+    reader.readAsDataURL(this.files[0]);
+  });
+});
+</script>
   </body>
 </html>
