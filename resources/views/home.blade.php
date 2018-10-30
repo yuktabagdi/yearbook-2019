@@ -32,7 +32,17 @@
         <!--[if lt IE 9]>-->
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <!--[endif]-->	
+        <!--[endif]-->  
+        <script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="css/business-casual.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
+        <script src="js/autocomplete.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/introjs.css">
         <style>
             .tablink {
             background-color: #fff;
@@ -183,7 +193,6 @@
                                     </div>
                                     <div >
                                         <a class="dropdown-item " href="/logout">
-                                            <p 
                                             <p style="font-family: 'Abhaya Libre', serif;">Logout</p>
                                         </a>
                                     </div>
@@ -209,7 +218,7 @@
                                     <a class="dropdown-item" href="photo_profile.html#">Sign out</a>
                                 </div>
                             </li>
-                            <!-- /navbar-item -->	
+                            <!-- /navbar-item -->   
                         </ul>
                         <!-- /.sign-in -->   
                     </div>
@@ -223,7 +232,7 @@
         <!-- ==============================================
             Navbar Second Section
             =============================================== -->
-        <!-- 	<section class="nav-sec">
+        <!--    <section class="nav-sec">
             <div class="d-flex justify-content-between">
              <div class="p-2 nav-icon-lg dark-black">
              <a class="nav-icon" href="photo_home.html"><em class="fa fa-home"></em>
@@ -251,7 +260,7 @@
              </a>
              </div>
             </div>
-            </section>	 -->
+            </section>   -->
         <!-- ==============================================
             News Feed Section
             =============================================== --> 
@@ -270,19 +279,58 @@
                     <div class="col-lg-12">
                         <div class="post-content">
                             <div class="author-post text-center">
-                                <a href="photo_profile.html#"><img class="img-fluid img-circle" src="img/users/13.jpeg" alt="Image"></a>
+                                <div>
+                                    @if(!empty(Auth::user()->pro_pic))
+                                    <a href="#"><img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" alt="Image"  data-toggle="modal" data-target="#modal2" data-step="1" data-intro="<center> Upload your profile picture and write a caption here </center> "  ></a>
+                                    @endif
+                                </div>
                             </div>
                             <!-- /author -->
                         </div>
-                        <!-- /.post-content -->		
+                        <!-- /.post-content -->     
                     </div>
                     <!-- /col-sm-12 -->
                 </div>
-                <!--/ row-->	
+                <!--/ row-->    
             </div>
             <!--/ container -->
         </section>
         <!--/ profile -->
+        <div id="modal2" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content" style="text-align: center;">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="color: white;">Upload Picture and Caption</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/upload_pic_moto" method="post" enctype="multipart/form-data">
+                            {{csrf_field()}}
+                            @if (count($errors) > 0)
+                            <script type="text/javascript">
+                                alert('<?php foreach($errors->all() as $error) { echo "$error"; } ?>');
+                                
+                            </script>
+                            @endif
+                            <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
+                            <img src="<?php if (!empty(Auth::user()->pro_pic)){echo Auth::user()->pro_pic; } else { echo 'ind/shot.jpg';}?>" alt="" class="intro-img img-fluid mb-3 mb-lg-0 rounded" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
+                            <div class="input-field col sm-12 lg-12 md-12">
+                                <div class="form-group">
+                                    <label for="comment">Caption (Max 50 characters)</label>
+                                    @if(!empty(Auth::user()->view_self))
+                                    <textarea name="motto" id="icon_prefix2" class="form-control" placeholder="Enter Your Caption Here (Max 50 characters)" style="text-align: center;color: black;" maxlength="50" rows="2" id="comment">{{Auth::user()->view_self}}</textarea>
+                                    @else
+                                    <textarea name="motto" id="icon_prefix2" class="form-control" placeholder="Enter Your Caption Here (Max 50 characters)" style="text-align: center;color: black;" maxlength="50" rows="2" id="comment"></textarea>
+                                    @endif
+                                </div>
+                            </div>
+                            <input type="submit" name="save" value="Save" class="waves-effect waves-light btn" style="width: 150px;" id="imgsave">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- ==============================================
             User Profile Section
             =============================================== --> 
@@ -291,20 +339,17 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="details-box row">
-                            <div class="col-lg-9">
-                                <div class="content-box">
-                                    <h4>Anna Morgan <i class="fa fa-check"></i></h4>
-                                    <p>Welcome to the offical account of Anna Morgan. Success is in the PIXELS, <span class="hashtag">#pixels</span></p>
-                                    <small><span>www.themashabrand.com</span></small>
-                                </div>
-                                <!--/ media -->
+                            <div class="content-box">
+                                <center>
+                                    <h4>{{Auth::user()->name}} <i class="fa fa-check"></i></h4>
+                                    @if(!empty(Auth::user()->view_self))
+                                    <p class="mb-3">"{{Auth::user()->view_self}}"</p>
+                                    @else
+                                    <p class="mb-3">"Your Caption Here!"</p>
+                                    @endif
+                                </center>
                             </div>
-                            <div class="col-lg-3">
-                                <div class="follow-box">
-                                    <a href="photo_profile.html" class="kafe-btn kafe-btn-mint"><i class="fa fa-check"></i> Following</a>
-                                </div>
-                                <!--/ dropdown -->
-                            </div>
+                            <!--/ media -->
                         </div>
                         <!--/ details-box -->
                     </div>
@@ -562,7 +607,7 @@
                                                 <div class="comment-body">
                                                     <input class="form-control input-sm" type="text" placeholder="Write your comment...">
                                                 </div>
-                                                <!--/ comment-body -->	
+                                                <!--/ comment-body -->  
                                             </li>
                                         </ul>
                                     </div>
@@ -580,7 +625,7 @@
             </div>
             <!--/ modal-dialog -->
         </div>
-        <!--/ modal -->	 
+        <!--/ modal -->  
         <!-- ==============================================
             Scripts
             =============================================== -->
@@ -608,11 +653,106 @@
         <script>
             $('#Slim,#Slim2').slimScroll({
                     height:"auto",
-            		position: 'right',
-            		railVisible: true,
-            		alwaysVisible: true,
-            		size:"8px",
-            	});		
+                    position: 'right',
+                    railVisible: true,
+                    alwaysVisible: true,
+                    size:"8px",
+                });     
         </script>
-    </body>
+        <script type="text/javascript">
+            /*
+            
+              This script is used to check if the profile pic and caption is uplaoded or not
+            
+              If not then triggers the modal to upload the pic and caption
+            
+              */
+            
+              var back = "<?php if (!empty(Auth::user()->view_self)) echo 1;else echo 0; ?>" ;
+            
+              var back2 = "<?php echo Auth::user()->pro_pic; ?>" ;
+            
+              $(document).ready(function() {
+            
+                $('#modal2').modal('hide');
+            
+            
+            
+                if ( (!back)||!(back2) ) {
+            
+                  $("#modal2").modal('show');
+            
+                } else {
+            
+                }
+            
+            
+            
+              });
+              $('#photo').click(function(){
+            
+                $('#photo').submit();
+            
+              });
+            
+              $('#writeup').click(function(){
+            
+                $('#writeup').submit();
+            
+              });
+            
+              $('#views').click(function(){
+            
+                $('#views').submit();
+            
+              });
+            
+            
+            
+              $('#OpenImgUpload').click(function(){ $('#fileToUpload').trigger('click'); });
+            
+              function readURL(input) {
+            
+            
+            
+                if (input.files && input.files[0]) {
+            
+                  var reader = new FileReader();
+            
+            
+            
+                  reader.onload = function (e) {
+            
+                    $('#OpenImgUpload')
+            
+                    .attr('src', e.target.result)
+            
+                  };
+            
+            
+            
+                  reader.readAsDataURL(input.files[0]);
+            
+                }
+            
+              }
+            
+        </script>
+</html>
+<script type="text/javascript">
+    var user = <?php echo $user;?>;
+    //console.log(user[0].name);
+    var names = [];
+    for (var i = 0; i < user.length; i++) {
+    names[i] = user[i].name;
+    }
+    //console.log('names',names);
+    
+    $(function() {
+    $("#search").autocomplete({
+    source:[names]
+    }); 
+    });
+</script>
+</body>
 </html>
