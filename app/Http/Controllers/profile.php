@@ -18,7 +18,7 @@ class profile extends Controller
        $roll = Auth::user()->rollno;
        $notifications = views::where('depmate',$roll)->where('read','1')->latest()->get()->toArray();
 
-       return view('profile_index',compact('myviews','user','notifications'));
+       return view('home1',compact('myviews','user','notifications'));
    }
 
 

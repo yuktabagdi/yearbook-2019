@@ -8,7 +8,7 @@
 		<meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">  
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Fluffs - Ultimate Bootstrap Social Network UI Kit</title>
+        <title>{{Auth::user()->name}}-Dashboard</title>
 		<meta name="description" content="" />
         <meta name="keywords" content="" />
         <meta property="og:title" content="" />
@@ -22,7 +22,8 @@
 		<link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
 		<link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
-		
+		 <link rel="stylesheet" href="css/cropper.css" />
+  <script src="js/cropper.js"></script>
 	    <!-- ==============================================
 		CSS
 		=============================================== -->
@@ -54,7 +55,7 @@
   <script src="js/autocomplete.js"></script>
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/introjs.css">
-
+<script src="js/canvas-to-blob.min.js"></script>
 
 
 		<style>
@@ -89,9 +90,13 @@
 
 .cover-img{
 	background-image: url('img/bg/1.jpeg');
-	height:30vw;
-}
+	height:35vw;
 
+}
+.back{
+	background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
+	background-attachment: fixed;
+}
 </style>
   </head>
 
@@ -101,7 +106,7 @@
      Navigation Section
      =============================================== -->  
      <header class="tr-header">
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-default" style="position: fixed; width:100%;z-index: 100">
        <div class="container-fluid">
 	    <div class="navbar-header">
 		 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
@@ -219,10 +224,10 @@
 		  
 		 <li class="dropdown mega-avatar">
 		  <a href="photo_profile.html#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-		   <span class="avatar w-32"><img src="img/users/2.jpg" class="img-resonsive img-circle" width="25" height="25" alt="..."></span>
+		   <span class="avatar w-32"><img src="<?php if (!empty(Auth::user()->pro_pic)){echo Auth::user()->pro_pic; } else { echo 'img/bg.jpg';}?>" class="img-resonsive img-circle" width="25" height="25" alt="..."></span>
 		   <!-- hidden-xs hides the username on small devices so only the image appears. -->
 		   <span class="hidden-xs">
-			Alex Grantte
+			{{Auth::user()->name}}
 		   </span>
 		  </a>
 		  <div class="dropdown-menu w dropdown-menu-scale pull-right">
@@ -287,6 +292,7 @@
 	 <!-- ==============================================
 	 User Profile Section
 	 =============================================== --> 
+	 <div class="back">
 	 <section class="user-profile">
 	  <div class="container-fluid">
 	   <div class="row">
@@ -296,7 +302,7 @@
 		    	<div class="author-post text-center">
 		    		<div>
           				@if(!empty(Auth::user()->pro_pic))
-          				<a href="#"><img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" alt="Image"  data-toggle="modal" data-target="#modal2" data-step="1" data-intro="<center> Upload your profile picture and write a caption here </center> "  ></a>
+          				<img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" alt="Image"  data-toggle="modal" data-target="#modal2" data-step="1" data-intro="<center> Upload your profile picture and write a caption here </center> "  >
           
           				@endif
           				
@@ -347,7 +353,7 @@
 
               <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
 
-              <img src="<?php if (!empty(Auth::user()->pro_pic)){echo Auth::user()->pro_pic; } else { echo 'ind/shot.jpg';}?>" alt="" class="intro-img img-fluid mb-3 mb-lg-0 rounded" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
+              <img src="<?php if (!empty(Auth::user()->pro_pic)){echo Auth::user()->pro_pic; } else { echo 'img/bg.jpg';}?>" alt="abc" class="intro-img img-fluid mb-3 mb-lg-0 rounded" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
 
               <div class="input-field col sm-12 lg-12 md-12">
 
@@ -412,6 +418,13 @@
 	 </section><!--/ profile -->
 
 	
+
+
+
+
+
+
+
 	 <!-- ==============================================
 	 News Feed Section
 	 =============================================== --> 
@@ -430,9 +443,10 @@
 			     <div class="box">
 				  <form>
 				   <textarea class="form-control no-border" rows="3" placeholder="Your caption here"></textarea>
+
 				  </form>
 				  <div class="box-footer clearfix">
-				   <button class="kafe-btn kafe-btn-mint-small pull-right btn-sm">Upload</button>
+				   <button class="kafe-btn kafe-btn-mint-small pull-right btn-sm" data-toggle="modal" data-target="#modal2" data-step="1">Upload</button>
 				  </div>
 				 </div>	
 		 
@@ -446,131 +460,113 @@
 			<div class="row">
 	    <div class="col-lg-12">  
 		
-	     <div class="box">
-		  <form>
-		   <textarea class="form-control no-border" rows="3" placeholder="Type something..."></textarea>
-		  </form>
+	     <div class="box" style="border-radius: 3px;font-color:#88898a">
+		  <form id="upload-image-form" action="/upload1" method="post" enctype="multipart/form-data">
+           <input id="signup-token" type="hidden" name="_token" value="{{ csrf_token() }}">
+		   
+		   <div class="form-group">
+                <label for="classifiers" style="margin-left:40%;margin-top:1%" ><h5 style="color:#88898a"><b>Select Category: (Max size: 5MB)</b></h5></label>
+                <select class="form-control" name="classifier"  style="margin-left:40%;width:auto">
+                  <option value="dep">DEPARTMENT PHOTOS</option>
+                  <option value="hall">HALL PHOTOS</option>
+                  <option value="fest">FEST PHOTOS</option>
+                  <option value="misc">OTHER MOMENTS AT KGP</option>
+                </select>
+              </div>
+		  
+		  <div id="cropp-image-div">
+                <img id="crop-image" style="margin-left: 41%" src="" class="img-thumbnail">
+          </div>
+        <div class="form-group">
+          <label for="caption" style="margin-left:48%"><h5 style="color:#88898a"><b>Caption:</b></h5></label>
+          <textarea class="form-control no-border" rows="2" cols="15" placeholder="Type something..." name="caption" id="caption" required="required"></textarea>
+        </div> 
+          
 		  <div class="box-footer clearfix">
-		   <button class="kafe-btn kafe-btn-mint-small pull-right btn-sm">Upload</button>
+		   <button class="kafe-btn kafe-btn-mint-small pull-right btn-sm" id="upload-button" type="submit" disabled>Upload image</button>
+
 		   <ul class="nav nav-pills nav-sm">
-			<li class="nav-item"><a class="nav-link" href="photo_upload.html"><i class="fa fa-camera text-muted"></i></a></li>
-			<li class="nav-item"><a class="nav-link" href="photo_upload.html"><i class="fa fa-video text-muted"></i></a></li>
+			<li class="nav-item">
+				<div class="image-upload">
+				    <label for="image">
+				        <a class="nav-link" ><i class="fa fa-camera text-muted"></i></a>
+				    </label>
+
+				    <input style="display: none;" type="file" name="image" id="image" accept="image/*" required/>
+				</div>
+			</li>
 		   </ul>
 		  </div>
 		 </div>	
-		 
+		 </form>
+		 <br>
+            <div class="alert alert-info" id="loading" style="display: none;" role="alert">
+              Uploading image...
+              <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                </div>
+              </div>
+            </div>
 		</div>
 	   </div>
 
-	   <div class="row">
+	   <div class="container">
+		    <div class="row">
+
+				@if(count($images)>0)
+			    {{ $images->links('vendor.pagination.bootstrap-4')}}
+			    @php
+			    $count= 0;
+			    @endphp
+
+			    @foreach($images as $image)
+			    @if(file_exists($image['url']))
+			    <section class="page-section">
+			      
+			             
+			  		    <div class="col-lg-4">
+						 <a href="photo_profile.html#myModal" data-toggle="modal">
+						 <div class="explorebox" style="border-radius: 10px;">
+				                  <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
+						  <div class="explore-top" style="position: relative;top:-400px; ">
+						   <div class="explore-like"><i class="fa fa-heart"></i> <span>14,100</span></div>
+				          </div>		  
+						 </div>
+						 </a>
+			            </div>
+			    
+			  	</section>
+   			    @endif
+			    @endforeach
+
+			    {{ $images->links('vendor.pagination.bootstrap-4')}}
+			  
+			    @else
+
+			  <section class="page-section cta" style="background-color: rgba(76,71,97,0.55);">
+			    <div class="container">
+			      <div class="row">
+			        <div class="col-xl-9 mx-auto">
+			          <div class="cta-inner text-center rounded">
+			            <h2 class="section-heading mb-4">
+			              <span class="section-heading-upper"></span>
+			              <span class="section-heading-lower">Nothing to show yet</span>
+			            </h2>
+			            
+			            <br>
+			            
+			          </div>
+			        </div>
+			      </div>
+
+			    </div>
+			  </section>
+			  
+			  @endif
+				</div>	
+		</div>
 	   
-	    <div class="col-lg-4">
-		 <a href="photo_profile.html#myModal" data-toggle="modal">
-		 <div class="explorebox" 
-		   style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('img/posts/14.jpg') no-repeat;
-		          background-size: cover;
-                  background-position: center center;
-                  -webkit-background-size: cover;
-                  -moz-background-size: cover;
-                  -o-background-size: cover;">
-		  <div class="explore-top">
-		   <div class="explore-like"><i class="fa fa-heart"></i> <span>14,100</span></div>
-		   <div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
-          </div>		  
-		 </div>
-		 </a>
-		</div><!--/ col-lg-4 -->
-	   
-	    <div class="col-lg-4">
-		 <a href="photo_profile.html#myModal" data-toggle="modal">
-		 <div class="explorebox" 
-		   style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('img/posts/18.jpg') no-repeat;
-		          background-size: cover;
-                  background-position: center center;
-                  -webkit-background-size: cover;
-                  -moz-background-size: cover;
-                  -o-background-size: cover;">
-		  <div class="explore-top">
-		   <div class="explore-like"><i class="fa fa-heart"></i> <span>100,100</span></div>
-		   <div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
-          </div>			  
-		 </div>
-		 </a>
-		</div><!--/ col-lg-4 -->
-	   
-	    <div class="col-lg-4">
-		 <a href="photo_profile.html#myModal" data-toggle="modal">
-		 <div class="explorebox" 
-		   style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('img/posts/15.jpg') no-repeat;
-		          background-size: cover;
-                  background-position: center center;
-                  -webkit-background-size: cover;
-                  -moz-background-size: cover;
-                  -o-background-size: cover;">
-		  <div class="explore-top">
-		   <div class="explore-like"><i class="fa fa-heart"></i> <span>100</span></div>
-		   <div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
-          </div>		  
-		 </div>
-		 </a>
-		</div><!--/ col-lg-4 -->
-		
-	   </div><!--/ row -->
-	   
-	   <div class="row">
-	   
-	    <div class="col-lg-4">
-		 <a href="photo_profile.html#myModal" data-toggle="modal">
-		 <div class="explorebox" 
-		   style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('img/posts/25.jpg') no-repeat;
-		          background-size: cover;
-                  background-position: center center;
-                  -webkit-background-size: cover;
-                  -moz-background-size: cover;
-                  -o-background-size: cover;">
-		  <div class="explore-top">
-		   <div class="explore-like"><i class="fa fa-heart"></i> <span>324</span></div>
-		   <div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
-          </div>		  
-		 </div>
-		 </a>
-		</div><!--/ col-lg-4 -->
-	   
-	    <div class="col-lg-4">
-		 <a href="photo_profile.html#myModal" data-toggle="modal">
-		 <div class="explorebox" 
-		   style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('img/posts/36.jpg') no-repeat;
-		          background-size: cover;
-                  background-position: center center;
-                  -webkit-background-size: cover;
-                  -moz-background-size: cover;
-                  -o-background-size: cover;">
-		  <div class="explore-top">
-		   <div class="explore-like"><i class="fa fa-heart"></i> <span>1023</span></div>
-		   <div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
-          </div>			  
-		 </div>
-		 </a>
-		</div><!--/ col-lg-4 -->
-	   
-	    <div class="col-lg-4">
-		 <a href="photo_profile.html#myModal" data-toggle="modal">
-		 <div class="explorebox" 
-		   style="background: linear-gradient( rgba(34,34,34,0.2), rgba(34,34,34,0.2)), url('img/posts/26.jpg') no-repeat;
-		          background-size: cover;
-                  background-position: center center;
-                  -webkit-background-size: cover;
-                  -moz-background-size: cover;
-                  -o-background-size: cover;">
-		  <div class="explore-top">
-		   <div class="explore-like"><i class="fa fa-heart"></i> <span>40</span></div>
-		   <div class="explore-circle pull-right"><i class="far fa-bookmark"></i></div>
-          </div>		  
-		 </div>
-		 </a>
-		</div><!--/ col-lg-4 -->
-		
-	   </div><!--/ row -->
+	 </section><!--/ newsfeed -->
 	   
 	  </div><!--/ container -->
 	 
@@ -579,6 +575,25 @@
 	 <!-- ==============================================
 	 Modal Section
 	 =============================================== -->
+	 <div id="bootstrap-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Selected image : </h4>
+        </div>
+        <div class="modal-body">
+         <div id="image-preview-div" style="display: none">
+          <center><img id="preview-img" src=""></center>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
      <div id="myModal" class="modal fade">
       <div class="modal-dialog">
        <div class="modal-content">
@@ -673,7 +688,7 @@
        </div><!--/ modal-content -->
       </div><!--/ modal-dialog -->
      </div><!--/ modal -->	 
-	   
+	 </div>  
      <!-- ==============================================
 	 Scripts
 	 =============================================== -->
@@ -725,8 +740,6 @@ document.getElementById("defaultOpen").click();
 
                 $('#modal2').modal('hide');
 
-
-
                 if ( (!back)||!(back2) ) {
 
                   $("#modal2").modal('show');
@@ -744,17 +757,7 @@ document.getElementById("defaultOpen").click();
 
               });
 
-              $('#writeup').click(function(){
-
-                $('#writeup').submit();
-
-              });
-
-              $('#views').click(function(){
-
-                $('#views').submit();
-
-              });
+              
 
 
 
@@ -787,23 +790,71 @@ document.getElementById("defaultOpen").click();
               }
 
             </script>
-            </html>
-            <script type="text/javascript">
-              var user = <?php echo $user;?>;
-    //console.log(user[0].name);
-    var names = [];
-    for (var i = 0; i < user.length; i++) {
-      names[i] = user[i].name;
-    }
-    //console.log('names',names);
+<script type="text/javascript">
+ /*jslint browser: true, white: true, eqeq: true, plusplus: true, sloppy: true, vars: true*/
+ /*global $, console, alert, FormData, FileReader*/
+ function selectImage(e) {
+  $('#file').css("color", "green");
+  console.log("selectImage called"); 
+  $('#bootstrap-modal').modal('show');
+  $("#bootstrap-modal").on("shown.bs.modal", function() {
+    $('#image-preview-div').css("display", "block");
+    $('#preview-img').attr('src', e.target.result);
+    $('#preview-img').css('width', '450px');
+     // console.log("modal opened");
+   }).on("hidden.bs.modal", function() {
+      originalData = $("#preview-img")
     
-    $(function() {
-      $("#search").autocomplete({
-        source:[names]
-      }); 
+      //console.log(originalData);
+      
+      $('#cropp-image-div').css("display", "block");
+      $('#crop-image').attr('src', e.target.result);
+      $('#crop-image').css('max-width', '200px');
     });
-  </script>
-
-
-  </body>
+ }
+ $(document).ready(function (e) {
+  $('form#upload-image-form').on('submit', function(e) {
+    e.preventDefault();
+    $('#message').empty();
+    $('#loading').show();
+      //console.log(originalData);
+      var formdata = new FormData(this); 
+      
+     //console.log("crop image",originalData);
+     $.ajax({
+      url: "/upload1",
+      type: "POST",
+      data: formdata,
+      contentType: false,
+      cache: false,
+      processData: false,
+      success: function(response)
+      {
+        alert('Your pic has been succesfully added.');
+        $('#loading').hide();
+        $('#cropp-image-div').css("display", "none");
+        var $el = $('#image');
+        $el.wrap('<form>').closest('form').get(0).reset();
+        $el.unwrap();
+        console.log(response);
+       // document.getElementById('posts').innerHTML += response;
+       location.reload();
+     },
+     error: function(data)
+     {
+      alert("Sorry, there was an error uploading image");
+      console.log("error",data);
+      window.location.reload();
+    }
+  });
+   });
+  $('#image').change(function() {
+    $('#upload-button').removeAttr("disabled");
+    var reader = new FileReader();
+    reader.onload = selectImage;
+    reader.readAsDataURL(this.files[0]);
+  });
+});
+</script>
+</body>
 </html>

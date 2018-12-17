@@ -294,7 +294,7 @@
               <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#modal2" data-step="1" data-intro="<center> Upload your profile picture and write a caption here </center> "  >Upload Picture and Caption
               </button>
               <button type="button" class="btn btn-primary btn-md" onclick="location.href='/writeup'"  data-step="2" data-intro="<center> Share your interesting memories with us</center> ">Write Article</button>
-              <button type="button" class="btn btn-primary btn-md" onclick="location.href='/upload'"   data-step="3" data-intro="<center> Upload some Funny photos of you and your friend </center> "  >Upload Photo
+              <button type="button" class="btn btn-primary btn-md" onclick="location.href='/upload1'"   data-step="3" data-intro="<center> Upload some Funny photos of you and your friend </center> "  >Upload Photo
               </button>
 
               
