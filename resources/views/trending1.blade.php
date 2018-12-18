@@ -83,7 +83,7 @@
         </li>
 
         <li class="active">
-            <a class="text-uppercase text-expanded" href="trendingnew"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
+            <a class="text-uppercase text-expanded" href="/trendingnew"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
          </li>
        <li class="dropdown notification-list">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="notification" role="button" aria-haspopup="false" aria-expanded="false">
@@ -174,16 +174,7 @@
       &nbsp{{Auth::user()->name}}
        </span>
       </a>
-      <div class="dropdown-menu w dropdown-menu-scale pull-right">
-       <a class="dropdown-item" href="photo_profile.html#"><span>New Story</span></a> 
-       <a class="dropdown-item" href="photo_profile.html#"><span>Become a Member</span></a> 
-       <div class="dropdown-divider"></div>
-       <a class="dropdown-item" href="photo_profile.html#"><span>Profile</span></a> 
-       <a class="dropdown-item" href="photo_profile.html#"><span>Settings</span></a> 
-       <a class="dropdown-item" href="photo_profile.html#">Need help?</a> 
-       <div class="dropdown-divider"></div>
-       <a class="dropdown-item" href="photo_profile.html#">Sign out</a>
-      </div>
+      
      </li><!-- /navbar-item --> 
      
      </ul><!-- /.sign-in -->   
@@ -278,16 +269,11 @@
                 <button class="btn btn-secondary btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
              <em class="fa fa-ellipsis-h"></em>
           </button>
-                <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-               <a class="dropdown-item" href="photo_home.html#">Hide post</a>
-           <a class="dropdown-item" href="photo_home.html#">Stop following</a>
-           <a class="dropdown-item" href="photo_home.html#">Report</a>
-                </div>
-               </div><!--/ dropdown -->
+                </div><!--/ dropdown -->
                <!-- END dropdown-->
                <div class="media m-0">
                 <div class="d-flex mr-3">
-           <a href="photo_home.html#"><img class="img-responsive img-circle" src="{{$userimg[0]['pro_pic']}}" alt="User"></a>
+           <img class="img-responsive img-circle" src="{{$userimg[0]['pro_pic']}}" alt="User">
           </div>
                 <div class="media-body">
                  <p class="m-0">{{$name[0]['name']}}</p>
@@ -297,7 +283,7 @@
               </div><!--/ cardbox-heading -->
               
           <div class="cardbox-item">
-               <span class="section-heading-upper" style="font-family: Aclonica;">&nbsp {{$image['caption']}}</span>
+               <span class="section-heading-upper" style="font-family: Aclonica;"> &nbsp {{$image['caption']}}</span>
             <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 555px;height: 500px;">
               </div><!--/ cardbox-item -->
               <div class="cardbox-like">
@@ -306,8 +292,8 @@
                 <div id="like" class="like"></div>  <!-- Like Button -->
               </li>
               <li>
-                <button type="button" class="com btn" id="comment_btn" data-toggle="modal" data-target="#myModal" style="border: none; background: none;">
-                <i class="far fa-comment"></i> Comment
+                <button type="button" class="com btn" id="{{$image['id']}}" data-toggle="modal" data-target="#myModal" style="border: none; background: none;">
+                <i class="fa fa-comment"></i> Comment
               </button>
              
               </li>
