@@ -8,6 +8,9 @@ use Auth;
 use App\writeup;
 use App\User;
 use App\views;
+use App\likes;
+use App\Comment;
+use App\Image;
 
 class HomeController extends Controller
 {
@@ -42,14 +45,21 @@ class HomeController extends Controller
             return view('home1',compact('user','notifications'));
         }
 
-         public function index1()
+        public function index2()
         {
-            $user = User::get();
-            $roll = Auth::user()->rollno;
-            $notifications = views::where('depmate',$roll)->where('read','1')->get()->toArray();
-            return view('home',compact('user','notifications'));
-        }
+            //to select 50 images and show them in 10 per page
+        $images=Image::orderBy('totalcount','DESC')->take(50)->paginate(5);
 
+        $currentpage=$images->currentPage();
+        $perpage=$images->perPage();
+
+        $user = User::get();
+        $roll = Auth::user()->rollno;
+        $notifications = views::where('depmate',$roll)->where('read','1')->get()->toArray();
+
+        return view('home',compact('images','user','notifications','currentpage','perpage'));
+        }
+        
         public function search()
         {
 

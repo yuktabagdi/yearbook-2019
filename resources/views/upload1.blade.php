@@ -296,12 +296,11 @@
       viewMode : 1,
       preview : '.preview',
       crop : function(e) {
-
       }
     });
   }).on("hidden.bs.modal", function() {
     originalData = $("#preview-img").cropper("getCroppedCanvas");
-    var originalPng = originalData.toDataURL("image/png");
+    var originalPng = originalData.toDataURL("{{ url('image/png') }}");
     console.log(originalData);
     $("#preview-img").cropper("destroy");
     $('#cropp-image-div').css("display", "block");
@@ -330,7 +329,7 @@ $(document).ready(function (e) {
      }
      console.log("crop image",originalData);
      $.ajax({
-      url: "/upload",
+      url: "{{ url('/upload') }}",
       type: "POST",
       data: formdata,
       contentType: false,
@@ -355,7 +354,6 @@ $(document).ready(function (e) {
       window.location.reload();
     }
   });
-
    });
   });
   $('#image').change(function() {

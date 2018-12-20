@@ -589,7 +589,6 @@ a.navbar-brand:hover {
    News Feed Styles
    ========================================================================== */  
 .newsfeed {
-  background: #f4f4f4;	
   padding: 40px 0px;
 }   
 .cardbox {
@@ -1396,7 +1395,7 @@ a.navbar-brand:hover {
    User Profile
    ========================================================================== */
 .user-profile{
-  background: #f4f4f4;	
+  	
   padding: 0px 0px 20px 0px;
 }
 .user-profile .post-content {
@@ -1422,7 +1421,7 @@ a.navbar-brand:hover {
 }
 
 .details{
-  background: #f4f4f4;	
+  	
   padding: 0px 0px 20px 0px;
 }
 .details .details-box{

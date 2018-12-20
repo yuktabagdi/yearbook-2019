@@ -104,7 +104,7 @@ a.navbar-brand:hover {
 }
 
 .navbar-right .search-dashboard > form {
-  background: #f4f4f4 none repeat scroll 0 0;
+  background: none repeat scroll 0 0;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
@@ -264,7 +264,6 @@ a.navbar-brand:hover {
   width: 320px;
 }
 .notification-list .noti-title {
-  background-color: #f4f4f4 !important;
   padding: 7px 20px;
 }
 .notification-list .noti-title h6 {
@@ -323,14 +322,13 @@ a.navbar-brand:hover {
   color: #98a6ad !important;
 }
 .notification-list a.notify-all{
-  background: #f4f4f4;
+
   padding: 0px 20px !important;  
   text-transform: none !important;
   font-family: 'Abhaya Libre', serif;
   font-size: 15px !important;
 }
 .notification-list a.notify-all:hover{
-  background: #f4f4f4 !important;
 }
 
 
@@ -436,7 +434,6 @@ a.navbar-brand:hover {
     top: 0px !important;
     width: 100px !important;
     transition: all .3s ease;	
-    background: #f4f4f4 !important;	
 	}
 	.mega-avatar .dropdown-item {
 	  padding: 3px 20px;
@@ -459,7 +456,6 @@ a.navbar-brand:hover {
     top: -50px !important;
     width: 100px !important;
     transition: all .3s ease;	
-    background: #f4f4f4 !important;	
 	}	
 	.notification-list .dropdown-new {
     overflow: hidden;
@@ -473,7 +469,6 @@ a.navbar-brand:hover {
     top: -50px !important;
     width: 100px !important;
     transition: all .3s ease;	
-    background: #f4f4f4 !important;	 
 	}	
 	.notification-list .dropdown-lg {
 	  width: 290px !important;
@@ -514,7 +509,6 @@ a.navbar-brand:hover {
   color: #90a4ae;
 }
 .nav-sec a:hover{
-  color: #f4f4f4 !important;
 }
 
 .fh {
@@ -594,7 +588,6 @@ a.navbar-brand:hover {
    News Feed Styles
    ========================================================================== */  
 .newsfeed {
-  background: #f4f4f4;	
   padding: 40px 0px;
 }   
 .cardbox {
@@ -626,7 +619,6 @@ a.navbar-brand:hover {
   left: 13px !important;  
 }
 .cardbox .pull-right a:hover{
-  background: #f4f4f4 !important;	
 }
 .cardbox .pull-right a.dropdown-item {
   display: block;
@@ -663,7 +655,7 @@ a.navbar-brand:hover {
   width: 48px !important;
   height: 48px !important;
   padding: 2px;
-  border: 2px solid #f4f4f4;
+  border: 2px solid;
 } 
 .media-body {
   -ms-flex: 1;
@@ -703,7 +695,7 @@ a.navbar-brand:hover {
  padding: 10px !important;
  font-size: 0px;	
  text-align: center; 
- border-bottom: 2px solid #f4f4f4;
+ border-bottom: 2px solid;
 }
 .cardbox-base li {
   list-style: none;
@@ -731,7 +723,7 @@ a.navbar-brand:hover {
   display: inline-block;
   margin-right: 5px;
   padding-right: 20px;
-  border-right: 2px solid #f4f4f4;
+  border-right: 2px solid;
 }
 .cardbox-like li:last-child {
   display: inline-block;
@@ -782,7 +774,7 @@ a.navbar-brand:hover {
 
 .img-poster{
   margin-bottom: 10px;	
-  border-bottom: solid 1px #f4f4f4;
+  border-bottom: solid 1px;
   padding-bottom: 5px;	
 }
 .modal-meta-top .img-poster img {
@@ -790,7 +782,7 @@ a.navbar-brand:hover {
   width: 34px;
   float: left !important;
   margin-right: 10px;
-  border: 4px solid #f4f4f4;
+  border: 4px solid;
 }
 .modal-meta-top .img-poster a{
   font-family: 'Abhaya Libre', serif;	
@@ -854,7 +846,7 @@ a.navbar-brand:hover {
     left: 0;
     right: 0;
     padding: 5px;
-    border-top: solid 1px #f4f4f4;
+    border-top: solid 1px;
 	display: block;
 }
 .modal-meta-bottom ul{
@@ -1060,7 +1052,7 @@ a.navbar-brand:hover {
   height: 37px;
   float: left; 
   padding: 2px;  
-  border: 2px solid #f4f4f4;
+  border: 2px solid;
 }
 .suggestion-box .name-box {
   float: left;
@@ -1257,7 +1249,6 @@ a.navbar-brand:hover {
 .explore-top .explore-like span{
   font-family: 'Abhaya Libre', serif;	
   font-size: 16px;	
-  color: #f4f4f4;
   padding-left: 2px;
 }
 .explore-body{
@@ -1288,7 +1279,7 @@ a.navbar-brand:hover {
    Upload Page
    ========================================================================== */ 
 .upload{
-  background: #f4f4f4;	
+  	
   padding: 40px 0px;
 }
 
@@ -1338,7 +1329,7 @@ a.navbar-brand:hover {
    Stories Page
    ========================================================================== */ 
 .stories{
-  background: #f4f4f4;	
+  	
   padding: 40px 0px;
 }
 .stories .row{
@@ -1364,7 +1355,7 @@ a.navbar-brand:hover {
    Profile Page
    ========================================================================== */ 
 .profile{
-  background: #f4f4f4;	
+  	
   padding: 0px 0px;
 }
 .profile .container-fluid{
@@ -1401,7 +1392,7 @@ a.navbar-brand:hover {
    User Profile
    ========================================================================== */
 .user-profile{
-  background: #f4f4f4;	
+  	
   padding: 0px 0px 20px 0px;
 }
 .user-profile .post-content {
@@ -1427,7 +1418,7 @@ a.navbar-brand:hover {
 }
 
 .details{
-  background: #f4f4f4;	
+  background-color: #000;	
   padding: 0px 0px 20px 0px;
 }
 .details .details-box{
@@ -1472,7 +1463,7 @@ a.navbar-brand:hover {
    ========================================================================== */
 
 .home-menu{
-    background-color: #f4f4f4;
+    
 	padding: 0px 0px 10px 0px;
 }
 .home-menu .menu-category{
@@ -1524,7 +1515,7 @@ a.navbar-brand:hover {
    Profile Page Two
    ========================================================================== */
 .profile-two{
-  background: #f4f4f4;	
+	
   padding: 0px 0px 20px 0px;
 }
 .sidebar .list{
@@ -1620,7 +1611,7 @@ a.navbar-brand:hover {
    Followers Page
    ========================================================================== */
 .followers{
-  background: #f4f4f4;	
+  
   padding: 20px 0px 20px 0px;
 }
 
@@ -1644,7 +1635,7 @@ a.navbar-brand:hover {
   width: 100%;
   padding: 10px 20px 0px 20px;
   margin-top: 10px;
- border-bottom: 2px solid #f4f4f4;
+ border-bottom: 2px solid;
 }
 .followers-box .followers-body:last-child {
  border-bottom: none;
@@ -1654,7 +1645,7 @@ a.navbar-brand:hover {
   height: 37px;
   float: left; 
   padding: 2px;  
-  border: 2px solid #f4f4f4;
+  border: 2px solid;
 }
 .followers-box .name-box {
   float: left;
@@ -1745,7 +1736,7 @@ a.navbar-brand:hover {
    Single Post Page
    ========================================================================== */
 .single-post{
-  background: #f4f4f4;	
+ 	
   padding: 80px 0px 150px 0px;
 }
 
@@ -1753,7 +1744,7 @@ a.navbar-brand:hover {
    Chat Page
    ========================================================================== */
 .chat{
-  background: #f4f4f4;	
+  
   padding: 80px 0px 150px 0px;
 }
 .messages-box {
@@ -1778,7 +1769,7 @@ a.navbar-brand:hover {
 }
 .message-title{
  padding: 0px 20px;
- border-bottom: 2px solid #f4f4f4;
+ border-bottom: 2px solid;
 }
 .message-title h4{
  font-family: 'Abhaya Libre', serif;
@@ -1790,7 +1781,7 @@ a.navbar-brand:hover {
  padding: 10px 20px 20px 20px;
 }
 .search-area .input-field {
- background: #f4f4f4;
+ 
  margin: 0;
  border-radius: 4px;
  overflow: hidden;
@@ -1802,7 +1793,7 @@ a.navbar-brand:hover {
  width: 80%; 
  margin: 0;
  border: 0;
- background: #f4f4f4;
+ 
  color: #848484 !important;
  padding: 10px 0px;
 }
@@ -1835,7 +1826,7 @@ a.navbar-brand:hover {
  float: left;
  width: 100%;
  padding: 10px 10px 10px 20px;
- border-bottom: 2px solid #f4f4f4;
+ border-bottom: 2px solid;
  cursor: pointer;
 }
 .messages-list ul li:last-child {
@@ -2016,7 +2007,7 @@ a.navbar-brand:hover {
 }
 
 .convo-area.convo-left .convo-message > p {
- background-color: #f4f4f4;
+ 
  color: #686868;
  width: auto;
  padding: 10px 15px;
@@ -2192,7 +2183,7 @@ a.navbar-brand:hover {
    Notifications Page
    ========================================================================== */
 .notifications{
-  background: #f4f4f4;	
+  	
   padding: 30px 0px 50px 0px;
 }
 .notifications ul li {

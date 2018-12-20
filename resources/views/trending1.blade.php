@@ -1,355 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
 
-<head>
+      <!-- ==============================================
+    Title and Meta Tags
+    =============================================== -->
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Trending</title>
+      <meta name="description" content="" />
+      <meta name="keywords" content="" />
+      <meta property="og:title" content="" />
+      <meta property="og:url" content="" />
+      <meta property="og:description" content="" />  
+      <meta name="csrf-token" content="{{ csrf_token() }}">   
+    
+    <!-- ==============================================
+    Favicons
+    =============================================== --> 
+    <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
+      <link rel="icon" href="img/logo.jpg">
+      <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+      <!-- ==============================================
+    CSS
+    =============================================== -->
+        <link type="text/css" href="css/demos/photo.css" rel="stylesheet" />
+        <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+        
+    <!-- ==============================================
+    Feauture Detection
+    =============================================== -->
+    <script src="js/jquery.min.js"></script>
+      <script src="js/autocomplete.js"></script>
+      <script src="js/modernizr-custom.js"></script>  
+    
+    </head>
 
-  <title>YB|Trending</title>
+<body>
 
-  <!-- Bootstrap core CSS -->
+     <!-- ==============================================
+     Navigation Section
+     =============================================== -->  
+     <header class="tr-header">
+      <nav class="navbar navbar-default">
+       <div class="container-fluid">
+      <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand" href="index.html"><img src="img/navbar/SACLogo.png" width="150px" height="75px" style="margin-top:-23px;" /></a>
+    </div><!-- /.navbar-header -->
+    <div class="navbar-left">
+     <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+      </ul>
+     </div>
+    </div><!-- /.navbar-left -->
+    <div class="navbar-right">                          
+     <ul class="nav navbar-nav">
+       <li>
+         <div class="search-dashboard">
+          <form action="search/" method="POST" class="form-inline">
+            {{ csrf_field() }}
+            <input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; top:2.4px; left: 22px; line-height: 40px; cursor: text; font-size: 14px;">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>              
+       </li>
+       <li class="">
+            <a class="text-uppercase text-expanded" href="/homenew">Home
+              <span class="sr-only">(current)</span>
+            </a>
+        </li>
 
-  <link rel="stylesheet" type="text/css" href="../css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <li class="active">
+            <a class="text-uppercase text-expanded" href="/trendingnew"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
+         </li>
+       <li class="dropdown notification-list">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="notification" role="button" aria-haspopup="false" aria-expanded="false">
+          @if(count($notifications))
+          <i class="fa fa-bell noti-icon"></i>
+          <span class="badge badge-danger badge-pill noti-icon-badge">{{count($notifications)}}</span>
+          @else
+          <i class="fa fa-bell noti-icon"></i>
+          @endif
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-lg" aria-labelledby="notification">
 
-  <script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/business-casual.min.css" rel="stylesheet">
-  <link href="css/business-casual.min.css" rel="stylesheet">
-
-  <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
-  <script src="js/autocomplete.js"></script>
-
-<style type="text/css">
-  .table-scrollable
-  {
-
-    height: 350px;
-    overflow: scroll;
-  }
-</style>
-
-  <style type="text/css">
-  .pagination {
-   justify-content: center;
- }
-
- .dropdown-menu{
-  top: 60px;
-  right: 0px;
-  left: unset;
-  width: 460px;
-  box-shadow: 0px 5px 7px -1px #c1c1c1;
-  padding-bottom: 0px;
-  padding: 0px;
-}
-.dropdown-menu:before{
-  content: "";
-  position: absolute;
-  top: -20px;
-  right: 12px;
-  border:10px solid #343A40;
-  border-color: transparent transparent #343A40 transparent;
-}
-.head{
-  padding:5px 15px;
-  border-radius: 3px 3px 0px 0px;
-}
-.notification-box{
-  padding: 10px 0px; 
-}
-.bg-gray{
-  background-color: #eee;
-}
-@media (max-width: 640px) {
-  .dropdown-menu{
-    top: 50px;
-    left: -16px;  
-    width: 290px;
-  } 
-  .nav{
-    display: block;
-  }
-  .nav .nav-item,.nav .nav-item a{
-    padding-left: 0px;
-  }
-  .message{
-    font-size: 13px;
-  }
-}
-</style>
-</head>
-
-<div  class="modal fade" id="enlargeImageModal" tabindex="-1" role="dialog" aria-labelledby="enlargeImageModal" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content" style="background-color: rgba(67,100,107,0.75);">
-      <div class="modal-header">
-
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+         <div class="dropdown-item noti-title">
+          <h6 class="m-0">
+           <span class="pull-right">
+            <a href="/readall" class="text-dark">
+              <small>Clear All</small>
+            </a> 
+          </span><span style="color: #000;">Notifications({{count($notifications)}})</span> 
+        </h6>
       </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col" style="width: 800px; height: 500px;">
-            <img src="" class="enlargeImageModalSource" style="height: 100%;width: 100%; object-fit: contain;">
+
+      <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 416.983px;">
+        <div class="slimscroll" style="max-height: 230px; overflow: hidden; width: auto; height: 416.983px;">
+         <div id="Slim">
+          @if(count($notifications))
+          @foreach($notifications as $notification)
+          <a href="/read/{{$notification['id']}}" class="dropdown-item notify-item">
+            @php
+            $pic = App\User::where('name',$notification['user'])->pluck('pro_pic');
+            @endphp
+            <div class="notify-icon">
+              <img src="../{{$pic[0]}}" class="img-responsive img-circle">
+            </div>
+            <p class="notify-details" style="font-family: Verdana"><strong>{{$notification['user']}}</strong> wrote :<br>
+              <span>&nbsp"{{$notification['views']}}"</span>
+              <small class="text-muted">{{$notification['created_at']}}</small></p>
+            </a><!--/ dropdown-item-->
+            @endforeach
+            
+            @else
+            <div class="notify-details" align="center">No New Notifications!</div>
+            @endif
+          </div><!--/ .Slim-->
+          <div class="slimScrollBar" style="background: rgb(158, 165, 171) none repeat scroll 0% 0%; width: 8px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
+          <div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div>
+        </div><!--/ .slimscroll-->
+      </div><!--/ .slimScrollDiv-->
+      <a href="/profile_index" class="dropdown-item text-center notify-all">
+        View all <i class="fa fa-arrow-right"></i>
+      </a><!-- All-->
+    </div><!--/ dropdown-menu-->
+  </li>
+
+  <li class="dropdown notification-list">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="photo_profile.html#" role="button" aria-haspopup="false" aria-expanded="false">
+              <i class="fa fa-cog"></i>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right dropdown-lg" style="width: 100px; height:100.983px; left:-160px;">
+             
+        <div class="dropdown-item noti-title">
+          <h6 class="m-0">
+           <span class="pull-right">
+            <a href="photo_profile.html" class="text-dark"></a> 
+           </span>Settings
+          </h6>
+         </div>
+
+        <div >
+              <a class="dropdown-item " href="/details"><p style="font-family: 'Abhaya Libre', serif;">Edit Details</p></a>
           </div>
-          <div class="col" style="margin-right: 11px ; border: 1px solid;">
-            <br>
+          <div >
+                  <a class="dropdown-item " href="/logout"><p style="font-family: 'Abhaya Libre', serif;">Logout</p> </a>
+          </div>
+
+            </div><!--/ dropdown-menu-->
+       </li>
+      
+     <li class="dropdown mega-avatar">
+      <a href="photo_profile.html#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+       <span class="avatar w-32">                 
+          @if(!empty(Auth::user()->pro_pic))
+              <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;" alt="Image">
+              @endif
+            </span>
+       <!-- hidden-xs hides the username on small devices so only the image appears. -->
+       <span class="hidden-xs">
+      &nbsp{{Auth::user()->name}}
+       </span>
+      </a>
+      
+     </li><!-- /navbar-item --> 
+     
+     </ul><!-- /.sign-in -->   
+    </div><!-- /.nav-right -->
+       </div><!-- /.container -->
+      </nav><!-- /.navbar -->
+     </header><!-- Page Header --> 
+  
+  
+   <!-- ==============================================
+   Navbar Second Section
+   =============================================== -->
+  <section class="nav-sec">
+    <div class="d-flex justify-content-between">
+     <div class="p-2 nav-icon-lg mint-green">
+     <a class="nav-icon" href="photo_home.html"><em class="fa fa-home"></em>
+    <span>Home</span>
+     </a>
+     </div>
+     <div class="p-2 nav-icon-lg clean-black">
+     <a class="nav-icon" href="photo_explore.html"><em class="fa fa-crosshairs"></em>
+    <span>Explore</span>
+     </a>
+     </div>
+     <div class="p-2 nav-icon-lg dark-black">
+     <a class="nav-icon" href="photo_upload.html"><em class="fab fa-instagram"></em>
+    <span>Upload</span>
+     </a>
+     </div>
+     <div class="p-2 nav-icon-lg clean-black">
+     <a class="nav-icon" href="photo_stories.html"><em class="fa fa-align-left"></em>
+    <span>Stories</span>
+     </a>
+     </div>
+     <div class="p-2 nav-icon-lg dark-black">
+     <a class="nav-icon" href="photo_profile.html"><em class="fa fa-user"></em>
+    <span>Profile</span>
+     </a>
+     </div>
+    </div>
+  </section>  
+  
+   <!-- ==============================================
+   News Feed Section
+   =============================================== --> 
+
+   <section class="newsfeed">
+    @if(count($images)>0)
+        <br>
+        {{ $images->links('vendor.pagination.bootstrap-4')}}
+        @php
+        $count= 0;
+        @endphp
+
+        @foreach($images as $image)
+        @if(file_exists($image['url']))
+        <section class="page-section">
+          <div class="container col-md-3" style="margin-left: 50px;">
+            <div class="product-item">
+              <div class="product-item-title d-flex">
+                <div class="bg-faded p-5 d-flex ml-auto rounded">
+                  <h2 class="section-heading mb-0">
+                    <!--<span class="section-heading-upper">Blended to Perfection</span>-->
+                    @php
+                    $name = App\User::where('rollno',$image['rollno'])->get()->toArray();
+                    $userimg = App\User::where('rollno',$image['rollno'])->get()->toArray();
+                    @endphp
+
+
+                  </h2>
+                  <strong></strong>
+                </div>
+              </div>
+              
+           <!-- <div class="product-item-description d-flex mr-auto">
+              <div class="bg-faded p-5 rounded">
+                <p class="mb-0">{{$image['caption']}}</p>
+              </div>
+            </div>-->
+              </div>
+            </div>
+            <div class="container">
+        <div class="row">
+          
+          <div class="col-lg-6">
+        
+             <div class="cardbox">
+         
+              <div class="cardbox-heading">
+               <!-- START dropdown-->
+               <div class="dropdown pull-right">
+                <button class="btn btn-secondary btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
+             <em class="fa fa-ellipsis-h"></em>
+          </button>
+                </div><!--/ dropdown -->
+               <!-- END dropdown-->
+               <div class="media m-0">
+                <div class="d-flex mr-3">
+           <img class="img-responsive img-circle" src="{{$userimg[0]['pro_pic']}}" alt="User">
+          </div>
+                <div class="media-body">
+                 <p class="m-0">{{$name[0]['name']}}</p>
+           <small><span>{{$image['created_at']->diffForHumans() }}</span></small>
+                </div>
+               </div><!--/ media -->
+              </div><!--/ cardbox-heading -->
+              
+          <div class="cardbox-item">
+               <span class="section-heading-upper" style="font-family: Aclonica;"> &nbsp {{$image['caption']}}</span>
+            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 555px;height: 500px;">
+              </div><!--/ cardbox-item -->
+              <div class="cardbox-like">
+           <ul>
+              <li>
+                <div id="like" class="like"></div>  <!-- Like Button -->
+              </li>
+              <li>
+                <button type="button" class="com btn" id="{{$image['id']}}" data-toggle="modal" data-target="#myModal" style="border: none; background: none;">
+                <i class="fa fa-comment"></i> Comment
+              </button>
+             
+              </li>
+            </ul>
+              </div><!--/ cardbox-like -->        
+                    
+         </div><!--/ cardbox -->
+      </div>
+    </div>
+    </div>
+      
+      </section>
+      @endif
+      @endforeach
+
+      {{ $images->links('vendor.pagination.bootstrap-4')}}
+      
+      @else
+
+      <section class="page-section cta" style="background-color: rgba(76,71,97,0.55);">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-9 mx-auto">
+              <div class="cta-inner text-center rounded">
+                <h2 class="section-heading mb-4">
+                  <span class="section-heading-upper"></span>
+                  <span class="section-heading-lower">Nothing to show yet</span>
+                </h2>
+                
+                <br>
+                
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      
+      @endif
+    <div class="container">
+    <div class="row">
+      
+      
+  </div>
+</div>
+</div>
+</section>
+    
+   <!-- ==============================================
+   Modal Section
+   =============================================== -->
+     <div id="myModal" class="modal fade">
+      <div class="modal-dialog">
+       <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+           <span aria-hidden="true">×</span>
+           <span class="sr-only">Close</span>
+         </button>
+         <div class="row">
+     
+          <div class="col-md-8 modal-image">
+           <img class="img-responsive enlargeImageModalSource" alt="Image"/>
+          </div><!--/ col-md-8 -->
+          <div class="col-md-4 modal-meta">
+           <div class="modal-meta-top">
+            <div class="img-poster clearfix">
+             <a href="photo_home.html"><img class="img-responsive img-circle" src="{{$userimg[0]['pro_pic']}}" alt="Image"/></a>
+             <strong><a href="photo_home.html">{{$name[0]['name']}}</a></strong>
+             <span>{{$image['created_at']->diffForHumans() }}</span><br/>
+            </div><!--/ img-poster -->
+            <div id="comments"> 
+            </div>
+        
+          <div class="modal-meta-bottom">     
+            <span class="thumb-xs">
+        @if(!empty(Auth::user()->pro_pic))
+              <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;" alt="Image">
+              @endif          </span>
+          <div class="comment-body">
             <form class="form" id="form-comment" action="/comment" method="post">
               {{csrf_field()}}
               <input id="comment-token" type="hidden" name="_token" value="{{ csrf_token() }}">
+              <textarea name="comment" id="textarea" class="form-control input-sm" rows="2" type="text" placeholder="Write your comment..." required></textarea>
+              <div align="right">
+               <button class="btn" id="submit" style="margin-top: 10px;"><span>Comment</span></button>
+             </div>
+           </form>
+         </div><!--/ comment-body -->        
+       </div><!--/ modal-meta-bottom -->
 
-              <div class="form-group">
-                <textarea name="comment" id="textarea" class="form-control" required="required" placeholder="Your comments here..."></textarea>
-              </div>
-              <div class="row">
-                <div class="col"><button class="btn btn-success" style="width: 100%;" id="submitt">Comment</button></div>
-                <div class="col approval" id="like"></div>
-              </div>
-            </form>
-<br>
+     </div><!--/ modal-meta-top -->
+          </div><!--/ col-md-4 -->
+      
+         </div><!--/ row -->
+        </div><!--/ modal-body -->
+    
+       </div><!--/ modal-content -->
+      </div><!--/ modal-dialog -->
+     </div><!--/ modal --> 
+   
+     <!-- ==============================================
+   Scripts
+   =============================================== -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/base.js"></script>
+  <script src="plugins/slimscroll/jquery.slimscroll.js"></script>
+  <script>
+  $('#Slim,#Slim2').slimScroll({
+          height:"auto",
+      position: 'right',
+      railVisible: true,
+      alwaysVisible: true,
+      size:"8px",
+    });   
+  </script>
 
-            <div id="comments" class="table-scrollable" style="text-align: center;">
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</div>
-<body>
-
-  <!-- Navigation--> 
-  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav" style="background-color: rgba(67,100,107,0.55);">
-    <a class="navbar-brand text-light" href="http://www.sac.iitkgp.ac.in"><img height="90" width="250" src="sac.png" alt="someimg"/></a>
-    <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="http://www.sac.iitkgp.ac.in">Yearbook</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item px-lg-4">
-
-            <form action="search/" method="POST" class="form-inline">
-              {{ csrf_field() }}
-              <div class="form-group" >
-                <input type="text" name="search" required="required" id="search" class="form-control" placeholder="Search your friend here">
-              </div>
-              <div class="form-group" style="margin-left: 8px;">
-                <button type="submit" class="btn btn-default" style="margin-top: 0px;">Search</button>
-              </div>
-            </form>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/home">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/trending">Trending</a>
-          </li>
-          <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/profile_index">{{Auth::user()->name}}</a>
-          </li>
-          <li class="nav-item px-lg-4 dropdown">
-            <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-cog"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right" >
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/details">Edit Details</a>
-              </li>
-              <!--<li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="#">Change Password </a>
-              </li>-->
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/logout">Logout </a>
-              </li>
-
-            </ul>
-          </li>
-          <li class="nav-item px-lg-4 dropdown">
-            <a class="nav-link text-light" href="#" id="notificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" >
-
-              @if(count($notifications))
-              <i class="fa fa-bell" style="color: blue;">
-                <span lass="badge" style="position: relative; top: 6px; left: -6px;color: white; font-size: 19px;">{{count($notifications)}}</span>
-              </i>
-              @else
-              <i class="fa fa-bell"></i>
-              @endif
-
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li class="head text-light bg-dark">
-                <div class="row">
-                  <div class="col-lg-12 col-sm-12 col-12">
-                    <span>Notifications ({{count($notifications)}})</span>
-
-                  </div>
-                </li>
-                @foreach($notifications as $notification)
-                <a href="/read/{{$notification['id']}}">
-                  <li class="notification-box">
-                    <div class="row">
-                      @php
-                      $pic = App\User::where('name',$notification['user'])->pluck('pro_pic');
-                      @endphp  
-                      <div class="col-lg-3 col-sm-3 col-3 text-center">
-                        <img src="../{{$pic[0]}}" class="w-50 rounded-circle">
-                      </div> 
-                      <div class="col-lg-8 col-sm-8 col-8">
-                        <strong class="text-info">{{$notification['user']}}</strong>
-                        <div>
-                          {{$notification['views']}}
-                        </div>
-                        <small class="text-warning">{{$notification['created_at']}}</small>
-                      </div>    
-                    </div>
-                  </li>
-                </a>
-                @endforeach           
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-
-    @if(count($images)>0)
-    <br>
-    {{ $images->links('vendor.pagination.bootstrap-4')}}
-    @php
-    $count= 0;
-    @endphp
-
-    @foreach($images as $image)
-    @if(file_exists($image['url']))
-    <section class="page-section">
-      <div class="container">
-        <div class="product-item">
-          <div class="product-item-title d-flex">
-            <div class="bg-faded p-5 d-flex ml-auto rounded">
-              <h2 class="section-heading mb-0">
-                <!--<span class="section-heading-upper">Blended to Perfection</span>-->
-                @php
-                $name = App\User::where('rollno',$image['rollno'])->get()->toArray();
-
-                @endphp
-
-                <strong>
-                  @php
-                  echo '#';
-                  $count1 = $count + ($currentpage*$perpage ) -($perpage-1);
-                  echo $count1 ;
-                  $count++;
-                  @endphp
-                </strong>
-                <span class="section-heading-lower">{{$name[0]['name']}}</span>
-                <span class="section-heading-upper">"{{$image['caption']}}"</span>
-
-              </h2>
-              <strong>{{$image['created_at']->diffForHumans() }}</strong>
-            </div>
-          </div>
-          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;">
-       <!-- <div class="product-item-description d-flex mr-auto">
-          <div class="bg-faded p-5 rounded">
-            <p class="mb-0">{{$image['caption']}}</p>
-          </div>
-        </div>-->
-      </div>
-    </div>
-  </section>
-  @endif
-  @endforeach
-
-  {{ $images->links('vendor.pagination.bootstrap-4')}}
-  
-  @else
-
-  <section class="page-section cta" style="background-color: rgba(76,71,97,0.55);">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 mx-auto">
-          <div class="cta-inner text-center rounded">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper"></span>
-              <span class="section-heading-lower">Nothing to show yet</span>
-            </h2>
-            
-            <br>
-            
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  
-  @endif
-
-
-  <footer class="footer text-faded text-center py-5">
-    <div class="container">
-      <p class="m-0 small">Copyright &copy; Yearbook 2018</p>
-      <p class="m-0 small"><a target="_blank" href="http://www.sac.iitkgp.ac.in/team.php">Contact Us</a></p>
-    </div>
-  </footer>
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
-
-<script type="text/javascript">
-
-
-  $('#like').click('#like', function() {
-    var formData = {
-
-      'pic_id' : $('.enlargeImageModalSource').attr('id'),
-      '_token' : $('#comment-token').val()
-    }
-
-    $.ajax({
-      url: "/likeadd",
-      type: "POST",
-      data: formData,
-
-      success: function(response)
-      {
-
-       document.getElementById("like").innerHTML = response;
-     },
-     error: function(data)
-     {
-
-     }
-   });
-
-  });
-  $(function() {
-    $('.product-item-img').on('click', function() {
-      $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
-      $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
-      $('#enlargeImageModal').modal('show');
+  <script>
+    $('.like').click('.like', function() {
+      var formData = {
+        'pic_id' : $('.enlargeImageModalSource').attr('id'),
+        '_token' : $('#comment-token').val()
+      }
+      $.ajax({
+        url: "/likeadd",
+        type: "POST",
+        data: formData,
+        success: function(response)
+        {
+         document.getElementById("like").innerHTML = response;
+       },
+       error: function(data)
+       {
+          console.log('Error in likeadd');  
+       }
+     });
+    });
+    $('#comment_btn').click('#comment_btn', function() {
       var formData = {
         'comments' : $('textarea[name=comment]').val(),
         'pic_id' : $('.enlargeImageModalSource').attr('id'),
@@ -359,76 +441,84 @@
         url: "/commentadd",
         type: "POST",
         data: formData,
-
         success: function(response)
         {
-
           document.getElementById("comments").innerHTML = response;
         },
         error: function(data)
         {
-
         }
       });
-
-
+    });
+    $(function() {
+      $('.product-item-img').on('click', function() {
+        $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
+        $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
+        $('#myModal').modal('show');
+        var formData = {
+          'comments' : $('textarea[name=comment]').val(),
+          'pic_id' : $('.enlargeImageModalSource').attr('id'),
+          '_token' : $('#comment-token').val()
+        }
+        $.ajax({
+          url: "/commentadd",
+          type: "POST",
+          data: formData,
+          success: function(response)
+          {
+            document.getElementById("comments").innerHTML = response;
+          },
+          error: function(data)
+          {
+          }
+        });
+      });
+    });
+    
+    $(document).ready(function (e) {
+      $('form#form-comment').on('submit', function(e) {
+       e.preventDefault();
+       var formData = {
+        'comments' : $('textarea[name=comment]').val(),
+        'pic_id' : $('.enlargeImageModalSource').attr('id'),
+        '_token' : $('#comment-token').val()
+      }
+      // console.log(formData);
       $.ajax({
-        url: "/likes",
+        url: "/comment",
         type: "POST",
         data: formData,
-
         success: function(response)
         {
-
-          document.getElementById("like").innerHTML = response;
-
+          console.log('Added Comments');
+          document.getElementById("textarea").value="";
+          document.getElementById("comments").innerHTML = response;
         },
         error: function(data)
         {
-
-
+          console.log('Error in comment');  
         }
       });
-
     });
-  });
-
-
-  $(document).ready(function (e) {
-    $('form#form-comment').on('submit', function(e) {
-     e.preventDefault();
-     var formData = {
-      'comments' : $('textarea[name=comment]').val(),
-      'pic_id' : $('.enlargeImageModalSource').attr('id'),
-      '_token' : $('#comment-token').val()
-    }
-    console.log(formData);
-
-    $.ajax({
-      url: "/comment",
-      type: "POST",
-      data: formData,
-
-      success: function(response)
-      {
-        console.log('Added Comments');
-        document.getElementById("textarea").value="";
-        document.getElementById("comments").innerHTML = response;
-      },
-      error: function(data)
-      {
-        console.log('Error in comment');  
-      }
     });
-  });
-  });
-
-  $(function () {
+  </script>
+  <script>
+      // var user = <?php echo $user;?>;
+      // // console.log(user[0].name);
+      // var names = [];
+      // for (var i = 0; i < user.length; i++) {
+      //   names[i] = user[i].name;
+      // }
+      // // console.log('names',names);
+      // $(document).ready(function() {
+      //   $('#search').autocomplete({
+      //     source: [names]
+      //   });   
+      // });
+      $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
-
-
-  var user = <?php echo $user;?>;
+    var user = <?php echo $user;?>;
     //console.log(user[0].name);
     var names = [];
     for (var i = 0; i < user.length; i++) {
@@ -442,3 +532,27 @@
       }); 
     });
   </script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+        var formData = {
+          'pic_id' : $('.enlargeImageModalSource').attr('id'),
+          '_token': '{!! csrf_token() !!}',
+        }
+        $.ajax({
+          url: "/likes",
+          type: "POST",
+          data: formData,
+          success: function(response)
+          {
+            document.getElementById("like").innerHTML = response;
+          },
+          error: function(data)
+          {
+          console.log('Error in likes');  
+          }
+        });
+    });
+  </script>
+
+  </body>
+</html>
