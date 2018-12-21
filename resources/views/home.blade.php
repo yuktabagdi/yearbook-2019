@@ -2,44 +2,44 @@
 <html lang="en">
   <head>
 
-	    <!-- ==============================================
-		Title and Meta Tags
-		=============================================== -->
-		<meta charset="utf-8">
+      <!-- ==============================================
+    Title and Meta Tags
+    =============================================== -->
+    <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">  
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{Auth::user()->name}}-Dashboard</title>
-		<meta name="description" content="" />
+    <meta name="description" content="" />
         <meta name="keywords" content="" />
         <meta property="og:title" content="" />
         <meta property="og:url" content="" />
-        <meta property="og:description" content="" />		
-		
-		<!-- ==============================================
-		Favicons
-		=============================================== --> 
-		<link rel="icon" href="img/logo.jpg">
-		<link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
-		 <link rel="stylesheet" href="css/cropper.css" />
+        <meta property="og:description" content="" />   
+    
+    <!-- ==============================================
+    Favicons
+    =============================================== --> 
+    <link rel="icon" href="img/logo.jpg">
+    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+     <link rel="stylesheet" href="css/cropper.css" />
   <script src="js/cropper.js"></script>
-	    <!-- ==============================================
-		CSS
-		=============================================== -->
+      <!-- ==============================================
+    CSS
+    =============================================== -->
         <link type="text/css" href="css/demos/photo.css" rel="stylesheet" />
-				
-		<!-- ==============================================
-		Feauture Detection
-		=============================================== -->
-		<script src="js/modernizr-custom.js"></script>
+        
+    <!-- ==============================================
+    Feauture Detection
+    =============================================== -->
+    <script src="js/modernizr-custom.js"></script>
 
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>-->
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<!--[endif]-->	
-		<script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>-->
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <!--[endif]-->  
+    <script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 
 
@@ -58,7 +58,7 @@
 <script src="js/canvas-to-blob.min.js"></script>
 
 
-		<style>
+    <style>
 
 .tablink {
     background-color: #fff;
@@ -89,13 +89,13 @@
 }
 
 .cover-img{
-	background-image: url('img/bg/1.jpeg');
-	height:35vw;
+  background-image: url('img/bg/1.jpeg');
+  height:35vw;
 
 }
 .back{
-	background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
-	background-attachment: fixed;
+  background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
+  background-attachment: fixed;
 }
 </style>
   </head>
@@ -241,40 +241,40 @@
       </nav><!-- /.navbar -->
      </header><!-- Page Header --> 
   
-	 <!-- ==============================================
-	 News Feed Section
-	 =============================================== --> 
-	 <section class="profile">
-	  <div class="container-fluid cover-img">
+   <!-- ==============================================
+   News Feed Section
+   =============================================== --> 
+   <section class="profile">
+    <div class="container-fluid cover-img">
 
-	  </div><!--/ container -->
-	 </section><!--/ profile -->
-	 <!-- ==============================================
-	 User Profile Section
-	 =============================================== --> 
-	 <div class="back">
-	 <section class="user-profile">
-	  <div class="container-fluid">
-	   <div class="row">
-	   
-	    <div class="col-lg-12">
-		   <div class="post-content">
-		    	<div class="author-post text-center">
-		    		<div>
-          				@if(!empty(Auth::user()->pro_pic))
-          				<img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" alt="Image"  data-toggle="modal" data-target="#modal2" data-step="1" data-intro="<center> Upload your profile picture and write a caption here </center> "  >
+    </div><!--/ container -->
+   </section><!--/ profile -->
+   <!-- ==============================================
+   User Profile Section
+   =============================================== --> 
+   <div class="back">
+   <section class="user-profile">
+    <div class="container-fluid">
+     <div class="row">
+     
+      <div class="col-lg-12">
+       <div class="post-content">
+          <div class="author-post text-center">
+            <div>
+                  @if(!empty(Auth::user()->pro_pic))
+                  <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" alt="Image"  data-toggle="modal" data-target="#modal2" data-step="1" data-intro="<center> Upload your profile picture and write a caption here </center> "  >
           
-          				@endif
-          				
+                  @endif
+                  
 
-          			</div>
-		    	</div><!-- /author -->
-		   </div><!-- /.post-content -->		
-		</div><!-- /col-sm-12 -->
-		
-       </div><!--/ row-->	
-	  </div><!--/ container -->
-	 </section><!--/ profile -->
+                </div>
+          </div><!-- /author -->
+       </div><!-- /.post-content -->    
+    </div><!-- /col-sm-12 -->
+    
+       </div><!--/ row--> 
+    </div><!--/ container -->
+   </section><!--/ profile -->
   <div id="modal2" class="modal fade" role="dialog">
 
       <div class="modal-dialog">
@@ -350,18 +350,18 @@
 
 
 
-	 <!-- ==============================================
-	 User Profile Section
-	 =============================================== --> 
-	 <section class="details">
-	  <div class="container">
-	   <div class="row">
-	    <div class="col-lg-12">
-		 
+   <!-- ==============================================
+   User Profile Section
+   =============================================== --> 
+   <section class="details">
+    <div class="container">
+     <div class="row">
+      <div class="col-lg-12">
+     
           <div class="details-box row">
            <div class="content-box">
-           	<center>
-		     <h4>{{Auth::user()->name}} <i class="fa fa-check"></i></h4>
+            <center>
+         <h4>{{Auth::user()->name}} <i class="fa fa-check"></i></h4>
              @if(!empty(Auth::user()->view_self))
              <p class="mb-3">"{{Auth::user()->view_self}}"</p>
              @else
@@ -369,62 +369,62 @@
              @endif
              </center>
            </div><!--/ media -->
-		   
+       
           </div><!--/ details-box -->
-		  
-		</div>
-	   </div>
-	  </div><!--/ container -->
-	 </section><!--/ profile -->
+      
+    </div>
+     </div>
+    </div><!--/ container -->
+   </section><!--/ profile -->
 
-	
-
-
+  
 
 
 
 
 
-	 <!-- ==============================================
-	 News Feed Section
-	 =============================================== --> 
-	 <section class="newsfeed">
-	  
-		    <div class="tab_bar" style="margin-left: 26%;align-items: center;
-		    	margin-right: 26%">
-		  	<button class="tablink kafe-btn" onclick="openPage('Home', this, '#0fc19e','white')">Articles</button>
-			<button class="tablink kafe-btn" onclick="openPage('News', this, '#0fc19e','white')" id="defaultOpen">Photos</button>
-			</div>
-		<div class="container">
-			<div id="Home" class="tabcontent">
-			<div class="row">
-			    <div class="col-lg-12">  
-				
-			     <div class="box">
-				  <form>
-				   <textarea class="form-control no-border" rows="3" placeholder="Your caption here"></textarea>
 
-				  </form>
-				  <div class="box-footer clearfix">
-				   <button class="kafe-btn kafe-btn-mint-small pull-right btn-sm" data-toggle="modal" data-target="#modal2" data-step="1">Upload</button>
-				  </div>
-				 </div>	
-		 
-				</div>
-			   </div>
-  			<h3>Articles</h3>
-  			<p>Home is where the heart is..</p>
-			</div>
-		<div id="News" class="tabcontent">
-		
-			<div class="row">
-	    <div class="col-lg-12">  
-		
-	     <div class="box" style="border-radius: 3px;font-color:#88898a">
-		  <form id="upload-image-form" action="/upload1" method="post" enctype="multipart/form-data">
+
+   <!-- ==============================================
+   News Feed Section
+   =============================================== --> 
+   <section class="newsfeed">
+    
+        <div class="tab_bar" style="margin-left: 26%;align-items: center;
+          margin-right: 26%">
+        <button class="tablink kafe-btn" onclick="openPage('Home', this, '#0fc19e','white')">Articles</button>
+      <button class="tablink kafe-btn" onclick="openPage('News', this, '#0fc19e','white')" id="defaultOpen">Photos</button>
+      </div>
+    <div class="container">
+      <div id="Home" class="tabcontent">
+      <div class="row">
+          <div class="col-lg-12">  
+        
+           <div class="box">
+          <form>
+           <textarea class="form-control no-border" rows="3" placeholder="Your caption here"></textarea>
+
+          </form>
+          <div class="box-footer clearfix">
+           <button class="kafe-btn kafe-btn-mint-small pull-right btn-sm" data-toggle="modal" data-target="#modal2" data-step="1">Upload</button>
+          </div>
+         </div> 
+     
+        </div>
+         </div>
+        <h3>Articles</h3>
+        <p>Home is where the heart is..</p>
+      </div>
+    <div id="News" class="tabcontent">
+    
+      <div class="row">
+      <div class="col-lg-12">  
+    
+       <div class="box" style="border-radius: 3px;font-color:#88898a">
+      <form id="upload-image-form" action="/upload1" method="post" enctype="multipart/form-data">
            <input id="signup-token" type="hidden" name="_token" value="{{ csrf_token() }}">
-		   
-		   <div class="form-group">
+       
+       <div class="form-group">
                 <label for="classifiers" style="margin-left:40%;margin-top:1%" ><h5 style="color:#88898a"><b>Select Category: (Max size: 5MB)</b></h5></label>
                 <select class="form-control" name="classifier"  style="margin-left:40%;width:auto">
                   <option value="dep">DEPARTMENT PHOTOS</option>
@@ -433,8 +433,8 @@
                   <option value="misc">OTHER MOMENTS AT KGP</option>
                 </select>
               </div>
-		  
-		  <div id="cropp-image-div">
+      
+      <div id="cropp-image-div">
                 <img id="crop-image" style="margin-left: 41%" src="" class="img-thumbnail">
           </div>
         <div class="form-group">
@@ -442,24 +442,24 @@
           <textarea class="form-control no-border" rows="2" cols="15" placeholder="Type something..." name="caption" id="caption" required="required"></textarea>
         </div> 
           
-		  <div class="box-footer clearfix">
-		   <button class="kafe-btn kafe-btn-mint-small pull-right btn-sm" id="upload-button" type="submit" disabled>Upload image</button>
+      <div class="box-footer clearfix">
+       <button class="kafe-btn kafe-btn-mint-small pull-right btn-sm" id="upload-button" type="submit" disabled>Upload image</button>
 
-		   <ul class="nav nav-pills nav-sm">
-			<li class="nav-item">
-				<div class="image-upload">
-				    <label for="image">
-				        <a class="nav-link" ><i class="fa fa-camera text-muted"></i></a>
-				    </label>
+       <ul class="nav nav-pills nav-sm">
+      <li class="nav-item">
+        <div class="image-upload">
+            <label for="image">
+                <a class="nav-link" ><i class="fa fa-camera text-muted"></i></a>
+            </label>
 
-				    <input style="display: none;" type="file" name="image" id="image" accept="image/*" required/>
-				</div>
-			</li>
-		   </ul>
-		  </div>
-		 </div>	
-		 </form>
-		 <br>
+            <input style="display: none;" type="file" name="image" id="image" accept="image/*" required/>
+        </div>
+      </li>
+       </ul>
+      </div>
+     </div> 
+     </form>
+     <br>
             <div class="alert alert-info" id="loading" style="display: none;" role="alert">
               Uploading image...
               <div class="progress">
@@ -467,75 +467,75 @@
                 </div>
               </div>
             </div>
-		</div>
-	   </div>
+    </div>
+     </div>
 
-	   <div class="container">
-		    <div class="row">
+     <div class="container">
+        <div class="row">
 
-				@if(count($images)>0)
-			    {{ $images->links('vendor.pagination.bootstrap-4')}}
-			    @php
-			    $count= 0;
-			    @endphp
+        @if(count($images)>0)
+          {{ $images->links('vendor.pagination.bootstrap-4')}}
+          @php
+          $count= 0;
+          @endphp
 
-			    @foreach($images as $image)
-			    @if(file_exists($image['url']))
-			    <section class="page-section">
-			      
-			             
-			  		    <div class="col-lg-4">
-						 <a href="photo_profile.html#myModal" data-toggle="modal">
-						 <div class="explorebox" style="border-radius: 10px;">
-				                  <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
-						  <div class="explore-top" style="position: relative;top:-400px; ">
-						   <div class="explore-like"><i class="fa fa-heart"></i> <span>14,100</span></div>
-				          </div>		  
-						 </div>
-						 </a>
-			            </div>
-			    
-			  	</section>
-   			    @endif
-			    @endforeach
+          @foreach($images as $image)
+          @if(file_exists($image['url']))
+          <section class="page-section">
+            
+                   
+                <div class="col-lg-4">
+             <a href="photo_profile.html#myModal" data-toggle="modal">
+             <div class="explorebox" style="border-radius: 10px;">
+                          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
+              <div class="explore-top" style="position: relative;top:-400px; ">
+               <div class="explore-like"><i class="fa fa-heart"></i> <span>14,100</span></div>
+                  </div>      
+             </div>
+             </a>
+                  </div>
+          
+          </section>
+            @endif
+          @endforeach
 
-			    {{ $images->links('vendor.pagination.bootstrap-4')}}
-			  
-			    @else
+          {{ $images->links('vendor.pagination.bootstrap-4')}}
+        
+          @else
 
-			  <section class="page-section cta" style="background-color: rgba(76,71,97,0.55);">
-			    <div class="container">
-			      <div class="row">
-			        <div class="col-xl-9 mx-auto">
-			          <div class="cta-inner text-center rounded">
-			            <h2 class="section-heading mb-4">
-			              <span class="section-heading-upper"></span>
-			              <span class="section-heading-lower">Nothing to show yet</span>
-			            </h2>
-			            
-			            <br>
-			            
-			          </div>
-			        </div>
-			      </div>
+        <section class="page-section cta" style="background-color: rgba(76,71,97,0.55);">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-9 mx-auto">
+                <div class="cta-inner text-center rounded">
+                  <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper"></span>
+                    <span class="section-heading-lower">Nothing to show yet</span>
+                  </h2>
+                  
+                  <br>
+                  
+                </div>
+              </div>
+            </div>
 
-			    </div>
-			  </section>
-			  
-			  @endif
-				</div>	
-		</div>
-	   
-	 </section><!--/ newsfeed -->
-	   
-	  </div><!--/ container -->
-	 
-	 </section><!--/ newsfeed -->
+          </div>
+        </section>
+        
+        @endif
+        </div>  
+    </div>
+     
+   </section><!--/ newsfeed -->
+     
+    </div><!--/ container -->
+   
+   </section><!--/ newsfeed -->
   
-	 <!-- ==============================================
-	 Modal Section
-	 =============================================== -->
-	 <div id="bootstrap-modal" class="modal fade" role="dialog">
+   <!-- ==============================================
+   Modal Section
+   =============================================== -->
+   <div id="bootstrap-modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
@@ -558,24 +558,24 @@
       <div class="modal-dialog">
        <div class="modal-content">
         <div class="modal-body">
-		
+    
          <div class="row">
-		 
+     
           <div class="col-md-8 modal-image">
            <img class="img-responsive" src="img/posts/15.jpg" alt="Image"/>
           </div><!--/ col-md-8 -->
           <div class="col-md-4 modal-meta">
            <div class="modal-meta-top">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-			 <span aria-hidden="true">×</span><span class="sr-only">Close</span>
-			</button><!--/ button -->
+       <span aria-hidden="true">×</span><span class="sr-only">Close</span>
+      </button><!--/ button -->
             <div class="img-poster clearfix">
              <a href="photo_profile.html"><img class="img-responsive img-circle" src="img/users/18.jpg" alt="Image"/></a>
              <strong><a href="photo_profile.html">Benjamin</a></strong>
              <span>12 minutes ago</span><br/>
-		     <a href="photo_profile.html" class="kafe kafe-btn-mint-small"><i class="fa fa-check-square"></i> Following</a>
+         <a href="photo_profile.html" class="kafe kafe-btn-mint-small"><i class="fa fa-check-square"></i> Following</a>
             </div><!--/ img-poster -->
-			  
+        
             <ul class="img-comment-list">
              <li>
               <div class="comment-img">
@@ -623,36 +623,36 @@
               </div>
              </li><!--/ li -->
             </ul><!--/ comment-list -->
-			  
+        
             <div class="modal-meta-bottom">
-			 <ul>
-			  <li><a class="modal-like" href="photo_profile.html#"><i class="fa fa-heart"></i></a><span class="modal-one"> 786,286</span> | 
-			      <a class="modal-comment" href="photo_profile.html#"><i class="fa fa-comments"></i></a><span> 786,286</span> </li>
-			  <li>
-			   <span class="thumb-xs">
-				<img class="img-responsive img-circle" src="img/users/13.jpeg" alt="...">
-			   </span>
-			   <div class="comment-body">
-				 <input class="form-control input-sm" type="text" placeholder="Write your comment...">
-			   </div><!--/ comment-body -->	
-              </li>				
-             </ul>				
+       <ul>
+        <li><a class="modal-like" href="photo_profile.html#"><i class="fa fa-heart"></i></a><span class="modal-one"> 786,286</span> | 
+            <a class="modal-comment" href="photo_profile.html#"><i class="fa fa-comments"></i></a><span> 786,286</span> </li>
+        <li>
+         <span class="thumb-xs">
+        <img class="img-responsive img-circle" src="img/users/13.jpeg" alt="...">
+         </span>
+         <div class="comment-body">
+         <input class="form-control input-sm" type="text" placeholder="Write your comment...">
+         </div><!--/ comment-body --> 
+              </li>       
+             </ul>        
             </div><!--/ modal-meta-bottom -->
-			  
+        
            </div><!--/ modal-meta-top -->
           </div><!--/ col-md-4 -->
-		  
+      
          </div><!--/ row -->
         </div><!--/ modal-body -->
-		
+    
        </div><!--/ modal-content -->
       </div><!--/ modal-dialog -->
-     </div><!--/ modal -->	 
-	 </div>  
+     </div><!--/ modal -->   
+   </div>  
      <!-- ==============================================
-	 Scripts
-	 =============================================== -->
-	<script>
+   Scripts
+   =============================================== -->
+  <script>
 function openPage(pageName,elmnt,color) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -669,19 +669,19 @@ function openPage(pageName,elmnt,color) {
 }
 document.getElementById("defaultOpen").click();
 </script>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/base.js"></script>
-	<script src="plugins/slimscroll/jquery.slimscroll.js"></script>
-	<script>
-	$('#Slim,#Slim2').slimScroll({
-	        height:"auto",
-			position: 'right',
-			railVisible: true,
-			alwaysVisible: true,
-			size:"8px",
-		});		
-	</script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/base.js"></script>
+  <script src="plugins/slimscroll/jquery.slimscroll.js"></script>
+  <script>
+  $('#Slim,#Slim2').slimScroll({
+          height:"auto",
+      position: 'right',
+      railVisible: true,
+      alwaysVisible: true,
+      size:"8px",
+    });   
+  </script>
 <script type="text/javascript">
 
             /*
