@@ -83,32 +83,57 @@
         </li>
 
         <li class="active">
-            <a class="text-uppercase text-expanded" href="/trendingnew"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
+            <a class="text-uppercase text-expanded" href="trendingnew"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
          </li>
        <li class="dropdown notification-list">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="notification" role="button" aria-haspopup="false" aria-expanded="false">
-          @if(count($notifications))
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="notification" role="button"
+         aria-haspopup="false" aria-expanded="false">
+          @if(count($notifications) || count($comment_notification))
           <i class="fa fa-bell noti-icon"></i>
-          <span class="badge badge-danger badge-pill noti-icon-badge">{{count($notifications)}}</span>
+          <span class="badge badge-danger badge-pill noti-icon-badge">
+            {{count($notifications) + count($comment_notification)}}
+          </span>
           @else
           <i class="fa fa-bell noti-icon"></i>
           @endif
         </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-lg" aria-labelledby="notification">
+        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
 
-         <div class="dropdown-item noti-title">
-          <h6 class="m-0">
-           <span class="pull-right">
-            <a href="/readall" class="text-dark">
-              <small>Clear All</small>
-            </a> 
-          </span><span style="color: #000;">Notifications({{count($notifications)}})</span> 
-        </h6>
-      </div>
+          <div class="dropdown-item noti-title">
+            <h6 class="m-0">
+              <span class="pull-right">
+                <a href="/readall" class="text-dark">
+                  <small>Clear All</small>
+                </a> 
+              </span>
+              <span style="color: #000;">Notifications({{count($notifications) + count($comment_notification)}})</span> 
+            </h6>
+          </div>
 
       <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 416.983px;">
-        <div class="slimscroll" style="max-height: 230px; overflow: hidden; width: auto; height: 416.983px;">
+        <div class="slimscroll" style="max-height: 300px; overflow: hidden; width: auto; height: 416.983px;">
          <div id="Slim">
+          @if(count($comment_notification))
+          @foreach($comment_notification as $notification)
+          @php
+          $url = App\Image::where('id', $notification['pic_id'])->value('url');
+          @endphp
+          <button class="dropdown-item notify-item comment_notification" id="{{$notification['pic_id']}}" value="{{$url}}">
+            @php
+            $commentedBy = App\User::where('id', $notification['user_id'])->pluck('name');
+            $pic = App\User::where('id', $notification['user_id'])->pluck('pro_pic');
+            @endphp
+            <div class="notify-icon">
+              <img src="../{{$pic[0]}}" class="img-responsive img-circle">
+            </div>
+            <p class="notify-details" style="font-family: Verdana">
+              <strong>{{$commentedBy[0]}}</strong> commented on your post: <br>
+              <span>&nbsp"{{$notification['comments']}}"</span>
+              <small class="text-muted">{{$notification['created_at']}}</small>
+            </p>
+          </button><!--/ dropdown-item-->
+          @endforeach
+          @endif
           @if(count($notifications))
           @foreach($notifications as $notification)
           <a href="/read/{{$notification['id']}}" class="dropdown-item notify-item">
@@ -118,63 +143,75 @@
             <div class="notify-icon">
               <img src="../{{$pic[0]}}" class="img-responsive img-circle">
             </div>
-            <p class="notify-details" style="font-family: Verdana"><strong>{{$notification['user']}}</strong> wrote :<br>
+            <p class="notify-details" style="font-family: Verdana">
+              <strong>{{$notification['user']}}</strong> wrote :<br>
               <span>&nbsp"{{$notification['views']}}"</span>
-              <small class="text-muted">{{$notification['created_at']}}</small></p>
-            </a><!--/ dropdown-item-->
-            @endforeach
-            
-            @else
-            <div class="notify-details" align="center">No New Notifications!</div>
-            @endif
+              <small class="text-muted">{{$notification['created_at']}}</small>
+            </p>
+          </a><!--/ dropdown-item-->
+          @endforeach
+          @endif
+
+          @if(count($notifications) + count($comment_notification) == 0)
+          <div class="notify-details" align="center">No New Notifications!</div>
+          @endif
+
           </div><!--/ .Slim-->
-          <div class="slimScrollBar" style="background: rgb(158, 165, 171) none repeat scroll 0% 0%; width: 8px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
+          <div class="slimScrollBar" style="background: rgb(158, 165, 171); none repeat scroll 0% 0%; width: 8px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
           <div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div>
         </div><!--/ .slimscroll-->
       </div><!--/ .slimScrollDiv-->
-      <a href="/profile_index" class="dropdown-item text-center notify-all">
-        View all <i class="fa fa-arrow-right"></i>
-      </a><!-- All-->
+      <div class="dropdown-item text-center" style="height: 30px; background-color: #f4f4f4;">
+        
+      </div><!-- All-->
     </div><!--/ dropdown-menu-->
   </li>
 
+
   <li class="dropdown notification-list">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="photo_profile.html#" role="button" aria-haspopup="false" aria-expanded="false">
-              <i class="fa fa-cog"></i>
-      </a>
-      <div class="dropdown-menu dropdown-menu-right dropdown-lg" style="width: 100px; height:100.983px; left:-160px;">
-             
-        <div class="dropdown-item noti-title">
-          <h6 class="m-0">
-           <span class="pull-right">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+      <i class="fa fa-cog"></i>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right dropdown-lg" style="width: 100px; height:100.983px; left:-160px;">     
+      <div class="dropdown-item noti-title">
+        <h6 class="m-0">
+          <span class="pull-right">
             <a href="photo_profile.html" class="text-dark"></a> 
-           </span>Settings
-          </h6>
-         </div>
+          </span>Settings
+        </h6>
+      </div>
 
-        <div >
-              <a class="dropdown-item " href="/details"><p style="font-family: 'Abhaya Libre', serif;">Edit Details</p></a>
-          </div>
-          <div >
-                  <a class="dropdown-item " href="/logout"><p style="font-family: 'Abhaya Libre', serif;">Logout</p> </a>
-          </div>
+      <div >
+        <a class="dropdown-item " href="/details"><p style="font-family: 'Abhaya Libre', serif;">Edit Details</p></a>
+      </div>
+      <div >
+        <a class="dropdown-item " href="/logout"><p style="font-family: 'Abhaya Libre', serif;">Logout</p> </a>
+      </div>
 
-            </div><!--/ dropdown-menu-->
-       </li>
-      
-     <li class="dropdown mega-avatar">
+    </div><!--/ dropdown-menu-->
+  </li>  
+     <li class="dropdown mega-avatar">  
       <a href="photo_profile.html#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-       <span class="avatar w-32">                 
+        <span class="avatar w-32">                  
           @if(!empty(Auth::user()->pro_pic))
-              <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;" alt="Image">
-              @endif
-            </span>
+          <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;">
+          @endif
+        </span>
        <!-- hidden-xs hides the username on small devices so only the image appears. -->
        <span class="hidden-xs">
       &nbsp{{Auth::user()->name}}
        </span>
       </a>
-      
+      <div class="dropdown-menu w dropdown-menu-scale pull-right">
+       <a class="dropdown-item" href="photo_profile.html#"><span>New Story</span></a> 
+       <a class="dropdown-item" href="photo_profile.html#"><span>Become a Member</span></a> 
+       <div class="dropdown-divider"></div>
+       <a class="dropdown-item" href="photo_profile.html#"><span>Profile</span></a> 
+       <a class="dropdown-item" href="photo_profile.html#"><span>Settings</span></a> 
+       <a class="dropdown-item" href="photo_profile.html#">Need help?</a> 
+       <div class="dropdown-divider"></div>
+       <a class="dropdown-item" href="photo_profile.html#">Sign out</a>
+      </div>
      </li><!-- /navbar-item --> 
      
      </ul><!-- /.sign-in -->   
@@ -240,7 +277,7 @@
                     <!--<span class="section-heading-upper">Blended to Perfection</span>-->
                     @php
                     $name = App\User::where('rollno',$image['rollno'])->get()->toArray();
-                    $userimg = App\User::where('rollno',$image['rollno'])->get()->toArray();
+
                     @endphp
 
 
@@ -257,53 +294,83 @@
               </div>
             </div>
             <div class="container">
-        <div class="row">
-          
-          <div class="col-lg-6">
-        
-             <div class="cardbox">
-         
-              <div class="cardbox-heading">
-               <!-- START dropdown-->
-               <div class="dropdown pull-right">
-                <button class="btn btn-secondary btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
-             <em class="fa fa-ellipsis-h"></em>
-          </button>
-                </div><!--/ dropdown -->
-               <!-- END dropdown-->
-               <div class="media m-0">
-                <div class="d-flex mr-3">
-           <img class="img-responsive img-circle" src="{{$userimg[0]['pro_pic']}}" alt="User">
-          </div>
-                <div class="media-body">
-                 <p class="m-0">{{$name[0]['name']}}</p>
-           <small><span>{{$image['created_at']->diffForHumans() }}</span></small>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="cardbox">
+                    <div class="cardbox-heading">
+                      <!-- START dropdown-->
+                      <div class="dropdown pull-right">
+                        <button class="btn btn-secondary btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
+                          <em class="fa fa-ellipsis-h"></em>
+                        </button>
+                        <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                          <a class="dropdown-item" href="photo_home.html#">Hide post</a>
+                          <a class="dropdown-item" href="photo_home.html#">Stop following</a>
+                          <a class="dropdown-item" href="photo_home.html#">Report</a>
+                        </div>
+                      </div><!--/ dropdown -->
+                      <!-- END dropdown-->
+                      <div class="media m-0">
+                        <div class="d-flex mr-3">
+                          <a href="/profile_index/{{$image['rollno']}}">
+                            <img class="img-responsive img-circle" src="img/users/2.jpg" alt="User">
+                          </a>
+                        </div>
+                        <div class="media-body">
+                          <a href="/profile_index/{{$image['rollno']}}">
+                            <p class="m-0">{{$name[0]['name']}}</p>
+                          </a>
+                          <small><span>{{$image['created_at']->diffForHumans() }}</span></small>
+                        </div>
+                      </div><!--/ media -->
+                    </div><!--/ cardbox-heading -->
+
+                    <div class="cardbox-item">
+                      <span class="section-heading-upper" style="font-family: Aclonica;">&nbsp {{$image['caption']}}</span><br>
+                      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 " src="{{$image['url']}}" 
+                      id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 100%;height: 500px;">
+                    </div><!--/ cardbox-item -->
+                    <div class="cardbox-like">
+                      <ul style="top: 6px; position: relative;">
+                        <li>
+                          <div id="+{{$image['id']}}+" class="like"></div>  <!-- Like Button -->
+                        </li>
+                        <li>
+                          <button type="button" class="com btn comment_btn" id="{{$image['id']}}" style="border: none; background: none;" value="{{$image['url']}}">
+                            <i class="far fa-comment"></i> Comment
+                          </button>
+                        </li>
+                      </ul>
+                      <script type="text/javascript"> 
+                        $(document).ready(function () {
+                          var formData = {
+                            'pic_id' : {{$image["id"]}},
+                            '_token': '{!! csrf_token() !!}',
+                          }
+                          $.ajax({
+                            url: "/likes",
+                            type: "POST",
+                            data: formData,
+
+                            success: function(response)
+                            {
+
+                              document.getElementById('+{{$image['id']}}+').innerHTML = response;
+
+                            },
+                            error: function(data)
+                            {
+
+                            }
+                          });
+                        });
+                      </script>
+
+                    </div><!--/ cardbox-like -->        
+                  </div><!--/ cardbox -->
                 </div>
-               </div><!--/ media -->
-              </div><!--/ cardbox-heading -->
-              
-          <div class="cardbox-item">
-               <span class="section-heading-upper" style="font-family: Aclonica;"> &nbsp {{$image['caption']}}</span>
-            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 555px;height: 500px;">
-              </div><!--/ cardbox-item -->
-              <div class="cardbox-like">
-           <ul>
-              <li>
-                <div id="like" class="like"></div>  <!-- Like Button -->
-              </li>
-              <li>
-                <button type="button" class="com btn" id="{{$image['id']}}" data-toggle="modal" data-target="#myModal" style="border: none; background: none;">
-                <i class="fa fa-comment"></i> Comment
-              </button>
-             
-              </li>
-            </ul>
-              </div><!--/ cardbox-like -->        
-                    
-         </div><!--/ cardbox -->
-      </div>
-    </div>
-    </div>
+              </div>
+            </div>
       
       </section>
       @endif
@@ -356,34 +423,37 @@
          <div class="row">
      
           <div class="col-md-8 modal-image">
-           <img class="img-responsive enlargeImageModalSource" alt="Image"/>
+            <img class="img-responsive enlargeImageModalSource" src="" alt="Image"/>
           </div><!--/ col-md-8 -->
           <div class="col-md-4 modal-meta">
            <div class="modal-meta-top">
             <div class="img-poster clearfix">
-             <a href="photo_home.html"><img class="img-responsive img-circle" src="{{$userimg[0]['pro_pic']}}" alt="Image"/></a>
-             <strong><a href="photo_home.html">{{$name[0]['name']}}</a></strong>
+             <a href="/profile_index/{{$image['rollno']}}">
+              <img class="img-responsive img-circle" src="img/users/18.jpg" alt="Image"/>
+             </a>
+             <strong><a href="/profile_index/{{$image['rollno']}}">{{$name[0]['name']}}</a></strong>
              <span>{{$image['created_at']->diffForHumans() }}</span><br/>
             </div><!--/ img-poster -->
             <div id="comments"> 
             </div>
         
-          <div class="modal-meta-bottom">     
-            <span class="thumb-xs">
-        @if(!empty(Auth::user()->pro_pic))
-              <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;" alt="Image">
-              @endif          </span>
-          <div class="comment-body">
-            <form class="form" id="form-comment" action="/comment" method="post">
-              {{csrf_field()}}
-              <input id="comment-token" type="hidden" name="_token" value="{{ csrf_token() }}">
-              <textarea name="comment" id="textarea" class="form-control input-sm" rows="2" type="text" placeholder="Write your comment..." required></textarea>
-              <div align="right">
-               <button class="btn" id="submit" style="margin-top: 10px;"><span>Comment</span></button>
-             </div>
-           </form>
-         </div><!--/ comment-body -->        
-       </div><!--/ modal-meta-bottom -->
+            <div class="modal-meta-bottom">     
+              <span class="thumb-xs">
+                @if(!empty(Auth::user()->pro_pic))
+                <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;" alt="Image">
+                @endif       
+              </span>
+              <div class="comment-body">
+                <form class="form" id="form-comment" action="/comment" method="post">
+                  {{csrf_field()}}
+                  <input id="comment-token" type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <textarea name="comment" id="textarea" class="form-control input-sm" rows="2" type="text" placeholder="Write your comment..." required></textarea>
+                  <div align="right">
+                    <button class="btn" id="submit" style="margin-top: 10px;"><span>Comment</span></button>
+                  </div>
+                </form>
+              </div><!--/ comment-body -->        
+            </div><!--/ modal-meta-bottom -->
 
      </div><!--/ modal-meta-top -->
           </div><!--/ col-md-4 -->
@@ -393,7 +463,8 @@
     
        </div><!--/ modal-content -->
       </div><!--/ modal-dialog -->
-     </div><!--/ modal --> 
+     </div><!--/ modal -->
+ 
    
      <!-- ==============================================
    Scripts
@@ -413,43 +484,81 @@
 
   <script>
     $('.like').click('.like', function() {
+      var v = $(this).attr('id');
       var formData = {
-        'pic_id' : $('.enlargeImageModalSource').attr('id'),
+        'pic_id' : $(this).attr('id')[1],
         '_token' : $('#comment-token').val()
       }
+      // console.log(formData);
       $.ajax({
         url: "/likeadd",
         type: "POST",
         data: formData,
+
         success: function(response)
         {
-         document.getElementById("like").innerHTML = response;
+
+         document.getElementById(v).innerHTML = response;
+
        },
        error: function(data)
        {
-          console.log('Error in likeadd');  
+          // console.log('Error in likeadd');  
        }
      });
     });
-    $('#comment_btn').click('#comment_btn', function() {
+    $('.comment_btn').click('.comment_btn', function() {
+      $('.enlargeImageModalSource').attr('src', $(this).attr('value'));       
+      $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
+      $('#myModal').modal('show');
       var formData = {
         'comments' : $('textarea[name=comment]').val(),
         'pic_id' : $('.enlargeImageModalSource').attr('id'),
         '_token' : $('#comment-token').val()
-      }
+      } 
       $.ajax({
         url: "/commentadd",
         type: "POST",
         data: formData,
+
         success: function(response)
         {
+
           document.getElementById("comments").innerHTML = response;
         },
         error: function(data)
         {
+
         }
       });
     });
+
+    $('.comment_notification').on('click', function() {
+        $('.enlargeImageModalSource').attr('src', $(this).attr('value'));
+        $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
+        $('#myModal').modal('show');
+        var formData = {
+          'comments' : $('textarea[name=comment]').val(),
+          'pic_id' : $('.enlargeImageModalSource').attr('id'),
+          '_token' : $('#comment-token').val()
+        }
+        $.ajax({
+          url: "/commentadd",
+          type: "POST",
+          data: formData,
+
+          success: function(response)
+          {
+
+            document.getElementById("comments").innerHTML = response;
+          },
+          error: function(data)
+          {
+
+          }
+        });
+      });
+
     $(function() {
       $('.product-item-img').on('click', function() {
         $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
@@ -464,12 +573,15 @@
           url: "/commentadd",
           type: "POST",
           data: formData,
+
           success: function(response)
           {
+
             document.getElementById("comments").innerHTML = response;
           },
           error: function(data)
           {
+
           }
         });
       });
@@ -484,74 +596,43 @@
         '_token' : $('#comment-token').val()
       }
       // console.log(formData);
+
       $.ajax({
         url: "/comment",
         type: "POST",
         data: formData,
+        
         success: function(response)
         {
-          console.log('Added Comments');
+          // console.log('Added Comments');
           document.getElementById("textarea").value="";
           document.getElementById("comments").innerHTML = response;
         },
         error: function(data)
         {
-          console.log('Error in comment');  
+          // console.log('Error in comment');  
         }
       });
     });
     });
   </script>
   <script>
-      // var user = <?php echo $user;?>;
-      // // console.log(user[0].name);
-      // var names = [];
-      // for (var i = 0; i < user.length; i++) {
-      //   names[i] = user[i].name;
-      // }
-      // // console.log('names',names);
-      // $(document).ready(function() {
-      //   $('#search').autocomplete({
-      //     source: [names]
-      //   });   
-      // });
+      var user = <?php echo $user;?>;
+      // console.log(user[0].name);
+      var names = [];
+      for (var i = 0; i < user.length; i++) {
+        names[i] = user[i].name;
+      }
+      // console.log('names',names);
+
+      $(document).ready(function() {
+        $('#search').autocomplete({
+          source: [names]
+        });   
+      });
       $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
-    var user = <?php echo $user;?>;
-    //console.log(user[0].name);
-    var names = [];
-    for (var i = 0; i < user.length; i++) {
-      names[i] = user[i].name;
-    }
-    //console.log('names',names);
-    
-    $(function() {
-      $("#search").autocomplete({
-        source:[names]
-      }); 
-    });
-  </script>
-  <script type="text/javascript">
-    $(document).ready(function () {
-        var formData = {
-          'pic_id' : $('.enlargeImageModalSource').attr('id'),
-          '_token': '{!! csrf_token() !!}',
-        }
-        $.ajax({
-          url: "/likes",
-          type: "POST",
-          data: formData,
-          success: function(response)
-          {
-            document.getElementById("like").innerHTML = response;
-          },
-          error: function(data)
-          {
-          console.log('Error in likes');  
-          }
-        });
-    });
   </script>
 
   </body>
