@@ -66,5 +66,13 @@ class ImageController extends Controller
 		}
 		
 	}
-		
+	public function get(){
+		$image = Image::where('id', request('pic_id'))->get();
+		$response = array(
+			'rollno' => $image[0]['rollno'],
+			'created_at' => $image[0]->created_at->diffForHumans(),
+			'name' => User::where('rollno', $image[0]['rollno'])->value('name'),
+		);
+		return response($response,200);
+	}	
 }
