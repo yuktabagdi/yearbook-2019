@@ -71,7 +71,7 @@
          <div class="search-dashboard">
           <form action="search/" method="POST" class="form-inline">
             {{ csrf_field() }}
-            <input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; top:2.4px; left: 22px; line-height: 40px; cursor: text; font-size: 14px;">
+            <input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; padding-top: 3px; padding-left: 20px; line-height: 40px; cursor: text; font-size: 14px;">
             <button type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>              
@@ -212,7 +212,7 @@
        <div class="dropdown-divider"></div>
        <a class="dropdown-item" href="photo_profile.html#">Sign out</a>
       </div>
-     </li><!-- /navbar-item --> 
+     </li><!-- /navbar-item `--> 
      
      </ul><!-- /.sign-in -->   
     </div><!-- /.nav-right -->
@@ -277,7 +277,6 @@
                     <!--<span class="section-heading-upper">Blended to Perfection</span>-->
                     @php
                     $name = App\User::where('rollno',$image['rollno'])->get()->toArray();
-
                     @endphp
 
 
@@ -428,11 +427,11 @@
           <div class="col-md-4 modal-meta">
            <div class="modal-meta-top">
             <div class="img-poster clearfix">
-             <a href="/profile_index/{{$image['rollno']}}">
-              <img class="img-responsive img-circle" src="img/users/18.jpg" alt="Image"/>
+             <a href="" id="profile">
+              <img class="img-responsive img-circle" src="" />
+             <strong><span style="font-size: 14px;" id="posted_by"></span></strong>
              </a>
-             <strong><a href="/profile_index/{{$image['rollno']}}">{{$name[0]['name']}}</a></strong>
-             <span>{{$image['created_at']->diffForHumans() }}</span><br/>
+             <span id="created_at"></span><br/>
             </div><!--/ img-poster -->
             <div id="comments"> 
             </div>
@@ -531,6 +530,23 @@
 
         }
       });
+      $.ajax({
+          url: "/getimage",
+          type: "POST",
+          data: formData,
+
+          success: function(response)
+          {
+            var image = response;
+            document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+            document.getElementById('posted_by').innerHTML = image["name"];
+            document.getElementById('created_at').innerHTML = image["created_at"];
+          },
+          error: function(data)
+          {
+
+          }
+        });
     });
 
     $('.comment_notification').on('click', function() {
@@ -551,6 +567,23 @@
           {
 
             document.getElementById("comments").innerHTML = response;
+          },
+          error: function(data)
+          {
+
+          }
+        });
+        $.ajax({
+          url: "/getimage",
+          type: "POST",
+          data: formData,
+
+          success: function(response)
+          {
+            var image = response;
+            document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+            document.getElementById('posted_by').innerHTML = image["name"];
+            document.getElementById('created_at').innerHTML = image["created_at"];
           },
           error: function(data)
           {
@@ -578,6 +611,23 @@
           {
 
             document.getElementById("comments").innerHTML = response;
+          },
+          error: function(data)
+          {
+
+          }
+        });
+        $.ajax({
+          url: "/getimage",
+          type: "POST",
+          data: formData,
+
+          success: function(response)
+          {
+            var image = response;
+            document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+            document.getElementById('posted_by').innerHTML = image["name"];
+            document.getElementById('created_at').innerHTML = image["created_at"];
           },
           error: function(data)
           {

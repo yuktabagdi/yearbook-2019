@@ -129,44 +129,69 @@
          <div class="search-dashboard">
           <form action="search/" method="POST" class="form-inline">
             {{ csrf_field() }}
-            <input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; top:2.4px; left: 22px; line-height: 40px; cursor: text; font-size: 14px;">
+            <input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; padding-top: 2.4px; padding-left: 20px; line-height: 40px; cursor: text; font-size: 15px;">
             <button type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>              
        </li>
-       <li class="">
+       <li class="active">
             <a class="text-uppercase text-expanded" href="/homenew">Home
               <span class="sr-only">(current)</span>
             </a>
         </li>
 
-        <li class="active">
+        <li class="">
             <a class="text-uppercase text-expanded" href="/trendingnew"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
          </li>
        <li class="dropdown notification-list">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="notification" role="button" aria-haspopup="false" aria-expanded="false">
-          @if(count($notifications))
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="notification" role="button"
+         aria-haspopup="false" aria-expanded="false">
+          @if(count($notifications) || count($comment_notification))
           <i class="fa fa-bell noti-icon"></i>
-          <span class="badge badge-danger badge-pill noti-icon-badge">{{count($notifications)}}</span>
+          <span class="badge badge-danger badge-pill noti-icon-badge">
+            {{count($notifications) + count($comment_notification)}}
+          </span>
           @else
           <i class="fa fa-bell noti-icon"></i>
           @endif
         </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-lg" aria-labelledby="notification">
+        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
 
-         <div class="dropdown-item noti-title">
-          <h6 class="m-0">
-           <span class="pull-right">
-            <a href="/readall" class="text-dark">
-              <small>Clear All</small>
-            </a> 
-          </span><span style="color: #000;">Notifications({{count($notifications)}})</span> 
-        </h6>
-      </div>
+          <div class="dropdown-item noti-title">
+            <h6 class="m-0">
+              <span class="pull-right">
+                <a href="/readall" class="text-dark">
+                  <small>Clear All</small>
+                </a> 
+              </span>
+              <span style="color: #000;">Notifications({{count($notifications) + count($comment_notification)}})</span> 
+            </h6>
+          </div>
 
       <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 416.983px;">
-        <div class="slimscroll" style="max-height: 230px; overflow: hidden; width: auto; height: 416.983px;">
+        <div class="slimscroll" style="max-height: 300px; overflow: hidden; width: auto; height: 416.983px;">
          <div id="Slim">
+          @if(count($comment_notification))
+          @foreach($comment_notification as $notification)
+          @php
+          $url = App\Image::where('id', $notification['pic_id'])->value('url');
+          @endphp
+          <button class="dropdown-item notify-item comment_notification" id="{{$notification['pic_id']}}" value="{{$url}}">
+            @php
+            $commentedBy = App\User::where('id', $notification['user_id'])->pluck('name');
+            $pic = App\User::where('id', $notification['user_id'])->pluck('pro_pic');
+            @endphp
+            <div class="notify-icon">
+              <img src="../{{$pic[0]}}" class="img-responsive img-circle">
+            </div>
+            <p class="notify-details" style="font-family: Verdana">
+              <strong>{{$commentedBy[0]}}</strong> commented on your post: <br>
+              <span>&nbsp"{{$notification['comments']}}"</span>
+              <small class="text-muted">{{$notification['created_at']}}</small>
+            </p>
+          </button><!--/ dropdown-item-->
+          @endforeach
+          @endif
           @if(count($notifications))
           @foreach($notifications as $notification)
           <a href="/read/{{$notification['id']}}" class="dropdown-item notify-item">
@@ -176,41 +201,45 @@
             <div class="notify-icon">
               <img src="../{{$pic[0]}}" class="img-responsive img-circle">
             </div>
-            <p class="notify-details" style="font-family: Verdana"><strong>{{$notification['user']}}</strong> wrote :<br>
+            <p class="notify-details" style="font-family: Verdana">
+              <strong>{{$notification['user']}}</strong> wrote :<br>
               <span>&nbsp"{{$notification['views']}}"</span>
-              <small class="text-muted">{{$notification['created_at']}}</small></p>
-            </a><!--/ dropdown-item-->
-            @endforeach
-            
-            @else
-            <div class="notify-details" align="center">No New Notifications!</div>
-            @endif
+              <small class="text-muted">{{$notification['created_at']}}</small>
+            </p>
+          </a><!--/ dropdown-item-->
+          @endforeach
+          @endif
+
+          @if(count($notifications) + count($comment_notification) == 0)
+          <div class="notify-details" align="center">No New Notifications!</div>
+          @endif
+
           </div><!--/ .Slim-->
-          <div class="slimScrollBar" style="background: rgb(158, 165, 171) none repeat scroll 0% 0%; width: 8px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
+          <div class="slimScrollBar" style="background: rgb(158, 165, 171); none repeat scroll 0% 0%; width: 8px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
           <div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div>
         </div><!--/ .slimscroll-->
       </div><!--/ .slimScrollDiv-->
-      <a href="/profile_index" class="dropdown-item text-center notify-all">
-        View all <i class="fa fa-arrow-right"></i>
-      </a><!-- All-->
+      <div class="dropdown-item text-center" style="height: 30px; background-color: #f4f4f4;">
+        
+      </div><!-- All-->
     </div><!--/ dropdown-menu-->
   </li>
 
   <li class="dropdown notification-list">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="photo_profile.html#" role="button" aria-haspopup="false" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
               <i class="fa fa-cog"></i>
       </a>
-      <div class="dropdown-menu dropdown-menu-right dropdown-lg" style="width: 100px; height:100.983px; left:-160px;">
+      <div class="dropdown-menu dropdown-menu-right dropdown-lg" style="width: 100px; height:100px; left:-160px;">
              
         <div class="dropdown-item noti-title">
           <h6 class="m-0">
            <span class="pull-right">
-            <a href="photo_profile.html" class="text-dark"></a> 
+            <a href="#" class="text-dark"></a> 
            </span>Settings
           </h6>
          </div>
 
-        <div >
+        <div style="height: 33px">
               <a class="dropdown-item " href="/details"><p style="font-family: 'Abhaya Libre', serif;">Edit Details</p></a>
           </div>
           <div >
@@ -484,16 +513,17 @@
           <section class="page-section">
             
                    
-                <div class="col-lg-4">
-             <a href="photo_profile.html#myModal" data-toggle="modal">
+            <div class="col-lg-4">
              <div class="explorebox" style="border-radius: 10px;">
-                          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
+              <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
               <div class="explore-top" style="position: relative;top:-400px; ">
-               <div class="explore-like"><i class="fa fa-heart"></i> <span>14,100</span></div>
-                  </div>      
-             </div>
-             </a>
-                  </div>
+                @php
+                $likes = DB::table('likes')->where('pic_id', $image['id'])->count();
+                @endphp
+               <div class="explore-like"><i class="fa fa-heart"></i> <span>{{$likes}}</span></div>
+             </div>      
+           </div>
+         </div>
           
           </section>
             @endif
@@ -554,101 +584,58 @@
     </div>
   </div>
 </div>
-     <div id="myModal" class="modal fade">
-      <div class="modal-dialog">
-       <div class="modal-content">
-        <div class="modal-body">
-    
-         <div class="row">
-     
-          <div class="col-md-8 modal-image">
-           <img class="img-responsive" src="img/posts/15.jpg" alt="Image"/>
-          </div><!--/ col-md-8 -->
-          <div class="col-md-4 modal-meta">
-           <div class="modal-meta-top">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-       <span aria-hidden="true">×</span><span class="sr-only">Close</span>
-      </button><!--/ button -->
-            <div class="img-poster clearfix">
-             <a href="photo_profile.html"><img class="img-responsive img-circle" src="img/users/18.jpg" alt="Image"/></a>
-             <strong><a href="photo_profile.html">Benjamin</a></strong>
-             <span>12 minutes ago</span><br/>
-         <a href="photo_profile.html" class="kafe kafe-btn-mint-small"><i class="fa fa-check-square"></i> Following</a>
-            </div><!--/ img-poster -->
-        
-            <ul class="img-comment-list">
-             <li>
-              <div class="comment-img">
-               <img src="img/users/17.jpeg" class="img-responsive img-circle" alt="Image"/>
-              </div>
-              <div class="comment-text">
-               <strong><a href="photo_profile.html">Anthony McCartney</a></strong>
-               <p>Hello this is a test comment.</p> <span class="date sub-text">on December 5th, 2016</span>
-              </div>
-             </li><!--/ li -->
-             <li>
-              <div class="comment-img">
-               <img src="img/users/15.jpg" class="img-responsive img-circle" alt="Image"/>
-              </div>
-              <div class="comment-text">
-               <strong><a href="photo_profile.html">Vanessa Wells</a></strong>
-               <p>Hello this is a test comment and this comment is particularly very long and it goes on and on and on.</p> <span>on December 5th, 2016</span>
-              </div>
-             </li><!--/ li -->
-             <li>
-              <div class="comment-img">
-               <img src="img/users/14.jpg" class="img-responsive img-circle" alt="Image"/>
-              </div>
-              <div class="comment-text">
-               <strong><a href="photo_profile.html">Sean Coleman</a></strong>
-               <p class="">Hello this is a test comment.</p> <span class="date sub-text">on December 5th, 2016</span>
-              </div>
-             </li><!--/ li -->
-             <li>
-              <div class="comment-img">
-               <img src="img/users/13.jpeg" class="img-responsive img-circle" alt="Image"/>
-              </div>
-              <div class="comment-text">
-               <strong><a href="photo_profile.html">Anna Morgan</a></strong>
-               <p class="">Hello this is a test comment.</p> <span class="date sub-text">on December 5th, 2016</span>
-              </div>
-             </li><!--/ li -->
-             <li>
-              <div class="comment-img">
-               <img src="img/users/3.jpg" class="img-responsive img-circle" alt="Image"/>
-              </div>
-              <div class="comment-text">
-               <strong><a href="photo_profile.html">Allison Fowler</a></strong>
-               <p class="">Hello this is a test comment.</p> <span class="date sub-text">on December 5th, 2016</span>
-              </div>
-             </li><!--/ li -->
-            </ul><!--/ comment-list -->
-        
-            <div class="modal-meta-bottom">
-       <ul>
-        <li><a class="modal-like" href="photo_profile.html#"><i class="fa fa-heart"></i></a><span class="modal-one"> 786,286</span> | 
-            <a class="modal-comment" href="photo_profile.html#"><i class="fa fa-comments"></i></a><span> 786,286</span> </li>
-        <li>
-         <span class="thumb-xs">
-        <img class="img-responsive img-circle" src="img/users/13.jpeg" alt="...">
-         </span>
-         <div class="comment-body">
-         <input class="form-control input-sm" type="text" placeholder="Write your comment...">
-         </div><!--/ comment-body --> 
-              </li>       
-             </ul>        
-            </div><!--/ modal-meta-bottom -->
-        
-           </div><!--/ modal-meta-top -->
-          </div><!--/ col-md-4 -->
-      
-         </div><!--/ row -->
-        </div><!--/ modal-body -->
-    
-       </div><!--/ modal-content -->
-      </div><!--/ modal-dialog -->
-     </div><!--/ modal -->   
-   </div>  
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog">
+   <div class="modal-content">
+    <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+       <span aria-hidden="true">×</span>
+       <span class="sr-only">Close</span>
+     </button>
+     <div class="row">
+
+      <div class="col-md-8 modal-image">
+        <img class="img-responsive enlargeImageModalSource" src="" alt="Image"/>
+      </div><!--/ col-md-8 -->
+      <div class="col-md-4 modal-meta">
+       <div class="modal-meta-top">
+        <div class="img-poster clearfix">
+          <a href="#" id="profile">
+            <img class="img-responsive img-circle" src="" />
+            <strong><span style="font-size: 14px;" id="posted_by"></span></strong>
+          </a>
+        <span id="created_at"></span><br/>
+      </div><!--/ img-poster -->
+      <div id="comments"> 
+      </div>
+
+      <div class="modal-meta-bottom">     
+        <span class="thumb-xs">
+          @if(!empty(Auth::user()->pro_pic))
+          <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;" alt="Image">
+          @endif       
+        </span>
+        <div class="comment-body">
+          <form class="form" id="form-comment" action="/comment" method="post">
+            {{csrf_field()}}
+            <input id="comment-token" type="hidden" name="_token" value="{{ csrf_token() }}">
+            <textarea name="comment" id="textarea" class="form-control input-sm" rows="2" type="text" placeholder="Write your comment..." required></textarea>
+            <div align="right">
+              <button class="btn" id="submit" style="margin-top: 10px;"><span>Comment</span></button>
+            </div>
+          </form>
+        </div><!--/ comment-body -->        
+      </div><!--/ modal-meta-bottom -->
+
+    </div><!--/ modal-meta-top -->
+  </div><!--/ col-md-4 -->
+
+</div><!--/ row -->
+</div><!--/ modal-body -->
+
+</div><!--/ modal-content -->
+</div><!--/ modal-dialog -->
+</div><!--/ modal -->
      <!-- ==============================================
    Scripts
    =============================================== -->
@@ -818,3 +805,121 @@ document.getElementById("defaultOpen").click();
 </script>
 </body>
 </html>
+<script>
+  $('.comment_notification').on('click', function() {
+    $('.enlargeImageModalSource').attr('src', $(this).attr('value'));
+    $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
+    $('#myModal').modal('show');
+    var formData = {
+      'comments' : $('textarea[name=comment]').val(),
+      'pic_id' : $('.enlargeImageModalSource').attr('id'),
+      '_token' : $('#comment-token').val()
+    }
+    $.ajax({
+      url: "/commentadd",
+      type: "POST",
+      data: formData,
+
+      success: function(response)
+      {
+
+        document.getElementById("comments").innerHTML = response;
+      },
+      error: function(data)
+      {
+
+      }
+    });
+    $.ajax({
+      url: "/getimage",
+      type: "POST",
+      data: formData,
+
+      success: function(response)
+      {
+        var image = response;
+        document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+        document.getElementById('posted_by').innerHTML = image["name"];
+        document.getElementById('created_at').innerHTML = image["created_at"];
+      },
+      error: function(data)
+      {
+
+      }
+    });
+  });
+
+  $(function() {
+    $('.product-item-img').on('click', function() {
+      $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
+      $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
+      $('#myModal').modal('show');
+      var formData = {
+        'comments' : $('textarea[name=comment]').val(),
+        'pic_id' : $('.enlargeImageModalSource').attr('id'),
+        '_token' : $('#comment-token').val()
+      }
+      $.ajax({
+        url: "/commentadd",
+        type: "POST",
+        data: formData,
+
+        success: function(response)
+        {
+
+          document.getElementById("comments").innerHTML = response;
+        },
+        error: function(data)
+        {
+
+        }
+      });
+    $.ajax({
+      url: "/getimage",
+      type: "POST",
+      data: formData,
+
+      success: function(response)
+      {
+        var image = response;
+        document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+        document.getElementById('posted_by').innerHTML = image["name"];
+        document.getElementById('created_at').innerHTML = image["created_at"];
+      },
+      error: function(data)
+      {
+
+      }
+    });
+  });
+  });
+
+  $(document).ready(function (e) {
+    $('form#form-comment').on('submit', function(e) {
+     e.preventDefault();
+     var formData = {
+      'comments' : $('textarea[name=comment]').val(),
+      'pic_id' : $('.enlargeImageModalSource').attr('id'),
+      '_token' : $('#comment-token').val()
+    }
+      // console.log(formData);
+
+      $.ajax({
+        url: "/comment",
+        type: "POST",
+        data: formData,
+        
+        success: function(response)
+        {
+          // console.log('Added Comments');
+          document.getElementById("textarea").value="";
+          document.getElementById("comments").innerHTML = response;
+        },
+        error: function(data)
+        {
+          // console.log('Error in comment');  
+        }
+      });
+    });
+  });
+</script>
