@@ -58,14 +58,14 @@ class WriteupController extends Controller
 
     	$writeup->save(); */
 
-    	return redirect('/writeup');
+    	return redirect('/homenew');
 
     }
 
     public function delete($id)
     {
         \DB::table('writeups')->where('id',$id)->delete();
-        return redirect('/writeup');
+        return redirect('/homenew');
     }
 
 

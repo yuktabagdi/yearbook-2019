@@ -12,6 +12,8 @@ use App\likes;
 use App\Comment;
 use App\Image;
 
+
+
 class HomeController extends Controller{
     /**
      * Create a new controller instance.
@@ -46,6 +48,8 @@ class HomeController extends Controller{
 
         public function index2()
         {
+          $writeups = writeup::where('rollno',Auth::user()->rollno)->latest()->get();
+        
           $roll = Auth::user()->rollno;
             //to select 50 images and show them in 10 per page
           $images=Image::where('rollno', $roll)->orderBy('totalcount','DESC')->take(50)->paginate(5);
@@ -58,7 +62,7 @@ class HomeController extends Controller{
           $notifications = views::where('depmate',$roll)->where('read','1')->get()->toArray();
           $comment_notification = Comment::where('roll', $roll)->where('seen', '1')->where('user_id', '!=', $id)
           ->latest()->get()->toArray();
-          return view('home',compact('images','user','notifications','currentpage','perpage', 'comment_notification'));
+          return view('home',compact('writeups','images','user','notifications','currentpage','perpage', 'comment_notification'));
         }
         
         public function search()

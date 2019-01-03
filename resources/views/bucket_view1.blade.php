@@ -19,6 +19,7 @@
     <!-- ==============================================
     Favicons
     =============================================== --> 
+    <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
       <link rel="icon" href="img/logo.jpg">
       <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
       <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
@@ -35,9 +36,19 @@
     <!-- ==============================================
     Feauture Detection
     =============================================== -->
-   
+    <script src="js/jquery.min.js"></script>
+      <script src="js/autocomplete.js"></script>
       <script src="js/modernizr-custom.js"></script>  
-    
+    <style type="text/css">
+      .back{
+      background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
+      background-attachment: fixed;
+      }
+      .article{
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
+    </style>
     </head>
 
 <body>
@@ -45,7 +56,179 @@
      <!-- ==============================================
      Navigation Section
      =============================================== -->  
-    @include('navbar')  
+     <header class="tr-header">
+      <nav class="navbar navbar-default">
+       <div class="container-fluid">
+      <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand" href="index.html"><img src="img/navbar/SACLogo.png" width="150px" height="75px" style="margin-top:-23px;" /></a>
+    </div><!-- /.navbar-header -->
+    <div class="navbar-left">
+     <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+      </ul>
+     </div>
+    </div><!-- /.navbar-left -->
+    <div class="navbar-right">                          
+     <ul class="nav navbar-nav">
+       <li>
+         <div class="search-dashboard">
+          <form action="search/" method="POST" class="form-inline">
+            {{ csrf_field() }}
+            <input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; padding-top: 3px; padding-left: 20px; line-height: 40px; cursor: text; font-size: 14px;">
+            <button type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </div>              
+       </li>
+       <li class="">
+            <a class="text-uppercase text-expanded" href="/homenew">Home
+              <span class="sr-only">(current)</span>
+            </a>
+        </li>
+
+        <li class="active">
+            <a class="text-uppercase text-expanded" href="trendingnew"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
+         </li>
+       <li class="dropdown notification-list">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="notification" role="button"
+         aria-haspopup="false" aria-expanded="false">
+          @if(count($notifications) || count($comment_notification))
+          <i class="fa fa-bell noti-icon"></i>
+          <span class="badge badge-danger badge-pill noti-icon-badge">
+            {{count($notifications) + count($comment_notification)}}
+          </span>
+          @else
+          <i class="fa fa-bell noti-icon"></i>
+          @endif
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
+
+          <div class="dropdown-item noti-title">
+            <h6 class="m-0">
+              <span class="pull-right">
+                <a href="/readall" class="text-dark">
+                  <small>Clear All</small>
+                </a> 
+              </span>
+              <span style="color: #000;">Notifications({{count($notifications) + count($comment_notification)}})</span> 
+            </h6>
+          </div>
+
+      <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 416.983px;">
+        <div class="slimscroll" style="max-height: 300px; overflow: hidden; width: auto; height: 416.983px;">
+         <div id="Slim">
+          @if(count($comment_notification))
+          @foreach($comment_notification as $notification)
+          @php
+          $url = App\Image::where('id', $notification['pic_id'])->value('url');
+          @endphp
+          <button class="dropdown-item notify-item comment_notification" id="{{$notification['pic_id']}}" value="{{$url}}">
+            @php
+            $commentedBy = App\User::where('id', $notification['user_id'])->pluck('name');
+            $pic = App\User::where('id', $notification['user_id'])->pluck('pro_pic');
+            @endphp
+            <div class="notify-icon">
+              <img src="../{{$pic[0]}}" class="img-responsive img-circle">
+            </div>
+            <p class="notify-details" style="font-family: Verdana">
+              <strong>{{$commentedBy[0]}}</strong> commented on your post: <br>
+              <span>&nbsp"{{$notification['comments']}}"</span>
+              <small class="text-muted">{{$notification['created_at']}}</small>
+            </p>
+          </button><!--/ dropdown-item-->
+          @endforeach
+          @endif
+          @if(count($notifications))
+          @foreach($notifications as $notification)
+          <a href="/read/{{$notification['id']}}" class="dropdown-item notify-item">
+            @php
+            $pic = App\User::where('name',$notification['user'])->pluck('pro_pic');
+            @endphp
+            <div class="notify-icon">
+              <img src="../{{$pic[0]}}" class="img-responsive img-circle">
+            </div>
+            <p class="notify-details" style="font-family: Verdana">
+              <strong>{{$notification['user']}}</strong> wrote :<br>
+              <span>&nbsp"{{$notification['views']}}"</span>
+              <small class="text-muted">{{$notification['created_at']}}</small>
+            </p>
+          </a><!--/ dropdown-item-->
+          @endforeach
+          @endif
+
+          @if(count($notifications) + count($comment_notification) == 0)
+          <div class="notify-details" align="center">No New Notifications!</div>
+          @endif
+
+          </div><!--/ .Slim-->
+          <div class="slimScrollBar" style="background: rgb(158, 165, 171); none repeat scroll 0% 0%; width: 8px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div>
+          <div class="slimScrollRail" style="width: 8px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"></div>
+        </div><!--/ .slimscroll-->
+      </div><!--/ .slimScrollDiv-->
+      <div class="dropdown-item text-center" style="height: 30px; background-color: #f4f4f4;">
+        
+      </div><!-- All-->
+    </div><!--/ dropdown-menu-->
+  </li>
+
+
+  <li class="dropdown notification-list">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+      <i class="fa fa-cog"></i>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right dropdown-lg" style="width: 100px; height:100.983px; left:-160px;">     
+      <div class="dropdown-item noti-title">
+        <h6 class="m-0">
+          <span class="pull-right">
+            <a href="photo_profile.html" class="text-dark"></a> 
+          </span>Settings
+        </h6>
+      </div>
+
+      <div >
+        <a class="dropdown-item " href="/details"><p style="font-family: 'Abhaya Libre', serif;">Edit Details</p></a>
+      </div>
+      <div >
+        <a class="dropdown-item " href="/logout"><p style="font-family: 'Abhaya Libre', serif;">Logout</p> </a>
+      </div>
+
+    </div><!--/ dropdown-menu-->
+  </li>  
+     <li class="dropdown mega-avatar">  
+      <a href="photo_profile.html#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+        <span class="avatar w-32">                  
+          @if(!empty(Auth::user()->pro_pic))
+          <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;">
+          @endif
+        </span>
+       <!-- hidden-xs hides the username on small devices so only the image appears. -->
+       <span class="hidden-xs">
+      &nbsp{{Auth::user()->name}}
+       </span>
+      </a>
+      <div class="dropdown-menu w dropdown-menu-scale pull-right">
+       <a class="dropdown-item" href="photo_profile.html#"><span>New Story</span></a> 
+       <a class="dropdown-item" href="photo_profile.html#"><span>Become a Member</span></a> 
+       <div class="dropdown-divider"></div>
+       <a class="dropdown-item" href="photo_profile.html#"><span>Profile</span></a> 
+       <a class="dropdown-item" href="photo_profile.html#"><span>Settings</span></a> 
+       <a class="dropdown-item" href="photo_profile.html#">Need help?</a> 
+       <div class="dropdown-divider"></div>
+       <a class="dropdown-item" href="photo_profile.html#">Sign out</a>
+      </div>
+     </li><!-- /navbar-item `--> 
+     
+     </ul><!-- /.sign-in -->   
+    </div><!-- /.nav-right -->
+       </div><!-- /.container -->
+      </nav><!-- /.navbar -->
+     </header><!-- Page Header --> 
+  
   
    <!-- ==============================================
    Navbar Second Section
@@ -84,7 +267,24 @@
    News Feed Section
    =============================================== --> 
 
-   <section class="newsfeed">
+   <section class="newsfeed back">
+
+   <section class="page-section article">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 mx-auto">
+            <div class=" text-center rounded">
+              <h2 class="section-heading mb-4">
+                <span class="section-heading-lower">ITCH LIST</span>
+              </h2><br>
+              <p class="mb-0"> 
+              Snaps from the Itch List we gave you.</p>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     @if(count($images)>0)
         <br>
         {{ $images->links('vendor.pagination.bootstrap-4')}}
@@ -93,7 +293,7 @@
         @endphp
 
         @foreach($images as $image)
-        @if(file_exists($image['url']))
+        @if(true)
         <section class="page-section">
           <div class="container col-md-3" style="margin-left: 50px;">
             <div class="product-item">
@@ -120,40 +320,42 @@
             </div>
             <div class="container">
               <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-8" style="margin-left: -10vw">
                   <div class="cardbox">
                     <div class="cardbox-heading">
-                      <!-- START dropdown-->
-                      <div class="dropdown pull-right">
-                        <button class="btn btn-secondary btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
-                          <em class="fa fa-ellipsis-h"></em>
-                        </button>
-                        <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                          <a class="dropdown-item" href="photo_home.html#">Hide post</a>
-                          <a class="dropdown-item" href="photo_home.html#">Stop following</a>
-                          <a class="dropdown-item" href="photo_home.html#">Report</a>
-                        </div>
-                      </div><!--/ dropdown -->
-                      <!-- END dropdown-->
+                      
                       <div class="media m-0">
-                        <div class="d-flex mr-3">
-                          <a href="/profile_index/{{$image['rollno']}}">
-                            <img class="img-responsive img-circle" src="img/users/2.jpg" alt="User">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <a href="/profile_index/{{$image['rollno']}}">
-                            <p class="m-0">{{$name[0]['name']}}</p>
-                          </a>
-                          <small><span>{{$image['created_at']->diffForHumans() }}</span></small>
-                        </div>
-                      </div><!--/ media -->
+                        
+                        <div class="bg-faded p-5 d-flex ml-auto rounded">
+              <i style="float: right;">{{$image['created_at']->diffForHumans() }}</i>
+              <h2 class="section-heading mb-0">
+                <!--<span class="section-heading-upper">Blended to Perfection</span>-->
+                @php
+                $name = App\User::where('rollno',$image['roll'])->get()->toArray();
+               // dd($name[0]['name']);
+                @endphp
+
+                <strong>
+                  @php
+                  echo '#';
+                  $count1 = $count + ($currentpage*$perpage ) -($perpage-1);
+                  echo $count1 ;
+                  $count++;
+                  @endphp
+                </strong>
+                <span class="section-heading-lower">{{$name[0]['name']}}</span>
+               
+                <span class="section-heading-upper">"{{$buckets[$image['list']]}}"</span>
+              
+              </h2>
+              
+            </div>
                     </div><!--/ cardbox-heading -->
 
                     <div class="cardbox-item">
-                      <span class="section-heading-upper" style="font-family: Aclonica;">&nbsp {{$image['caption']}}</span><br>
-                      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 " src="{{$image['url']}}" 
-                      id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 100%;height: 500px;">
+                      
+                      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 " src="{{$image['pic']}}" 
+                      id="{{$image['pic']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 100%;height: 500px;">
                     </div><!--/ cardbox-item -->
                     <div class="cardbox-like">
                       <ul style="top: 6px; position: relative;">
@@ -492,7 +694,24 @@
     });
     });
   </script>
-  
+  <script>
+      var user = <?php echo $user;?>;
+      // console.log(user[0].name);
+      var names = [];
+      for (var i = 0; i < user.length; i++) {
+        names[i] = user[i].name;
+      }
+      // console.log('names',names);
+
+      $(document).ready(function() {
+        $('#search').autocomplete({
+          source: [names]
+        });   
+      });
+      $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+  </script>
 
   </body>
 </html>

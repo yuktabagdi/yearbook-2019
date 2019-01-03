@@ -613,6 +613,7 @@ crossorigin="anonymous"></script>
                     <ul id="tabs-swipe-demo" class="nav nav-tabs nav-justified">
                       <li class="nav-item"><a data-toggle="tab" class="nav-link active " href="#testimonial">Testimonial</a></li>
                       <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#gallery">Gallery</a></li>
+                      <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#articles">Articles</a></li>
                     </ul>
                     <br>
                     <div class="tab-content">
@@ -679,7 +680,11 @@ crossorigin="anonymous"></script>
                        @include('gallery3')
                      </p>
                    </div>
-                   
+                   <div id="articles" class="tab-pane fade">
+                     <p>
+                       @include('articles')
+                     </p>
+                   </div>
                    
                    
                  </div>

@@ -72,3 +72,13 @@ Route::post('invite', 'InviteController@process')->name('process');
 Route::get('accept/{token}', 'InviteController@accept')->name('accept');
 //referenced by navbar2
 Route::get('/trendingnew','CountController@index1');
+
+Route::get('/bucket', 'BucketController@index');
+Route::post('/bucketpost/{id}','BucketController@comment');
+Route::get('/viewbucket', 'BucketController@view');
+Route::get('/viewbucket1', 'BucketController@view1');
+
+Route::post('/bucket/comment','CommentController@bucket_add');
+Route::post('/bucket/commentadd','CommentController@bucket_new');
+Route::post('/bucket/likes','LikesController@bucket_load');
+Route::post('/bucket/likeadd','LikesController@bucket_like');

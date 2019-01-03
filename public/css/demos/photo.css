@@ -2243,7 +2243,7 @@ a.navbar-brand:hover {
 
 @media (max-width: 768px){
 	.notifications ul li .media .media_body .btn_group {
-	 float: left !important;
+	 float: right !important;
 	 line-height: 1;
 	 padding-top: 5px;
 	}

@@ -29,7 +29,9 @@ class ViewsController extends Controller
             'approval' => '1',
             'read' => '0',
         ]);
-        return redirect('/profile_index');
+        $i = request('i');
+        $data = '<button type="button" class="btn btn-danger disapprove app'.$i.'"  data-no="'.$i.'" data-id="'.json_encode($id).'" id= "'.json_encode(request('rollno')).'" >Disapprove</button>';
+        return response($data, 200);
 
     }
     public function disapproval($id)
@@ -40,7 +42,9 @@ class ViewsController extends Controller
 
             'approval' => '0',
         ]);
-        return redirect('/profile_index');
+        $i = request('i');
+        $data = '<button type="button" class="btn btn-success approve app'.$i.'"  data-no="'.json_encode($i).'" data-id="'.json_encode($id).'" id= "'.json_encode(request('rollno')).'" );" >Approve</button> <div class="text_show'.$i.'" style= "padding-left: 15px;"></div>';
+        return response($data, 200);
 
     }
     public function write($roll)
