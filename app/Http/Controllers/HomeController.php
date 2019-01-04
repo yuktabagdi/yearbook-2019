@@ -59,9 +59,9 @@ class HomeController extends Controller{
 
           $user = User::get();
           $id = Auth::user()->id; 
-          $notifications = views::where('depmate',$roll)->where('read','1')->get()->toArray();
+          $notifications = views::where('depmate',$roll)->where('read','1')->get();
           $comment_notification = Comment::where('roll', $roll)->where('seen', '1')->where('user_id', '!=', $id)
-          ->latest()->get()->toArray();
+          ->latest()->get();
           return view('home',compact('writeups','images','user','notifications','currentpage','perpage', 'comment_notification'));
         }
         

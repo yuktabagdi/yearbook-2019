@@ -1,6 +1,6 @@
-<script src="js/jquery.min.js"></script>
-<script src="js/autocomplete.js"></script>
-<link rel="stylesheet" type="text/css" href="css/autocomplete.css">
+<script src="/js/jquery.min.js"></script>
+<script src="/js/autocomplete.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/autocomplete.css">
 <header class="tr-header">
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
@@ -11,7 +11,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html"><img src="img/navbar/SACLogo.png" width="150px" height="75px" style="margin-top:-23px;" /></a>
+				<a class="navbar-brand" href="index.html"><img src="/img/navbar/SACLogo.png" width="150px" height="75px" style="margin-top:-23px;" /></a>
 			</div><!-- /.navbar-header -->
 			<div class="navbar-left">
 				<div class="collapse navbar-collapse" id="navbar-collapse">
@@ -78,12 +78,12 @@
 										$pic = App\User::where('id', $notification['user_id'])->pluck('pro_pic');
 										@endphp
 										<div class="notify-icon">
-											<img src="../{{$pic[0]}}" class="img-responsive img-circle">
+											<img src="../{{$pic[0]}}" class="img-responsive img-circle" style="width: 35px; height: 35px">
 										</div>
 										<p class="notify-details" style="font-family: Verdana">
 											<strong>{{$commentedBy[0]}}</strong> commented on your post: <br>
 											<span>&nbsp"{{$notification['comments']}}"</span>
-											<small class="text-muted">{{$notification['created_at']}}</small>
+											<small class="text-muted">{{$notification['created_at']->diffForHumans()}}</small>
 										</p>
 									</button><!--/ dropdown-item-->
 									@endforeach
@@ -100,7 +100,7 @@
 										<p class="notify-details" style="font-family: Verdana">
 											<strong>{{$notification['user']}}</strong> wrote :<br>
 											<span>&nbsp"{{$notification['views']}}"</span>
-											<small class="text-muted">{{$notification['created_at']}}</small>
+											<small class="text-muted">{{$notification['created_at']->diffForHumans()}}</small>
 										</p>
 									</a><!--/ dropdown-item-->
 									@endforeach
@@ -148,7 +148,7 @@
 					<a href="photo_profile.html#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 						<span class="avatar w-32">                  
 							@if(!empty(Auth::user()->pro_pic))
-							<img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;">
+							<img class="img-fluid img-circle" src="/{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;">
 							@endif
 						</span>
 						<!-- hidden-xs hides the username on small devices so only the image appears. -->
@@ -174,6 +174,49 @@
 </nav><!-- /.navbar -->
 </header><!-- Page Header --> 
 <script>
+	$('.comment_notification').on('click', function() {
+    $('.enlargeImageModalSource').attr('src', '/'+$(this).attr('value'));
+    $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
+    $('#myModal').modal('show');
+    var formData = {
+      'comments' : $('textarea[name=comment]').val(),
+      'pic_id' : $('.enlargeImageModalSource').attr('id'),
+      '_token' : $('#comment-token').val()
+    }
+    $.ajax({
+      url: "/commentadd",
+      type: "POST",
+      data: formData,
+
+      success: function(response)
+      {
+
+        document.getElementById("comments").innerHTML = response;
+      },
+      error: function(data)
+      {
+
+      }
+    });
+    $.ajax({
+      url: "/getimage",
+      type: "POST",
+      data: formData,
+
+      success: function(response)
+      {
+        var image = response;
+        document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+        document.getElementById('posted_by').innerHTML = image["name"];
+        document.getElementById('created_at').innerHTML = image["created_at"];
+      },
+      error: function(data)
+      {
+
+      }
+    });
+  });
+
 	var user = <?php echo $user;?>;
       // console.log(user[0].name);
       var names = [];

@@ -34,7 +34,7 @@ class CommentController extends Controller
      <div class="comment-img">
      <a href="/profile_index/'.$roll.'">';
      if(!empty($pic)) {
-      $content = $content.'<img src="'.$pic.'" class="img-responsive img-circle"/>';
+      $content = $content.'<img src="/'.$pic.'" class="img-responsive img-circle"/>';
     }
     else {
       $content = $content.'<img src="img/users/10.jpeg" class="img-responsive img-circle"/>';
@@ -62,14 +62,17 @@ public function new()
    $roll = User::find($view['user_id'])->rollno;
    $pic = User::find($view['user_id'])->pro_pic;
    $date = $view->created_at->toDayDateTimeString();
-   $view->seen = 0;
-   $view->save();
+   $rollno = Image::where('id', request('pic_id'))->value('rollno');
+   if($rollno == Auth::user()->rollno){
+     $view->seen = 0;
+     $view->save();
+   }
    $content = $content.'
    <li>
    <div class="comment-img">
    <a href="/profile_index/'.$roll.'">';
    if(!empty($pic)) {
-    $content = $content.'<img src="'.$pic.'" class="img-responsive img-circle"/>';
+    $content = $content.'<img src="/'.$pic.'" class="img-responsive img-circle"/>';
   }
   else {
     $content = $content.'<img src="img/users/10.jpeg" class="img-responsive img-circle"/>';

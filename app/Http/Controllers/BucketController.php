@@ -21,9 +21,11 @@ class BucketController extends Controller
      $myviews = Bucket::where('roll',Auth::user()->rollno)->get();
      $user = User::get();
      $roll = Auth::user()->rollno;
-     
-     $notifications = views::where('depmate',$roll)->where('read','1')->get()->toArray();
-     return view('bucket_index',compact('myviews','notifications','user'));
+     $id = Auth::user()->id; 
+     $notifications = views::where('depmate',$roll)->where('read','1')->get();
+     $comment_notification = Comment::where('roll', $roll)->where('seen', '1')->where('user_id', '!=', $id)
+     ->latest()->get();
+     return view('bucket_index',compact('myviews','notifications','user', 'comment_notification'));
     }
 
 

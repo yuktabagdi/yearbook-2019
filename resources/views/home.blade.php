@@ -631,49 +631,6 @@ document.getElementById("defaultOpen").click();
 </body>
 </html>
 <script>
-  $('.comment_notification').on('click', function() {
-    $('.enlargeImageModalSource').attr('src', $(this).attr('value'));
-    $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
-    $('#myModal').modal('show');
-    var formData = {
-      'comments' : $('textarea[name=comment]').val(),
-      'pic_id' : $('.enlargeImageModalSource').attr('id'),
-      '_token' : $('#comment-token').val()
-    }
-    $.ajax({
-      url: "/commentadd",
-      type: "POST",
-      data: formData,
-
-      success: function(response)
-      {
-
-        document.getElementById("comments").innerHTML = response;
-      },
-      error: function(data)
-      {
-
-      }
-    });
-    $.ajax({
-      url: "/getimage",
-      type: "POST",
-      data: formData,
-
-      success: function(response)
-      {
-        var image = response;
-        document.getElementById('profile').href = "/profile_index/" + image["rollno"];
-        document.getElementById('posted_by').innerHTML = image["name"];
-        document.getElementById('created_at').innerHTML = image["created_at"];
-      },
-      error: function(data)
-      {
-
-      }
-    });
-  });
-
   $(function() {
     $('.product-item-img').on('click', function() {
       $('.enlargeImageModalSource').attr('src', $(this).attr('src'));

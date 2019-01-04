@@ -1,774 +1,828 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <style type="text/css">
-  @font-face {
-    font-family: 'Century gothic';
-    src: url('font.ttf');
-  }
-  #modal1{
-    overflow: hidden;
-  }
+      <!-- ==============================================
+    Title and Meta Tags
+    =============================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:description" content="" /> 
+    <meta name="csrf-token" content="{{ csrf_token() }}">  
+    
+    <!-- ==============================================
+    Favicons
+    =============================================== --> 
+    <link rel="icon" href="http://themashabrand.com/templates/Fluffs/assets/img/logo.jpg">
+    <link rel="apple-touch-icon" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon-114x114.png">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    {{-- <link rel="stylesheet" type="text/css" href="../../css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> --}}
 
-  table{
-    table-layout: fixed;
-  }
-  .animated {
-    -webkit-transition: height 0.2s;
-    -moz-transition: height 0.2s;
-    transition: height 0.2s;
-  }
+    
+      <!-- ==============================================
+    CSS
+    =============================================== -->
+    <link type="text/css" href="../css/demos/photo.css" rel="stylesheet" />
+    {{-- <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
+    <!-- ==============================================
+    Feauture Detection
+    =============================================== -->
+    <script src="http://themashabrand.com/templates/Fluffs/assets/js/modernizr-custom.js"></script>
 
-  .stars
-  {
-    margin: 20px 0;
-    font-size: 24px;
-    color: #d17581;
-  }
-  .btn{
-    width: 280px;
-  }
-  body{
-
-    font-family: Century gothic;
-  }
-  .caption{
-    margin-top: -40px;
-    background-color: #26a69a;
-  }
-
-  .caption h2{
-    text-align: left;
-    font-size: 20px;
-    color: #fff;
-    padding:10px;
-
-  }
-  .header{
-
-    background-image: url("../2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  @media only screen and (min-width: 1000px) {
-    #capt {
-      text-align: right;
-      padding-top: 0;
-    }
-    @media only screen and (min-width: 770px){
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->  
+    
+    <style>
+    .cover-img{
+      background-image: url('/img/about.jpg');
+      height:35vw;
 
     }
-    .row{
-      margin: 0 !important;
+    .back{
+      background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
+      background-attachment: fixed;
     }
-    .main-timeline{
-      overflow: hidden;
-      position: relative;
-    }
-    .main-timeline:before{
-      content: "";
-      width: 3px;
-      height: 100%;
-      background: #d6d5d5;
-      position: absolute;
-      top: 0;
-      left: 50%;
-    }
-    .main-timeline .timeline{
-      padding-right: 30px;
-      position: relative;
-    }
-    .main-timeline .timeline:before,
-    .main-timeline .timeline:after{
-      content: "";
-      display: block;
-      width: 100%;
-      clear: both;
-    }
-    .main-timeline .timeline:first-child:before,
-    .main-timeline .timeline:last-child:before{
-      content: "";
-      width: 13px;
-      height: 13px;
-      border-radius: 50%;
-      border: 2px solid #d6d5d5;
-      background: #fff;
-      margin: 0 auto;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: -3px;
-    }
-    .main-timeline .timeline:last-child:before{
-      top: auto;
-      bottom: 0;
-    }
-    .main-timeline .timeline-icon{
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: #fff;
-      border: 2px solid #d6d5d5;
-      box-sizing: content-box;
-      margin: auto;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: -4px;
-    }
-    .main-timeline .timeline-icon:before{
-      content: "";
-      display: block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #737ab4;
-      margin: auto;
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-    }
-    .main-timeline .year{
-      display: inline-block;
-      padding: 8px 20px;
-      margin: 0;
-      font-size: 14px;
-      color: #fff;
-      background: #737ab4;
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      right: 35%;
-      transform: translateY(-50%);
-    }
-    .main-timeline .year:before{
-      content: "";
-      border-right: 18px solid #737ab4;
-      border-top: 18px solid transparent;
-      border-bottom: 18px solid transparent;
-      position: absolute;
-      top: 0;
-      left: -18px;
-    }
-    .main-timeline .timeline-content{
-      width: 46.5%;
-      padding: 43px 50px;
-      margin: 0 20px 0 0;
-      background: #f2f2f2;
-      position: relative;
-    }
-    .main-timeline .timeline-content:after{
-      content: "";
-      border-left: 20px solid #f2f2f2;
-      border-top: 20px solid transparent;
-      border-bottom: 20px solid transparent;
-      position: absolute;
-      top: 50%;
-      right: -20px;
-      transform: translateY(-50%);
-    }
-    .main-timeline .title{
-      float: left;
-      font-size: 24px;
-      font-weight: bold;
-      color: #504f54;
-      margin: 0 20px 20px 0;
-    }
-    .main-timeline .post{
-      display: inline-block;
-      font-size: 14px;
-      color: #999;
-      margin-top: 6px;
-    }
-    .main-timeline .description{
-      font-size: 14px;
-      color: #7d7b7b;
-      line-height: 24px;
-      margin: 0;
-      clear: both;
-    }
-    .main-timeline .timeline:nth-child(2n){ padding: 0 0 0 30px; }
-    .main-timeline .timeline:nth-child(2n) .year{
-      right: auto;
-      left: 35%;
-    }
-    .main-timeline .timeline:nth-child(2n) .year:before{
-      border: 18px solid transparent;
-      border-right: none;
-      border-left: 18px solid #737ab4;
-      left: auto;
-      right: -18px;
-    }
-    .main-timeline .timeline:nth-child(2n) .timeline-content{
-      float: right;
-      margin: 0 0 0 20px;
-    }
-    .main-timeline .timeline:nth-child(2n) .timeline-content:after{
-      border-left: none;
-      border-right: 20px solid #f2f2f2;
-      right: auto;
-      left: -20px;
-    }
-    @media only screen and (max-width: 1200px){
-      .main-timeline .year{ right: 30%; }
-      .main-timeline .timeline:nth-child(2n) .year{ left: 30%; }
-    }
-    @media only screen and (max-width: 990px){
-      .main-timeline .year{ right: 25%; }
-      .main-timeline .timeline:nth-child(2n) .year{ left: 25%; }
-    }
-    @media only screen and (max-width: 767px){
-      .main-timeline:before{ left: 10px; }
-      .main-timeline .timeline{
-        padding: 0 0 0 30px;
-        margin-bottom: 20px;
+    @media (min-width: 768px) { 
+      .details-box{
+        margin-right: -120px;
       }
-      .main-timeline .timeline:last-child{ margin-bottom: 0; }
-      .main-timeline .timeline:first-child:before,
-      .main-timeline .timeline:last-child:before{ display: none; }
-      .main-timeline .timeline-icon{
-        margin: 0;
-        position: absolute;
-        top: 7px;
-        left: 0;
-      }
-      .main-timeline .year,
-      .main-timeline .timeline:nth-child(2n) .year{
-        display: block;
-        font-weight: bold;
-        margin: 0 0 32px 30px;
-        z-index: 1;
-        position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        transform: none;
-      }
-      .main-timeline .timeline:nth-child(2n) .year:before{
-        border-left: none;
-        border-right: 18px solid #737ab4;
-        right: auto;
-        left: -18px;
-      }
-      .main-timeline .timeline-content{ padding: 20px; }
-      .main-timeline .timeline-content,
-      .main-timeline .timeline:nth-child(2n) .timeline-content{
-        width: auto;
-        float: none;
-        margin: 0 0 0 30px;
-      }
-      .main-timeline .timeline-content:after,
-      .main-timeline .timeline:nth-child(2n) .timeline-content:after{
-        border: none;
-        border-bottom: 20px solid #f2f2f2;
-        border-left: 20px solid transparent;
-        border-right: 20px solid transparent;
-        top: -20px;
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
-      }
-    }
-    @media only screen and (max-width: 480px){
-      .main-timeline .title{
-        float: none;
-        margin: 0;
-      }
-      .main-timeline .year,
-      .main-timeline .timeline:nth-child(2n) .year{ margin-left: 20px; }
-      .main-timeline .timeline-content,
-      .main-timeline .timeline:nth-child(2n) .timeline-content{ margin-left: 10px; }
-      .main-timeline .post{ margin: 5px 0; }
     }
   </style>
-  <style type="text/css">
-  
-  .dropdown-menu{
-    top: 60px;
-    right: 0px;
-    left: unset;
-    width: 460px;
-    box-shadow: 0px 5px 7px -1px #c1c1c1;
-    padding-bottom: 0px;
-    padding: 0px;
+  <style>
+  .main-timeline{
+    overflow: hidden;
+    position: relative;
   }
-  .dropdown-menu:before{
+  .main-timeline:before{
     content: "";
+    width: 3px;
+    height: 100%;
+    background: #d6d5d5;
     position: absolute;
-    top: -20px;
-    right: 12px;
-    border:10px solid #343A40;
-    border-color: transparent transparent #343A40 transparent;
+    top: 0;
+    left: 50%;
   }
-  .head{
-    padding:5px 15px;
-    border-radius: 3px 3px 0px 0px;
+  .main-timeline .timeline{
+    padding-right: 30px;
+    position: relative;
   }
-  .notification-box{
-    padding: 10px 0px; 
+  .main-timeline .timeline:before,
+  .main-timeline .timeline:after{
+    content: "";
+    display: block;
+    width: 100%;
+    clear: both;
   }
-  .bg-gray{
-    background-color: #eee;
+  .main-timeline .timeline:first-child:before,
+  .main-timeline .timeline:last-child:before{
+    content: "";
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    border: 2px solid #d6d5d5;
+    background: #fff;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: -3px;
   }
-  @media (max-width: 640px) {
-    .dropdown-menu{
-      top: 50px;
-      left: -16px;  
-      width: 290px;
-    } 
-    .nav{
+  .main-timeline .timeline:last-child:before{
+    top: auto;
+    bottom: 0;
+  }
+  .main-timeline .timeline-icon{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #d6d5d5;
+    box-sizing: content-box;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: -4px;
+  }
+  .main-timeline .timeline-icon:before{
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #737ab4;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .main-timeline .year{
+    display: inline-block;
+    padding: 8px 20px;
+    margin: 0;
+    font-size: 14px;
+    color: #fff;
+    background: #737ab4;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    right: 35%;
+    transform: translateY(-50%);
+  }
+  .main-timeline .year:before{
+    content: "";
+    border-right: 18px solid #737ab4;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    position: absolute;
+    top: 0;
+    left: -18px;
+  }
+  .main-timeline .timeline-content{
+    width: 46.5%;
+    padding: 43px 50px;
+    margin: 0 20px 0 0;
+    background: #f2f2f2;
+    position: relative;
+  }
+  .main-timeline .timeline-content:after{
+    content: "";
+    border-left: 20px solid #f2f2f2;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+  }
+  .main-timeline .title{
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    color: #504f54;
+    margin: 0 20px 20px 0;
+  }
+  .main-timeline .post{
+    display: inline-block;
+    font-size: 14px;
+    color: #999;
+    margin-top: 6px;
+  }
+  .main-timeline .description{
+    font-size: 14px;
+    color: #7d7b7b;
+    line-height: 24px;
+    margin: 0;
+    clear: both;
+  }
+  .main-timeline .timeline:nth-child(2n){ padding: 0 0 0 30px; }
+  .main-timeline .timeline:nth-child(2n) .year{
+    right: auto;
+    left: 35%;
+  }
+  .main-timeline .timeline:nth-child(2n) .year:before{
+    border: 18px solid transparent;
+    border-right: none;
+    border-left: 18px solid #737ab4;
+    left: auto;
+    right: -18px;
+  }
+  .main-timeline .timeline:nth-child(2n) .timeline-content{
+    float: right;
+    margin: 0 0 0 20px;
+  }
+  .main-timeline .timeline:nth-child(2n) .timeline-content:after{
+    border-left: none;
+    border-right: 20px solid #f2f2f2;
+    right: auto;
+    left: -20px;
+  }
+  @media only screen and (max-width: 1200px){
+    .main-timeline .year{ right: 30%; }
+    .main-timeline .timeline:nth-child(2n) .year{ left: 30%; }
+  }
+  @media only screen and (max-width: 990px){
+    .main-timeline .year{ right: 25%; }
+    .main-timeline .timeline:nth-child(2n) .year{ left: 25%; }
+  }
+  @media only screen and (max-width: 767px){
+    .main-timeline:before{ left: 10px; }
+    .main-timeline .timeline{
+      padding: 0 0 0 30px;
+      margin-bottom: 20px;
+    }
+    .main-timeline .timeline:last-child{ margin-bottom: 0; }
+    .main-timeline .timeline:first-child:before,
+    .main-timeline .timeline:last-child:before{ display: none; }
+    .main-timeline .timeline-icon{
+      margin: 0;
+      position: absolute;
+      top: 7px;
+      left: 0;
+    }
+    .main-timeline .year,
+    .main-timeline .timeline:nth-child(2n) .year{
       display: block;
+      font-weight: bold;
+      margin: 0 0 32px 30px;
+      z-index: 1;
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      transform: none;
     }
-    .nav .nav-item,.nav .nav-item a{
-      padding-left: 0px;
+    .main-timeline .timeline:nth-child(2n) .year:before{
+      border-left: none;
+      border-right: 18px solid #737ab4;
+      right: auto;
+      left: -18px;
     }
-    .message{
-      font-size: 13px;
+    .main-timeline .timeline-content{ padding: 20px; }
+    .main-timeline .timeline-content,
+    .main-timeline .timeline:nth-child(2n) .timeline-content{
+      width: auto;
+      float: none;
+      margin: 0 0 0 30px;
+    }
+    .main-timeline .timeline-content:after,
+    .main-timeline .timeline:nth-child(2n) .timeline-content:after{
+      border: none;
+      border-bottom: 20px solid #f2f2f2;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      top: -20px;
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
     }
   }
+  @media only screen and (max-width: 480px){
+    .main-timeline .title{
+      float: none;
+      margin: 0;
+    }
+    .main-timeline .year,
+    .main-timeline .timeline:nth-child(2n) .year{ margin-left: 20px; }
+    .main-timeline .timeline-content,
+    .main-timeline .timeline:nth-child(2n) .timeline-content{ margin-left: 10px; }
+    .main-timeline .post{ margin: 5px 0; }
+  }
+  .article{
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
 </style>
-
-
-<style type="text/css">
-@font-face {
-  font-family: 'Century gothic';
-  src: url('font.ttf');
-}
-#modal1{
-  overflow: hidden;
-}
-
-table{
-  table-layout: fixed;
-}
-.btn{
-  width: 180px;
-}
-body{
-
-  font-family: Century gothic;
-}
-.caption{
-  margin-top: -40px;
-  background-color: #26a69a;
-}
-
-.cta .cta-inner:before
-{
-  content: none !important;
-}
-
-.nav-justified .nav-item {
- 
-  background-color: #a9b1a9;
-}
-</style>
-
-<link rel="stylesheet" type="text/css" href="../../css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-crossorigin="anonymous"></script>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-
-<!-- Custom fonts for this template -->
-<link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="../css/business-casual.min.css" rel="stylesheet">
-
-
-<link rel="stylesheet" type="text/css" href="../css/autocomplete.css">
-<script src="../js/autocomplete.js"></script>
-
-<!-- Bootstrap core CSS -->
-<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Custom fonts for this template -->
-<link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-
-<!-- Custom styles for this template -->
-<link href="../css/business-casual.min.css" rel="stylesheet">
-
 </head>
 
 <body>
-  <!-- Navigation--> 
-  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav" style="background-color: rgba(67,100,107,0.55);">
-    <a class="navbar-brand text-light" href="http://www.sac.iitkgp.ac.in"><img height="90" width="250" src="sac.png" alt="someimg"/></a>
-    <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="http://www.sac.iitkgp.ac.in">Yearbook</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item px-lg-6">
 
-            <form action="../search/" method="POST" class="form-inline">
-              {{ csrf_field() }}
-              <div class="form-group" >
-                <input type="text" name="search" required="required" id="search" class="form-control" placeholder="Search your friend here">
-              </div>
-              <div class="form-group" style="margin-left: 8px;">
-                <button type="submit" class="btn btn-default" style="margin-top: 0px;">Search</button>
-              </div>
-            </form>
-          </li>
-          <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/home">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/trending">Trending</a>
-          </li>
-          <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/profile_index">{{Auth::user()->name}}</a>
-          </li>
-          <li class="nav-item px-lg-3 dropdown">
-            <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-cog"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right" >
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/details">Edit Details</a>
-              </li>
-             <!--<li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="#">Change Password </a>
-              </li>-->
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/logout">Logout </a>
-              </li>
+     <!-- ==============================================
+     Navigation Section
+     =============================================== -->  
+     @include('navbar')
 
-            </ul>
-          </li>
-          <li class="nav-item px-lg-3 dropdown">
-            <a class="nav-link text-light" href="#" id="notificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" >
-
-              @if(count($notifications))
-              <i class="fa fa-bell" style="color: blue;">
-                <span lass="badge" style="position: relative; top: 6px; left: -6px;color: white; font-size: 19px;">{{count($notifications)}}</span>
-              </i>
-              @else
-              <i class="fa fa-bell"></i>
-              @endif
-
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li class="head text-light bg-dark">
-                <div class="row">
-                  <div class="col-lg-12 col-sm-12 col-12">
-                    <span>Notifications ({{count($notifications)}})</span>
-
-                  </div>
-                </li>
-                @foreach($notifications as $notification)
-                <a href="/read/{{$notification['id']}}">
-                  <li class="notification-box">
-                    <div class="row">
-                      @php
-                      $pic = App\User::where('name',$notification['user'])->pluck('pro_pic');
-                      @endphp  
-                      <div class="col-lg-3 col-sm-3 col-3 text-center">
-                        <img src="../{{$pic[0]}}" class="w-50 rounded-circle">
-                      </div> 
-                      <div class="col-lg-8 col-sm-8 col-8">
-                        <strong class="text-info">{{$notification['user']}}</strong>
-                        <div>
-                          {{$notification['views']}}
-                        </div>
-                        <small class="text-warning">{{$notification['created_at']}}</small>
-                      </div>    
-                    </div>
-                  </li>
-                </a>
-                @endforeach           
-              </ul>
-            </li>
-          </ul>
-        </div>
+   <!-- ==============================================
+   Navbar Second Section
+   =============================================== -->
+   <section class="nav-sec">
+    <div class="d-flex justify-content-between">
+      <div class="p-2 nav-icon-lg dark-black">
+        <a class="nav-icon" href="photo_home.html"><em class="fa fa-home"></em>
+          <span>Home</span>
+        </a>
       </div>
-    </nav>
-    
-    
-    @foreach($mydata as $data)   
-    <div class="container">
-      <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="../img/about.jpg" alt="">
-      <div class="about-heading-content">
-        <div class="row">
-          
-          <div class="col-xl-9 col-lg-10 mx-auto">
+      <div class="p-2 nav-icon-lg clean-black">
+        <a class="nav-icon" href="photo_explore.html"><em class="fa fa-crosshairs"></em>
+          <span>Explore</span>
+        </a>
+      </div>
+      <div class="p-2 nav-icon-lg dark-black">
+        <a class="nav-icon" href="photo_upload.html"><em class="fab fa-instagram"></em>
+          <span>Upload</span>
+        </a>
+      </div>
+      <div class="p-2 nav-icon-lg clean-black">
+        <a class="nav-icon" href="photo_stories.html"><em class="fa fa-align-left"></em>
+          <span>Stories</span>
+        </a>
+      </div>
+      <div class="p-2 nav-icon-lg mint-green">
+        <a class="nav-icon" href="photo_profile.html"><em class="fa fa-user"></em>
+          <span>Profile</span>
+        </a>
+      </div>
+    </div>
+  </section> 
 
-            <div class="bg-faded rounded p-5">
-              <div class="row">
-                
-               <div class="col l6 m6 s6" style="padding: 23px;margin-left: 30%;margin-top: -20%;"><img class="img-thumbnail" width="180px"; height= "180px";  src="<?php if (!empty($data['pro_pic'])){echo '../'.$data['pro_pic']; } else { echo '../ind/shot.jpg';}?>" alt="" class="circle responsive-img" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;"></div>
+   <!-- ==============================================
+   News Feed Section
+   =============================================== --> 
+   <div class="back">
+     <section class="profile">
+      <div class="container-fluid cover-img">
+      </div><!--/ container -->
+    </section><!--/ profile -->
+    <section class="user-profile">
+      <div class="container-fluid">
+       <div class="row">
 
-             </div> 
-             
-             <h2 class="section-heading mb-4">
-              <span class="section-heading-upper"> "<?php 
-              if ($data['view_self']&&$data['view_self']!='NULL') {
-                echo $data['view_self'];
-              }else{
-                echo "No Caption Uploaded";
-              }
-              ?>"</span>
-              <span class="section-heading-lower"><?php echo $data['name']; ?></span>
-            </h2>
-            <div class="">
-              <div class="row" style=" color: #fff;background-color: black;opacity: 0.6;padding: 10px;">
-                <div class="col l3 m3 s3 center">
-                  <h6 style="font-weight:bolder" >Roll No.</h6>
-                  <h6><?php echo $data['rollno']; ?></h6>
-                </div>
-                <div class="col l3 m3 s3 center">
-                  <h6 style="font-weight:bolder">Hall</h6>
-                  <h6><?php echo $data['HOR']; ?></h6>
-                </div>
-                <div class="col l3 m3 s3 center">
-
-                  <h6 style="font-weight:bolder">Email</h6>
-                  <h6>
-                   <?php 
-                   if ($data['email']) {
-                    echo $data['email'];
-                  }else{
-                    echo "No Email Provided";
-                  }
-                  ?></h6>
-                </div>
-
-                <div class="col l3 m3 s3 center">
-                  <h6 style="font-weight:bolder">Department</h6>
-                  <h6>
-                    <?php 
-                    if ($data['department']) {
-                      echo $data['department'];
-                    }else{
-                      echo "No Data";
-                    }
-                    ?></h6>
-                  </div>
-
-                </div>
-              </div>
-
-              
+        <div class="col-lg-12">
+         <div class="post-content">
+          <div class="author-post text-center">
+            <div>
+              <img class="img-fluid img-circle" src="<?php if (!empty($data[0]['pro_pic'])){echo '/'.$data[0]['pro_pic']; } else { echo '/ind/shot.jpg';}?>" alt="" id="OpenImgUpload" style="cursor: pointer;">
             </div>
+          </div><!-- /author -->
+        </div><!-- /.post-content -->    
+      </div><!-- /col-sm-12 -->
+
+    </div><!--/ row--> 
+  </div><!--/ container -->
+</section><!--/ profile -->
+<section class="notifications back">
+  <div class="container">
+    <div class="bg-faded rounded p-5">
+
+      <section class="details">
+        <div class="container">
+         <div class="row">
+          <div class="col-sm-4 col-sm-offset-3">
+
+            <div class="details-box row">
+             <div class="content-box">
+              <center>
+               <h4>{{$data[0]['name']}} <i class="fa fa-check"></i></h4>
+               @if(!empty($data[0]['view_self']))
+               <p class="mb-3">"{{$data[0]['view_self']}}"</p>
+               @else
+               <p class="mb-3">"Your Caption Here!"</p>
+               @endif
+             </center>
+           </div><!--/ media -->
+
+         </div><!--/ details-box -->
+
+       </div>
+     </div>
+   </div><!--/ container -->
+ </section><!--/ profile -->
+
+ <div class="col-lg-9 col-lg-offset-1">
+  <div class="row" style=" color: #fff;background-color: black;opacity: 0.6;padding: 10px;">
+    <div class="col-sm-3 col-xs-6" align="center">
+      <h4 style="font-weight:bolder" >Roll No.</h4>
+      <h5><?php echo $data[0]['rollno']; ?></h5>
+    </div>
+    <div class="col-sm-3 col-xs-6" align="center">
+      <h4 style="font-weight:bolder">Hall</h4>
+      <h5><?php echo $data[0]['HOR']; ?></h5>
+    </div>
+    <div class="col-sm-3 col-xs-6" align="center">
+
+      <h4 style="font-weight:bolder">Email</h4>
+      <h5>
+        <?php 
+        if ($data[0]['email']) {
+          echo $data[0]['email'];
+        }else{
+          echo "No Email Provided";
+        }
+        ?></h5>
+      </div>
+
+      <div class="col-sm-3 col-xs-6" align="center">
+        <h4 style="font-weight:bolder">Department</h4>
+        <h5>
+          <?php 
+          if ($data[0]['department']) {
+            echo $data[0]['department'];
+          }else{
+            echo "No Data";
+          }
+          ?></h5>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+</section>
+
+<section class="page-section cta" style="background-color: rgba(67,100,107,0.55); padding-bottom: 20px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-13 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper"></span>
+            <span class="section-heading-lower"><div class="col-md-7">
+              <div class="well well-sm">
+                <div class="text-right">
+                  {{-- <p style="text-align: center;">Write for a friend!</p> --}}
+                  <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Write Testimonial</a>
+                </div>
+
+                <div class="row" id="post-review-box" style="display:none;">
+                  <div class="col-md-12">
+                    <form action="/writetestimony/{{$data[0]['rollno']}}" onSubmit="alert('Your views will be added in his yearbook after his registration and approval');" method="POST" style="padding-top: 0;">
+                      {{csrf_field()}}
+                      <input id="ratings-hidden" name="rating" type="hidden"> 
+                      <textarea class="form-control animated" cols="50" id="new-review" name="viewf" placeholder="Enter your review here...(max 144 character)" rows="5" maxlength="144" ></textarea>
+
+                      <div class="text-right">
+                        <div class="stars starrr" data-rating="0"></div>
+                        <a class="btn btn-danger btn-md" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
+                          <span class="glyphicon glyphicon-remove"></span>Cancel</a>
+                          <button class="btn btn-success btn-md" type="submit">Submit</button>
+                        </div>
+                      </form>
+
+                    </div>
+                  </div></div></div></span>
+                </h2>
+                <p class="mb-0" style="color: #fff; font-size: 15px;"> Here’s what your friends written about you! Your testimonials are displayed below. You can approve or disapprove them by selecting the option shown beside each testimonial. The approved ones shall be a part of your yearbook.</p>
+                <br>
+
+                <ul id="tabs-swipe-demo" class="nav nav-tabs nav-justified">
+                  <li class="nav-item"><a data-toggle="tab" class="nav-link" id="default" href="#testimonial">Testimonial</a></li>
+                  <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#gallery">Gallery</a></li>
+                  <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#articles">Articles</a></li>
+                </ul>
+                <br>
+                <div class="tab-content">
+                  <div id="testimonial" class="container tab-pane active">
+
+                    <?php
+                    if(count($myviews)){
+                    $l=0;
+                    echo'
+                    <div class="container">
+                    <div class="row">
+                    <div class="col-md-12">
+                    <div class="main-timeline">';
+                    
+                    foreach($myviews as $view)
+                    {
+                      $pic = App\User::where('name', $view['user'])->pluck('pro_pic');
+                      $writtenBy = App\User::where('name', $view['user'])->value('rollno');
+                      if($view['approval']=='1'){
+
+                        if($l==0)
+                        {
+                         echo ' <div class="timeline">
+                        <span class="timeline-icon"></span>
+                        <span class="year">Testimonial</span>
+                        <div class="timeline-content media_body">
+                        <a href="/profile_index/'.$writtenBy.'">
+                         <img src="/'.$pic[0].'" alt="" class="img-responsive img-circle" style="width: 35px; height: 35px;">
+                         <p><b style="color: #000">'.$view['user'].'</b></a> wrote for you: </p>
+                         <p>"'.$view['views'].'"</p>
+                        <h6>'.$view->created_at->diffForHumans().'</h6>
+                        </div>
+                        </div>';
+                         $l=1;
+                       }
+                       else{
+                        echo'
+
+                        <div class="timeline">
+                        <span class="timeline-icon"></span>
+                        <span class="year">Testimonial</span>
+                        <div class="timeline-content media_body">
+                        <a href="/profile_index/'.$writtenBy.'">
+                         <img src="/'.$pic[0].'" alt="" class="img-responsive img-circle" style="width: 35px; height: 35px;">
+                         <p><b style="color: #000">'.$view['user'].'</b></a> wrote for you: </p>
+                         <p>"'.$view['views'].'"</p>
+                        <h6>'.$view->created_at->diffForHumans().'</h6>
+                        </div>
+                        </div>';
+                        $l=0;
+                      }
+
+                    }
+                  }
+                  echo '
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  ';
+                }
+                  else{
+                    echo
+                  '<section class="page-section cta" style="background-color: rgba(76,71,97,0.55);">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-xl-9 mx-auto">
+                          <div class="cta-inner text-center rounded">
+                            <h2 class="section-heading mb-4">
+                              <span class="section-heading-upper"></span>
+                              <span class="section-heading-lower" style="color: #fff">Nothing to show yet!</span>
+                            </h2><br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>';}
+                  ?>
+
+                </div>
+                <div id="gallery" class="tab-pane fade">
+                 <section class="newsfeed">
+                   <div class="container">
+                    <div class="row">
+
+                      @if(count($images)>0)
+                      {{ $images->links('vendor.pagination.bootstrap-4')}}
+                      @php
+                      $count= 0;
+                      @endphp
+
+                      @foreach($images as $image)
+                      @if(file_exists($image['url']))
+                      <section class="page-section">
+                        <div class="col-lg-4">
+                         <div class="explorebox" style="border-radius: 10px;">
+                          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="/{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
+                          <div class="explore-top" style="position: relative;top:-400px;">
+                            @php
+                            $likes = DB::table('likes')->where('pic_id', $image['id'])->count();
+                            @endphp
+                            <div class="explore-like" style="position: absolute; left: 0"><i class="fa fa-heart"></i> <span>{{$likes}}</span></div>
+                          </div>      
+                        </div>
+                      </div>
+                    </section>
+                    @endif
+                    @endforeach
+
+                    {{ $images->links('vendor.pagination.bootstrap-4')}}
+
+                    @else
+
+                    <section class="page-section cta" style="background-color: rgba(76,71,97,0.55);">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-xl-9 mx-auto">
+                            <div class="cta-inner text-center rounded">
+                              <h2 class="section-heading mb-4">
+                                <span class="section-heading-upper"></span>
+                                <span class="section-heading-lower" style="color: #fff">Nothing to show yet!</span>
+                              </h2>
+
+                              <br>
+
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </section>
+
+                    @endif
+                  </div>  
+                </div>
+              </section>
+            </div>
+            <div id="articles" class="tab-pane fade">
+              @if(count($writeups)>0)
+             @foreach($writeups as $writeup)
+             <div class="article" style="padding-top:2vw;padding-right: 6vw;padding-left:2vw;">
+
+              <h2 class="section-heading mb-4 text-center">
+                <a href="/writeup/{{ $writeup->id }}"><i style="float: right;color: black;font-size: 30px" class="material-icons">delete</i></a>
+                <span class="section-heading-lower">{{ $writeup->topic }} </span>
+
+              </h2>
+
+              <p style="padding: 2vw;text-align: left;" title="Click to edit!" data-value="{{csrf_token()}}" onblur="update({{ $writeup->id }})" id="{{ $writeup->id }}" contenteditable >{!!  nl2br($writeup->writeup)!!}</p>
+            </div>
+            @endforeach
+            @else
+            <section class="page-section cta" style="background-color: rgba(76,71,97,0.55);">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xl-9 mx-auto">
+                    <div class="cta-inner text-center rounded">
+                      <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper"></span>
+                        <span class="section-heading-lower" style="color: #fff">Nothing to show yet!</span>
+                      </h2>
+
+                      <br>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+            @endif
+
           </div>
+
         </div>
       </div>
     </div>
-    @endforeach
-    <section class="page-section cta" style="background-color: rgba(67,100,107,0.55);">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-13 mx-auto">
-            <div class="cta-inner text-center rounded">
-              <h2 class="section-heading mb-4">
-                <span class="section-heading-upper"></span>
-                <span class="section-heading-lower"><div class="col-md-7">
-                  <div class="well well-sm">
-                    <div class="text-right">
-                      <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Write Testimonial</a>
-                    </div>
-                    
-                    <div class="row" id="post-review-box" style="display:none;">
-                      <div class="col-md-12">
-                        <form action="/writetestimony/{{$data['rollno']}}" onSubmit="alert('Your views will be added in his yearbook after his registration and approval');" method="POST" style="padding-top: 0;">
-                          {{csrf_field()}}
-                          <input id="ratings-hidden" name="rating" type="hidden"> 
-                          <textarea class="form-control animated" cols="50" id="new-review" name="viewf" placeholder="Enter your review here...(max 144 character)" rows="5" maxlength="144" ></textarea>
-                          
-                          <div class="text-right">
-                            <div class="stars starrr" data-rating="0"></div>
-                            <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
-                              <span class="glyphicon glyphicon-remove"></span>Cancel</a>
-                              <button class="btn btn-success btn-sm" type="submit">Submit</button>
-                            </div>
-                          </form>
-                          
-                        </div>
-                      </div> </span>
-                    </h2>
-                    <p class="mb-0"> Here’s what your friends written about you! Your testimonials are displayed below. You can approve or disapprove them by selecting the option shown beside each testimonial. The approved ones shall be a part of your yearbook.</p>
-                    <br>
-                    
-                    <ul id="tabs-swipe-demo" class="nav nav-tabs nav-justified">
-                      <li class="nav-item"><a data-toggle="tab" class="nav-link active " href="#testimonial">Testimonial</a></li>
-                      <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#gallery">Gallery</a></li>
-                      <li class="nav-item"><a data-toggle="tab" class="nav-link" href="#articles">Articles</a></li>
-                    </ul>
-                    <br>
-                    <div class="tab-content">
-                      <div id="testimonial" class="container tab-pane active">
 
-                        <?php
-                        $l=0;
-                        echo'
-                        <div class="container">
-                        <div class="row">
-                        <div class="col-md-12">
-                        <div class="main-timeline">';
-                        foreach($myviews as $view)
-                        {
-                          if($view['approval']=='1'){
+  </div>
 
-                            if($l==0)
-                            {
-                             echo ' <div class="timeline">
-                             <span class="timeline-icon" ></span>
-                             <span class="year">Testimonial</span>
-                             <div class="timeline-content">
-                             <h3 class="title">'.$view['user'].'</h3>
-                             <span class="post"></span>
-                             <p class="description">
-                             '.$view["views"].'
-                             </p>
-                             </div>
-                             </div>';
-                             $l=1;
-                           }
-                           else{
-                            echo'
+</section>
+</div>
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog">
+   <div class="modal-content">
+    <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+       <span aria-hidden="true">×</span>
+       <span class="sr-only">Close</span>
+     </button>
+     <div class="row">
 
-                            <div class="timeline">
-                            <span class="timeline-icon"></span>
-                            <span class="year">Testimonial</span>
-                            <div class="timeline-content">
-                            <h3 class="title">'.$view['user'].'</h3>
-                            <span class="post"></span>
-                            <p class="description">
-                            '.$view["views"].'
-                            </p>
-                            </div>
-                            </div>';
-                            $l=0;
-                          }
+      <div class="col-md-8 modal-image">
+        <img class="img-responsive enlargeImageModalSource" src="" alt="Image"/>
+      </div><!--/ col-md-8 -->
+      <div class="col-md-4 modal-meta">
+       <div class="modal-meta-top">
+        <div class="img-poster clearfix">
+          <a href="#" id="profile">
+            <img class="img-responsive img-circle" id="image" src="" />
+            <strong><span style="font-size: 14px;" id="posted_by"></span></strong>
+          </a>
+        <span id="created_at"></span><br/>
+      </div><!--/ img-poster -->
+      <div id="comments"> 
+      </div>
 
-                        }
-                      }
-                      echo '
-                      </div>
-                      </div>
-                      </div>
-                      </div>
-                      ';
+      <div class="modal-meta-bottom">     
+        <span class="thumb-xs">
+          @if(!empty($data[0]['pro_pic']))
+          <img class="img-fluid img-circle" src="/{{$data[0]['pro_pic']}}" style="width: 35px; height: 35px;" alt="Image">
+          @endif       
+        </span>
+        <div class="comment-body">
+          <form class="form" id="form-comment" action="/comment" method="post">
+            {{csrf_field()}}
+            <input id="comment-token" type="hidden" name="_token" value="{{ csrf_token() }}">
+            <textarea name="comment" id="textarea" class="form-control input-sm" rows="2" type="text" placeholder="Write your comment..." required></textarea>
+            <div align="right">
+              <button class="btn" id="submit" style="margin-top: 10px;"><span>Comment</span></button>
+            </div>
+          </form>
+        </div><!--/ comment-body -->        
+      </div><!--/ modal-meta-bottom -->
 
+    </div><!--/ modal-meta-top -->
+  </div><!--/ col-md-4 -->
 
-                      ?>
+</div><!--/ row -->
+</div><!--/ modal-body -->
 
-                    </div>
-                    <div id="gallery" class="tab-pane fade">
-                     <p>
-                       @include('gallery3')
-                     </p>
-                   </div>
-                   <div id="articles" class="tab-pane fade">
-                     <p>
-                       @include('articles')
-                     </p>
-                   </div>
-                   
-                   
-                 </div>
-               </div>
-             </div>
-
-           </div>
-           
-         </section>
-         <footer class="footer text-faded text-center py-5">
-          <div class="container">
-            <p class="m-0 small">Copyright &copy; Yearbook 2018</p>
-            <p class="m-0 small"><a target="_blank" href="http://www.sac.iitkgp.ac.in/team.php">Contact Us</a></p>
-          </div>
-        </footer>
-
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-      </body>
-
-      </html>
-      <script type="text/javascript">
-
-        function call($id)
-        {
-          alert($id);
-        }
-        $('.approve').click('.approve', function(){
-
-
-          var rollno = $(this).attr('id');
-          var no = $(this).attr('data-no');
-          var id = $(this).attr('data-id');
-          var query= id;
-
-          window.location="/approve/"+id;
-
-        }); 
-        $('.disapprove').click('.disapprove',function(){
-
-          var rollno = $(this).attr('id');
-          var no = $(this).attr('data-no');
-          var id = $(this).attr('data-id');
-
-          var query= '1';
-
-          window.location="/disapprove/"+id;
-
-        }); 
-
-
-      </script>
-      <script type="text/javascript">
-        var user = <?php echo $user;?>;
-    //console.log(user[0].name);
-    var names = [];
-    for (var i = 0; i < user.length; i++) {
-      names[i] = user[i].name;
-    }
-    //console.log('names',names);
-    
-    $(function() {
-      $("#search").autocomplete({
-        source:[names]
-      }); 
-    });
+</div><!--/ modal-content -->
+</div><!--/ modal-dialog -->
+</div><!--/ modal -->
+<footer class="footer text-faded text-center py-5" style=" color: #fff;background-color: grey;">
+  <div class="container">
+    <p class="m-0 small">Copyright &copy; Yearbook 2018</p>
+    <p class="m-0 small"><a target="_blank" href="http://www.sac.iitkgp.ac.in/team.php">Contact Us</a></p>
+  </div>
+</footer>
+     <!-- ==============================================
+   Scripts
+   =============================================== -->
+   <script src="/js/bootstrap.min.js"></script>
+   <script src="/js/base.js"></script>
+   <script src="/plugins/slimscroll/jquery.slimscroll.js"></script>
+   <script>
+    $('#Slim,#Slim2').slimScroll({
+      height:"auto",
+      position: 'right',
+      railVisible: true,
+      alwaysVisible: true,
+      size:"8px",
+    });   
   </script>
-  <script>
 
-   $(document).ready(function(){
-     if ($(window).width()<770) {
-      (function($){ $('.body').addClass('container-fluid');
-        $('#logo_mob').show();
-
-      })(jQuery, undefined); }
-      else{$('.body').addClass('container');
-      $('.logo_desk').show();}
-
-    });
-  </script>
 </body>
 </html>
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    
+  });
+  function call($id)
+  {
+    alert($id);
+  }
+  
+  function update(id){
+    var writeupedit=$("#"+id).text();
+  //console.log(writeupedit);
+  $.ajax({
+    type: "POST",
+    url:' {{ URL::to("/updates") }} ',
+    data: {
+      writeup: writeupedit,
+      id:id,
+      _token: $("#"+id).attr('data-value'),
+    }
+  });
+}
+
+$(function() {
+    $('.product-item-img').on('click', function() {
+      $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
+      $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
+      $('#myModal').modal('show');
+      var formData = {
+        'comments' : $('textarea[name=comment]').val(),
+        'pic_id' : $('.enlargeImageModalSource').attr('id'),
+        '_token' : $('#comment-token').val()
+      }
+      $.ajax({
+        url: "/commentadd",
+        type: "POST",
+        data: formData,
+
+        success: function(response)
+        {
+
+          document.getElementById("comments").innerHTML = response;
+        },
+        error: function(data)
+        {
+
+        }
+      });
+    $.ajax({
+      url: "/getimage",
+      type: "POST",
+      data: formData,
+
+      success: function(response)
+      {
+        var image = response;
+        document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+        document.getElementById('image').src = '/'+image['pic'];
+        document.getElementById('posted_by').innerHTML = image["name"];
+        document.getElementById('created_at').innerHTML = image["created_at"];
+      },
+      error: function(data)
+      {
+
+      }
+    });
+  });
+  });
+
+  $(document).ready(function (e) {
+    $('form#form-comment').on('submit', function(e) {
+     e.preventDefault();
+     var formData = {
+      'comments' : $('textarea[name=comment]').val(),
+      'pic_id' : $('.enlargeImageModalSource').attr('id'),
+      '_token' : $('#comment-token').val()
+    }
+      // console.log(formData);
+
+      $.ajax({
+        url: "/comment",
+        type: "POST",
+        data: formData,
+        
+        success: function(response)
+        {
+          // console.log('Added Comments');
+          document.getElementById("textarea").value="";
+          document.getElementById("comments").innerHTML = response;
+        },
+        error: function(data)
+        {
+          // console.log('Error in comment');  
+        }
+      });
+    });
+  });
+</script>
 <script type="text/javascript">
   (function(e){var t,o={className:"autosizejs",append:"",callback:!1,resizeDelay:10},i='<textarea tabindex="-1" style="position:absolute; top:-999px; left:0; right:auto; bottom:auto; border:0; padding: 0; -moz-box-sizing:content-box; -webkit-box-sizing:content-box; box-sizing:content-box; word-wrap:break-word; height:0 !important; min-height:0 !important; overflow:hidden; transition:none; -webkit-transition:none; -moz-transition:none;"/>',n=["fontFamily","fontSize","fontWeight","fontStyle","letterSpacing","textTransform","wordSpacing","textIndent"],s=e(i).data("autosize",!0)[0];s.style.lineHeight="99px","99px"===e(s).css("lineHeight")&&n.push("lineHeight"),s.style.lineHeight="",e.fn.autosize=function(i){return this.length?(i=e.extend({},o,i||{}),s.parentNode!==document.body&&e(document.body).append(s),this.each(function(){function o(){var t,o;"getComputedStyle"in window?(t=window.getComputedStyle(u,null),o=u.getBoundingClientRect().width,e.each(["paddingLeft","paddingRight","borderLeftWidth","borderRightWidth"],function(e,i){o-=parseInt(t[i],10)}),s.style.width=o+"px"):s.style.width=Math.max(p.width(),0)+"px"}function a(){var a={};if(t=u,s.className=i.className,d=parseInt(p.css("maxHeight"),10),e.each(n,function(e,t){a[t]=p.css(t)}),e(s).css(a),o(),window.chrome){var r=u.style.width;u.style.width="0px",u.offsetWidth,u.style.width=r}}function r(){var e,n;t!==u?a():o(),s.value=u.value+i.append,s.style.overflowY=u.style.overflowY,n=parseInt(u.style.height,10),s.scrollTop=0,s.scrollTop=9e4,e=s.scrollTop,d&&e>d?(u.style.overflowY="scroll",e=d):(u.style.overflowY="hidden",c>e&&(e=c)),e+=w,n!==e&&(u.style.height=e+"px",f&&i.callback.call(u,u))}function l(){clearTimeout(h),h=setTimeout(function(){var e=p.width();e!==g&&(g=e,r())},parseInt(i.resizeDelay,10))}var d,c,h,u=this,p=e(u),w=0,f=e.isFunction(i.callback),z={height:u.style.height,overflow:u.style.overflow,overflowY:u.style.overflowY,wordWrap:u.style.wordWrap,resize:u.style.resize},g=p.width();p.data("autosize")||(p.data("autosize",!0),("border-box"===p.css("box-sizing")||"border-box"===p.css("-moz-box-sizing")||"border-box"===p.css("-webkit-box-sizing"))&&(w=p.outerHeight()-p.height()),c=Math.max(parseInt(p.css("minHeight"),10)-w||0,p.height()),p.css({overflow:"hidden",overflowY:"hidden",wordWrap:"break-word",resize:"none"===p.css("resize")||"vertical"===p.css("resize")?"none":"horizontal"}),"onpropertychange"in u?"oninput"in u?p.on("input.autosize keyup.autosize",r):p.on("propertychange.autosize",function(){"value"===event.propertyName&&r()}):p.on("input.autosize",r),i.resizeDelay!==!1&&e(window).on("resize.autosize",l),p.on("autosize.resize",r),p.on("autosize.resizeIncludeStyle",function(){t=null,r()}),p.on("autosize.destroy",function(){t=null,clearTimeout(h),e(window).off("resize",l),p.off("autosize").off(".autosize").css(z).removeData("autosize")}),r())})):this}})(window.jQuery||window.$);
 
