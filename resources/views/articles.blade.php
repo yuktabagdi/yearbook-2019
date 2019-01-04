@@ -49,9 +49,17 @@
 </div>
 
 @foreach($writeups as $writeup)
-      <b>{{ $writeup->topic }}:</b>
-      <p onblur="update({{ $writeup->id }})" id="{{ $writeup->id }}" contenteditable >{!!  nl2br($writeup->writeup)!!}</p>
-  @endforeach
+<div class="article" style="padding-top:2vw;padding-right: 6vw;padding-left:2vw ">
+  
+  <h2 class="section-heading mb-4 text-center">
+    <a href="/writeup/{{ $writeup->id }}"><i style="float: right;color: black;font-size: 30px" class="material-icons">delete</i></a>
+    <span class="section-heading-lower">{{ $writeup->topic }} </span>
+
+  </h2>
+
+  <p style="padding: 2vw;text-align: left" onblur="update({{ $writeup->id }})" id="{{ $writeup->id }}" contenteditable >{!!  nl2br($writeup->writeup)!!}</p>
+</div>
+@endforeach
 
   
 <script type="text/javascript">

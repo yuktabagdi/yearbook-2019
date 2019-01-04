@@ -12,37 +12,32 @@
 
   <!-- Bootstrap core CSS -->
 
-  <link rel="stylesheet" type="text/css" href="http://www.sac.iitkgp.ac.in/yearbook_files/css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+{{--   <link rel="stylesheet" type="text/css" href="http://www.sac.iitkgp.ac.in/yearbook_files/css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ --}}
 
-  <script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-
+ --}}
   <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  {{-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-
+ --}}
   <!-- Custom styles for this template -->
   <link href="http://www.sac.iitkgp.ac.in/yearbook_files/css/business-casual.min.css" rel="stylesheet">
+  <link type="text/css" href="/css/demos/photo.css" rel="stylesheet" />
 
 
-  <link rel="stylesheet" type="text/css" href="http://www.sac.iitkgp.ac.in/yearbook_files/css/autocomplete.css">
-  <script src="http://www.sac.iitkgp.ac.in/yearbook_files/js/autocomplete.js"></script>
-  <link rel="stylesheet" type="text/css" href="../css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  {{-- <link rel="stylesheet" type="text/css" href="../css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
+  <link rel="icon" href="http://themashabrand.com/templates/Fluffs/assets/img/logo.jpg">
+  <link rel="apple-touch-icon" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon-114x114.png">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-
-
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style type="text/css">
-
+/*
   .dropdown-menu{
     top: 60px;
     right: 0px;
@@ -85,7 +80,7 @@
     .message{
       font-size: 13px;
     }
-  }
+  }*/
 </style>
 
 
@@ -129,125 +124,7 @@ body{
 
 <body style="back">
   <!-- Navigation--> 
-  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav" style="background-color: rgba(67,100,107,0.55);">
-    <a class="navbar-brand text-light" href="http://www.sac.iitkgp.ac.in"><img height="90" width="250" src="sac.png" alt="someimg"/></a>
-    <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="http://www.sac.iitkgp.ac.in">Yearbook</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item px-lg-6">
-
-            <form action="/yearbook/search/" method="POST" class="form-inline">
-              {{ csrf_field() }}
-              <div class="form-group" >
-                <input type="text" name="search" required="required" id="search" class="form-control" placeholder="Search your friend here">
-              </div>
-              <div class="form-group" style="margin-left: 8px;">
-                <button type="submit" class="btn btn-default" style="margin-top: 0px;">Search</button>
-              </div>
-            </form>
-          </li>
-          <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/yearbook/home">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/yearbook/trending">Trending</a>
-          </li>
-          <li class="nav-item  px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/yearbook/profile_index">{{Auth::user()->name}}</a>
-          </li>
-          <li class="nav-item active px-lg-3 dropdown"  data-step="9" data-intro="<center> Itch List ">
-            <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-opencart"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right" >
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/yearbook/bucket">Fill the itch list</a>
-              </li>
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/yearbook/viewbucket">View itch list</a>
-              </li>
-              
-
-            </ul>
-          </li>
-          <li class="nav-item px-lg-3 dropdown">
-            <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-cog"><span class="badge badge-danger" style="bottom: 8px;position: relative;right: -7px;">new</span></i>
-            </a>
-
-            <ul class="dropdown-menu dropdown-menu-right" >
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/yearbook/details">Edit Details</a>
-              </li>
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/yearbook/changepassword">Change Password </a>
-              </li>
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/yearbook/classmap">Class Map<span class="badge badge-danger" style="bottom: 8px;position: relative;right: -7px;">new</span></a>
-              </li>
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/yearbook/polls">Polls<span class="badge badge-danger" style="bottom: 8px;position: relative;right: -7px;">new</span></a>
-              </li>
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/yearbook/logout">Logout </a>
-              </li>
-
-            </ul>
-          </li>
-          <li class="nav-item px-lg-3 dropdown">
-            <a class="nav-link text-light" href="#" id="notificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" >
-
-              @if(count($notifications))
-              <i class="fa fa-bell" style="color: blue;">
-                <span lass="badge" style="position: relative; top: 6px; left: -6px;color: white; font-size: 19px;">{{count($notifications)}}</span>
-              </i>
-              @else
-              <i class="fa fa-bell"></i>
-              @endif
-
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li class="head text-light bg-dark">
-                <div class="row">
-                  <div class="col-lg-12 col-sm-12 col-12">
-                    <span>Notifications ({{count($notifications)}})</span>
-
-                  </div>
-                </li>
-                @foreach($notifications as $notification)
-                <a href="/yearbook/read/{{$notification['id']}}">
-                  <li class="notification-box">
-                    <div class="row">
-                      @php
-                      $pic = App\User::where('name',$notification['user'])->pluck('pro_pic');
-                      @endphp  
-                      <div class="col-lg-3 col-sm-3 col-3 text-center">
-                        <img src="../{{$pic[0]}}" class="w-50 rounded-circle">
-                      </div> 
-                      <div class="col-lg-8 col-sm-8 col-8">
-                        <strong class="text-info">{{$notification['user']}}</strong>
-                        <div>
-                          {{$notification['views']}}
-                        </div>
-                        <small class="text-warning">{{$notification['created_at']}}</small>
-                      </div>    
-                    </div>
-                  </li>
-                </a>
-                @endforeach           
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
+  @include('navbar')
 
 
 
@@ -689,8 +566,18 @@ body{
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/base.js"></script>
+<script src="/plugins/slimscroll/jquery.slimscroll.js"></script>
+<script>
+  $('#Slim,#Slim2').slimScroll({
+    height:"auto",
+    position: 'right',
+    railVisible: true,
+    alwaysVisible: true,
+    size:"8px",
+  });   
+</script>
 
 </body>
 
@@ -726,28 +613,6 @@ body{
 
 
 </script>
-<script type="text/javascript">
-  var user = <?php echo $user;?>;
-    //console.log(user[0].name);
-    var names = [];
-    for (var i = 0; i < user.length; i++) {
-      names[i] = user[i].name;
-    }
-    //console.log('names',names);
-    
-    $(function() {
-      $("#search").autocomplete({
-        source:[names]
-      }); 
-    });
-  </script>
-
-
-
-
-
-
-
 
 
   <!-- this is the markup. you can change the details (your own name, your own avatar etc.) but don’t change the basic structure! -->
