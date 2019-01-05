@@ -300,35 +300,7 @@
    <!-- ==============================================
    Navbar Second Section
    =============================================== -->
-   <section class="nav-sec">
-    <div class="d-flex justify-content-between">
-      <div class="p-2 nav-icon-lg dark-black">
-        <a class="nav-icon" href="photo_home.html"><em class="fa fa-home"></em>
-          <span>Home</span>
-        </a>
-      </div>
-      <div class="p-2 nav-icon-lg clean-black">
-        <a class="nav-icon" href="photo_explore.html"><em class="fa fa-crosshairs"></em>
-          <span>Explore</span>
-        </a>
-      </div>
-      <div class="p-2 nav-icon-lg dark-black">
-        <a class="nav-icon" href="photo_upload.html"><em class="fab fa-instagram"></em>
-          <span>Upload</span>
-        </a>
-      </div>
-      <div class="p-2 nav-icon-lg clean-black">
-        <a class="nav-icon" href="photo_stories.html"><em class="fa fa-align-left"></em>
-          <span>Stories</span>
-        </a>
-      </div>
-      <div class="p-2 nav-icon-lg mint-green">
-        <a class="nav-icon" href="photo_profile.html"><em class="fa fa-user"></em>
-          <span>Profile</span>
-        </a>
-      </div>
-    </div>
-  </section> 
+  
 
    <!-- ==============================================
    News Feed Section
@@ -426,16 +398,16 @@
 </div>
 </section>
 
-<section class="page-section cta" style="background-color: rgba(67,100,107,0.55); padding-bottom: 20px;">
+<section class="page-section cta" style="padding-bottom: 20px;">
   <div class="container">
     <div class="row">
       <div class="col-xl-13 mx-auto">
         <div class="cta-inner text-center rounded">
           <h2 class="section-heading mb-4">
             <span class="section-heading-upper"></span>
-            <span class="section-heading-lower"><div class="col-md-7">
-              <div class="well well-sm">
-                <div class="text-right">
+            <span class="section-heading-lower">
+              <div class="well well-sm" align="center" style="background-color: rgba(67,100,107,0); border:none">
+                <div>
                   {{-- <p style="text-align: center;">Write for a friend!</p> --}}
                   <a class="btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">Write Testimonial</a>
                 </div>
@@ -446,17 +418,16 @@
                       {{csrf_field()}}
                       <input id="ratings-hidden" name="rating" type="hidden"> 
                       <textarea class="form-control animated" cols="50" id="new-review" name="viewf" placeholder="Enter your review here...(max 144 character)" rows="5" maxlength="144" ></textarea>
-
+                      <br>
                       <div class="text-right">
-                        <div class="stars starrr" data-rating="0"></div>
                         <a class="btn btn-danger btn-md" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
-                          <span class="glyphicon glyphicon-remove"></span>Cancel</a>
+                          Cancel</a>
                           <button class="btn btn-success btn-md" type="submit">Submit</button>
                         </div>
                       </form>
 
                     </div>
-                  </div></div></div></span>
+                  </div></div></span>
                 </h2>
                 <p class="mb-0" style="color: #fff; font-size: 15px;"> Here’s what your friends written about you! Your testimonials are displayed below. You can approve or disapprove them by selecting the option shown beside each testimonial. The approved ones shall be a part of your yearbook.</p>
                 <br>
@@ -492,7 +463,7 @@
                         <span class="year">Testimonial</span>
                         <div class="timeline-content media_body">
                         <a href="/profile_index/'.$writtenBy.'">
-                         <img src="/'.$pic[0].'" alt="" class="img-responsive img-circle" style="width: 35px; height: 35px;">
+                         <div align="center"><img src="/'.$pic[0].'" alt="" class="img-responsive img-circle" style="width: 60px; height: 60px;"></div>
                          <p><b style="color: #000">'.$view['user'].'</b></a> wrote for you: </p>
                          <p>"'.$view['views'].'"</p>
                         <h6>'.$view->created_at->diffForHumans().'</h6>

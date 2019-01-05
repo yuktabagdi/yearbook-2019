@@ -27,7 +27,7 @@ class CountController extends Controller
     {
 
         //to select 50 images and show them in 10 per page
-        $images=Image::orderBy('totalcount','DESC')->take(50)->paginate(5);
+        $images=Image::orderBy('totalcount','DESC')->take(50)->paginate(2);
 
         $currentpage=$images->currentPage();
         $perpage=$images->perPage();
@@ -39,7 +39,7 @@ class CountController extends Controller
         $comment_notification = Comment::where('roll', $roll)->where('seen', '1')->where('user_id', '!=', $id)
         ->latest()->get();
         
-        return view('trending1',compact('images','user','notifications','currentpage','perpage', 'comment_notification'));
+        return view('trending',compact('images','user','notifications','currentpage','perpage', 'comment_notification'));
     }
 
 

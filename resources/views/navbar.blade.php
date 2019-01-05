@@ -31,13 +31,13 @@
 						</div>              
 					</li>
 					<li class="">
-						<a class="text-uppercase text-expanded" href="/homenew">Home
+						<a class="text-uppercase text-expanded" href="/home">Home
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
 
 					<li class="active">
-						<a class="text-uppercase text-expanded" href="trendingnew"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
+						<a class="text-uppercase text-expanded" href="/trending"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
 					</li>
 					<li class="dropdown notification-list">
 						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="notification" role="button"
@@ -156,24 +156,73 @@
 							&nbsp{{Auth::user()->name}}
 						</span>
 					</a>
-					<div class="dropdown-menu w dropdown-menu-scale pull-right">
-						<a class="dropdown-item" href="photo_profile.html#"><span>New Story</span></a> 
-						<a class="dropdown-item" href="photo_profile.html#"><span>Become a Member</span></a> 
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="photo_profile.html#"><span>Profile</span></a> 
-						<a class="dropdown-item" href="photo_profile.html#"><span>Settings</span></a> 
-						<a class="dropdown-item" href="photo_profile.html#">Need help?</a> 
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="photo_profile.html#">Sign out</a>
-					</div>
+					
 				</li><!-- /navbar-item `--> 
 
 			</ul><!-- /.sign-in -->   
 		</div><!-- /.nav-right -->
 	</div><!-- /.container -->
 </nav><!-- /.navbar -->
-</header><!-- Page Header --> 
+
+</header>
+<!-- Page Header --> 
+<section class="nav-sec">
+    <div class="d-flex justify-content-between">
+     <div class="p-2 nav-icon-lg mint-green">
+     <a class="nav-icon" href="/polls"><em class="fa fa-home"></em>
+    <span>Polls</span>
+     </a>
+     </div>
+     <div class="p-2 nav-icon-lg clean-black">
+     <a class="nav-icon modal-trigger" href="#modal_test" data-target="#modal_test" ><em class="fa fa-crosshairs"></em>
+    <span>Testimonials</span>
+     </a>
+     </div>
+     <div class="p-2 nav-icon-lg dark-black">
+     <a class="nav-icon" href="/bucket"><em class="fab fa-instagram"></em>
+    <span>Fill Bucket</span>
+     </a>
+     </div>
+     <div class="p-2 nav-icon-lg clean-black">
+     <a class="nav-icon" href="/viewbucket"><em class="fa fa-align-left"></em>
+    <span>View Bucket</span>
+     </a>
+     </div>
+     <div class="p-2 nav-icon-lg dark-black">
+     <a class="nav-icon" href="#"><em class="fa fa-user"></em>
+    <span>Class Map</span>
+     </a>
+     </div>
+    </div>
+  </section>
+
+<div id="modal_test" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Write testimonials</h4>
+        </div>
+        <div class="modal-body">
+         <div class="search-dashboard">
+							<form action="search/" method="POST" class="form-inline">
+								{{ csrf_field() }}
+								<input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; padding-top: 3px; padding-left: 20px; line-height: 40px; cursor: text; font-size: 14px;">
+								<button type="submit"><i class="fa fa-search"></i></button>
+							</form>
+						</div>  
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
 <script>
+	$('#modal_test').on('click',function() {
+		$('#modal_test').modal('show');
+	});
 	$('.comment_notification').on('click', function() {
     $('.enlargeImageModalSource').attr('src', '/'+$(this).attr('value'));
     $('.enlargeImageModalSource').attr('id', $(this).attr('id'));

@@ -35,7 +35,7 @@ class profile extends Controller
        $user = User::get();
        $roll = Auth::user()->rollno;
        $id = Auth::user()->id; 
-       $notifications = views::where('depmate',$roll)->where('read','1')->latest()->get()->toArray();
+       $notifications = views::where('depmate',$roll)->where('read','1')->latest()->get();
        $comment_notification = Comment::where('roll', $roll)->where('seen', '1')->where('user_id', '!=', $id)->latest()->get();
        return view('testimonial',compact('data','myviews','writeups','images','user','notifications','comment_notification'));
    }

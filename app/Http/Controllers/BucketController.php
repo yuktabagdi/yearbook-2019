@@ -82,31 +82,4 @@ class BucketController extends Controller
       $buckets = ['','SF Salsa','Old Archi Building','Graffitis','Howrah Bridges','>Star Gazing','Twilight View','Treat','Bonfire','Little Sisters','Trek','Local Train','2.2'];
       return view('bucket_view',compact('comment_notification','images','user','notifications','currentpage','perpage','buckets'));
     }
-    public function view1()
-    {
-
-      $images = Bucket::get();
-      $currenttime = \Carbon\Carbon::now();
-      foreach ($images as $image) {
-        $image['finalcount'] = $image['totalcount'] - 1.5*($image['created_at']->diffInDays($currenttime));
-        $image->save();
-      }
-        //to select 50 images and show them in 10 per page
-      $images=Bucket::orderBy('finalcount','DESC')->take(50)->paginate(5);
-
-            //$images = $image->sortBy('totalcount');
-            //dd($images);
-      $currentpage=$images->currentPage();
-      $perpage=$images->perPage();
-
-      $user = User::get();
-      $roll = Auth::user()->rollno;
-      $id = Auth::user()->id; 
-
-     $comment_notification = Comment::where('roll', $roll)->where('seen', '1')->where('user_id', '!=', $id)
-          ->latest()->get()->toArray();
-      $notifications = views::where('depmate',$roll)->where('read','1')->get();
-      $buckets = ['','SF Salsa','Old Archi Building','Graffitis','Howrah Bridges','>Star Gazing','Twilight View','Treat','Bonfire','Little Sisters','Trek','Local Train','2.2'];
-      return view('bucket_view1',compact('comment_notification','images','user','notifications','currentpage','perpage','buckets'));
-    }
 }

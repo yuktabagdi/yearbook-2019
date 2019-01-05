@@ -42,7 +42,7 @@ class HomeController extends Controller{
         {
           $user = User::get();
           $roll = Auth::user()->rollno;
-          $notifications = views::where('depmate',$roll)->where('read','1')->get()->toArray();
+          $notifications = views::where('depmate',$roll)->where('read','1')->get();
           return view('home',compact('user','notifications'));
         }
 

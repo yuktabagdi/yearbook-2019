@@ -10,79 +10,16 @@
 
   <title>YB|Itch List</title>
 
-  <!-- Bootstrap core CSS -->
-
-{{--   <link rel="stylesheet" type="text/css" href="http://www.sac.iitkgp.ac.in/yearbook_files/css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- --}}
-
-  {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
- --}}
-  <!-- Custom fonts for this template -->
-  {{-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
- --}}
-  <!-- Custom styles for this template -->
-  <link href="http://www.sac.iitkgp.ac.in/yearbook_files/css/business-casual.min.css" rel="stylesheet">
+  <link href="/css/business-casual.min_test.css" rel="stylesheet">
   <link type="text/css" href="/css/demos/photo.css" rel="stylesheet" />
 
 
-  {{-- <link rel="stylesheet" type="text/css" href="../css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
+  
   <link rel="icon" href="http://themashabrand.com/templates/Fluffs/assets/img/logo.jpg">
-  <link rel="apple-touch-icon" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon-114x114.png">
+  
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <style type="text/css">
-/*
-  .dropdown-menu{
-    top: 60px;
-    right: 0px;
-    left: unset;
-    width: 460px;
-    box-shadow: 0px 5px 7px -1px #c1c1c1;
-    padding-bottom: 0px;
-    padding: 0px;
-  }
-  .dropdown-menu:before{
-    content: "";
-    position: absolute;
-    top: -20px;
-    right: 12px;
-    border:10px solid #343A40;
-    border-color: transparent transparent #343A40 transparent;
-  }
-  .head{
-    padding:5px 15px;
-    border-radius: 3px 3px 0px 0px;
-  }
-  .notification-box{
-    padding: 10px 0px; 
-  }
-  .bg-gray{
-    background-color: #eee;
-  }
-  @media (max-width: 640px) {
-    .dropdown-menu{
-      top: 50px;
-      left: -16px;  
-      width: 290px;
-    } 
-    .nav{
-      display: block;
-    }
-    .nav .nav-item,.nav .nav-item a{
-      padding-left: 0px;
-    }
-    .message{
-      font-size: 13px;
-    }
-  }*/
-</style>
-
+  
 
 <style type="text/css">
 @font-face {
@@ -122,7 +59,7 @@ body{
 
 </head>
 
-<body style="back">
+<body class="back">
   <!-- Navigation--> 
   @include('navbar')
 
@@ -158,7 +95,7 @@ body{
 
             <!-- here’s the avatar -->
 
-            <img src="bucket1.jpg">
+            <img class="imgs" src="/img/bucket1.jpg">
 
 
             <!-- the username -->
@@ -191,7 +128,7 @@ body{
 
             <!-- here’s the avatar -->
 
-            <img src="bucket11.jpg">
+            <img class="imgs"  src="bucket11.jpg">
 
 
             <!-- the username -->
@@ -225,7 +162,7 @@ body{
 
             <!-- here’s the avatar -->
 
-            <img src="bucket10.jpg">
+            <img class="imgs"  src="bucket10.jpg">
 
 
             <!-- the username -->
@@ -262,7 +199,7 @@ body{
 
           <!-- here’s the avatar -->
 
-          <img src="bucket12.jpg">
+          <img class="imgs"  src="bucket12.jpg">
 
 
           <!-- the username -->
@@ -294,7 +231,7 @@ body{
 
           <!-- here’s the avatar -->
 
-          <img src="bucket9.jpg">
+          <img class="imgs" src="bucket9.jpg">
 
 
           <!-- the username -->
@@ -326,7 +263,7 @@ body{
 
           <!-- here’s the avatar -->
 
-          <img src="bucket8.jpg">
+          <img class="imgs"  src="bucket8.jpg">
 
 
           <!-- the username -->
@@ -363,7 +300,7 @@ body{
 
         <!-- here’s the avatar -->
 
-        <img src="bucket7.jpg">
+        <img class="imgs"  src="bucket7.jpg">
 
 
         <!-- the username -->
@@ -395,7 +332,7 @@ body{
 
         <!-- here’s the avatar -->
 
-        <img src="bucket6.jpg">
+        <img class="imgs"  src="bucket6.jpg">
 
 
         <!-- the username -->
@@ -427,7 +364,7 @@ body{
 
         <!-- here’s the avatar -->
 
-        <img src="bucket5.jpg">
+        <img class="imgs"  src="bucket5.jpg">
 
 
         <!-- the username -->
@@ -464,7 +401,7 @@ body{
 
       <!-- here’s the avatar -->
 
-      <img src="bucket4.png">
+      <img class="imgs"  src="bucket4.png">
 
 
       <!-- the username -->
@@ -496,7 +433,7 @@ body{
 
       <!-- here’s the avatar -->
 
-      <img src="bucket3.jpg">
+      <img class="imgs" src="bucket3.jpg">
 
 
       <!-- the username -->
@@ -527,7 +464,7 @@ body{
 
       <!-- here’s the avatar -->
 
-      <img src="bucket2.jpg">
+      <img class="imgs"  src="bucket2.jpg">
 
 
       <!-- the username -->
@@ -622,7 +559,7 @@ body{
   @import url(https://fonts.googleapis.com/css?family=Roboto);
 
 
-  header img {
+  .imgs {
     border-radius: 50%;
     margin: 20px auto;
     display: block;

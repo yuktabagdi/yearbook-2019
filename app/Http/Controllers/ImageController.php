@@ -32,7 +32,7 @@ class ImageController extends Controller
 		if($request->hasFile('image')) {
 			$file = $request->file('image');
 			$file_original = $request->file('image');
-			print_r($file);
+			//print_r($file);
 			$this->validate($request, [
 				'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
 				'classifier' => 'required'
