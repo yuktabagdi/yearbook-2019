@@ -19,7 +19,6 @@
     <!-- ==============================================
     Favicons
     =============================================== --> 
-    <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
       <link rel="icon" href="img/logo.jpg">
       <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
       <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
@@ -30,28 +29,37 @@
     CSS
     =============================================== -->
         <link type="text/css" href="css/demos/photo.css" rel="stylesheet" />
+        <link type="text/css" href="css/demos/interest.css" rel="stylesheet" />
         <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
 
         
     <!-- ==============================================
     Feauture Detection
     =============================================== -->
-    <script src="js/jquery.min.js"></script>
-      <script src="js/autocomplete.js"></script>
       <script src="js/modernizr-custom.js"></script>  
     <style type="text/css">
-      .back{
+    .back{
       background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
       background-attachment: fixed;
+    }
+    .article{
+      background-color: #ffffff;
+      border-radius: 10px;
+    }
+    @media screen and (min-width: 768px){
+      body {
+        position: relative;
       }
-      .article{
-    background-color: #ffffff;
-    border-radius: 10px;
-  }
+      .affix {
+        top: 20px;
+        z-index: 9999 !important;
+      }
+    }
     </style>
+
     </head>
 
-<body>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="15">
 
      <!-- ==============================================
      Navigation Section
@@ -69,11 +77,37 @@
    =============================================== --> 
 
    <section class="newsfeed back">
+    <section class="channel-one">
+    <div class="container-fluid">
+     <div class="row">
+     
+      <div class="col-md-3 col-sm-4" id="myScrollspy">
+       <aside class="sidebar">      
+        <ul id="side" data-spy="affix" data-offset-top="180">
+         <li class="active" id="0"><a href="/viewbucket"><i class="fa fa-align-left"></i> All Photos</a></li>
+         <li id="1"><a href="/viewbucket?id=1"><i class="fa fa-align-left"></i> {{$buckets[1]}}</a></li>
+         <li id="2"><a href="/viewbucket?id=2"><i class="fa fa-align-left"></i> {{$buckets[2]}}</a></li>
+         <li id="3"><a href="/viewbucket?id=3"><i class="fa fa-align-left"></i> {{$buckets[3]}}</a></li>
+         <li id="4"><a href="/viewbucket?id=4"><i class="fa fa-chart-bar"></i> {{$buckets[4]}}</a></li>
+         <li id="5"><a href="/viewbucket?id=5"><i class="far fa-copy"></i> {{$buckets[5]}}</a></li>
+         <li id="6"><a href="/viewbucket?id=6"><i class="fa fa-align-left"></i> {{$buckets[6]}}</a></li>
+         <li id="7"><a href="/viewbucket?id=7"><i class="fa fa-users"></i> {{$buckets[7]}}</a></li>
+         <li id="8"><a href="/viewbucket?id=8"><i class="fa fa-user"></i> {{$buckets[8]}}</a></li>
+         <li id="9"><a href="/viewbucket?id=9"><i class="fa fa-align-left"></i> {{$buckets[9]}}</a></li>
+         <li id="10"><a href="/viewbucket?id=10"><i class="fa fa-users"></i> {{$buckets[10]}}</a></li>
+         <li id="11"><a href="/viewbucket?id=11"><i class="fa fa-user"></i> {{$buckets[11]}}</a></li>
+         <li id="12"><a href="/viewbucket?id=12"><i class="fa fa-align-left"></i> {{$buckets[12]}}</a></li>
+       </ul>
+     </aside>     
+     
+   </div><!--/ col-lg-3 -->
+   
 
-   <section class="page-section">
+<div class="col-md-4 col-sm-8">
+     <section class="page-section">
       <div class="container">
         <div class="row">
-          <div class="col-xl-6 mx-auto" align="center">
+          <div class="col-lg-10 col-md-10 col-sm-9 mx-auto" align="center">
             <div class=" text-center rounded article" style="width:70%;padding: 1vw" >
               <h2 class="section-heading mb-4">
                 <span class="section-heading-lower">ITCH LIST</span>
@@ -122,29 +156,29 @@
             </div>
             <div class="container">
               <div class="row">
-                <div class="col-lg-8" style="margin-left: -10vw">
-                  <div class="cardbox">
+                <div class="col-md-7 col-lg-6 col-sm-8">
+                  <div class="cardbox" id="img{{$image['pic']}}">
                     <div class="cardbox-heading">
                       <!-- START dropdown-->
+                      @if($image['roll'] == Auth::user()->rollno)
                       <div class="dropdown pull-right">
-                        <button class="btn btn-secondary btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-secondary btn-flat btn-flat-icon" title="Click to delete!" type="button" data-toggle="dropdown" aria-expanded="false">
                           <em class="fa fa-ellipsis-h"></em>
                         </button>
                         <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                          <a class="dropdown-item" href="photo_home.html#">Hide post</a>
-                          <a class="dropdown-item" href="photo_home.html#">Stop following</a>
-                          <a class="dropdown-item" href="photo_home.html#">Report</a>
+                          <a class="dropdown-item delete" href="#" id="{{$image['pic']}}" data-token="{{csrf_token()}}">Delete</a>
                         </div>
                       </div><!--/ dropdown -->
+                      @endif
                       <!-- END dropdown-->
                       <div class="media m-0">
                         <div class="d-flex mr-3">
-                          <a href="/profile_index/{{$image['rollno']}}">
-                            <img class="img-responsive img-circle" src="img/users/2.jpg" alt="User">
+                          <a href="/profile_index/{{$image['roll']}}">
+                            <img class="img-responsive img-circle" src="{{$name[0]['pro_pic']}}" alt="User">
                           </a>
                         </div>
                         <div class="media-body">
-                          <a href="/profile_index/{{$image['rollno']}}">
+                          <a href="/profile_index/{{$image['roll']}}">
                             <p class="m-0">{{$name[0]['name']}}</p>
                           </a>
                           <small><span>{{$image['created_at']->diffForHumans() }}</span></small>
@@ -154,8 +188,8 @@
 
                     <div class="cardbox-item">
                       
-                      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 " src="{{$image['pic']}}" 
-                      id="{{$image['pic']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 100%;height: 500px;">
+                      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 " src="{{$image['pic']}}"
+                      id="{{$image['pic']}}"  data-toggle="tooltip" data-placement="top" style="cursor: pointer; width: 100%;max-height: 500px; min-height: 300px; height: 50vw;">
                     </div><!--/ cardbox-item -->
                             
                   </div><!--/ cardbox -->
@@ -165,317 +199,87 @@
       
       </section>
       @endif
+      <script type="text/javascript">
+        $(document).ready(function() {
+          if($(window).width() < 768) {
+            document.getElementById('side').setAttribute('data-spy', ' ');
+            $(window).scroll(function() {    
+              var scroll = $(window).scrollTop();
+              if (scroll >= 1) {
+                document.getElementById('side').setAttribute('class', ' ');
+              }
+            });
+          }
+        });
+      </script>
+
       @endforeach
 
       {{ $images->links('vendor.pagination.bootstrap-4')}}
       
       @else
-
-      <section class="page-section cta" style="background-color: rgba(76,71,97,0.55);">
-        <div class="container">
+      <script type="text/javascript">
+        document.getElementById('side').setAttribute('data-spy', ' ');
+      </script>
+      <section class="page-section cta">
+        <div class="container" style="margin-top: 20px; font-family: 'Varela Round', sans-serif;">
           <div class="row">
-            <div class="col-xl-9 mx-auto">
+            <div class="col-lg-9 mx-auto">
               <div class="cta-inner text-center rounded">
                 <h2 class="section-heading mb-4">
                   <span class="section-heading-upper"></span>
-                  <span class="section-heading-lower">Nothing to show yet</span>
-                </h2>
-                
-                <br>
-                
+                  <span class="section-heading-lower">Nothing to show yet!</span>
+                </h2><br>
               </div>
             </div>
           </div>
-
         </div>
       </section>
       
       @endif
-    <div class="container">
-    <div class="row">
-      
-      
-  </div>
+</div>
 </div>
 </div>
 </section>
-    
-   <!-- ==============================================
-   Modal Section
-   =============================================== -->
-     <div id="myModal" class="modal fade">
-      <div class="modal-dialog">
-       <div class="modal-content">
-        <div class="modal-body">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-           <span aria-hidden="true">×</span>
-           <span class="sr-only">Close</span>
-         </button>
-         <div class="row">
-     
-          <div class="col-md-8 modal-image">
-            <img class="img-responsive enlargeImageModalSource" src="" alt="Image"/>
-          </div><!--/ col-md-8 -->
-          <div class="col-md-4 modal-meta">
-           <div class="modal-meta-top">
-            <div class="img-poster clearfix">
-             <a href="" id="profile">
-              <img class="img-responsive img-circle" src="" />
-             <strong><span style="font-size: 14px;" id="posted_by"></span></strong>
-             </a>
-             <span id="created_at"></span><br/>
-            </div><!--/ img-poster -->
-            <div id="comments"> 
-            </div>
-        
-            <div class="modal-meta-bottom">     
-              <span class="thumb-xs">
-                @if(!empty(Auth::user()->pro_pic))
-                <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;" alt="Image">
-                @endif       
-              </span>
-              <div class="comment-body">
-                <form class="form" id="form-comment" action="/comment" method="post">
-                  {{csrf_field()}}
-                  <input id="comment-token" type="hidden" name="_token" value="{{ csrf_token() }}">
-                  <textarea name="comment" id="textarea" class="form-control input-sm" rows="2" type="text" placeholder="Write your comment..." required></textarea>
-                  <div align="right">
-                    <button class="btn" id="submit" style="margin-top: 10px;"><span>Comment</span></button>
-                  </div>
-                </form>
-              </div><!--/ comment-body -->        
-            </div><!--/ modal-meta-bottom -->
-
-     </div><!--/ modal-meta-top -->
-          </div><!--/ col-md-4 -->
-      
-         </div><!--/ row -->
-        </div><!--/ modal-body -->
-    
-       </div><!--/ modal-content -->
-      </div><!--/ modal-dialog -->
-     </div><!--/ modal -->
- 
-   
+</section>
      <!-- ==============================================
    Scripts
    =============================================== -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/base.js"></script>
-  <script src="plugins/slimscroll/jquery.slimscroll.js"></script>
-  <script>
-  $('#Slim,#Slim2').slimScroll({
-          height:"auto",
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/base.js"></script>
+   <script src="plugins/slimscroll/jquery.slimscroll.js"></script>
+   <script>
+    $('#Slim,#Slim2').slimScroll({
+      height:"auto",
       position: 'right',
       railVisible: true,
       alwaysVisible: true,
       size:"8px",
     });   
   </script>
-
   <script>
-    $('.like').click('.like', function() {
-      var v = $(this).attr('id');
-      var formData = {
-        'pic_id' : $(this).attr('id')[1],
-        '_token' : $('#comment-token').val()
-      }
-      // console.log(formData);
-      $.ajax({
-        url: "/likeadd",
-        type: "POST",
-        data: formData,
+    $(document).ready(function() {
+      $('.delete').click('.delete', function() {
+        var pic = $(this).attr('id');
+        var token = $(this).attr('data-token');
+        $.ajax({
+          url: "/bucketdelete",
+          type: "POST",
+          data: {'pic': pic, '_token': token, },
 
-        success: function(response)
-        {
+          success: function(response)
+          {
 
-         document.getElementById(v).innerHTML = response;
-
-       },
-       error: function(data)
-       {
+           document.getElementById("img"+pic).innerHTML = "";
+           console.log("img"+pic);
+         },
+         error: function(data)
+         {
           // console.log('Error in likeadd');  
-       }
-     });
-    });
-    $('.comment_btn').click('.comment_btn', function() {
-      $('.enlargeImageModalSource').attr('src', $(this).attr('value'));       
-      $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
-      $('#myModal').modal('show');
-      var formData = {
-        'comments' : $('textarea[name=comment]').val(),
-        'pic_id' : $('.enlargeImageModalSource').attr('id'),
-        '_token' : $('#comment-token').val()
-      } 
-      $.ajax({
-        url: "/commentadd",
-        type: "POST",
-        data: formData,
-
-        success: function(response)
-        {
-
-          document.getElementById("comments").innerHTML = response;
-        },
-        error: function(data)
-        {
-
         }
       });
-      $.ajax({
-          url: "/getimage",
-          type: "POST",
-          data: formData,
-
-          success: function(response)
-          {
-            var image = response;
-            document.getElementById('profile').href = "/profile_index/" + image["rollno"];
-            document.getElementById('posted_by').innerHTML = image["name"];
-            document.getElementById('created_at').innerHTML = image["created_at"];
-          },
-          error: function(data)
-          {
-
-          }
-        });
-    });
-
-    $('.comment_notification').on('click', function() {
-        $('.enlargeImageModalSource').attr('src', $(this).attr('value'));
-        $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
-        $('#myModal').modal('show');
-        var formData = {
-          'comments' : $('textarea[name=comment]').val(),
-          'pic_id' : $('.enlargeImageModalSource').attr('id'),
-          '_token' : $('#comment-token').val()
-        }
-        $.ajax({
-          url: "/commentadd",
-          type: "POST",
-          data: formData,
-
-          success: function(response)
-          {
-
-            document.getElementById("comments").innerHTML = response;
-          },
-          error: function(data)
-          {
-
-          }
-        });
-        $.ajax({
-          url: "/getimage",
-          type: "POST",
-          data: formData,
-
-          success: function(response)
-          {
-            var image = response;
-            document.getElementById('profile').href = "/profile_index/" + image["rollno"];
-            document.getElementById('posted_by').innerHTML = image["name"];
-            document.getElementById('created_at').innerHTML = image["created_at"];
-          },
-          error: function(data)
-          {
-
-          }
-        });
       });
-
-    $(function() {
-      $('.product-item-img').on('click', function() {
-        $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
-        $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
-        $('#myModal').modal('show');
-        var formData = {
-          'comments' : $('textarea[name=comment]').val(),
-          'pic_id' : $('.enlargeImageModalSource').attr('id'),
-          '_token' : $('#comment-token').val()
-        }
-        $.ajax({
-          url: "/commentadd",
-          type: "POST",
-          data: formData,
-
-          success: function(response)
-          {
-
-            document.getElementById("comments").innerHTML = response;
-          },
-          error: function(data)
-          {
-
-          }
-        });
-        $.ajax({
-          url: "/getimage",
-          type: "POST",
-          data: formData,
-
-          success: function(response)
-          {
-            var image = response;
-            document.getElementById('profile').href = "/profile_index/" + image["rollno"];
-            document.getElementById('posted_by').innerHTML = image["name"];
-            document.getElementById('created_at').innerHTML = image["created_at"];
-          },
-          error: function(data)
-          {
-
-          }
-        });
-      });
-    });
-    
-    $(document).ready(function (e) {
-      $('form#form-comment').on('submit', function(e) {
-       e.preventDefault();
-       var formData = {
-        'comments' : $('textarea[name=comment]').val(),
-        'pic_id' : $('.enlargeImageModalSource').attr('id'),
-        '_token' : $('#comment-token').val()
-      }
-      // console.log(formData);
-
-      $.ajax({
-        url: "/comment",
-        type: "POST",
-        data: formData,
-        
-        success: function(response)
-        {
-          // console.log('Added Comments');
-          document.getElementById("textarea").value="";
-          document.getElementById("comments").innerHTML = response;
-        },
-        error: function(data)
-        {
-          // console.log('Error in comment');  
-        }
-      });
-    });
     });
   </script>
-  <script>
-      var user = <?php echo $user;?>;
-      // console.log(user[0].name);
-      var names = [];
-      for (var i = 0; i < user.length; i++) {
-        names[i] = user[i].name;
-      }
-      // console.log('names',names);
-
-      $(document).ready(function() {
-        $('#search').autocomplete({
-          source: [names]
-        });   
-      });
-      $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
-  </script>
-
-  </body>
+</body>
 </html>

@@ -18,19 +18,22 @@ class BucketController extends Controller
     }
     public function index()
     {
-     $myviews = Bucket::where('roll',Auth::user()->rollno)->get();
      $user = User::get();
      $roll = Auth::user()->rollno;
      $id = Auth::user()->id; 
      $notifications = views::where('depmate',$roll)->where('read','1')->get();
      $comment_notification = Comment::where('roll', $roll)->where('seen', '1')->where('user_id', '!=', $id)
      ->latest()->get();
-     return view('bucket_index',compact('myviews','notifications','user', 'comment_notification'));
+     return view('bucket_index',compact('notifications','user', 'comment_notification'));
     }
 
 
     public function comment($id)
     {
+      $pic = Bucket::where('roll', Auth::user()->rollno)->where('list', $id);
+      if(!empty($pic)){
+        $pic->delete();
+      }
       $file = request('fileToUpload');
       $user = Auth::user();
       $name = $user->rollno.'_bucket_list_'.$id.'_'.time().'.'.$file->getClientOriginalExtension();
@@ -50,9 +53,7 @@ class BucketController extends Controller
 
       $myviews = Bucket::where('roll',Auth::user()->rollno)->get();
       $user = User::get();
-
-
-      $notifications = views::where('depmate',$roll)->where('read','1')->get()->toArray();
+      $notifications = views::where('depmate',$roll)->where('read','1')->get();
       return redirect('/bucket') ;
     }
     public function view()
@@ -65,10 +66,12 @@ class BucketController extends Controller
         $image->save();
       }
         //to select 50 images and show them in 10 per page
-      $images=Bucket::orderBy('finalcount','DESC')->take(50)->paginate(5);
-
-            //$images = $image->sortBy('totalcount');
-            //dd($images);
+      if($id = request('id')){
+        $images = Bucket::where('list', $id)->orderBy('finalcount','DESC')->take(50)->paginate(5);
+      }
+      else{
+        $images = Bucket::latest()->orderBy('finalcount','DESC')->take(50)->paginate(5);
+      }
       $currentpage=$images->currentPage();
       $perpage=$images->perPage();
 
@@ -77,9 +80,14 @@ class BucketController extends Controller
       $id = Auth::user()->id; 
 
      $comment_notification = Comment::where('roll', $roll)->where('seen', '1')->where('user_id', '!=', $id)
-          ->latest()->get()->toArray();
+          ->latest()->get();
       $notifications = views::where('depmate',$roll)->where('read','1')->get();
-      $buckets = ['','SF Salsa','Old Archi Building','Graffitis','Howrah Bridges','>Star Gazing','Twilight View','Treat','Bonfire','Little Sisters','Trek','Local Train','2.2'];
+      $buckets = ['','SF Salsa','Old Archi Building','Graffitis','Howrah Bridges','Star Gazing','Twilight View','Treat','Bonfire','Little Sisters','Trek','Local Train','2.2'];
       return view('bucket_view',compact('comment_notification','images','user','notifications','currentpage','perpage','buckets'));
+    }
+
+    public function delete(){
+      Bucket::where('pic', request('pic'))->delete();
+      return response(" ", 200);
     }
 }

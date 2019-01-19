@@ -83,5 +83,10 @@ class CountController extends Controller
         }
         return redirect('/');
     }
+
+    public function delete(){
+        Image::where('id', request('id'))->delete();
+        return response(" ", 200);
+    }
     
 }

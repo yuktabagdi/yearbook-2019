@@ -65,7 +65,7 @@ class WriteupController extends Controller
     public function delete($id)
     {
         \DB::table('writeups')->where('id',$id)->delete();
-        return redirect('/homenew');
+        return back();
     }
 
 
