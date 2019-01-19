@@ -9,32 +9,7 @@
   <meta name="author" content="">
 
   <title>YB|Writeup</title>
-
-  <!-- Bootstrap core CSS -->
-
-  <link rel="stylesheet" type="text/css" href="../css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/business-casual.min.css" rel="stylesheet">
-
-
-  <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
-  <script src="js/autocomplete.js"></script>
-
-
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style type="text/css">
   
   .dropdown-menu{
@@ -84,124 +59,31 @@
   {
     content: none;
   }
+  .article{
+    background-color: #ffffff;
+    border-radius: 10px;
+  }
 </style>
 </head>
 
 <body>
 
-  <!-- Navigation--> 
-  <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav" style="background-color: rgba(67,100,107,0.55);">
-    <a class="navbar-brand text-light" href="http://www.sac.iitkgp.ac.in"><img height="90" width="250" src="sac.png" alt="someimg"/></a>
-    <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="http://www.sac.iitkgp.ac.in">Yearbook</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item px-lg-6">
-
-            <form action="search/" method="POST" class="form-inline">
-              {{ csrf_field() }}
-              <div class="form-group" >
-                <input type="text" name="search" required="required" id="search" class="form-control" placeholder="Search your friend here">
-              </div>
-              <div class="form-group" style="margin-left: 8px;">
-                <button type="submit" class="btn btn-default" style="margin-top: 0px;">Search</button>
-              </div>
-            </form>
-          </li>
-          <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/home">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/trending">Trending</a>
-          </li>
-          <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/profile_index">{{Auth::user()->name}}</a>
-          </li>
-          <li class="nav-item px-lg-3 dropdown">
-            <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-cog"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right" >
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/details">Edit Details</a>
-              </li>
-             <!--<li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="#">Change Password </a>
-              </li>-->
-              <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/logout">Logout </a>
-              </li>
-
-            </ul>
-          </li>
-          <li class="nav-item px-lg-3 dropdown">
-            <a class="nav-link text-light" href="#" id="notificationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" >
-
-              @if(count($notifications))
-              <i class="fa fa-bell" style="color: blue;">
-                <span lass="badge" style="position: relative; top: 6px; left: -6px;color: white; font-size: 19px;">{{count($notifications)}}</span>
-              </i>
-              @else
-              <i class="fa fa-bell"></i>
-              @endif
-
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li class="head text-light bg-dark">
-                <div class="row">
-                  <div class="col-lg-12 col-sm-12 col-12">
-                    <span>Notifications ({{count($notifications)}})</span>
-
-                  </div>
-                </li>
-                @foreach($notifications as $notification)
-                <a href="/read/{{$notification['id']}}">
-                  <li class="notification-box">
-                    <div class="row">
-                      @php
-                      $pic = App\User::where('name',$notification['user'])->pluck('pro_pic');
-                      @endphp  
-                      <div class="col-lg-3 col-sm-3 col-3 text-center">
-                        <img src="../{{$pic[0]}}" class="w-50 rounded-circle">
-                      </div> 
-                      <div class="col-lg-8 col-sm-8 col-8">
-                        <strong class="text-info">{{$notification['user']}}</strong>
-                        <div>
-                          {{$notification['views']}}
-                        </div>
-                        <small class="text-warning">{{$notification['created_at']}}</small>
-                      </div>    
-                    </div>
-                  </li>
-                </a>
-                @endforeach           
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  
 
 
 
-    <section class="page-section cta" style="background-color: rgba(86,78,107,0.55);">
-      <div class="container">
+    <section class="page-section article">
+      <div class="container" style="padding-right: 6vw;padding-left:2vw ">
         <div class="row">
-          <div class="col-xl-9 mx-auto">
-            <div class="cta-inner text-center rounded">
+          <div class="col-xl-4 mx-auto">
+            <div class=" text-center rounded">
               <h2 class="section-heading mb-4">
-                <span class="section-heading-upper"></span>
                 <span class="section-heading-lower">Upload Articles</span>
-              </h2>
+              </h2><br>
               <p class="mb-0"> 
               How have all these years in KGP transformed you? What’s your funniest experience in the campus? Share with us your stories to make it a part of the yearbook that you carry along. Choose the topic below and send us your articles.</p>
               <br>
-              <form class="form-horizontal" method="POST" action="/writeup">
+              <form class="form-horizontal" method="POST" action="/writeup" style="padding-right: 3vw;padding-left: 2vw">
                 {{csrf_field()}}
                 <div class="row">
                   <div class="col-4">
@@ -230,39 +112,7 @@
                 <button class="btn btn-success" type="submit">Submit</button>
               </div>
             </form>
-
-            <table class="table table-hover">
-              <thead>
-                <tr>
-
-                  <th>SL-No.</th>
-                  <th>Topic</th>
-                  <th>Writeup<i class="material-icons" style="font-size: 20px;padding-left: 10px;width: 100%; ">mode_edit</i></th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                $k=1;
-                ?>
-
-                @foreach ( $writeups as $writeup)
-
-                <tr class="table-row" style="border-bottom: 1px solid silver">
-                  <td style="text-align: center;"> <?php echo $k; ?></td>
-                  <td >{{ $writeup->topic }}</td>
-                  
-                  <td onblur="update({{ $writeup->id }})" id="{{ $writeup->id }}" contenteditable >{!!  nl2br($writeup->writeup)!!}</td>
-                  <td style="width: 50px"><a href="/writeup/{{ $writeup->id }}"><i class="material-icons">delete</i></a></td>
-
-                </tr>
-                <?php $k++ ; ?>
-                @endforeach
-                <?php  
-
-                ?>
-              </tbody>
-            </table>
+            
 
           </div>
         </div>
@@ -270,13 +120,20 @@
 
     </div>
   </section>
+    @foreach($writeups as $writeup)
+     <div class="article" style="padding-top:2vw;padding-right: 6vw;padding-left:2vw ">
+      
+      <h2 class="section-heading mb-4 text-center">
+          <a href="/writeup/{{ $writeup->id }}"><i style="float: right;color: black;font-size: 30px" class="material-icons">delete</i></a>
+          <span class="section-heading-lower">{{ $writeup->topic }} </span>
 
-  <footer class="footer text-faded text-center py-5">
-      <div class="container">
-        <p class="m-0 small">Copyright &copy; Yearbook 2018</p>
-        <p class="m-0 small"><a target="_blank" href="http://www.sac.iitkgp.ac.in/team.php">Contact Us</a></p>
-      </div>
-    </footer>
+      </h2>
+
+      <p style="padding: 2vw;text-align: left" onblur="update({{ $writeup->id }})" id="{{ $writeup->id }}" contenteditable >{!!  nl2br($writeup->writeup)!!}</p>
+  </div>
+  @endforeach
+  
+  
 </body>
 
 

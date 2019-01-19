@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCommentsTable extends Migration
+class CreateBucketsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('buckets', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('pic_id');
-            $table->text('user_id');
-             $table->text('comments');
-             $table->text('roll');
-             $table->integer('seen')->default('1');
+
+            $table->text('roll');
+            $table->text('list');
+            $table->text('pic');
+            $table->integer('totalcount')->default('0');
+            $table->integer('finalcount')->default('0');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('buckets');
     }
 }

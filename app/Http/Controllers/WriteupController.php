@@ -26,7 +26,7 @@ class WriteupController extends Controller
         
         $user = User::get();
         $roll = Auth::user()->rollno;
-        $notifications = views::where('depmate',$roll)->where('read','1')->latest()->get()->toArray();
+        $notifications = views::where('depmate',$roll)->where('read','1')->latest()->get();
 
         return view('writeup2', compact('writeups','user','notifications'));
     }
@@ -58,14 +58,14 @@ class WriteupController extends Controller
 
     	$writeup->save(); */
 
-    	return redirect('/writeup');
+    	return redirect('/homenew');
 
     }
 
     public function delete($id)
     {
         \DB::table('writeups')->where('id',$id)->delete();
-        return redirect('/writeup');
+        return redirect('/homenew');
     }
 
 

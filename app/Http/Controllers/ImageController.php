@@ -20,7 +20,7 @@ class ImageController extends Controller
 		$images = Image::where('rollno',Auth::user()->rollno)->latest()->get()->toArray();	
 		$user = User::get();
 		$roll = Auth::user()->rollno;
-		$notifications = views::where('depmate',$roll)->where('read','1')->latest()->get()->toArray();
+		$notifications = views::where('depmate',$roll)->where('read','1')->latest()->get();
 
 		return view('upload',compact('images','user','notifications'));
 	}
@@ -32,7 +32,7 @@ class ImageController extends Controller
 		if($request->hasFile('image')) {
 			$file = $request->file('image');
 			$file_original = $request->file('image');
-			print_r($file);
+			//print_r($file);
 			$this->validate($request, [
 				'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
 				'classifier' => 'required'
@@ -66,5 +66,14 @@ class ImageController extends Controller
 		}
 		
 	}
-		
+	public function get(){
+		$image = Image::where('id', request('pic_id'))->get();
+		$response = array(
+			'rollno' => $image[0]['rollno'],
+			'created_at' => $image[0]->created_at->diffForHumans(),
+			'name' => User::where('rollno', $image[0]['rollno'])->value('name'),
+			'pic' => User::where('rollno', $image[0]['rollno'])->value('pro_pic'),
+		);
+		return response($response,200);
+	}	
 }
