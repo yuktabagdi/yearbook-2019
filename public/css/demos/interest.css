@@ -898,14 +898,14 @@ a.navbar-brand:hover {
  border: 1px solid #eee;	
 }
 .sidebar ul li.active {
-  background: #fc398a; 
+  background: #0fc19e; 
  padding: 10px 20px;	
  border-radius: 30px;
 }
 .sidebar ul li a {
  font-family: 'Abhaya Libre', serif;
  font-size: 17px; 
- color: #546e7a;
+ color: #fff;
 }
 .sidebar ul li.active a {
  font-family: 'Abhaya Libre', serif;
@@ -917,6 +917,7 @@ a.navbar-brand:hover {
 }
 .sidebar ul li a:hover {
  text-decoration: none;	
+ color: #000 !important;
 }
 
 .channel-one .col-lg-9{

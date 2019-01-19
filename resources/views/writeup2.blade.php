@@ -162,18 +162,3 @@
 
 </script>
 </html>
-<script type="text/javascript">
-  var user = <?php echo $user;?>;
-    //console.log(user[0].name);
-    var names = [];
-    for (var i = 0; i < user.length; i++) {
-      names[i] = user[i].name;
-    }
-    //console.log('names',names);
-    
-    $(function() {
-      $("#search").autocomplete({
-        source:[names]
-      }); 
-    });
-  </script>

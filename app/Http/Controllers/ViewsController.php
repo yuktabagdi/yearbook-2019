@@ -88,7 +88,7 @@ class ViewsController extends Controller
           $comment->seen = 0;
           $comment->save();
         }
-    return redirect('/trendingnew') ;
+    return redirect('/trending') ;
     }
 
 }
