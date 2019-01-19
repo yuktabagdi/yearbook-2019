@@ -94,6 +94,22 @@
   background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
   background-attachment: fixed;
 }
+@media (max-width: 455px){
+  .product-item-img{
+  width: 97% !important;
+}
+.delete{
+  margin-left: 68% !important;
+}
+}
+.delete{
+  margin-left: 285px;
+}
+@media (min-width: 1200px){
+  .delete{
+    margin-top: -15px;
+  }
+}
 </style>
   </head>
 
@@ -336,14 +352,17 @@
           <section class="page-section">
             
                    
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6" id="img{{$image['id']}}">
              <div class="explorebox" style="border-radius: 10px;">
               <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
               <div class="explore-top" style="position: relative;top:-400px; ">
                 @php
                 $likes = DB::table('likes')->where('pic_id', $image['id'])->count();
                 @endphp
-               <div class="explore-like"><i class="fa fa-heart"></i> <span>{{$likes}}</span></div>
+                <div class="explore-like"><i class="fa fa-heart" style="font-size: 20px;"></i> <span style="color: #000">{{$likes}}</span>
+                  <i style="color: black;font-size: 20px; cursor: pointer;" class="material-icons delete" id="{{$image['id']}}" data-token="{{csrf_token()}}" title="Delete">delete</i>
+                </div>
+
              </div>      
            </div>
          </div>
@@ -485,6 +504,8 @@ document.getElementById("defaultOpen").click();
   <script src="js/bootstrap.min.js"></script>
   <script src="js/base.js"></script>
   <script src="plugins/slimscroll/jquery.slimscroll.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
   <script>
   $('#Slim,#Slim2').slimScroll({
           height:"auto",
@@ -704,5 +725,37 @@ document.getElementById("defaultOpen").click();
         }
       });
     });
+    $('.delete').click('.delete', function() {
+      var id = $(this).attr('id');
+      var token = $(this).attr('data-token');
+      swal ({ 
+        title: "Are you sure?",
+        icon: "warning",
+        buttons: {
+          cancel: "No",
+          confirm: "Yes",
+        },
+        dangerMode: true,
+      }).then((value) => {
+        if(value){
+          $.ajax({
+            url: "/delete",
+            type: "POST",
+            data: {'id': id, '_token': token, },
+
+            success: function(response)
+            {
+
+             document.getElementById("img"+id).innerHTML = "";
+
+           },
+           error: function(data)
+           {
+           }
+         });
+        }
+      });
+
+      });
   });
 </script>
