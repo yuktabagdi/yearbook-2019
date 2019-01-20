@@ -476,6 +476,10 @@
     $('[data-toggle="tooltip"]').tooltip()
   })
   </script>
+  <script>            
+      $('#viewbucket').removeClass('p-2 nav-icon-lg dark-black');
+      $('#viewbucket').addClass('p-2 nav-icon-lg mint-green');            
+  </script>
 
   </body>
 </html>

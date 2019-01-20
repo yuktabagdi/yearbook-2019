@@ -550,6 +550,10 @@ body{
 
 
 </script>
+<script>            
+    $('#fillbucket').removeClass('p-2 nav-icon-lg dark-black');
+    $('#fillbucket').addClass('p-2 nav-icon-lg mint-green');            
+</script>
 
 
   <!-- this is the markup. you can change the details (your own name, your own avatar etc.) but don’t change the basic structure! -->
