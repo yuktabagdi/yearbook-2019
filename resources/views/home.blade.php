@@ -94,6 +94,22 @@
   background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
   background-attachment: fixed;
 }
+@media (max-width: 455px){
+  .product-item-img{
+  width: 97% !important;
+}
+.delete{
+  margin-left: 68% !important;
+}
+}
+.delete{
+  margin-left: 285px;
+}
+@media (min-width: 1200px){
+  .delete{
+    margin-top: -15px;
+  }
+}
 </style>
   </head>
 
@@ -254,8 +270,8 @@
     
         <div class="tab_bar" style="margin-left: 26%;align-items: center;
           margin-right: 26%">
-        <button class="tablink kafe-btn" onclick="openPage('Articles', this, '#0fc19e','white')" id="defaultOpen">Articles</button>
-      <button class="tablink kafe-btn" onclick="openPage('Gallery', this, '#0fc19e','white')">Gallery</button>
+          <button class="tablink kafe-btn" onclick="openPage('Gallery', this, '#0fc19e','white')" id="defaultOpen">Gallery</button>
+        <button class="tablink kafe-btn" onclick="openPage('Articles', this, '#0fc19e','white')">Articles</button>
       </div>
     <div class="container">
       <div id="Articles" class="tabcontent">
@@ -276,9 +292,9 @@
       <form id="upload-image-form" action="/upload1" method="post" enctype="multipart/form-data">
            <input id="signup-token" type="hidden" name="_token" value="{{ csrf_token() }}">
        
-       <div class="form-group">
-                <label for="classifiers" style="margin-left:40%;margin-top:1%" ><h5 style="color:#88898a"><b>Select Category: (Max size: 5MB)</b></h5></label>
-                <select class="form-control" name="classifier"  style="margin-left:40%;width:auto">
+       <div class="form-group" align="center">
+                <label for="classifiers" style="margin-top:1%" ><h5 style="color:#88898a"><b>Select Category: (Max size: 5MB)</b></h5></label>
+                <select class="form-control" name="classifier"  style="width:auto">
                   <option value="dep">DEPARTMENT PHOTOS</option>
                   <option value="hall">HALL PHOTOS</option>
                   <option value="fest">FEST PHOTOS</option>
@@ -286,12 +302,12 @@
                 </select>
               </div>
       
-      <div id="cropp-image-div">
+              <div id="cropp-image-div">
                 <img id="crop-image" style="margin-left: 41%" src="" class="img-thumbnail">
-          </div>
+              </div>
         <div class="form-group">
           <label for="caption" style="margin-left:48%"><h5 style="color:#88898a"><b>Caption:</b></h5></label>
-          <textarea class="form-control no-border" rows="2" cols="15" placeholder="Type something..." name="caption" id="caption" required="required"></textarea>
+          <textarea class="form-control no-border" rows="2" cols="10" placeholder="Type something..." name="caption" id="caption" required="required"></textarea>
         </div> 
           
       <div class="box-footer clearfix">
@@ -336,14 +352,17 @@
           <section class="page-section">
             
                    
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6" id="img{{$image['id']}}">
              <div class="explorebox" style="border-radius: 10px;">
               <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
               <div class="explore-top" style="position: relative;top:-400px; ">
                 @php
                 $likes = DB::table('likes')->where('pic_id', $image['id'])->count();
                 @endphp
-               <div class="explore-like"><i class="fa fa-heart"></i> <span>{{$likes}}</span></div>
+                <div class="explore-like"><i class="fa fa-heart" style="font-size: 20px;"></i> <span style="color: #000">{{$likes}}</span>
+                  <i style="color: black;font-size: 20px; cursor: pointer;" class="material-icons delete" id="{{$image['id']}}" data-token="{{csrf_token()}}" title="Delete">delete</i>
+                </div>
+
              </div>      
            </div>
          </div>
@@ -426,10 +445,10 @@
       <div class="col-md-4 modal-meta">
        <div class="modal-meta-top">
         <div class="img-poster clearfix">
-          <a href="#" id="profile">
-            <img class="img-responsive img-circle" src="" />
-            <strong><span style="font-size: 14px;" id="posted_by"></span></strong>
-          </a>
+         <a href="" id="profile">
+          <img class="img-responsive img-circle" src="{{Auth::user()->pro_pic}}" />
+          <strong><span style="font-size: 14px;" id="posted_by"></span></strong>
+        </a>
         <span id="created_at"></span><br/>
       </div><!--/ img-poster -->
       <div id="comments"> 
@@ -485,6 +504,8 @@ document.getElementById("defaultOpen").click();
   <script src="js/bootstrap.min.js"></script>
   <script src="js/base.js"></script>
   <script src="plugins/slimscroll/jquery.slimscroll.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
   <script>
   $('#Slim,#Slim2').slimScroll({
           height:"auto",
@@ -656,23 +677,24 @@ document.getElementById("defaultOpen").click();
 
         }
       });
-    $.ajax({
-      url: "/getimage",
-      type: "POST",
-      data: formData,
+      $.ajax({
+        url: "/getimage",
+        type: "POST",
+        data: formData,
 
-      success: function(response)
-      {
-        var image = response;
-        document.getElementById('profile').href = "/profile_index/" + image["rollno"];
-        document.getElementById('posted_by').innerHTML = image["name"];
-        document.getElementById('created_at').innerHTML = image["created_at"];
-      },
-      error: function(data)
-      {
+        success: function(response)
+        {
+          var image = response;
+          document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+          document.getElementById('posted_by').innerHTML = image["name"];
+          document.getElementById('created_at').innerHTML = image["created_at"];
+          console.log(document.getElementById('image').src);
+        },
+        error: function(data)
+        {
 
-      }
-    });
+        }
+      });
   });
   });
 
@@ -703,5 +725,37 @@ document.getElementById("defaultOpen").click();
         }
       });
     });
+    $('.delete').click('.delete', function() {
+      var id = $(this).attr('id');
+      var token = $(this).attr('data-token');
+      swal ({ 
+        title: "Are you sure?",
+        icon: "warning",
+        buttons: {
+          cancel: "No",
+          confirm: "Yes",
+        },
+        dangerMode: true,
+      }).then((value) => {
+        if(value){
+          $.ajax({
+            url: "/delete",
+            type: "POST",
+            data: {'id': id, '_token': token, },
+
+            success: function(response)
+            {
+
+             document.getElementById("img"+id).innerHTML = "";
+
+           },
+           error: function(data)
+           {
+           }
+         });
+        }
+      });
+
+      });
   });
 </script>

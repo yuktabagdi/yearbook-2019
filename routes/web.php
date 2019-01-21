@@ -42,8 +42,11 @@ FileController
 	Route::get('/details',function(){
 		$user = App\User::get();
 		$roll = Auth::user()->rollno;
-		$notifications = App\views::where('depmate',$roll)->where('read','1')->get()->toArray();
-		return view('details1',compact('user','notifications'));
+		$id = Auth::user()->id; 
+		$notifications = App\views::where('depmate',$roll)->where('read','1')->get();
+		$comment_notification = App\Comment::where('roll', $roll)->where('seen', '1')->where('user_id', '!=', $id)
+		->latest()->get();
+		return view('details1',compact('user','notifications', 'comment_notification'));
 	});
 	Route::post('/details','HomeController@edit');
 	Route::get('/writeup','WriteupController@index');
@@ -76,6 +79,8 @@ Route::get('/trending','CountController@index1');
 Route::get('/bucket', 'BucketController@index');
 Route::post('/bucketpost/{id}','BucketController@comment');
 Route::get('/viewbucket', 'BucketController@view');
+Route::post('/bucketdelete', 'BucketController@delete');
+Route::post('/delete', 'CountController@delete');
 
 
 Route::get('/polls','PollController@index');

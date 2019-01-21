@@ -31,11 +31,17 @@
         <link type="text/css" href="css/demos/photo.css" rel="stylesheet" />
         <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
         <style type="text/css">
-             .back{
+        .back{
           background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
           background-attachment: fixed;
+        }
+        @media(max-width: 500px){
+          .product-item-img{
+            height: 200px !important;
+          }
         }   
-        </style>    <!-- ==============================================
+        </style>    
+        <!-- ==============================================
     Feauture Detection
     =============================================== -->
    
@@ -62,7 +68,6 @@
    <section class="newsfeed back">
     @if(count($images)>0)
         <br>
-        {{ $images->links('vendor.pagination.bootstrap-4')}}
         @php
         $count= 0;
         @endphp
@@ -79,8 +84,6 @@
                     @php
                     $name = App\User::where('rollno',$image['rollno'])->get()->toArray();
                     @endphp
-
-
                   </h2>
                   <strong></strong>
                 </div>
@@ -95,20 +98,20 @@
             </div>
             <div class="container">
               <div class="row">
-                <div class="col-lg-6">
-                  <div class="cardbox">
+                <div class="col-lg-6 col-md-7">
+                  <div class="cardbox" id="img{{$image['id']}}">
                     <div class="cardbox-heading">
                       <!-- START dropdown-->
+                      @if($image['rollno'] == Auth::user()->rollno)
                       <div class="dropdown pull-right">
-                        <button class="btn btn-secondary btn-flat btn-flat-icon" type="button" data-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-secondary btn-flat btn-flat-icon" title="Click to delete!" type="button" data-toggle="dropdown" aria-expanded="false">
                           <em class="fa fa-ellipsis-h"></em>
                         </button>
                         <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                          <a class="dropdown-item" href="photo_home.html#">Hide post</a>
-                          <a class="dropdown-item" href="photo_home.html#">Stop following</a>
-                          <a class="dropdown-item" href="photo_home.html#">Report</a>
+                          <a class="dropdown-item delete" href="#" id="{{$image['id']}}" data-token="{{csrf_token()}}">Delete</a>
                         </div>
                       </div><!--/ dropdown -->
+                      @endif
                       <!-- END dropdown-->
                       <div class="media m-0">
                         <div class="d-flex mr-3">
@@ -128,7 +131,7 @@
                     <div class="cardbox-item">
                       <span class="section-heading-upper" style="font-family: Aclonica;">&nbsp {{$image['caption']}}</span><br>
                       <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 " src="{{$image['url']}}" 
-                      id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 100%;height: 500px;">
+                      id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 100%;height: 380px;">
                     </div><!--/ cardbox-item -->
                     <div class="cardbox-like">
                       <ul style="top: 6px; position: relative;">
@@ -189,23 +192,14 @@
                   <span class="section-heading-upper"></span>
                   <span class="section-heading-lower">Nothing to show yet</span>
                 </h2>
-                
                 <br>
-                
               </div>
             </div>
           </div>
 
         </div>
       </section>
-      
       @endif
-    <div class="container">
-    <div class="row">
-      
-      
-  </div>
-</div>
 </div>
 </section>
     
@@ -286,7 +280,7 @@
     $('.like').click('.like', function() {
       var v = $(this).attr('id');
       var formData = {
-        'pic_id' : $(this).attr('id')[1],
+        'pic_id' : v.split('+')[1],
         '_token' : $('#comment-token').val()
       }
       // console.log(formData);
@@ -299,13 +293,14 @@
         {
 
          document.getElementById(v).innerHTML = response;
+         // console.log(response);
 
        },
        error: function(data)
        {
           // console.log('Error in likeadd');  
-       }
-     });
+        }
+      });
     });
     $('.comment_btn').click('.comment_btn', function() {
       $('.enlargeImageModalSource').attr('src', $(this).attr('value'));       
@@ -332,23 +327,23 @@
         }
       });
       $.ajax({
-          url: "/getimage",
-          type: "POST",
-          data: formData,
+        url: "/getimage",
+        type: "POST",
+        data: formData,
 
-          success: function(response)
-          {
-            var image = response;
-            document.getElementById('profile').href = "/profile_index/" + image["rollno"];
-            document.getElementById('image').src = image['pic'];
-            document.getElementById('posted_by').innerHTML = image["name"];
-            document.getElementById('created_at').innerHTML = image["created_at"];
-          },
-          error: function(data)
-          {
+        success: function(response)
+        {
+          var image = response;
+          document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+          document.getElementById('image').src = image['pic'];
+          document.getElementById('posted_by').innerHTML = image["name"];
+          document.getElementById('created_at').innerHTML = image["created_at"];
+        },
+        error: function(data)
+        {
 
-          }
-        });
+        }
+      });
     });
 
     $(function() {
@@ -425,8 +420,28 @@
       });
     });
     });
-  </script>
-  
+    $(document).ready(function() {
+      $('.delete').click('.delete', function() {
+        var id = $(this).attr('id');
+        var token = $(this).attr('data-token');
+        $.ajax({
+          url: "/delete",
+          type: "POST",
+          data: {'id': id, '_token': token, },
 
+          success: function(response)
+          {
+
+           document.getElementById("img"+id).innerHTML = "";
+
+         },
+         error: function(data)
+         {
+          // console.log('Error in likeadd');  
+        }
+      });
+      });
+    });
+  </script>
   </body>
 </html>

@@ -8,10 +8,11 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>YB|Itch List</title>
+  <title>YB | Itch List</title>
 
   <link href="/css/business-casual.min_test.css" rel="stylesheet">
   <link type="text/css" href="/css/demos/photo.css" rel="stylesheet" />
+  <link type="text/css" href="/css/demos/bucketAnimation.css" rel="stylesheet" />
 
 
   
@@ -21,38 +22,48 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
 
-<style type="text/css">
-@font-face {
-  font-family: 'Century gothic';
-  src: url('font.ttf');
-}
-#modal1{
-  overflow: hidden;
-}
+  <style type="text/css">
+  @font-face {
+    font-family: 'Century gothic';
+    src: url('font.ttf');
+  }
+  #modal1{
+    overflow: hidden;
+  }
+  #search{
+    padding-left: 0px !important;
+    padding-right: 10px;
+  }
+  .xdsoft_autocomplete{
+    margin-left: -20px;
+  }
 
-table{
-  table-layout: fixed;
-}
-.btn{
-  width: 180px;
-}
-body{
+  table{
+    table-layout: fixed;
+  }
+  .btn{
+    width: 180px;
+  }
+  body{
 
-  font-family: Century gothic;
-}
-.caption{
-  margin-top: -40px;
-  background-color: #26a69a;
-}
-.article{
+    
+  }
+  .caption{
+    margin-top: -40px;
+    background-color: #26a69a;
+  }
+  .article{
     background-color: #ffffff;
     border-radius: 10px;
   }
-.back
-{
-  background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg') !important;
-  background-attachment: fixed;
-}
+  .back
+  {
+    background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg') !important;
+    background-attachment: fixed;
+  }
+  #search{
+    margin-left: -20  px;
+  }
 </style>
 
 
@@ -65,435 +76,45 @@ body{
 
 
 
-    <section class="page-section">
-      <div class="container article" style="padding: 2vw">
-        <div class="row">
-          <div class="col-xl-12 mx-auto">
-            <div class="cta-inner text-center rounded">
-              <h2 class="section-heading mb-4">
-                <span class="section-heading-upper"></span>
-                <span class="section-heading-lower">ITCH LIST</span>
-              </h2>
-              <p class="mb-0">Here is a list of things which you can do before graduating. Complete the tasks and upload the images and we will make sure they become a part of your yearbook.</p>
-              <br>
-
-
-
-              <!-- that’s all folks! -->
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <br><br><br>
-      <div class="container" style="padding: 2vw">
-        <div class="row">
-         <div class="col-sm-4"><aside class="profile-card">
-
-          <header>
-
-            <!-- here’s the avatar -->
-
-            <img class="imgs" src="/img/bucket1.jpg">
-
-
-            <!-- the username -->
-            <h1>SF Salsa</h1>
-
-            <!-- and role or location -->
-            <h2>Swayed to the beats of Salsa in SF</h2>
-
-          </header>
-
-          <!-- bit of a bio; who are you? -->
-          <div class="profile-bio" style="text-align: center;">
-
-            <p></p>
-            <p></p>
-            <form action="/bucketpost/1" method="post" enctype="multipart/form-data">
-              {{csrf_field()}}
-              <input type="file" required="required" name="fileToUpload" >
-              <br><br>
-              <input type="submit" value="Upload Image" name="submit" class="btn btn-success" align="right">
-            </form>
-          </div>
-
-          <!-- some social links to show off -->
-
-        </aside></div> 
-        <div class="col-sm-4"><aside class="profile-card">
-
-          <header>
-
-            <!-- here’s the avatar -->
-
-            <img class="imgs"  src="bucket11.jpg">
-
-
-            <!-- the username -->
-            <h1>Old Archi Building</h1>
-
-            <!-- and role or location -->
-            <h2>Felt the horror in Old Archi Building</h2>
-
-          </header>
-
-          <!-- bit of a bio; who are you? -->
-          <div class="profile-bio" style="text-align: center;">
-
-
-            <form action="/bucketpost/2" method="post" enctype="multipart/form-data">
-              {{csrf_field()}}
-              <input type="file" required="required" name="fileToUpload" >
-              <br><br>
-              <input type="submit" value="Upload Image" name="submit" class="btn btn-success" align="right">
-            </form>
-
-
-          </div>
-
-          <!-- some social links to show off -->
-
-        </aside></div> 
-        <div class="col-sm-4"><aside class="profile-card">
-
-          <header>
-
-            <!-- here’s the avatar -->
-
-            <img class="imgs"  src="bucket10.jpg">
-
-
-            <!-- the username -->
-            <h1>Graffitis</h1>
-
-            <!-- and role or location -->
-            <h2>Sketched graffiti in hall.</h2>
-
-          </header>
-
-          <!-- bit of a bio; who are you? -->
-          <div class="profile-bio" style="text-align: center;">
-
-
-            <form action="/bucketpost/3" method="post" enctype="multipart/form-data">
-              {{csrf_field()}}
-              <input type="file" required="required" name="fileToUpload" >
-              <br><br>
-              <input type="submit" value="Upload Image" name="submit" class="btn btn-success" align="right">
-            </form>
-          </div>
-          <!-- some social links to show off -->
-
-        </aside></div> 
-
-
-      </div>
-      <br><br>
-
+  <section class="page-section" style="font-family: Century gothic;">
+    <div class="container article" style="padding: 2vw">
       <div class="row">
-       <div class="col-sm-4"><aside class="profile-card">
-
-        <header>
-
-          <!-- here’s the avatar -->
-
-          <img class="imgs"  src="bucket12.jpg">
-
-
-          <!-- the username -->
-          <h1>Howrah Bridges</h1>
-
-          <!-- and role or location -->
-          <h2>- Cruise ride under the Howrah Bridge -</h2>
-
-        </header>
-
-        <!-- bit of a bio; who are you? -->
-        <div class="profile-bio" style="text-align: center;">
+        <div class="col-xl-12 mx-auto">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper"></span>
+              <span class="section-heading-lower">ITCH LIST</span>
+            </h2>
+            <p class="mb-0">Here is a list of things which you can do before graduating. Complete the tasks and upload the images and we will make sure they become a part of your yearbook.</p>
+            <br>
 
 
-          <form action="/bucketpost/4" method="post" enctype="multipart/form-data">
-            {{csrf_field()}}
-            <input type="file" required="required" name="fileToUpload" >
-            <br><br>
-            <input type="submit" value="Upload Image" name="submit" class="btn btn-success" align="right">
-          </form>
+
+            <!-- that’s all folks! -->
+          </div>
         </div>
-
-        <!-- some social links to show off -->
-
-      </aside></div> 
-      <div class="col-sm-4"><aside class="profile-card">
-
-        <header>
-
-          <!-- here’s the avatar -->
-
-          <img class="imgs" src="bucket9.jpg">
-
-
-          <!-- the username -->
-          <h1>Star Gazing</h1>
-
-          <!-- and role or location -->
-          <h2>-Star gazing at the romantic lake. -</h2>
-
-        </header>
-
-        <!-- bit of a bio; who are you? -->
-        <div class="profile-bio" style="text-align: center;">
-
-
-          <form action="/bucketpost/5" method="post" enctype="multipart/form-data">
-            {{csrf_field()}}
-            <input type="file" required="required" name="fileToUpload" >
-            <br><br>
-            <input type="submit" value="Upload Image" name="submit" class="btn btn-success" align="right">
-          </form>
-        </div>
-
-        <!-- some social links to show off -->
-
-      </aside></div> 
-      <div class="col-sm-4"><aside class="profile-card">
-
-        <header>
-
-          <!-- here’s the avatar -->
-
-          <img class="imgs"  src="bucket8.jpg">
-
-
-          <!-- the username -->
-          <h1>Twilight View</h1>
-
-          <!-- and role or location -->
-          <h2>- Twilight view from Nalanda top -</h2>
-
-        </header>
-
-        <!-- bit of a bio; who are you? -->
-        <div class="profile-bio" style="text-align: center;">
-
-
-          <form action="/bucketpost/6" method="post" enctype="multipart/form-data">
-            {{csrf_field()}}
-            <input type="file" required="required" name="fileToUpload" >
-            <br><br>
-            <input type="submit" value="Upload Image" name="submit" class="btn btn-success" align="right">
-          </form>
-        </div>
-        <!-- some social links to show off -->
-
-      </aside></div> 
-
+      </div>
 
     </div>
-    <br><br>
+
+    <br><br><br>
+    <div class="container" style="padding: 2vw">
+      <div class="row">
+       @include('bucket.1')
+     </div>
+
+     <div class="row">
+      @include('bucket.2')
+    </div>
 
     <div class="row">
-     <div class="col-sm-4"><aside class="profile-card">
-
-      <header>
-
-        <!-- here’s the avatar -->
-
-        <img class="imgs"  src="bucket7.jpg">
-
-
-        <!-- the username -->
-        <h1>Treat</h1>
-
-        <!-- and role or location -->
-        <h2>- Treat at Kolaghat.  -</h2>
-
-      </header>
-
-      <!-- bit of a bio; who are you? -->
-      <div class="profile-bio" style="text-align: center;">
-
-
-        <form action="/bucketpost/7" method="post" enctype="multipart/form-data">
-          {{csrf_field()}}
-          <input type="file" required="required" name="fileToUpload" >
-          <br><br>
-          <input type="submit" value="Upload Image" name="submit" class="btn btn-success" align="right">
-        </form>
-      </div>
-
-      <!-- some social links to show off -->
-
-    </aside></div> 
-    <div class="col-sm-4"><aside class="profile-card">
-
-      <header>
-
-        <!-- here’s the avatar -->
-
-        <img class="imgs"  src="bucket6.jpg">
-
-
-        <!-- the username -->
-        <h1>Bonfire</h1>
-
-        <!-- and role or location -->
-        <h2>- Jolly Bonfire at Beach -</h2>
-
-      </header>
-
-      <!-- bit of a bio; who are you? -->
-      <div class="profile-bio" style="text-align: center;">
-
-
-        <form action="/bucketpost/8" method="post" enctype="multipart/form-data">
-          {{csrf_field()}}
-          <input type="file" required="required" name="fileToUpload" >
-          <br><br>
-          <input type="submit" value="Upload Image" name="submit" class="btn btn-success" align="right">
-        </form>
-      </div>
-
-      <!-- some social links to show off -->
-
-    </aside></div> 
-    <div class="col-sm-4"><aside class="profile-card">
-
-      <header>
-
-        <!-- here’s the avatar -->
-
-        <img class="imgs"  src="bucket5.jpg">
-
-
-        <!-- the username -->
-        <h1>Little Sisters</h1>
-
-        <!-- and role or location -->
-        <h2>“Delicacies” at Little Sisters</h2>
-
-      </header>
-
-      <!-- bit of a bio; who are you? -->
-      <div class="profile-bio" style="text-align: center;">
-
-
-        <form action="/bucketpost/9" method="post" enctype="multipart/form-data">
-          {{csrf_field()}}
-          <input type="file" required="required" name="fileToUpload" >
-          <br><br><br>
-          <input type="submit" value="Upload Image" name="submit" class="btn btn-success" align="right">
-        </form>
-      </div>
-
-      <!-- some social links to show off -->
-
-    </aside></div> 
-
-
-  </div>
-  <br><br>
-  <div class="row">
-   <div class="col-sm-4"><aside class="profile-card">
-
-    <header>
-
-      <!-- here’s the avatar -->
-
-      <img class="imgs"  src="bucket4.png">
-
-
-      <!-- the username -->
-      <h1>Trek</h1>
-
-      <!-- and role or location -->
-      <h2>Trek to Gangtok</h2>
-
-    </header>
-
-    <!-- bit of a bio; who are you? -->
-    <div class="profile-bio" style="text-align: center;">
-
-
-      <form action="/bucketpost/10" method="post" enctype="multipart/form-data">
-        {{csrf_field()}}
-        <input type="file" required="required" name="fileToUpload" >
-        <br><br>
-        <input type="submit" value="Upload Image" name="submit" class="btn btn-success" align="right">
-      </form>
-    </div>
-
-    <!-- some social links to show off -->
-
-  </aside></div> 
-  <div class="col-sm-4"><aside class="profile-card">
-
-    <header>
-
-      <!-- here’s the avatar -->
-
-      <img class="imgs" src="bucket3.jpg">
-
-
-      <!-- the username -->
-      <h1>Local Train</h1>
-
-      <!-- and role or location -->
-      <h2>Voyage on local train</h2>
-
-    </header>
-
-    <!-- bit of a bio; who are you? -->
-    <div class="profile-bio" style="text-align: center;">
-
-
-      <form action="/bucketpost/11" method="post" enctype="multipart/form-data">
-        {{csrf_field()}}
-        <input type="file" required="required" name="fileToUpload" >
-        <br><br>
-        <input type="submit" value="Upload Image" name="submit" class="btn btn-success" align="right">
-      </form>
-    </div>
-    <!-- some social links to show off -->
-
-  </aside></div> 
-  <div class="col-sm-4"><aside class="profile-card">
-
-    <header>
-
-      <!-- here’s the avatar -->
-
-      <img class="imgs"  src="bucket2.jpg">
-
-
-      <!-- the username -->
-      <h1>2.2</h1>
-
-      <!-- and role or location -->
-      <h2>Sing Along with friends on 2.2</h2>
-
-    </header>
-
-    <!-- bit of a bio; who are you? -->
-    <div class="profile-bio" style="text-align: center;">
-
-
-      <form action="/bucketpost/12" method="post" enctype="multipart/form-data">
-        {{csrf_field()}}
-        <input type="file" required="required" name="fileToUpload" >
-        <br><br>
-        <input type="submit" value="Upload Image" name="submit" class="btn btn-success" align="right">
-      </form>
-    </div>
-
-    <!-- some social links to show off -->
-
-  </aside></div> 
-
-
-</div>
-</div>
+     @include('bucket.3')
+   </div>
+
+   <div class="row">
+     @include('bucket.4')
+   </div> 
+ </div>
 </section>
 <footer class="footer text-faded text-center py-5">
   <div class="container">
@@ -506,6 +127,10 @@ body{
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/base.js"></script>
 <script src="/plugins/slimscroll/jquery.slimscroll.js"></script>
+<script>            
+    $('#fillbucket').removeClass('p-2 nav-icon-lg dark-black');
+    $('#fillbucket').addClass('p-2 nav-icon-lg mint-green');            
+</script>
 <script>
   $('#Slim,#Slim2').slimScroll({
     height:"auto",
@@ -515,386 +140,7 @@ body{
     size:"8px",
   });   
 </script>
-
 </body>
-
 </html>
-<script type="text/javascript">
 
-  function call($id)
-  {
-    alert($id);
-  }
-  $('.approve').click('.approve', function(){
-
-
-    var rollno = $(this).attr('id');
-    var no = $(this).attr('data-no');
-    var id = $(this).attr('data-id');
-    var query= id;
-
-    window.location="/approve/"+id;
-
-  }); 
-  $('.disapprove').click('.disapprove',function(){
-
-    var rollno = $(this).attr('id');
-    var no = $(this).attr('data-no');
-    var id = $(this).attr('data-id');
-
-    var query= '1';
-
-    window.location="/disapprove/"+id;
-
-  }); 
-
-
-</script>
-<script>            
-    $('#fillbucket').removeClass('p-2 nav-icon-lg dark-black');
-    $('#fillbucket').addClass('p-2 nav-icon-lg mint-green');            
-</script>
-
-
-  <!-- this is the markup. you can change the details (your own name, your own avatar etc.) but don’t change the basic structure! -->
-  <style type="text/css">
-  /* go on then, styles go here.. knock yourself out! */
-
-  @import url(https://fonts.googleapis.com/css?family=Roboto);
-
-
-  .imgs {
-    border-radius: 50%;
-    margin: 20px auto;
-    display: block;
-    width: 200px;
-    border: 5px solid #fff;
-  }
-
-  aside {
-    border-top: 0px solid #26A69A;
-    border-bottom: 0px solid #00695C;
-    border-radius: 50%;
-    margin: 0 auto;
-    display: block;
-    height: 250px;
-    width: 250px;
-    background: url(https://s-media-cache-ak0.pinimg.com/736x/3a/1f/02/3a1f02c10700daa80655a302c5a27acf.jpg);
-    background-size: cover;
-    overflow: hidden;
-    /*box-shadow: 0 0 100px 10px #fff;*/
-    transition: all ease 0.3s;
-  }
-
-  aside:hover {
-    border-top: 4px solid #26A69A;
-    border-bottom: 4px solid #00695C;
-    border-radius: 5px;
-    height: 480px;
-    width: 350px;
-
-  }
-
-  aside:hover header img {
-    animation: profile_image 2000ms linear both;
-    animation-delay: 0.5s;
-  }
-
-  header {
-    text-align: center;
-  }
-
-  header h1 {
-    position: relative;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
-    font-size: 25px;
-    line-height: 25px;
-    display: inline-block;
-    padding: 10px;
-    transition: all ease 0.250s;
-    border-top: 1px solid #fff;
-    border-bottom: 1px solid #fff;
-  }
-
-  aside:hover header h1 {
-    margin-top: 0px;
-    outline: 0 solid #fff;
-    border-top: 0px solid #fff;
-    border-bottom: 1px solid #fff;
-  }
-
-  header h2 {
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
-    font-size: 17px;
-    font-weight: normal;
-    line-height: 0px;
-    margin: 0;
-  }
-
-  .profile-bio {
-    margin-top: 20px;
-    padding: 1px 20px 10px 20px !important;
-    transition: all linear 1.5s;
-    color: #fff;
-    font-size: 14px;
-    opacity: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.42) 49%, rgba(0, 0, 0, 0.61) 100%);
-  }
-
-  aside:hover .profile-bio {
-    opacity: 1;
-  }
-
-  .profile-bio p:first-child {
-    text-align: center;
-    font-size: 16px;
-  }
-
-  .profile-social-links {
-    position: relative;
-    margin-top: -440px;
-    margin-left: -100px;
-    list-style-type: none;
-    opacity: 0;
-    transition: all ease 0.5s;
-  }
-
-  aside:hover .profile-social-links {
-    margin-left: -30px;
-    opacity: 1;
-  }
-
-  .profile-social-links li img {
-    width: 30px;
-    background: #fff;
-    border-radius: 50%;
-    padding: 5px;
-  }
-  /*PROFILE IMAGE ANIMATE */
-
-  @keyframes profile_image {
-    0% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    3.4% {
-      transform: matrix3d(1.032, 0, 0, 0, 0, 1.041, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    4.7% {
-      transform: matrix3d(1.045, 0, 0, 0, 0, 1.06, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    6.81% {
-      transform: matrix3d(1.066, 0, 0, 0, 0, 1.089, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    9.41% {
-      transform: matrix3d(1.088, 0, 0, 0, 0, 1.117, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    10.21% {
-      transform: matrix3d(1.094, 0, 0, 0, 0, 1.123, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    13.61% {
-      transform: matrix3d(1.112, 0, 0, 0, 0, 1.133, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    14.11% {
-      transform: matrix3d(1.114, 0, 0, 0, 0, 1.133, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    17.52% {
-      transform: matrix3d(1.121, 0, 0, 0, 0, 1.124, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    18.72% {
-      transform: matrix3d(1.121, 0, 0, 0, 0, 1.119, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    21.32% {
-      transform: matrix3d(1.12, 0, 0, 0, 0, 1.107, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    24.32% {
-      transform: matrix3d(1.115, 0, 0, 0, 0, 1.096, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    25.23% {
-      transform: matrix3d(1.113, 0, 0, 0, 0, 1.094, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    29.03% {
-      transform: matrix3d(1.106, 0, 0, 0, 0, 1.09, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    29.93% {
-      transform: matrix3d(1.105, 0, 0, 0, 0, 1.09, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    35.54% {
-      transform: matrix3d(1.098, 0, 0, 0, 0, 1.096, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    36.74% {
-      transform: matrix3d(1.097, 0, 0, 0, 0, 1.098, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    41.04% {
-      transform: matrix3d(1.096, 0, 0, 0, 0, 1.102, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    44.44% {
-      transform: matrix3d(1.097, 0, 0, 0, 0, 1.103, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    52.15% {
-      transform: matrix3d(1.099, 0, 0, 0, 0, 1.101, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    59.86% {
-      transform: matrix3d(1.101, 0, 0, 0, 0, 1.099, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    63.26% {
-      transform: matrix3d(1.101, 0, 0, 0, 0, 1.099, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    75.28% {
-      transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    85.49% {
-      transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    90.69% {
-      transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    100% {
-      transform: matrix3d(1.1, 0, 0, 0, 0, 1.1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-  }
-  /*NAME ANIMATE */
-
-  aside:hover header h1 {
-    animation: name_and_job 1500ms linear both;
-    animation-delay: 0.4s;
-  }
-
-  @keyframes name_and_job {
-    0% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -300, 0, 0, 1);
-    }
-    1.3% {
-      transform: matrix3d(3.905, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -237.02, 0, 0, 1);
-    }
-    2.55% {
-      transform: matrix3d(4.554, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -182.798, 0, 0, 1);
-    }
-    4.1% {
-      transform: matrix3d(4.025, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -125.912, 0, 0, 1);
-    }
-    5.71% {
-      transform: matrix3d(3.039, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -79.596, 0, 0, 1);
-    }
-    8.11% {
-      transform: matrix3d(1.82, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -31.647, 0, 0, 1);
-    }
-    8.81% {
-      transform: matrix3d(1.581, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -21.84, 0, 0, 1);
-    }
-    11.96% {
-      transform: matrix3d(1.034, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 4.825, 0, 0, 1);
-    }
-    12.11% {
-      transform: matrix3d(1.023, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.53, 0, 0, 1);
-    }
-    15.07% {
-      transform: matrix3d(0.947, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 12.662, 0, 0, 1);
-    }
-    16.12% {
-      transform: matrix3d(0.951, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 13.007, 0, 0, 1);
-    }
-    27.23% {
-      transform: matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.352, 0, 0, 1);
-    }
-    27.58% {
-      transform: matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.121, 0, 0, 1);
-    }
-    38.34% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.311, 0, 0, 1);
-    }
-    40.09% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.291, 0, 0, 1);
-    }
-    50% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.048, 0, 0, 1);
-    }
-    60.56% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.007, 0, 0, 1);
-    }
-    82.78% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    100% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-  }
-
-  aside:hover ul li:first-child {
-    animation: social_animation 2000ms ease-in-out both;
-    animation-delay: 0.75s;
-  }
-
-  aside:hover ul li:nth-child(2) {
-    animation: social_animation 2000ms ease-in-out both;
-    animation-delay: 1s;
-  }
-
-  aside:hover ul li:nth-child(3) {
-    animation: social_animation 2000ms ease-in-out both;
-    animation-delay: 1.25s;
-  }
-
-  @keyframes social_animation {
-    0% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -300, 0, 0, 1);
-    }
-    1.3% {
-      transform: matrix3d(3.905, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -237.02, 0, 0, 1);
-    }
-    2.55% {
-      transform: matrix3d(4.554, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -182.798, 0, 0, 1);
-    }
-    4.1% {
-      transform: matrix3d(4.025, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -125.912, 0, 0, 1);
-    }
-    5.71% {
-      transform: matrix3d(3.039, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -79.596, 0, 0, 1);
-    }
-    8.11% {
-      transform: matrix3d(1.82, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -31.647, 0, 0, 1);
-    }
-    8.81% {
-      transform: matrix3d(1.581, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -21.84, 0, 0, 1);
-    }
-    11.96% {
-      transform: matrix3d(1.034, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 4.825, 0, 0, 1);
-    }
-    12.11% {
-      transform: matrix3d(1.023, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 5.53, 0, 0, 1);
-    }
-    15.07% {
-      transform: matrix3d(0.947, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 12.662, 0, 0, 1);
-    }
-    16.12% {
-      transform: matrix3d(0.951, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 13.007, 0, 0, 1);
-    }
-    27.23% {
-      transform: matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.352, 0, 0, 1);
-    }
-    27.58% {
-      transform: matrix3d(1.001, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2.121, 0, 0, 1);
-    }
-    38.34% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.311, 0, 0, 1);
-    }
-    40.09% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.291, 0, 0, 1);
-    }
-    50% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, -0.048, 0, 0, 1);
-    }
-    60.56% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0.007, 0, 0, 1);
-    }
-    82.78% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-    100% {
-      transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    }
-  }
-</style>
+<!-- this is the markup. you can change the details (your own name, your own avatar etc.) but don’t change the basic structure! -->

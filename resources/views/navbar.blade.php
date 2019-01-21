@@ -25,7 +25,7 @@
                 <ul class="nav navbar-nav">
                     <li>
                         <div class="search-dashboard">
-                            <form action="search/" method="POST" class="form-inline">
+                            <form action="/search" method="POST" class="form-inline">
                                 {{ csrf_field() }}
                                 <input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; padding-top: 3px; padding-left: 20px; line-height: 40px; cursor: text; font-size: 14px;">
                                 <button type="submit"><i class="fa fa-search"></i></button>
@@ -58,9 +58,9 @@
                                     <span class="pull-right">
                                     <a href="/readall" class="text-dark">
                                     <small>Clear All</small>
-                                    </a>
+                                    </a> 
                                     </span>
-                                    <span style="color: #000;">Notifications({{count($notifications) + count($comment_notification)}})</span>
+                                    <span style="color: #000;">Notifications({{count($notifications) + count($comment_notification)}})</span> 
                                 </h6>
                             </div>
                             <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 416.983px;">
@@ -95,7 +95,7 @@
                                             $pic = App\User::where('name',$notification['user'])->pluck('pro_pic');
                                             @endphp
                                             <div class="notify-icon">
-                                                <img src="../{{$pic[0]}}" class="img-responsive img-circle">
+                                                <img src="../{{$pic[0]}}" class="img-responsive img-circle" style="width: 35px; height: 35px">
                                             </div>
                                             <p class="notify-details" style="font-family: Verdana">
                                                 <strong>{{$notification['user']}}</strong> wrote :<br>
@@ -131,11 +131,11 @@
                             <div class="dropdown-item noti-title">
                                 <h6 class="m-0">
                                     <span class="pull-right">
-                                    <a href="photo_profile.html" class="text-dark"></a>
+                                    <a href="photo_profile.html" class="text-dark"></a> 
                                     </span>Settings
                                 </h6>
                             </div>
-                            <div >
+                            <div style="height: 35px;">
                                 <a class="dropdown-item " href="/details">
                                     <p style="font-family: 'Abhaya Libre', serif;">Edit Details</p>
                                 </a>
@@ -149,8 +149,8 @@
                         <!--/ dropdown-menu-->
                     </li>
                     <li class="dropdown mega-avatar">
-                        <a href="photo_profile.html#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-                            <span class="avatar w-32">
+                        <a href="/profile_index" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            <span class="avatar w-32">                  
                             @if(!empty(Auth::user()->pro_pic))
                             <img class="img-fluid img-circle" src="/{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;">
                             @endif
@@ -161,9 +161,9 @@
                             </span>
                         </a>
                     </li>
-                    <!-- /navbar-item `-->
+                    <!-- /navbar-item `--> 
                 </ul>
-                <!-- /.sign-in -->
+                <!-- /.sign-in -->   
             </div>
             <!-- /.nav-right -->
         </div>
@@ -171,7 +171,7 @@
     </nav>
     <!-- /.navbar -->
 </header>
-<!-- Page Header -->
+<!-- Page Header --> 
 <section class="nav-sec">
     <div class="d-flex justify-content-between">
         <div class="p-2 nav-icon-lg dark-black" id="polls">
@@ -180,7 +180,7 @@
             </a>
         </div>
         <div class="p-2 nav-icon-lg clean-black" id="testimonials">
-            <a class="nav-icon modal-trigger" href="#modal_test" data-target="#modal_test" ><em class="fa fa-crosshairs"></em>
+            <a class="nav-icon test" href="#" data-toggle="modal" data-target="#modal_test"><em class="fa fa-crosshairs"></em>
             <span>Testimonials</span>
             </a>
         </div>
@@ -194,87 +194,102 @@
             <span>View Bucket</span>
             </a>
         </div>
-        <div class="p-2 nav-icon-lg dark-black">
+        <div class="p-2 nav-icon-lg dark-black" id="classmap">
             <a class="nav-icon" href="#"><em class="fa fa-user"></em>
             <span>Class Map</span>
             </a>
         </div>
     </div>
-</section>
-<div id="modal_test" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Write testimonials</h4>
-            </div>
-            <div class="modal-body">
-                <div class="search-dashboard">
-                    <form action="search/" method="POST" class="form-inline">
-                        {{ csrf_field() }}
-                        <input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; padding-top: 3px; padding-left: 20px; line-height: 40px; cursor: text; font-size: 14px;">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
+    <div id="modal_test" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <center>
+                        <h4 class="modal-title text-uppercase" style="color: #000">Write Testimonials</h4>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <div class="search-dashboard">
+                            <form action="/search" method="POST" class="form-inline">
+                                {{ csrf_field() }}
+                                <input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search1" style="background: none; border: 1px solid; border-radius: 5px; padding-top: 3px; padding-left: 10px; line-height: 40px; cursor: text; font-size: 14px;">
+                                <input type="submit" value="Search" class="kafe-btn kafe-btn-mint" style="padding: 8px 22px; color: #fff"></input>
+                            </form>
+                        </div>
+                    </center>
+                </div>
+                <div class="modal-footer">
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 <script>
-    $('#modal_test').on('click',function() {
-    	$('#modal_test').modal('show');
-    });
     $('.comment_notification').on('click', function() {
-    $('.enlargeImageModalSource').attr('src', '/'+$(this).attr('value'));
-    $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
-    $('#myModal').modal('show');
-    var formData = {
-    'comments' : $('textarea[name=comment]').val(),
-    'pic_id' : $('.enlargeImageModalSource').attr('id'),
-    '_token' : $('#comment-token').val()
-    }
-    $.ajax({
-    url: "/commentadd",
-    type: "POST",
-    data: formData,
-    success: function(response)
-    {
-    document.getElementById("comments").innerHTML = response;
-    },
-    error: function(data)
-    {
-    }
-    });
-    $.ajax({
-    url: "/getimage",
-    type: "POST",
-    data: formData,
-    success: function(response)
-    {
-    var image = response;
-    document.getElementById('profile').href = "/profile_index/" + image["rollno"];
-    document.getElementById('posted_by').innerHTML = image["name"];
-    document.getElementById('created_at').innerHTML = image["created_at"];
-    },
-    error: function(data)
-    {
-    }
-    });
-    });
+       $('.enlargeImageModalSource').attr('src', '/'+$(this).attr('value'));
+       $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
+       $('#myModal').modal('show');
+       var formData = {
+         'comments' : $('textarea[name=comment]').val(),
+         'pic_id' : $('.enlargeImageModalSource').attr('id'),
+         '_token' : $('#comment-token').val()
+       }
+       $.ajax({
+         url: "/commentadd",
+         type: "POST",
+         data: formData,
+    
+         success: function(response)
+         {
+    
+           document.getElementById("comments").innerHTML = response;
+         },
+         error: function(data)
+         {
+    
+         }
+       });
+       $.ajax({
+         url: "/getimage",
+         type: "POST",
+         data: formData,
+    
+         success: function(response)
+         {
+           var image = response;
+           document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+           document.getElementById('image').innerHTML = '/' + image["pic"];
+           document.getElementById('posted_by').innerHTML = image["name"];
+           document.getElementById('created_at').innerHTML = image["created_at"];
+         },
+         error: function(data)
+         {
+    
+         }
+       });
+     });
+    
     var user = <?php echo $user;?>;
-    // console.log(user[0].name);
-    var names = [];
-    for (var i = 0; i < user.length; i++) {
-    names[i] = user[i].name;
-    }
-    // console.log('names',names);
-    $(document).ready(function() {
-    $('#search').autocomplete({
-    source: [names]
-    });
-    });
-    $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-    })
+         // console.log(user[0].name);
+         var names = [];
+         for (var i = 0; i < user.length; i++) {
+            names[i] = user[i].name + ' | ' + user[i].rollno;
+         }
+         // console.log('names',names);
+    
+         $(document).ready(function() {
+            $('#search').autocomplete({
+                source: [names]
+            }); 
+            $('#search1').autocomplete({
+                source: [names]
+            });  
+         });
+         $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+         });
+       
 </script>
