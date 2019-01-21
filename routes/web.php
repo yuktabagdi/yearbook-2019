@@ -79,3 +79,6 @@ Route::get('/viewbucket', 'BucketController@view');
 
 
 Route::get('/polls','PollController@index');
+Route::post('/polls/{id}','PollController@post');
+Route::get('/pollres','PollController@result');
+Route::get('/pollres/{id}','PollController@plot');

@@ -45,16 +45,11 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <!-- ==============================================
-        Navigation Section
-        =============================================== -->
+        <!--Navigation Section -->
         @include('navbar')
-        <!-- Page Header -->
-        <!-- ==============================================
-        Navbar Second Section
-        =============================================== -->
         
-        @if(!empty($polls))
+        
+        
         <section class="notifications">
             <div class="container">
                 <div class="row">
@@ -66,220 +61,168 @@
                                     <form action="/polls/1" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
-                                            <p><b>Sample Question 1</b></p>
+                                            <p><b>Maggu of the Batch</b></p>
                                             <div class="row" style="display: inline-block;">
                                                 <div class="col-md-8">
                                                 <div class="search-area">
                                                     <div class="input-field">
+                                                        @if(!empty($polls['q1']))
                                                         <input placeholder="Sample Ans" type="text" name="q1" required="required" id="q1" value="{{$polls['q1']}}">
+                                                        @else
+                                                        <input placeholder="Sample Ans" type="text" name="q1" required="required" id="q1">
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <div class="col-md-2" >
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <button type="submit" class="btn btn-success"><i class="material-icons"> done </i></button>                                                    
+                                                </div>
+                                                @if(!empty($polls['q1']))
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a href="/pollres/1" target="_blank" class="btn btn-primary">Results</a>
+                                                </div>
+                                                @endif
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                                
+                            </li>
+                            <li>
+                                <div class="media first_child">
+                                    <img src="img/ques.png" alt="" class="img-responsive img-circle">
+                                    <form action="/polls/2" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="media_body">
+                                            <p><b>Stud of the batch</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-md-8">
+                                                <div class="search-area">
+                                                    <div class="input-field">
+                                                        @if(!empty($polls['q2']))
+                                                        <input placeholder="Sample Ans" type="text" name="q2" required="required" id="q2" value="{{$polls['q2']}}">
+                                                        @else
+                                                        <input placeholder="Sample Ans" type="text" name="q2" required="required" id="q2">
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                <div class="form-group" style="margin-left: 8px;">
+                                                <div class="form-group" style="margin-left: 20px;" >
                                                     <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
                                                 </div>
+                                                @if(!empty($polls['q2']))
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a href="/pollres/2" target="_blank" class="btn btn-primary">Results</a>
+                                                </div>
+                                                @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </li>
-                            <li>
-                                <div class="media first_child">
-                                    <img src="img/ques.png" alt="" class="img-responsive img-circle">
-                                    <form action="/polls/2" method="POST">
-                                        {{ csrf_field() }}
-                                        <div class="media_body">
-                                            <p><b>Sample Question 2</b></p>
-                                            <div class="row">
-                                                <div class="search-area">
-                                                    <div class="input-field">
-                                                        <input placeholder="Sample Ans" type="text" name="q2" required="required" id="q2" value="{{$polls['q2']}}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group" style="margin-left: 8px;">
-                                                    <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
+
                             <li>
                                 <div class="media first_child">
                                     <img src="img/ques.png" alt="" class="img-responsive img-circle">
                                     <form action="/polls/3" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
-                                            <p><b>Sample Question 3</b></p>
-                                            <div class="row">
+                                            <p><b>Batch ka crush</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-md-8">
                                                 <div class="search-area">
                                                     <div class="input-field">
+                                                        @if(!empty($polls['q3']))
                                                         <input placeholder="Sample Ans" type="text" name="q3" required="required" id="q3" value="{{$polls['q3']}}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group" style="margin-left: 8px;">
-                                                    <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media first_child">
-                                    <img src="img/ques.png" alt="" class="img-responsive img-circle">
-                                    <form action="/polls/4" method="POST">
-                                        {{ csrf_field() }}
-                                        <div class="media_body">
-                                            <p><b>Sample Question 4</b></p>
-                                            <div class="row">
-                                                <div class="search-area">
-                                                    <div class="input-field">
-                                                        <input placeholder="Sample Ans" type="text" name="q4" required="required" id="q4" value="{{$polls['q4']}}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group" style="margin-left: 8px;">
-                                                    <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media first_child">
-                                    <img src="img/ques.png" alt="" class="img-responsive img-circle">
-                                    <form action="/polls/5" method="POST">
-                                        {{ csrf_field() }}
-                                        <div class="media_body">
-                                            <p><b>Sample Question 5</b></p>
-                                            <div class="row">
-                                                <div class="search-area">
-                                                    <div class="input-field">
-                                                        <input placeholder="Sample Ans" type="text" name="q5" required="required" id="q5" value="{{$polls['q5']}}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group" style="margin-left: 8px;">
-                                                    <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <!--/ row-->
-            </div>
-        </section>
-        @else
-        <section class="notifications">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <ul>
-                            <li>
-                                <div class="media first_child">
-                                    <img src="img/ques.png" alt="" class="img-responsive img-circle">
-                                    <form action="/polls/1" method="POST">
-                                        {{ csrf_field() }}
-                                        <div class="media_body">
-                                            <p><b>Sample Question 1</b></p>
-                                            <div class="row">
-                                                <div class="search-area">
-                                                    <div class="input-field">
-                                                        <input placeholder="Sample Ans" type="text" name="q1" required="required" id="q1">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group" style="margin-left: 8px;">
-                                                    <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media first_child">
-                                    <img src="img/ques.png" alt="" class="img-responsive img-circle">
-                                    <form action="/polls/2" method="POST">
-                                        {{ csrf_field() }}
-                                        <div class="media_body">
-                                            <p><b>Sample Question 2</b></p>
-                                            <div class="row">
-                                                <div class="search-area">
-                                                    <div class="input-field">
-                                                        <input placeholder="Sample Ans" type="text" name="q2" required="required" id="q2">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group" style="margin-left: 8px;">
-                                                    <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="media first_child">
-                                    <img src="img/ques.png" alt="" class="img-responsive img-circle">
-                                    <form action="/polls/3" method="POST">
-                                        {{ csrf_field() }}
-                                        <div class="media_body">
-                                            <p><b>Sample Question 3</b></p>
-                                            <div class="row">
-                                                <div class="search-area">
-                                                    <div class="input-field">
+                                                        @else
                                                         <input placeholder="Sample Ans" type="text" name="q3" required="required" id="q3">
+                                                        @endif
                                                     </div>
                                                 </div>
-                                                <div class="form-group" style="margin-left: 8px;">
+                                                </div>
+                                                <div class="col-md-4">
+                                                <div class="form-group" style="margin-left: 20px;" >
                                                     <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
+                                                </div>
+                                                @if(!empty($polls['q3']))
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a href="/pollres/3" target="_blank" class="btn btn-primary">Results</a>
+                                                </div>
+                                                @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </li>
+
                             <li>
                                 <div class="media first_child">
                                     <img src="img/ques.png" alt="" class="img-responsive img-circle">
                                     <form action="/polls/4" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
-                                            <p><b>Sample Question 4</b></p>
-                                            <div class="row">
+                                            <p><b>Baba of the batch</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-md-8">
                                                 <div class="search-area">
                                                     <div class="input-field">
+                                                        @if(!empty($polls['q4']))
+                                                        <input placeholder="Sample Ans" type="text" name="q4" required="required" id="q4" value="{{$polls['q4']}}">
+                                                        @else
                                                         <input placeholder="Sample Ans" type="text" name="q4" required="required" id="q4">
+                                                        @endif
                                                     </div>
                                                 </div>
-                                                <div class="form-group" style="margin-left: 8px;">
+                                                </div>
+                                                <div class="col-md-4">
+                                                <div class="form-group" style="margin-left: 20px;" >
                                                     <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
+                                                </div>
+                                                @if(!empty($polls['q4']))
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a href="/pollres/4" target="_blank" class="btn btn-primary">Results</a>
+                                                </div>
+                                                @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </li>
+
                             <li>
                                 <div class="media first_child">
                                     <img src="img/ques.png" alt="" class="img-responsive img-circle">
                                     <form action="/polls/5" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
-                                            <p><b>Sample Question 5</b></p>
-                                            <div class="row">
+                                            <p><b>Jugaadu of the batch</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-md-8">
                                                 <div class="search-area">
                                                     <div class="input-field">
+                                                        @if(!empty($polls['q5']))
+                                                        <input placeholder="Sample Ans" type="text" name="q5" required="required" id="q5" value="{{$polls['q5']}}">
+                                                        @else
                                                         <input placeholder="Sample Ans" type="text" name="q5" required="required" id="q5">
+                                                        @endif
                                                     </div>
                                                 </div>
-                                                <div class="form-group" style="margin-left: 8px;">
+                                                </div>
+                                                <div class="col-md-4">
+                                                <div class="form-group" style="margin-left: 20px;" >
                                                     <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
+                                                </div>
+                                                @if(!empty($polls['q5']))
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a href="/pollres/5" target="_blank" class="btn btn-primary">Results</a>
+                                                </div>
+                                                @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -292,7 +235,7 @@
                 <!--/ row-->
             </div>
         </section>
-        @endif
+        
 
 
         <script src="assets/js/jquery.min.js"></script>
