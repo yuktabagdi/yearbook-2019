@@ -248,6 +248,10 @@
    <script src="js/bootstrap.min.js"></script>
    <script src="js/base.js"></script>
    <script src="plugins/slimscroll/jquery.slimscroll.js"></script>
+   <script>            
+      $('#viewbucket').removeClass('p-2 nav-icon-lg dark-black');
+      $('#viewbucket').addClass('p-2 nav-icon-lg mint-green');            
+  </script>
    <script>
     $('#Slim,#Slim2').slimScroll({
       height:"auto",

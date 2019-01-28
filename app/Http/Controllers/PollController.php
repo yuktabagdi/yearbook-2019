@@ -40,4 +40,33 @@ class PollController extends Controller
    		}
    		return back();
     }
+    
+    public function plot($id)
+    {
+      $polls = Poll::get();
+      $box = array();
+      $res = array();
+
+      
+      foreach ($polls as $entries) {
+        if(!empty($entries['q'.$id]))
+        {
+          $roll =User::where('name',$entries['q'.$id])->get()->toArray(); 
+          $roll = $roll[0]['rollno'];
+          array_push($box, $roll);
+        }
+
+      }
+
+      foreach ($box as $x) {
+        $res[$x]=0;
+      }
+      foreach ($box as $x) {
+        $res[$x]+=1;
+      }
+      arsort($res);
+
+      return view('sample',compact('res'));
+
+    }
 }

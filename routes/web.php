@@ -84,3 +84,5 @@ Route::post('/delete', 'CountController@delete');
 
 
 Route::get('/polls','PollController@index');
+Route::post('/polls/{id}','PollController@post');
+Route::get('/pollres/{id}','PollController@plot');
