@@ -35,6 +35,10 @@
         <script src="js/jquery.min.js"></script>
         <script src="js/autocomplete.js"></script>
         <script src="js/modernizr-custom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
@@ -80,10 +84,58 @@
                                                 </div>
                                                 @if(!empty($polls['q1']))
                                                 <div class="form-group" style="margin-left: 20px;">
-                                                    <a href="/pollres/1" target="_blank" class="btn btn-primary">Results</a>
+                                                    <a data-toggle="collapse" data-target="#r1"  class="btn btn-primary">Results</a>
                                                 </div>
                                                 @endif
                                                 </div>
+                                                @if(!empty($res[1]))
+                                                <?php $x[1]=array_keys($res[1]);$y[1] = array_values($res[1]); ?>
+                                                <div class ="collapse" id="r1" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart1" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x1 =  <?php echo json_encode($x[1]); ?>;
+                                                        var y1 =  <?php echo json_encode($y[1]); ?>;
+                                                        var ctx1 = document.getElementById("myChart1").getContext('2d');
+                                                        var myChart1 = new Chart(ctx1, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x1,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y1,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
                                                 
                                             </div>
                                         </div>
@@ -115,10 +167,58 @@
                                                 </div>
                                                 @if(!empty($polls['q2']))
                                                 <div class="form-group" style="margin-left: 20px;">
-                                                    <a href="/pollres/2" target="_blank" class="btn btn-primary">Results</a>
+                                                    <a data-toggle="collapse" data-target="#r2" class="btn btn-primary">Results</a>
                                                 </div>
                                                 @endif
                                                 </div>
+                                                @if(!empty($res[2]))
+                                                <?php $x[2]=array_keys($res[2]);$y[2] = array_values($res[2]); ?>
+                                                <div class ="collapse" id="r2" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart2" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x2 =  <?php echo json_encode($x[2]); ?>;
+                                                        var y2 =  <?php echo json_encode($y[2]); ?>;
+                                                        var ctx2 = document.getElementById("myChart2").getContext('2d');
+                                                        var myChart2 = new Chart(ctx2, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x2,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y2,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </form>
@@ -150,10 +250,58 @@
                                                 </div>
                                                 @if(!empty($polls['q3']))
                                                 <div class="form-group" style="margin-left: 20px;">
-                                                    <a href="/pollres/3" target="_blank" class="btn btn-primary">Results</a>
+                                                    <a data-toggle="collapse" data-target="#r3" class="btn btn-primary">Results</a>
                                                 </div>
                                                 @endif
                                                 </div>
+                                                @if(!empty($res[3]))
+                                                <?php $x[3]=array_keys($res[3]);$y[3] = array_values($res[3]); ?>
+                                                <div class ="collapse" id="r3" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart3" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x3 =  <?php echo json_encode($x[3]); ?>;
+                                                        var y3 =  <?php echo json_encode($y[3]); ?>;
+                                                        var ctx3 = document.getElementById("myChart3").getContext('2d');
+                                                        var myChart3 = new Chart(ctx3, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x3,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y3,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </form>
@@ -185,10 +333,58 @@
                                                 </div>
                                                 @if(!empty($polls['q4']))
                                                 <div class="form-group" style="margin-left: 20px;">
-                                                    <a href="/pollres/4" target="_blank" class="btn btn-primary">Results</a>
+                                                    <a data-toggle="collapse" data-target="#r4" class="btn btn-primary">Results</a>
                                                 </div>
                                                 @endif
                                                 </div>
+                                                @if(!empty($res[4]))
+                                                <?php $x[4] =array_keys($res[4]);$y[4] = array_values($res[4]); ?>
+                                                <div class ="collapse" id="r4" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart4" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x4 =  <?php echo json_encode($x[4]); ?>;
+                                                        var y4 =  <?php echo json_encode($y[4]); ?>;
+                                                        var ctx4 = document.getElementById("myChart4").getContext('2d');
+                                                        var myChart4 = new Chart(ctx4, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x4,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y4,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </form>
@@ -220,10 +416,58 @@
                                                 </div>
                                                 @if(!empty($polls['q5']))
                                                 <div class="form-group" style="margin-left: 20px;">
-                                                    <a href="/pollres/5" target="_blank" class="btn btn-primary">Results</a>
+                                                    <a data-toggle="collapse" data-target="#r5" class="btn btn-primary">Results</a>
                                                 </div>
                                                 @endif
                                                 </div>
+                                                @if(!empty($res[5]))
+                                                <?php $x[5] =array_keys($res[5]);$y[5] = array_values($res[5]); ?>
+                                                <div class ="collapse" id="r5" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart5" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x5 =  <?php echo json_encode($x[5]); ?>;
+                                                        var y5 =  <?php echo json_encode($y[5]); ?>;
+                                                        var ctx5 = document.getElementById("myChart5").getContext('2d');
+                                                        var myChart5 = new Chart(ctx5, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x5,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y5,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </form>

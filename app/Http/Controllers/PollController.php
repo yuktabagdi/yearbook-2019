@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 use Auth;
 use App\views;
@@ -18,16 +19,20 @@ class PollController extends Controller
     	$roll = Auth::user()->rollno;
     	$user = User::get();
     	$polls = Poll::where('rollno',$roll)->get()->toArray();
+      for ($x = 1; $x <= 5; $x++) {
+        $res[$x] = PollController::plot($x);        
+      }
+      
     	if(!empty($polls))
       		$polls = $polls[0];
     	$notifications = views::where('depmate',$roll)->where('read','1')->latest()->get();
     	$comment_notification = Comment::where('roll', $roll)->where('seen', '1')->where('user_id', '!=', $id)
         ->latest()->get();
-    	return view('polls',compact('notifications','comment_notification','user','polls'));
+    	return view('polls',compact('notifications','comment_notification','user','polls','res'));
     }
     public function post($id){
     	$roll = Auth::user()->rollno;
-   		if(empty(Poll::where('rollno',$roll)->get()->toArray())){
+      if(empty(Poll::where('rollno',$roll)->get()->toArray())){
      		Poll::create([
      			'rollno' =>Auth::user()->rollno,
       			'q'.$id => request('q'.$id),
@@ -38,6 +43,7 @@ class PollController extends Controller
        			'q'.$id => request('q'.$id),
      		]);
    		}
+      
    		return back();
     }
     
@@ -51,7 +57,7 @@ class PollController extends Controller
       foreach ($polls as $entries) {
         if(!empty($entries['q'.$id]))
         {
-          $roll =User::where('name',$entries['q'.$id])->get()->toArray(); 
+          $roll = User::where('name',$entries['q'.$id])->get()->toArray(); 
           $roll = $roll[0]['rollno'];
           array_push($box, $roll);
         }
@@ -65,8 +71,8 @@ class PollController extends Controller
         $res[$x]+=1;
       }
       arsort($res);
-
-      return view('sample',compact('res'));
+      $res = array_slice($res,0,5);
+      return $res;
 
     }
 }
