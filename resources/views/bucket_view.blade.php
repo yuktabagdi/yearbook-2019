@@ -84,7 +84,7 @@
       <div class="col-md-3 col-sm-4" id="myScrollspy">
        <aside class="sidebar">      
         <ul id="side" data-spy="affix" data-offset-top="180">
-         <li class="active" id="0"><a href="/viewbucket') }}"><i class="fa fa-align-left"></i> All Photos</a></li>
+         <li class="" id="0"><a href="/viewbucket') }}"><i class="fa fa-align-left"></i> All Photos</a></li>
          <li id="1"><a href="/viewbucket?id=1"><i class="fa fa-align-left"></i> {{$buckets[1]}}</a></li>
          <li id="2"><a href="/viewbucket?id=2"><i class="fa fa-align-left"></i> {{$buckets[2]}}</a></li>
          <li id="3"><a href="/viewbucket?id=3"><i class="fa fa-align-left"></i> {{$buckets[3]}}</a></li>
@@ -284,6 +284,7 @@
       });
       });
     });
+    $('#<?php echo $listid; ?>').addClass('active');
   </script>
 </body>
 </html>
