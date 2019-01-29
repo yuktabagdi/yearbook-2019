@@ -17,24 +17,24 @@
         <!-- ==============================================
         Favicons
         =============================================== -->
-        <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
-        <link rel="icon" href="img/logo.jpg">
-        <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/autocomplete.css') }}">
+        <link rel="icon" href="{{ asset('img/logo.jpg') }}">
+        <link rel="apple-touch-icon" href="{{ asset('img/favicons/apple-touch-icon.png') }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/favicons/apple-touch-icon-72x72.png') }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/favicons/apple-touch-icon-114x114.png') }}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!-- ==============================================
         CSS
         =============================================== -->
-        <link type="text/css" href="css/demos/photo.css" rel="stylesheet" />
+        <link type="text/css" href="{{ asset('css/demos/photo.css') }}" rel="stylesheet" />
         <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
         <!-- ==============================================
         Feauture Detection
         =============================================== -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/autocomplete.js"></script>
-        <script src="js/modernizr-custom.js"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/autocomplete.js') }}"></script>
+        <script src="{{ asset('js/modernizr-custom.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
@@ -61,7 +61,7 @@
                         <ul>
                             <li>
                                 <div class="media first_child">
-                                    <img src="img/ques.png" alt="" class="img-responsive img-circle">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
                                     <form action="/polls/1" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
@@ -144,7 +144,7 @@
                             </li>
                             <li>
                                 <div class="media first_child">
-                                    <img src="img/ques.png" alt="" class="img-responsive img-circle">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
                                     <form action="/polls/2" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
@@ -227,7 +227,7 @@
 
                             <li>
                                 <div class="media first_child">
-                                    <img src="img/ques.png" alt="" class="img-responsive img-circle">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
                                     <form action="/polls/3" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
@@ -310,7 +310,7 @@
 
                             <li>
                                 <div class="media first_child">
-                                    <img src="img/ques.png" alt="" class="img-responsive img-circle">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
                                     <form action="/polls/4" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
@@ -393,7 +393,7 @@
 
                             <li>
                                 <div class="media first_child">
-                                    <img src="img/ques.png" alt="" class="img-responsive img-circle">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
                                     <form action="/polls/5" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">

@@ -8,7 +8,7 @@
     <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">  
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Trending</title>
+      <title>Images | Bucket List</title>
       <meta name="description" content="" />
       <meta name="keywords" content="" />
       <meta property="og:title" content="" />
@@ -19,24 +19,24 @@
     <!-- ==============================================
     Favicons
     =============================================== --> 
-      <link rel="icon" href="img/logo.jpg">
-      <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
-      <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
-      <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+      <link rel="icon" href="{{ asset('img/logo.jpg') }}">
+      <link rel="apple-touch-icon" href="{{ asset('img/favicons/apple-touch-icon.png') }}">
+      <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/favicons/apple-touch-icon-72x72.png') }}">
+      <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/favicons/apple-touch-icon-114x114.png') }}">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     
       <!-- ==============================================
     CSS
     =============================================== -->
-        <link type="text/css" href="css/demos/photo.css" rel="stylesheet" />
-        <link type="text/css" href="css/demos/interest.css" rel="stylesheet" />
+        <link type="text/css" href="{{ asset('css/demos/photo.css') }}" rel="stylesheet" />
+        <link type="text/css" href="{{ asset('css/demos/interest.css') }}" rel="stylesheet" />
         <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
 
         
     <!-- ==============================================
     Feauture Detection
     =============================================== -->
-      <script src="js/modernizr-custom.js"></script>  
+      <script src="{{ asset('js/modernizr-custom.js') }}"></script>  
     <style type="text/css">
     .back{
       background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
@@ -84,7 +84,7 @@
       <div class="col-md-3 col-sm-4" id="myScrollspy">
        <aside class="sidebar">      
         <ul id="side" data-spy="affix" data-offset-top="180">
-         <li class="active" id="0"><a href="/viewbucket"><i class="fa fa-align-left"></i> All Photos</a></li>
+         <li class="active" id="0"><a href="/viewbucket') }}"><i class="fa fa-align-left"></i> All Photos</a></li>
          <li id="1"><a href="/viewbucket?id=1"><i class="fa fa-align-left"></i> {{$buckets[1]}}</a></li>
          <li id="2"><a href="/viewbucket?id=2"><i class="fa fa-align-left"></i> {{$buckets[2]}}</a></li>
          <li id="3"><a href="/viewbucket?id=3"><i class="fa fa-align-left"></i> {{$buckets[3]}}</a></li>
@@ -178,7 +178,7 @@
                           </a>
                         </div>
                         <div class="media-body">
-                          <a href="/profile_index/{{$image['roll']}}">
+                          <a href="/profile_index/{{$image['roll']}}') }}">
                             <p class="m-0">{{$name[0]['name']}}</p>
                           </a>
                           <small><span>{{$image['created_at']->diffForHumans() }}</span></small>
@@ -245,9 +245,9 @@
      <!-- ==============================================
    Scripts
    =============================================== -->
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/base.js"></script>
-   <script src="plugins/slimscroll/jquery.slimscroll.js"></script>
+   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+   <script src="{{ asset('js/base.js') }}"></script>
+   <script src="{{ asset('plugins/slimscroll/jquery.slimscroll.js') }}"></script>
    <script>            
       $('#viewbucket').removeClass('p-2 nav-icon-lg dark-black');
       $('#viewbucket').addClass('p-2 nav-icon-lg mint-green');            

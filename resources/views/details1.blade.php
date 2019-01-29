@@ -13,8 +13,8 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link type="text/css" href="css/demos/photo.css" rel="stylesheet" />
-  <link type="text/css" href="css/demos/interest.css" rel="stylesheet" />
+  <link type="text/css" href="{{ asset('css/demos/photo.css') }}" rel="stylesheet" />
+  <link type="text/css" href="{{ asset('css/demos/interest.css') }}" rel="stylesheet" />
   <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
 
   <!-- Custom fonts for this template -->
@@ -22,7 +22,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/business-casual.min.css" rel="stylesheet">
+  <link href="{{ asset('css/business-casual.min.css') }}" rel="stylesheet">
 
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style type="text/css">
@@ -142,7 +142,7 @@
             <span class="section-heading-lower text-center">Edit Details</span>
           </h2>
 
-          <form class="form" method="POST" action="/details">
+          <form class="form" method="POST" action="'/details'">
             {{csrf_field()}}
             @if (count($errors) > 0)
 
@@ -298,10 +298,10 @@
    <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0 small">Copyright &copy; Yearbook 2018</p>
-        <p class="m-0 small"><a target="_blank" href="http://www.sac.iitkgp.ac.in/team.php">Contact Us</a></p>
+        <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php') }}">Contact Us</a></p>
       </div>
     </footer>
   </body>
   </html>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/base.js"></script>
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('js/base.js') }}"></script>
