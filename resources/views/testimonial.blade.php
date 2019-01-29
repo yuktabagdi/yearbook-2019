@@ -31,10 +31,10 @@
       <!-- ==============================================
     CSS
     =============================================== -->
-    <link type="text/css" href="../css/demos/photo.css" rel="stylesheet" />
-    <link type="text/css" href="../css/demos/testimonial.css" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('../css/demos/photo.css') }}" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('../css/demos/testimonial.css') }}" rel="stylesheet" />
 
-    {{-- <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
+    {{-- <link href="{{ asset('/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
     <!-- ==============================================
     Feauture Detection
     =============================================== -->
@@ -445,15 +445,15 @@
 <footer class="footer text-faded text-center py-5" style=" color: #fff;background-color: grey;">
   <div class="container">
     <p class="m-0 small">Copyright &copy; Yearbook 2018</p>
-    <p class="m-0 small"><a target="_blank" href="http://www.sac.iitkgp.ac.in/team.php">Contact Us</a></p>
+    <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php') }}">Contact Us</a></p>
   </div>
 </footer>
      <!-- ==============================================
    Scripts
    =============================================== -->
-   <script src="/js/bootstrap.min.js"></script>
-   <script src="/js/base.js"></script>
-   <script src="/plugins/slimscroll/jquery.slimscroll.js"></script>
+   <script src="{{ assets('/js/bootstrap.min.js') }}"></script>
+   <script src="{{ assets('/js/base.js') }}"></script>
+   <script src="{{ assets('/plugins/slimscroll/jquery.slimscroll.js') }}"></script>
    <script>
     $('#Slim,#Slim2').slimScroll({
       height:"auto",

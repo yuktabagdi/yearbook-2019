@@ -19,16 +19,16 @@
     <!-- ==============================================
     Favicons
     =============================================== --> 
-      <link rel="icon" href="img/logo.jpg">
-      <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
-      <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
-      <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
+      <link rel="icon" href="{{ asset('img/logo.jpg') }}">
+      <link rel="apple-touch-icon" href="{{ asset('img/favicons/apple-touch-icon.png') }}">
+      <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/favicons/apple-touch-icon-72x72.png') }}">
+      <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/favicons/apple-touch-icon-114x114.png') }}">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     
       <!-- ==============================================
     CSS
     =============================================== -->
-        <link type="text/css" href="css/demos/photo.css" rel="stylesheet" />
+        <link type="text/css" href="{{ asset('css/demos/photo.css') }}" rel="stylesheet" />
         <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
         <style type="text/css">
         .back{
@@ -45,7 +45,7 @@
     Feauture Detection
     =============================================== -->
    
-      <script src="js/modernizr-custom.js"></script>  
+      <script src="{{ asset('js/modernizr-custom.js') }}"></script>  
     
     </head>
 
@@ -263,9 +263,9 @@
      <!-- ==============================================
    Scripts
    =============================================== -->
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/base.js"></script>
-  <script src="plugins/slimscroll/jquery.slimscroll.js"></script>
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('js/base.js') }}"></script>
+  <script src="{{ asset('plugins/slimscroll/jquery.slimscroll.js') }}"></script>
   <script>
   $('#Slim,#Slim2').slimScroll({
           height:"auto",

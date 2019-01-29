@@ -10,12 +10,12 @@
 <html>
   <head>
     <title>YB|Profile</title>
-    <link rel="icon" href="../ind/fav.png" type="image/png" >
-    <script type="text/javascript" src="../../js/materialize.min.js"></script>
+    <link rel="icon" href="{{ asset('../ind/fav.png') }}" type="image/png" >
+    <script type="text/javascript" src="{{ asset('../../js/materialize.min.js') }}"></script>
     <link href='https://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
-    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css"  media="screen,projection"/>
-    <link rel="stylesheet" href="myself2.css">
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="{{ asset('../../css/materialize.min.css') }}"  media="screen,projection"/>
+    <link rel="stylesheet" href="{{ asset('myself2.css') }}">
+  <script type="text/javascript" src="{{ url('https://code.jquery.com/jquery-2.1.1.min.js') }}"></script>
     <meta name=viewport content='width=700'>
 
    <script>

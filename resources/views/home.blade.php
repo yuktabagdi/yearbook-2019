@@ -18,21 +18,21 @@
     <!-- ==============================================
     Favicons
     =============================================== --> 
-    <link rel="icon" href="img/logo.jpg">
-    <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="img/favicons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img/favicons/apple-touch-icon-114x114.png">
-     <link rel="stylesheet" href="css/cropper.css" />
-  <script src="js/cropper.js"></script>
+    <link rel="icon" href="{{ asset('img/logo.jpg') }}">
+    <link rel="apple-touch-icon" href="{{ asset('img/favicons/apple-touch-icon.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/favicons/apple-touch-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/favicons/apple-touch-icon-114x114.png') }}">
+     <link rel="stylesheet" href="{{ asset('css/cropper.css') }}" />
+  <script src="{{ asset('js/cropper.js') }}"></script>
       <!-- ==============================================
     CSS
     =============================================== -->
-        <link type="text/css" href="css/demos/photo.css" rel="stylesheet" />
+        <link type="text/css" href="{{ asset('css/demos/photo.css') }}" rel="stylesheet" />
         
     <!-- ==============================================
     Feauture Detection
     =============================================== -->
-    <script src="js/modernizr-custom.js"></script>
+    <script src="{{ asset('js/modernizr-custom.js') }}"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>-->
@@ -48,11 +48,11 @@
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/business-casual.min.css" rel="stylesheet">
+  <link href="{{ asset('css/business-casual.min.css') }}" rel="stylesheet">
 
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/introjs.css">
-<script src="js/canvas-to-blob.min.js"></script>
+<script src="{{ asset('js/canvas-to-blob.min.js') }}"></script>
 
 
     <style>
@@ -175,7 +175,7 @@
 
           <div class="modal-body">
 
-            <form action="/upload_pic_moto" method="post" enctype="multipart/form-data">
+            <form action="{{ asset('/upload_pic_moto') }}" method="post" enctype="multipart/form-data">
 
               {{csrf_field()}}
 
@@ -501,10 +501,10 @@ function openPage(pageName,elmnt,color) {
 }
 document.getElementById("defaultOpen").click();
 </script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/base.js"></script>
-  <script src="plugins/slimscroll/jquery.slimscroll.js"></script>
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('js/base.js') }}"></script>
+  <script src="{{ asset('plugins/slimscroll/jquery.slimscroll.js') }}"></script>
+  <script src="{{ url('https://unpkg.com/sweetalert/dist/sweetalert.min.js') }}"></script>
 
   <script>
   $('#Slim,#Slim2').slimScroll({

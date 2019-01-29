@@ -11,15 +11,15 @@
   <title>YB | Itch List</title>
 
   <link href="/css/business-casual.min_test.css" rel="stylesheet">
-  <link type="text/css" href="/css/demos/photo.css" rel="stylesheet" />
-  <link type="text/css" href="/css/demos/bucketAnimation.css" rel="stylesheet" />
+  <link type="text/css" href="{{ asset('/css/demos/photo.css') }}" rel="stylesheet" />
+  <link type="text/css" href="{{ asset('/css/demos/bucketAnimation.css') }}" rel="stylesheet" />
 
 
   
-  <link rel="icon" href="http://themashabrand.com/templates/Fluffs/assets/img/logo.jpg">
+  <link rel="icon" href="{{ url('http://themashabrand.com/templates/Fluffs/assets/img/logo.jpg') }}">
   
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{{ url('http://fonts.googleapis.com/icon?family=Material+Icons;') }}" rel="stylesheet">
   
 
   <style type="text/css">
@@ -124,9 +124,9 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
-<script src="/js/base.js"></script>
-<script src="/plugins/slimscroll/jquery.slimscroll.js"></script>
+<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('/js/base.js') }}"></script>
+<script src="{{ asset('/plugins/slimscroll/jquery.slimscroll.js') }}"></script>
 <script>            
     $('#fillbucket').removeClass('p-2 nav-icon-lg dark-black');
     $('#fillbucket').addClass('p-2 nav-icon-lg mint-green');            
