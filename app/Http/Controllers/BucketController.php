@@ -66,11 +66,12 @@ class BucketController extends Controller
         $image->save();
       }
         //to select 50 images and show them in 10 per page
-      if($id = request('id')){
-        $images = Bucket::where('list', $id)->orderBy('finalcount','DESC')->take(50)->paginate(5);
+      if($listid = request('id')){
+        $images = Bucket::where('list', $listid)->orderBy('finalcount','DESC')->take(50)->paginate(5);
       }
       else{
         $images = Bucket::latest()->orderBy('finalcount','DESC')->take(50)->paginate(5);
+        $listid = 0;
       }
       $currentpage=$images->currentPage();
       $perpage=$images->perPage();
@@ -83,7 +84,7 @@ class BucketController extends Controller
           ->latest()->get();
       $notifications = views::where('depmate',$roll)->where('read','1')->get();
       $buckets = ['','SF Salsa','Old Archi Building','Graffitis','Howrah Bridges','Star Gazing','Twilight View','Treat','Bonfire','Little Sisters','Trek','Local Train','2.2'];
-      return view('bucket_view',compact('comment_notification','images','user','notifications','currentpage','perpage','buckets'));
+      return view('bucket_view',compact('comment_notification','images','user','notifications','currentpage','perpage','buckets', 'listid'));
     }
 
     public function delete(){

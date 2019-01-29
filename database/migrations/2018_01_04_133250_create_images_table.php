@@ -18,6 +18,7 @@ class CreateImagesTable extends Migration
             $table->text('classifier');
             $table->text('caption');
             $table->text('url');
+            $table->text('thumbnail');
             $table->text('rollno');
             $table->integer('totalcount')->default('0');
             $table->timestamps();

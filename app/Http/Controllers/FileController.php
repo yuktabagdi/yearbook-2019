@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Intervention\Image\Facades\Image as Image;
 use Auth;
 class FileController extends Controller
 {
@@ -37,6 +38,10 @@ class FileController extends Controller
 			{
 
 				$user->pro_pic = 'uploads/'.$input['imagename'];
+				$thumbnail = Image::make($user->pro_pic)->resize(50, 50);
+				$target = public_path('/thumbnails/profilePic'.$input['imagename']);
+				$thumbnail->save($target);
+				$user->thumbnail = 'thumbnails/profilePic'.$input['imagename'];
 				if(request('motto'))
 				{
 					$user->view_self = request('motto');//edit 'view_self' column of the current user

@@ -97,6 +97,7 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'view_self' => '',
             'pro_pic' => '',
+            'thumbnail' => '',
             'rollno' => $data['rollno']
 
         ]);
