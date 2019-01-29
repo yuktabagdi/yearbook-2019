@@ -275,6 +275,10 @@
       size:"8px",
     });   
   </script>
+  <script>            
+    $('#trending').removeClass('p-2 nav-icon-lg dark-black');
+    $('#trending').addClass('p-2 nav-icon-lg mint-green');            
+  </script>
 
   <script>
     $('.like').click('.like', function() {
