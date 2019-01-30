@@ -39,6 +39,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <style type="text/css">
+        .back{
+          background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
+          background-attachment: fixed;
+        }
+        @media(max-width: 500px){
+          .product-item-img{
+            height: 200px !important;
+          }
+        }   
+        </style>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
@@ -54,7 +65,7 @@
 
                
 
-        <section class="notifications">
+        <section class="notifications back">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
