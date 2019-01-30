@@ -32,6 +32,11 @@ class PollController extends Controller
     }
     public function post($id){
     	$roll = Auth::user()->rollno;
+      if (empty(User::where('name',request('q'.$id))->get()->toArray())) {
+        $e = array($id,"Please Enter Correct name");
+        $f = "$id";
+        return Redirect::back()->withErrors($e);
+      }
       if(empty(Poll::where('rollno',$roll)->get()->toArray())){
      		Poll::create([
      			'rollno' =>Auth::user()->rollno,
