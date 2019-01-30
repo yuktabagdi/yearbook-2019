@@ -52,7 +52,7 @@ class HomeController extends Controller{
         
           $roll = Auth::user()->rollno;
             //to select 50 images and show them in 10 per page
-          $images=Image::where('rollno', $roll)->orderBy('totalcount','DESC')->take(50)->paginate(5);
+          $images=Image::where('rollno', $roll)->orderBy('totalcount','DESC')->take(50)->paginate(15);
 
           $currentpage=$images->currentPage();
           $perpage=$images->perPage();

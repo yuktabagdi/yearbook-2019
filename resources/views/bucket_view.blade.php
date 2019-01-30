@@ -84,19 +84,19 @@
       <div class="col-md-3 col-sm-4" id="myScrollspy">
        <aside class="sidebar">      
         <ul id="side" data-spy="affix" data-offset-top="180">
-         <li class="" id="0"><a href="/viewbucket') }}"><i class="fa fa-align-left"></i> All Photos</a></li>
-         <li id="1"><a href="/viewbucket?id=1"><i class="fa fa-align-left"></i> {{$buckets[1]}}</a></li>
-         <li id="2"><a href="/viewbucket?id=2"><i class="fa fa-align-left"></i> {{$buckets[2]}}</a></li>
-         <li id="3"><a href="/viewbucket?id=3"><i class="fa fa-align-left"></i> {{$buckets[3]}}</a></li>
-         <li id="4"><a href="/viewbucket?id=4"><i class="fa fa-chart-bar"></i> {{$buckets[4]}}</a></li>
-         <li id="5"><a href="/viewbucket?id=5"><i class="far fa-copy"></i> {{$buckets[5]}}</a></li>
-         <li id="6"><a href="/viewbucket?id=6"><i class="fa fa-align-left"></i> {{$buckets[6]}}</a></li>
-         <li id="7"><a href="/viewbucket?id=7"><i class="fa fa-users"></i> {{$buckets[7]}}</a></li>
-         <li id="8"><a href="/viewbucket?id=8"><i class="fa fa-user"></i> {{$buckets[8]}}</a></li>
-         <li id="9"><a href="/viewbucket?id=9"><i class="fa fa-align-left"></i> {{$buckets[9]}}</a></li>
-         <li id="10"><a href="/viewbucket?id=10"><i class="fa fa-users"></i> {{$buckets[10]}}</a></li>
-         <li id="11"><a href="/viewbucket?id=11"><i class="fa fa-user"></i> {{$buckets[11]}}</a></li>
-         <li id="12"><a href="/viewbucket?id=12"><i class="fa fa-align-left"></i> {{$buckets[12]}}</a></li>
+         <li class="" id="0"><a href="{{ url('/viewbucket') }}"><i class="fa fa-align-left"></i> All Photos</a></li>
+         <li id="1"><a href="{{ url('/viewbucket?id=1') }}"><i class="fa fa-align-left"></i> {{$buckets[1]}}</a></li>
+         <li id="2"><a href="{{ url('/viewbucket?id=2') }}"><i class="fa fa-align-left"></i> {{$buckets[2]}}</a></li>
+         <li id="3"><a href="{{ url('/viewbucket?id=3') }}"><i class="fa fa-align-left"></i> {{$buckets[3]}}</a></li>
+         <li id="4"><a href="{{ url('/viewbucket?id=4') }}"><i class="fa fa-chart-bar"></i> {{$buckets[4]}}</a></li>
+         <li id="5"><a href="{{ url('/viewbucket?id=5') }}"><i class="far fa-copy"></i> {{$buckets[5]}}</a></li>
+         <li id="6"><a href="{{ url('/viewbucket?id=6') }}"><i class="fa fa-align-left"></i> {{$buckets[6]}}</a></li>
+         <li id="7"><a href="{{ url('/viewbucket?id=7') }}"><i class="fa fa-users"></i> {{$buckets[7]}}</a></li>
+         <li id="8"><a href="{{ url('/viewbucket?id=8') }}"><i class="fa fa-user"></i> {{$buckets[8]}}</a></li>
+         <li id="9"><a href="{{ url('/viewbucket?id=9') }}"><i class="fa fa-align-left"></i> {{$buckets[9]}}</a></li>
+         <li id="10"><a href="{{ url('/viewbucket?id=10') }}"><i class="fa fa-users"></i> {{$buckets[10]}}</a></li>
+         <li id="11"><a href="{{ url('/viewbucket?id=11') }}"><i class="fa fa-user"></i> {{$buckets[11]}}</a></li>
+         <li id="12"><a href="{{ url('/viewbucket?id=12') }}"><i class="fa fa-align-left"></i> {{$buckets[12]}}</a></li>
        </ul>
      </aside>     
      
@@ -267,7 +267,7 @@
         var pic = $(this).attr('id');
         var token = $(this).attr('data-token');
         $.ajax({
-          url: "/bucketdelete",
+          url: "{{ url('/bucketdelete') }}",
           type: "POST",
           data: {'pic': pic, '_token': token, },
 

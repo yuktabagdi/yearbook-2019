@@ -73,7 +73,7 @@
         @endphp
 
         @foreach($images as $image)
-        @if(file_exists($image['url']))
+        @if(file_exists($image['thumbnail']))
         <section class="page-section">
           <div class="container col-md-3" style="margin-left: 50px;">
             <div class="product-item">
@@ -116,7 +116,7 @@
                       <div class="media m-0">
                         <div class="d-flex mr-3">
                           <a href="/profile_index/{{$image['rollno']}}">
-                            <img class="img-responsive img-circle" src="img/users/2.jpg" alt="User">
+                            <img class="img-responsive img-circle" src="{{$name[0]['pro_pic']}}" alt="User">
                           </a>
                         </div>
                         <div class="media-body">
@@ -130,7 +130,7 @@
 
                     <div class="cardbox-item">
                       <span class="section-heading-upper" style="font-family: Aclonica;">&nbsp {{$image['caption']}}</span><br>
-                      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 " src="{{$image['url']}}" 
+                      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 " src="{{$image['thumbnail']}}" 
                       id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 100%;height: 380px;">
                     </div><!--/ cardbox-item -->
                     <div class="cardbox-like">
@@ -151,7 +151,7 @@
                             '_token': '{!! csrf_token() !!}',
                           }
                           $.ajax({
-                            url: "/likes",
+                            url: "{{ url('/likes') }}",
                             type: "POST",
                             data: formData,
 
@@ -238,7 +238,7 @@
                 @endif       
               </span>
               <div class="comment-body">
-                <form class="form" id="form-comment" action="/comment" method="post">
+                <form class="form" id="form-comment" action="{{ url('/comment') }}" method="post">
                   {{csrf_field()}}
                   <input id="comment-token" type="hidden" name="_token" value="{{ csrf_token() }}">
                   <textarea name="comment" id="textarea" class="form-control input-sm" rows="2" type="text" placeholder="Write your comment..." required></textarea>
@@ -289,7 +289,7 @@
       }
       // console.log(formData);
       $.ajax({
-        url: "/likeadd",
+        url: "{{ url('/likeadd') }}",
         type: "POST",
         data: formData,
 
@@ -316,7 +316,7 @@
         '_token' : $('#comment-token').val()
       } 
       $.ajax({
-        url: "/commentadd",
+        url: "{{ url('/commentadd') }}",
         type: "POST",
         data: formData,
 
@@ -331,7 +331,7 @@
         }
       });
       $.ajax({
-        url: "/getimage",
+        url: "{{ url('/getimage') }}",
         type: "POST",
         data: formData,
 
@@ -361,7 +361,7 @@
           '_token' : $('#comment-token').val()
         }
         $.ajax({
-          url: "/commentadd",
+          url: "{{ url('/commentadd') }}",
           type: "POST",
           data: formData,
 
@@ -376,7 +376,7 @@
           }
         });
         $.ajax({
-          url: "/getimage",
+          url: "{{ url('/getimage') }}",
           type: "POST",
           data: formData,
 
@@ -407,7 +407,7 @@
       // console.log(formData);
 
       $.ajax({
-        url: "/comment",
+        url: "{{ url('/comment') }}",
         type: "POST",
         data: formData,
         
@@ -429,7 +429,7 @@
         var id = $(this).attr('id');
         var token = $(this).attr('data-token');
         $.ajax({
-          url: "/delete",
+          url: "{{ url('/delete') }}",
           type: "POST",
           data: {'id': id, '_token': token, },
 

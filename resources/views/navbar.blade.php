@@ -211,7 +211,7 @@
     			</div>
     			<div class="modal-body"><center>
     				<div class="search-dashboard">
-    					<form action="/search" method="POST" class="form-inline">
+    					<form action="{{ url('/search') }}" method="POST" class="form-inline">
     						{{ csrf_field() }}
     						<input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search1" style="background: none; border: 1px solid; border-radius: 5px; padding-top: 3px; padding-left: 10px; line-height: 40px; cursor: text; font-size: 14px;">
     						<input type="submit" value="Search" class="kafe-btn kafe-btn-mint" style="padding: 8px 22px; color: #fff"></input>
@@ -236,7 +236,7 @@
       '_token' : $('#comment-token').val()
     }
     $.ajax({
-      url: "/commentadd",
+      url: "{{ url('/commentadd') }}",
       type: "POST",
       data: formData,
 
@@ -251,7 +251,7 @@
       }
     });
     $.ajax({
-      url: "/getimage",
+      url: "{{ url('/getimage') }}",
       type: "POST",
       data: formData,
 

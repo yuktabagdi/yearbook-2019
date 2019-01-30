@@ -124,7 +124,7 @@
       <ul class="navbar-nav mx-auto">
         <li class="nav-item px-lg-6">
 
-          <form action="search/" method="POST" class="form-inline">
+          <form action="{{ url('/search') }}" method="POST" class="form-inline">
             {{ csrf_field() }}
             <div class="form-group" >
               <input type="text" name="search" required="required" id="search" class="form-control" placeholder="Search your friend here">
@@ -224,7 +224,7 @@
             <br>
             
             <br>
-            <form id="upload-image-form" action="/upload" method="post" enctype="multipart/form-data">
+            <form id="upload-image-form" action="{{ url('/upload') }}" method="post" enctype="multipart/form-data">
               <input id="signup-token" type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="form-group">
                 <label for="classifiers">Select Category: (Max size: 5MB)</label>

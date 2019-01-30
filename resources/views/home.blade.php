@@ -87,7 +87,9 @@
 
 .cover-img{
   background-image: url('img/bg/1.jpeg');
-  height:35vw;
+  height:30vw;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 
 }
 .back{
@@ -109,6 +111,9 @@
   .delete{
     margin-top: -15px;
   }
+}
+.imghover:hover{
+  opacity: 0.7;
 }
 </style>
   </head>
@@ -140,8 +145,9 @@
           <div class="author-post text-center">
             <div>
                   @if(!empty(Auth::user()->pro_pic))
-                  <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" alt="Image"  data-toggle="modal" data-target="#modal2" data-step="1" data-intro="<center> Upload your profile picture and write a caption here </center> "  >
-          
+                  <span data-toggle="modal" data-target="#modal2" data-step="1" data-intro="<center> Upload your profile picture and write a caption here </center> ">
+                  <img class="img-fluid img-circle imghover" style="border-width: 2px;cursor: pointer" src="{{Auth::user()->pro_pic}}" alt="Image" data-toggle="tooltip" title="Upload Profile Picture and Caption"  >
+                  </span>
                   @endif
                   
 
@@ -175,7 +181,7 @@
 
           <div class="modal-body">
 
-            <form action="{{ asset('/upload_pic_moto') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ url('/upload_pic_moto') }}" method="post" enctype="multipart/form-data">
 
               {{csrf_field()}}
 
@@ -191,7 +197,7 @@
 
               <input type="file" name="fileToUpload" id="fileToUpload" style="display: none;" onchange="readURL(this);">
 
-              <img src="<?php if (!empty(Auth::user()->pro_pic)){echo Auth::user()->pro_pic; } else { echo 'img/bg.jpg';}?>" alt="abc" class="intro-img img-fluid mb-3 mb-lg-0 rounded" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
+              <img src="<?php if (!empty(Auth::user()->pro_pic)){echo Auth::user()->pro_pic; } else { echo 'img/bg/5.jpeg';}?>" alt="abc" class="intro-img img-fluid mb-3 mb-lg-0 rounded" id="OpenImgUpload" style="cursor: pointer;width: 180px;height: 180px;">
 
               <div class="input-field col sm-12 lg-12 md-12">
 
@@ -289,7 +295,7 @@
       <div class="col-lg-12">  
     
        <div class="box" style="border-radius: 3px;font-color:#88898a">
-      <form id="upload-image-form" action="/upload1" method="post" enctype="multipart/form-data">
+      <form id="upload-image-form" action="{{ url('/upload1') }}" method="post" enctype="multipart/form-data">
            <input id="signup-token" type="hidden" name="_token" value="{{ csrf_token() }}">
        
        <div class="form-group" align="center">
@@ -317,7 +323,7 @@
       <li class="nav-item">
         <div class="image-upload">
             <label for="image">
-                <a class="nav-link" ><i class="fa fa-camera text-muted"></i></a>
+                <a class="nav-link" ><i class="fa fa-camera text-muted" style="font-size: 20px"></i><font style="color:#88898a; size:10px"> Browse image</font></a>
             </label>
 
             <input style="display: none;" type="file" name="image" id="image" accept="image/*" required/>
@@ -338,7 +344,7 @@
     </div>
      </div>
 
-     <div class="container">
+     <div class="container" style="margin-left: -2.4vw">
         <div class="row">
 
         @if(count($images)>0)
@@ -354,7 +360,7 @@
                    
             <div class="col-lg-4 col-md-6" id="img{{$image['id']}}">
              <div class="explorebox" style="border-radius: 10px;">
-              <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
+              <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 imghover" src="{{$image['thumbnail']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
               <div class="explore-top" style="position: relative;top:-400px; ">
                 @php
                 $likes = DB::table('likes')->where('pic_id', $image['id'])->count();
@@ -456,12 +462,12 @@
 
       <div class="modal-meta-bottom">     
         <span class="thumb-xs">
-          @if(!empty(Auth::user()->pro_pic))
-          <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;" alt="Image">
+          @if(!empty(Auth::user()->thumbnail))
+          <img class="img-fluid img-circle" src="{{Auth::user()->thumbnail}}" style="width: 35px; height: 35px;" alt="Image">
           @endif       
         </span>
         <div class="comment-body">
-          <form class="form" id="form-comment" action="/comment" method="post">
+          <form class="form" id="form-comment" action="{{ url('/comment') }}" method="post">
             {{csrf_field()}}
             <input id="comment-token" type="hidden" name="_token" value="{{ csrf_token() }}">
             <textarea name="comment" id="textarea" class="form-control input-sm" rows="2" type="text" placeholder="Write your comment..." required></textarea>
@@ -615,7 +621,7 @@ document.getElementById("defaultOpen").click();
       
      //console.log("crop image",originalData);
      $.ajax({
-      url: "/upload1",
+      url: "{{ url('/upload1') }}",
       type: "POST",
       data: formdata,
       contentType: false,
@@ -663,7 +669,7 @@ document.getElementById("defaultOpen").click();
         '_token' : $('#comment-token').val()
       }
       $.ajax({
-        url: "/commentadd",
+        url: "{{ url('/commentadd') }}",
         type: "POST",
         data: formData,
 
@@ -678,7 +684,7 @@ document.getElementById("defaultOpen").click();
         }
       });
       $.ajax({
-        url: "/getimage",
+        url: "{{ url('/getimage') }}",
         type: "POST",
         data: formData,
 
@@ -709,7 +715,7 @@ document.getElementById("defaultOpen").click();
       // console.log(formData);
 
       $.ajax({
-        url: "/comment",
+        url: "{{ url('/comment') }}",
         type: "POST",
         data: formData,
         
@@ -739,7 +745,7 @@ document.getElementById("defaultOpen").click();
       }).then((value) => {
         if(value){
           $.ajax({
-            url: "/delete",
+            url: "{{ url('/delete') }}",
             type: "POST",
             data: {'id': id, '_token': token, },
 

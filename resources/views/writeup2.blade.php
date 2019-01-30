@@ -83,7 +83,7 @@
               <p class="mb-0"> 
               How have all these years in KGP transformed you? What’s your funniest experience in the campus? Share with us your stories to make it a part of the yearbook that you carry along. Choose the topic below and send us your articles.</p>
               <br>
-              <form class="form-horizontal" method="POST" action="/writeup" style="padding-right: 3vw;padding-left: 2vw">
+              <form class="form-horizontal" method="POST" action="{{ url('/writeup') }}" style="padding-right: 3vw;padding-left: 2vw">
                 {{csrf_field()}}
                 <div class="row">
                   <div class="col-4">
@@ -121,7 +121,7 @@
     </div>
   </section>
     @foreach($writeups as $writeup)
-     <div class="article" style="padding-top:2vw;padding-right: 6vw;padding-left:2vw ">
+     <div class="article" data-toggle="tooltip" title="Click to edit!" style="padding-top:2vw;padding-right: 6vw;padding-left:2vw ">
       
       <h2 class="section-heading mb-4 text-center">
           <a href="/writeup/{{ $writeup->id }}"><i style="float: right;color: black;font-size: 30px" class="material-icons">delete</i></a>

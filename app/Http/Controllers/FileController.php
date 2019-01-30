@@ -32,16 +32,16 @@ class FileController extends Controller
 
         		]);
 				$image = $request->file('fileToUpload');//image
-				$input['imagename'] = time().'.'.$image->getClientOriginalExtension();//name of file
+				$input['imagename'] = $user->rollno.'_'.time().'.'.$image->getClientOriginalExtension();//name of file
 				$destinationPath = public_path('/uploads');//destination of image in public/uploads
 				if($image->move($destinationPath, $input['imagename']))
 			{
 
 				$user->pro_pic = 'uploads/'.$input['imagename'];
 				$thumbnail = Image::make($user->pro_pic)->resize(50, 50);
-				$target = public_path('/thumbnails/profilePic'.$input['imagename']);
+				$target = public_path('/thumbnails/profilePic/'.$input['imagename']);
 				$thumbnail->save($target);
-				$user->thumbnail = 'thumbnails/profilePic'.$input['imagename'];
+				$user->thumbnail = 'thumbnails/profilePic/'.$input['imagename'];
 				if(request('motto'))
 				{
 					$user->view_self = request('motto');//edit 'view_self' column of the current user

@@ -39,12 +39,13 @@ class ImageController extends Controller
 				'classifier' => 'required'
 			]);
            //you also need to keep file extension as well
-			$name = $user->rollno.'_'.time().'.'.$file_original->getClientOriginalExtension();
+			$classifier = request('classifier');
+			$name = $user->rollno.'_'.$classifier.'_'.time().'.'.$file_original->getClientOriginalExtension();
            //using array instead of object
 			$image['filePath'] = $name;
 			$file->move(public_path().'/uploads/', $name);
-			$classifier = request('classifier');
-			$thumbnail = Image1::make('uploads/'.$name)->resize(300, 300);
+			
+			$thumbnail = Image1::make('uploads/'.$name)->resize(400, 400);
 			$target = public_path('/thumbnails/'.$name);
 			$thumbnail->save($target);
 			if(!empty(request('caption')))

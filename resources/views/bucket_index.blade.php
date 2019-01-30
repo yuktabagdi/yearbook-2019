@@ -10,7 +10,7 @@
 
   <title>YB | Itch List</title>
 
-  <link href="/css/business-casual.min_test.css" rel="stylesheet">
+  <link href="{{ asset('/css/business-casual.min_test.css') }}" rel="stylesheet">
   <link type="text/css" href="{{ asset('/css/demos/photo.css') }}" rel="stylesheet" />
   <link type="text/css" href="{{ asset('/css/demos/bucketAnimation.css') }}" rel="stylesheet" />
 
@@ -119,7 +119,7 @@
 <footer class="footer text-faded text-center py-5">
   <div class="container">
     <p class="m-0 small">Copyright &copy; Yearbook 2018</p>
-    <p class="m-0 small"><a target="_blank" href="http://www.sac.iitkgp.ac.in/team.php">Contact Us</a></p>
+    <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php') }}">Contact Us</a></p>
   </div>
 </footer>
 

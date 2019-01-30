@@ -48,8 +48,10 @@
     
     <style>
     .cover-img{
-      background-image: url('/img/about.jpg');
-      height:35vw;
+      background-image: url('img/bg/1.jpeg');
+      height:30vw;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
 
     }
     .back{
@@ -92,7 +94,7 @@
          <div class="post-content">
           <div class="author-post text-center">
             <div>
-              <img class="img-fluid img-circle" src="<?php if (!empty($data[0]['pro_pic'])){echo '/'.$data[0]['pro_pic']; } else { echo '/ind/shot.jpg';}?>" alt="" id="OpenImgUpload" style="cursor: pointer;">
+              <img class="img-fluid img-circle" src="<?php if (!empty($data[0]['pro_pic'])){echo '/'.$data[0]['pro_pic']; } else { echo '/ind/shot.jpg';}?>" alt="" id="OpenImgUpload" style="cursor: pointer;border-width: 2px">
             </div>
           </div><!-- /author -->
         </div><!-- /.post-content -->    
@@ -451,9 +453,9 @@
      <!-- ==============================================
    Scripts
    =============================================== -->
-   <script src="{{ assets('/js/bootstrap.min.js') }}"></script>
-   <script src="{{ assets('/js/base.js') }}"></script>
-   <script src="{{ assets('/plugins/slimscroll/jquery.slimscroll.js') }}"></script>
+   <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+   <script src="{{ asset('/js/base.js') }}"></script>
+   <script src="{{ asset('/plugins/slimscroll/jquery.slimscroll.js') }}"></script>
    <script>
     $('#Slim,#Slim2').slimScroll({
       height:"auto",
@@ -501,7 +503,7 @@ $(function() {
         '_token' : $('#comment-token').val()
       }
       $.ajax({
-        url: "/commentadd",
+        url: "{{ url('/commentadd') }}",
         type: "POST",
         data: formData,
 
@@ -516,7 +518,7 @@ $(function() {
         }
       });
     $.ajax({
-      url: "/getimage",
+      url: "{{ url('/getimage') }}",
       type: "POST",
       data: formData,
 
@@ -547,7 +549,7 @@ $(function() {
       // console.log(formData);
 
       $.ajax({
-        url: "/comment",
+        url: "{{ url('/comment') }}",
         type: "POST",
         data: formData,
         

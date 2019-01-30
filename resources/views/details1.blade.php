@@ -13,8 +13,8 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <link type="text/css" href="{{ asset('css/demos/photo.css') }}" rel="stylesheet" />
-  <link type="text/css" href="{{ asset('css/demos/interest.css') }}" rel="stylesheet" />
+  <link type="text/css" href="css/demos/photo.css" rel="stylesheet" />
+  <link type="text/css" href="css/demos/interest.css" rel="stylesheet" />
   <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
 
   <!-- Custom fonts for this template -->
@@ -22,7 +22,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="{{ asset('css/business-casual.min.css') }}" rel="stylesheet">
+  <link href="css/business-casual.min.css" rel="stylesheet">
 
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style type="text/css">
@@ -142,7 +142,7 @@
             <span class="section-heading-lower text-center">Edit Details</span>
           </h2>
 
-          <form class="form" method="POST" action="'/details'">
+          <form class="form" method="POST" action="/details">
             {{csrf_field()}}
             @if (count($errors) > 0)
 
@@ -153,118 +153,7 @@
             </script>
 
             @endif
-            <div class="row">
-              <div class="col-sm-4">
-                <label for="department">Department</label>
-                <select name="department"  id="department" required class="form-control">
-                  <option selected value="{{Auth::user()->department}}">@php
-                  if(!empty(Auth::user()->department))
-                  {
-                    echo Auth::user()->department;
-                  }
-                  else
-                  {
-                    echo 'Choose your department';
-                  }
-                  @endphp   
-                </option>
-                <option value="AE">AE</option>
-                <option value="AG">AG</option>
-                <option value="AR">AR</option>
-                <option value="AT">AT</option>
-                <option value="BM">BM</option>
-                <option value="BT">BT</option>
-                <option value="CE">CE</option>
-                <option value="CH">CH</option>
-                <option value="CL">CL</option>
-                <option value="CR">CR</option>
-                <option value="CS">CS</option>
-                <option value="CY">CY</option>
-                <option value="EC">EC</option>
-                <option value="EE">EE</option>
-                <option value="ET">ET</option>
-                <option value="GG">GG</option>
-                <option value="GS">GS</option>
-                <option value="HS">HS</option>
-                <option value="ID">ID</option>
-                <option value="IM">IM</option>
-                <option value="IP">IP</option>
-                <option value="IT">IT</option>
-                <option value="MA">MA</option>
-                <option value="ME">ME</option>
-                <option value="MI">MI</option> 
-                <option value="MM">MM</option>
-                <option value="MS">MS</option>
-                <option value="MT">MT</option>
-                <option value="NA">NA</option>
-                <option value="PH">PH</option>
-                <option value="RD">RD</option>
-                <option value="RE">RE</option>
-                <option value="RJ">RJ</option>
-                <option value="RT">RT</option>
-                <option value="TS">TS</option>
-                <option value="WM">WM</option>
-              </select>
-            </div>
-            <div class="col-sm-4">
-              <label for="HOR">Hall of Residence</label>
-              <select name="HOR"  id="HOR" required class="form-control">
-                <option selected value="{{Auth::user()->HOR}}">@php
-                if(!empty(Auth::user()->HOR)) 
-                {
-                  echo Auth::user()->HOR;
-                }
-                else
-                {
-                  echo 'Choose your HALL';
-                }
-                @endphp 
-              </option>
-              <option value="SAM"> Ashutosh Mukherjee Hall </option>
-              <option value="AZ"> Azad Hall </option>
-              <option value="BCR"> B C Roy Hall </option>
-              <option value="BRH"> B R Ambedkar Hall </option>
-              <option value="GKH"> Gokhale Hall </option>
-              <option value="HJB"> Homi Bhabha Hall </option>
-              <option value="JCB"> J C Bose Hall </option>
-              <option value="LLR"> Lala Lajpat Rai Hall </option>
-              <option value="LBS"> Lalbahadur Sastry Hall </option>
-              <option value="MMM"> Madan Mohan Malviya Hall </option>
-              <option value="MS"> Megnad Saha Hall </option>
-              <option value="MT"> Mother Teresa Hall </option>
-              <option value="NH"> Nehru Hall </option>
-              <option value="PH"> Patel Hall </option>
-              <option value="RK"> Radha Krishnan Hall </option>
-              <option value="RP">Rajendra Prasad Hall </option>
-              <option value="RLB">Rani Laxmibai Hall </option>
-              <option value="SN/IG">Sarojini Naidu/Indira Gandhi Hall</option> 
-              <option value="NVH">Sister Nivedita Hall </option>
-              <option value="VS">Vidyasagar Hall </option>
-              <option value="VSRC">Vikram Sarabhai residential Complex </option>
-              <option value="ZH">Zakir Hussain Hall </option>
-              <option value="other">Other </option>
-            </select>
-          </div>
-          <div class="col-sm-4">
-            <label for="course">Course</label>
-            <select name="course"  required class="form-control">
-              <option selected value="{{Auth::user()->course}}">@php 
-              if(!empty(Auth::user()->course))
-              {
-                echo Auth::user()->course;
-              }
-              else
-              {
-                echo 'Choose your COURSE';
-              }
-              @endphp 
-            </option>
-            <option value="UG">UG</option>
-            <option value="PG">PG</option>
-            <option value="RS">RS</option>
-          </select>
-        </div>
-      </div>
+            
       <br>
       <div class="row">
         <div class="col-sm-6">
@@ -278,9 +167,19 @@
           <label for="phone">Phone no</label>
           <input name="phone" value="{{Auth::user()->phone}}" class="form-control"  type="number" size="10" required> 
         </div>
+        <br>
+        <br>
+        <div class="col-sm-6">
+          <i class="fas fa-key"></i>&nbsp;
+          <label for="password">Password</label>
+          <input name="password"  class="form-control" type="password" required >
+
+        </div>
+
 
       </div>
       <br>
+
       <div class="row">
         <div class="col text-center">
           <button class="btn btn-success" type="submit" style="cursor: pointer;">Update</button>
@@ -298,10 +197,11 @@
    <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0 small">Copyright &copy; Yearbook 2018</p>
-        <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php') }}">Contact Us</a></p>
+        <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php'
+        ) }}">Contact Us</a></p>
       </div>
     </footer>
   </body>
   </html>
-  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('js/base.js') }}"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/base.js"></script>

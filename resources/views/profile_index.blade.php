@@ -40,9 +40,12 @@
     <![endif]-->  
     
     <style>
+    
     .cover-img{
-      background-image: url('img/about.jpg');
-      height:35vw;
+      background-image: url('img/bg/1.jpeg');
+      height:30vw;
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
 
     }
     .back{
@@ -85,7 +88,7 @@
          <div class="post-content">
           <div class="author-post text-center">
             <div>
-              <img class="img-fluid img-circle" src="<?php if (!empty(Auth::user()->pro_pic)){echo Auth::user()->pro_pic; } else { echo 'img/shot.jpg';}?>" alt="" id="OpenImgUpload" style="cursor: pointer;">
+              <img class="img-fluid img-circle" style="border-width: 2px;cursor: pointer;" src="<?php if (!empty(Auth::user()->pro_pic)){echo Auth::user()->pro_pic; } else { echo 'img/shot.jpg';}?>" alt="" id="OpenImgUpload" >
             </div>
           </div><!-- /author -->
         </div><!-- /.post-content -->    

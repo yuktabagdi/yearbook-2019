@@ -73,7 +73,7 @@
                             <li>
                                 <div class="media first_child">
                                    <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
-                                    <form action="/polls/1" method="POST">
+                                    <form action="{{ url('/polls/1') }}" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
                                             <p><b>Maggu of the Batch</b></p>
@@ -161,7 +161,7 @@
                             <li>
                                 <div class="media first_child">
                                    <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
-                                    <form action="/polls/2" method="POST">
+                                    <form action="{{ url('/polls/2') }}" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
                                             <p><b>Stud of the batch</b></p>
@@ -249,7 +249,7 @@
                             <li>
                                 <div class="media first_child">
                                    <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
-                                    <form action="/polls/3" method="POST">
+                                    <form action="{{ url('/polls/3') }}" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
                                             <p><b>Batch ka crush</b></p>
@@ -337,7 +337,7 @@
                             <li>
                                 <div class="media first_child">
                                    <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
-                                    <form action="/polls/4" method="POST">
+                                    <form action="{{ url('/polls/4') }}" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
                                             <p><b>Baba of the batch</b></p>
@@ -425,7 +425,7 @@
                             <li>
                                 <div class="media first_child">
                                    <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
-                                    <form action="/polls/5" method="POST">
+                                    <form action="{{ url('/polls/5') }}" method="POST">
                                         {{ csrf_field() }}
                                         <div class="media_body">
                                             <p><b>Jugaadu of the batch</b></p>
@@ -518,10 +518,10 @@
         
 
 
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/base.js"></script>
-        <script src="assets/plugins/slimscroll/jquery.slimscroll.js"></script>
+        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/js/base.js') }}"></script>
+        <script src="{{ asset('assets/plugins/slimscroll/jquery.slimscroll.js') }}"></script>
         <script>            
             $('#polls').removeClass('p-2 nav-icon-lg dark-black');
             $('#polls').addClass('p-2 nav-icon-lg mint-green');            

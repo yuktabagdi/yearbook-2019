@@ -58,7 +58,7 @@ class WriteupController extends Controller
 
     	$writeup->save(); */
 
-    	return redirect('/homenew');
+    	return redirect('/home');
 
     }
 
