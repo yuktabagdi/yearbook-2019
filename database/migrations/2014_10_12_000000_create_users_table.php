@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->text('phone');
             $table->text('view_self');
             $table->text('pro_pic');
+            $table->text('thumbnail');
             $table->rememberToken();
             $table->timestamps();
 

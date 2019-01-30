@@ -8,6 +8,7 @@ use Auth;
 use Response;
 use App\User;
 use App\views;
+use Intervention\Image\Facades\Image as Image1;
 class ImageController extends Controller
 {
 	public function __construct()
@@ -43,6 +44,9 @@ class ImageController extends Controller
 			$image['filePath'] = $name;
 			$file->move(public_path().'/uploads/', $name);
 			$classifier = request('classifier');
+			$thumbnail = Image1::make('uploads/'.$name)->resize(300, 300);
+			$target = public_path('/thumbnails/'.$name);
+			$thumbnail->save($target);
 			if(!empty(request('caption')))
 				$caption = request('caption');
 			else
@@ -53,6 +57,7 @@ class ImageController extends Controller
 				'rollno' => $user->rollno,
 				'caption' => $caption,
 				'classifier' => $classifier,
+				'thumbnail' => 'thumbnails/'.$name,
 			]);
 			$response = '<div class="post"><img src="'.request('url').'" id="'.Image::get()->count().'"><br>
 			<br><strong>'.request('caption').'</strong></div>`';

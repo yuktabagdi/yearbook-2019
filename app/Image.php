@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
      protected $fillable = [
-        'url','rollno','classifier','caption',
+        'url','rollno','classifier','caption', 'thumbnail',
     ];
 }
