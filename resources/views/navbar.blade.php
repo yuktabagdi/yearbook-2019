@@ -176,7 +176,7 @@
 <!-- Page Header --> 
 <section class="nav-sec">
     <div class="d-flex justify-content-between">
-     <div class="p-2 nav-icon-lg" style="background-color: #4e514e;">
+     <div id="polls" class="p-2 nav-icon-lg dark-black">
      <a class="nav-icon" href="/polls"><i class="fas fa-chart-bar" style="font-size: 30px;padding: 0px 0px 10px 0px;"></i><span>Polls</span>
      </a>
      </div>
@@ -185,17 +185,17 @@
     <span>Testimonials</span>
      </a>
      </div>
-     <div class="p-2 nav-icon-lg dark-black">
+     <div id="fillbucket" class="p-2 nav-icon-lg dark-black">
      <a class="nav-icon" href="/bucket"><i class="fa fa-bitbucket" style="font-size: 30px;padding: 0px 0px 10px 0px;"></i>
     <span>Fill Bucket</span>
      </a>
      </div>
-     <div class="p-2 nav-icon-lg clean-black">
+     <div id="viewbucket" class="p-2 nav-icon-lg clean-black">
      <a class="nav-icon" href="/viewbucket"><em class="fa fa-align-left"></em>
     <span>View Bucket</span>
      </a>
      </div>
-     <div class="p-2 nav-icon-lg dark-black">
+     <div id="trending" class="p-2 nav-icon-lg dark-black">
      <a class="nav-icon" href="/trending"><i class="fab fa-gripfire" style="font-size: 35px;padding: 0px 0px 10px 0px;"></i>
     <span>Trending</span>
      </a>
