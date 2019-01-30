@@ -51,9 +51,9 @@
     <body>
         <!--Navigation Section -->
         @include('navbar')
-        
-        
-        
+
+               
+
         <section class="notifications">
             <div class="container">
                 <div class="row">
@@ -76,18 +76,23 @@
                                                         <input placeholder="Sample Ans" type="text" name="q1" required="required" id="q1">
                                                         @endif
                                                     </div>
-                                                </div>
+                                                </div>                                                
                                                 </div>
                                                 <div class="col-md-2" >
                                                 <div class="form-group" style="margin-left: 20px;">
                                                     <button type="submit" class="btn btn-success"><i class="material-icons"> done </i></button>                                                    
                                                 </div>
-                                                @if(!empty($polls['q1']))
+                                                
                                                 <div class="form-group" style="margin-left: 20px;">
                                                     <a data-toggle="collapse" data-target="#r1"  class="btn btn-primary">Results</a>
                                                 </div>
-                                                @endif
+                                                
                                                 </div>
+                                                @if(implode(" ",$errors->get(0))==1)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
                                                 @if(!empty($res[1]))
                                                 <?php $x[1]=array_keys($res[1]);$y[1] = array_values($res[1]); ?>
                                                 <div class ="collapse" id="r1" style="width: 300px;height: 300px;">
@@ -165,12 +170,17 @@
                                                 <div class="form-group" style="margin-left: 20px;" >
                                                     <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
                                                 </div>
-                                                @if(!empty($polls['q2']))
+                                                
                                                 <div class="form-group" style="margin-left: 20px;">
                                                     <a data-toggle="collapse" data-target="#r2" class="btn btn-primary">Results</a>
                                                 </div>
-                                                @endif
+                                                
                                                 </div>
+                                                @if(implode(" ",$errors->get(0))==2)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
                                                 @if(!empty($res[2]))
                                                 <?php $x[2]=array_keys($res[2]);$y[2] = array_values($res[2]); ?>
                                                 <div class ="collapse" id="r2" style="width: 300px;height: 300px;">
@@ -248,12 +258,17 @@
                                                 <div class="form-group" style="margin-left: 20px;" >
                                                     <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
                                                 </div>
-                                                @if(!empty($polls['q3']))
+                                                
                                                 <div class="form-group" style="margin-left: 20px;">
                                                     <a data-toggle="collapse" data-target="#r3" class="btn btn-primary">Results</a>
                                                 </div>
-                                                @endif
+                                                
                                                 </div>
+                                                @if(implode(" ",$errors->get(0))==3)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
                                                 @if(!empty($res[3]))
                                                 <?php $x[3]=array_keys($res[3]);$y[3] = array_values($res[3]); ?>
                                                 <div class ="collapse" id="r3" style="width: 300px;height: 300px;">
@@ -331,12 +346,17 @@
                                                 <div class="form-group" style="margin-left: 20px;" >
                                                     <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
                                                 </div>
-                                                @if(!empty($polls['q4']))
+                                                
                                                 <div class="form-group" style="margin-left: 20px;">
                                                     <a data-toggle="collapse" data-target="#r4" class="btn btn-primary">Results</a>
                                                 </div>
-                                                @endif
+                                                
                                                 </div>
+                                                @if(implode(" ",$errors->get(0))==4)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
                                                 @if(!empty($res[4]))
                                                 <?php $x[4] =array_keys($res[4]);$y[4] = array_values($res[4]); ?>
                                                 <div class ="collapse" id="r4" style="width: 300px;height: 300px;">
@@ -414,12 +434,17 @@
                                                 <div class="form-group" style="margin-left: 20px;" >
                                                     <button type="submit" class="btn btn-success" style="margin-top: 0px;"><i class="material-icons"> done </i></button>
                                                 </div>
-                                                @if(!empty($polls['q5']))
+                                                
                                                 <div class="form-group" style="margin-left: 20px;">
                                                     <a data-toggle="collapse" data-target="#r5" class="btn btn-primary">Results</a>
                                                 </div>
-                                                @endif
+                                                
                                                 </div>
+                                                @if(implode(" ",$errors->get(0))==5)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
                                                 @if(!empty($res[5]))
                                                 <?php $x[5] =array_keys($res[5]);$y[5] = array_values($res[5]); ?>
                                                 <div class ="collapse" id="r5" style="width: 300px;height: 300px;">
