@@ -118,7 +118,7 @@
 </section>
 <footer class="footer text-faded text-center py-5">
   <div class="container">
-    <p class="m-0 small">Copyright &copy; Yearbook 2018</p>
+    <p class="m-0 small">Copyright &copy; Yearbook 2019</p>
     <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php') }}">Contact Us</a></p>
   </div>
 </footer>

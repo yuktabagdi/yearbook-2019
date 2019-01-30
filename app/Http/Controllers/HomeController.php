@@ -96,9 +96,7 @@ class HomeController extends Controller{
         ]);
          $user = Auth::user();
          $user->email = request('email');
-         $user->HOR = request('HOR');
-         $user->course = request('course');
-         $user->department = request('department');
+         $user->password = bcrypt(request('password'));
          $user->phone = request('phone');
          $user->save();
          return back();

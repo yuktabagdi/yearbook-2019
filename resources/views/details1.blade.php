@@ -31,11 +31,12 @@
     background-attachment: fixed;
   }
   .cover-img{
-    background-image: url('/img/a.jpg');
-    background-size: 100% 100%;
-    height:35vw;
+  background-image: url('img/bg/1.jpeg');
+  height:30vw;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 
-  }
+}
   
   .dropdown-menu{
     top: 60px;
@@ -99,7 +100,7 @@
        <div class="post-content">
         <div class="author-post text-center">
           <div>
-            <img class="img-fluid img-circle" src="<?php if (!empty(Auth::user()->pro_pic)){echo '/'.Auth::user()->pro_pic; } else { echo '/ind/shot.jpg';}?>" alt="" id="OpenImgUpload" style="cursor: pointer;">
+            <img class="img-fluid img-circle" src="<?php if (!empty(Auth::user()->pro_pic)){echo '/'.Auth::user()->pro_pic; } else { echo '/ind/shot.jpg';}?>" alt="" id="OpenImgUpload" style="cursor: pointer;border-width: 2px">
           </div>
         </div><!-- /author -->
       </div><!-- /.post-content -->    
@@ -182,9 +183,10 @@
 
       <div class="row">
         <div class="col text-center">
-          <button class="btn btn-success" type="submit" style="cursor: pointer;">Update</button>
+          <a class="btn btn-success" href="/details">Update</a>
         </div>
       </div>
+
     </form>
 
   </div>
@@ -196,12 +198,12 @@
 
    <footer class="footer text-faded text-center py-5">
       <div class="container">
-        <p class="m-0 small">Copyright &copy; Yearbook 2018</p>
+        <p class="m-0 small">Copyright &copy; Yearbook 2019</p>
         <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php'
         ) }}">Contact Us</a></p>
       </div>
     </footer>
   </body>
   </html>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/base.js"></script>
+  <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+  <script src="{{ asset('js/base.js') }}"></script>
