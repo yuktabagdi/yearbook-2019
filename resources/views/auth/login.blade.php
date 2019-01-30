@@ -44,7 +44,7 @@
   <div class="clock-toogle__toogle"></div>
 </div>           
 <br>
-Welcome to<b> Yearbook'17</b> Portal </h3>
+Welcome to<b> Yearbook'19</b> Portal </h3>
 
    <form method="post" action="{{ route('login') }}" class="form main-title center">
 
@@ -68,17 +68,17 @@ Welcome to<b> Yearbook'17</b> Portal </h3>
                 </div>
             </form>
 
-            <p class=" center sub-title main-title" >Contact us at:<br> <a href="mailto:yearbook2k17.kgp@gmail.com"> yearbook2k17.kgp@gmail.com<a><i class="material-icons">error_outline</i><span class="tooltip">If you are not graduating this year, but want to write about your friends who are graduating, send us the testimonials via mail at yearbook2k17.kgp@gmail.com</span></a></p>
+            <p class=" center sub-title main-title" >Contact us at:<br> <a href="mailto:yearbook2k17.kgp@gmail.com"> yearbook2k19.kgp@gmail.com<a><i class="material-icons">error_outline</i><span class="tooltip">If you are not graduating this year, but want to write about your friends who are graduating, send us the testimonials via mail at yearbook2k19.kgp@gmail.com</span></a></p>
 
             </small></h1>
   </div>
 
 <!-- You can add more ".slideshow-image" elements, but remember to update the "$items" variable on SCSS -->
 <div class="slideshow">
-  <div class="slideshow-image" style="background-image: url('screen.png')"></div>
+  <div class="slideshow-image" style="background-image: url('21.jpeg')"></div>
   <div class="slideshow-image" style="background-image: url('12.jpg')"></div>
   <div class="slideshow-image" style="background-image: url('2.jpg')"></div>
-  <div class="slideshow-image" style="background-image: url('back.jpg')"></div>
+  <div class="slideshow-image" style="background-image: url('50.jpg')"></div>
 </div>
   
 

@@ -6,6 +6,12 @@
 3. php artisan key:generate
 4. php artisan migrate  
 5. php artisan serve
+6. composer require intervention/image
+7. open config/app.php => 
+   a. Add "Intervention\Image\ImageServiceProvider::class" to $providers array
+   b. Add "'Image' => Intervention\Image\Facades\Image::class" to $aliases array
+
+8. php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravel5"
 
 Also change the function username() inside AuthenticatesUsers.php by changing 'email' to 'rollno' for login functionality to work
 
