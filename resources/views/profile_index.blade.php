@@ -245,7 +245,7 @@
     alert($id);
   }
   $('#OpenImgUpload').click(function() {
-    window.location = "/home";
+    window.location = "{{url('/home')}}";
   });
   $('.approve').click('.approve', function(){
 
