@@ -31,7 +31,7 @@
 				<ul class="nav navbar-nav">
 					<li>
 						<div class="search-dashboard">
-							<form action="/search" method="POST" class="form-inline">
+							<form action="{{ url('/search') }}" method="POST" class="form-inline">
 								{{ csrf_field() }}
 								<input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; padding-top: 3px; padding-left: 20px; line-height: 40px; cursor: text; font-size: 14px;">
 								<button type="submit"><i class="fa fa-search"></i></button>
@@ -64,7 +64,7 @@
 						<div class="dropdown-item noti-title">
 							<h6 class="m-0">
 								<span class="pull-right">
-									<a href="/readall" class="text-dark">
+									<a href="{{ url('/readall') }}" class="text-dark">
 										<small>Clear All</small>
 									</a> 
 								</span>
@@ -144,7 +144,7 @@
 						</div>
 
 						<div style="height: 35px;">
-							<a class="dropdown-item " href="/details"><p style="font-family: 'Abhaya Libre', serif;">Edit Details</p></a>
+							<a class="dropdown-item " href="{{ url('/details') }}"><p style="font-family: 'Abhaya Libre', serif;">Edit Details</p></a>
 						</div>
 						<div >
 							<a class="dropdown-item " href="/logout"><p style="font-family: 'Abhaya Libre', serif;">Logout</p> </a>
@@ -153,7 +153,7 @@
 					</div><!--/ dropdown-menu-->
 				</li>  
 				<li class="dropdown mega-avatar">  
-					<a href="/profile_index" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+					<a href="{{ url('/profile_index') }}" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 						<span class="avatar w-32">                  
 							@if(!empty(Auth::user()->pro_pic))
 							<img class="img-fluid img-circle" src="/{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;">
@@ -177,7 +177,7 @@
 <section class="nav-sec">
     <div class="d-flex justify-content-between">
      <div id="polls" class="p-2 nav-icon-lg dark-black">
-     <a class="nav-icon" href="/polls"><i class="fas fa-chart-bar" style="font-size: 30px;padding: 0px 0px 10px 0px;"></i><span>Polls</span>
+     <a class="nav-icon" href="{{ url('/polls') }}"><i class="fas fa-chart-bar" style="font-size: 30px;padding: 0px 0px 10px 0px;"></i><span>Polls</span>
      </a>
      </div>
      <div class="p-2 nav-icon-lg clean-black">
@@ -186,17 +186,17 @@
      </a>
      </div>
      <div id="fillbucket" class="p-2 nav-icon-lg dark-black">
-     <a class="nav-icon" href="/bucket"><i class="fa fa-bitbucket" style="font-size: 30px;padding: 0px 0px 10px 0px;"></i>
+     <a class="nav-icon" href="{{ url('/bucket') }}"><i class="fa fa-bitbucket" style="font-size: 30px;padding: 0px 0px 10px 0px;"></i>
     <span>Fill Bucket</span>
      </a>
      </div>
      <div id="viewbucket" class="p-2 nav-icon-lg clean-black">
-     <a class="nav-icon" href="/viewbucket"><em class="fa fa-align-left"></em>
+     <a class="nav-icon" href="{{ url('/viewbucket') }}"><em class="fa fa-align-left"></em>
     <span>View Bucket</span>
      </a>
      </div>
      <div id="trending" class="p-2 nav-icon-lg dark-black">
-     <a class="nav-icon" href="/trending"><i class="fab fa-gripfire" style="font-size: 35px;padding: 0px 0px 10px 0px;"></i>
+     <a class="nav-icon" href="{{ url('/trending') }}"><i class="fab fa-gripfire" style="font-size: 35px;padding: 0px 0px 10px 0px;"></i>
     <span>Trending</span>
      </a>
      </div>
