@@ -68,7 +68,7 @@ Welcome to<b> Yearbook'19</b> Portal </h3>
                 </div>
             </form>
 
-            <p class=" center sub-title main-title" >Contact us at:<br> <a href="mailto:yearbook2k17.kgp@gmail.com"> yearbook2k19.kgp@gmail.com<a><i class="material-icons">error_outline</i><span class="tooltip">If you are not graduating this year, but want to write about your friends who are graduating, send us the testimonials via mail at yearbook2k19.kgp@gmail.com</span></a></p>
+            <p class=" center sub-title main-title" >Contact us at:<br> <a href="mailto:iitkgpyearbook2019@gmail.com"> iitkgpyearbook2019@gmail.com<a><i class="material-icons">error_outline</i><span class="tooltip">If you are not graduating this year, but want to write about your friends who are graduating, send us the testimonials via mail at iitkgpyearbook2019@gmail.com</span></a></p>
 
             </small></h1>
   </div>
