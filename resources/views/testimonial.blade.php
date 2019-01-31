@@ -23,7 +23,7 @@
     <link rel="apple-touch-icon" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon.png">
     <link rel="apple-touch-icon" sizes="72x72" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon-114x114.png">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css') }}">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {{-- <link rel="stylesheet" type="text/css" href="../../css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> --}}
 
@@ -31,8 +31,8 @@
       <!-- ==============================================
     CSS
     =============================================== -->
-    <link type="text/css" href="{{ asset('../css/demos/photo.css') }}" rel="stylesheet" />
-    <link type="text/css" href="{{ asset('../css/demos/testimonial.css') }}" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('/css/demos/photo.css') }}" rel="stylesheet" />
+    <link type="text/css" href="{{ asset('/css/demos/testimonial.css') }}" rel="stylesheet" />
 
     {{-- <link href="{{ asset('/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"> --}}
     <!-- ==============================================
@@ -48,7 +48,7 @@
     
     <style>
     .cover-img{
-      background-image: url('img/bg/1.jpeg');
+      background-image: url('../img/bg/1.jpeg');
       height:30vw;
       background-size: 100% 100%;
       background-repeat: no-repeat;
