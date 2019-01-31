@@ -32,7 +32,7 @@ class FileController extends Controller
 
         		]);
 				$image = $request->file('fileToUpload');//image
-				$input['imagename'] = $user->rollno.'_'.time().'.'.$image->getClientOriginalExtension();//name of file
+				$input['imagename'] = $user->rollno.'.'.$image->getClientOriginalExtension();//name of file
 				$destinationPath = public_path('/uploads');//destination of image in public/uploads
 				if($image->move($destinationPath, $input['imagename']))
 			{

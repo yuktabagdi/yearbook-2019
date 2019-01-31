@@ -1,7 +1,7 @@
-<script src="/js/jquery.min.js"></script>
-<script src="/js/autocomplete.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/autocomplete.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<script src="{{ asset('/js/jquery.min.js') }}"></script>
+<script src="{{ asset('/js/autocomplete.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/autocomplete.css') }}">
+<link rel="stylesheet" href="{{ url('https://use.fontawesome.com/releases/v5.6.3/css/all.css') }}" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
 	.nav-icon-lg
@@ -19,7 +19,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html"><img src="/img/navbar/SACLogo.png" width="150px" height="75px" style="margin-top:-23px;" /></a>
+				<a class="navbar-brand" href="{{ url('index.html') }}"><img src="img/navbar/SACLogo.png" width="150px" height="75px" style="margin-top:-23px;" /></a>
 			</div><!-- /.navbar-header -->
 			<div class="navbar-left">
 				<div class="collapse navbar-collapse" id="navbar-collapse">
@@ -39,13 +39,13 @@
 						</div>              
 					</li>
 					<li class="">
-						<a class="text-uppercase text-expanded" href="/home">Home
+						<a class="text-uppercase text-expanded" href="{{ url('/home') }}">Home
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
 
 					<li>
-						<a class="text-uppercase text-expanded" href="/trending"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
+						<a class="text-uppercase text-expanded" href="{{ url('/trending') }}"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
 					</li>
 					<li class="dropdown notification-list">
 						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="notification" role="button"
@@ -138,7 +138,7 @@
 						<div class="dropdown-item noti-title">
 							<h6 class="m-0">
 								<span class="pull-right">
-									<a href="photo_profile.html" class="text-dark"></a> 
+									<a href="#" class="text-dark"></a> 
 								</span>Settings
 							</h6>
 						</div>
@@ -147,7 +147,7 @@
 							<a class="dropdown-item " href="{{ url('/details') }}"><p style="font-family: 'Abhaya Libre', serif;">Edit Details</p></a>
 						</div>
 						<div >
-							<a class="dropdown-item " href="/logout"><p style="font-family: 'Abhaya Libre', serif;">Logout</p> </a>
+							<a class="dropdown-item " href="{{ url('/logout') }}"><p style="font-family: 'Abhaya Libre', serif;">Logout</p> </a>
 						</div>
 
 					</div><!--/ dropdown-menu-->
@@ -258,8 +258,8 @@
       success: function(response)
       {
         var image = response;
-        document.getElementById('profile').href = "/profile_index/" + image["rollno"];
-        document.getElementById('image').innerHTML = '/' + image["pic"];
+        document.getElementById('profile').href = "{{ url('/profile_index/') }}" + image["rollno"];
+        document.getElementById('image').innerHTML = "{{ url('/') }}" + image["pic"];
         document.getElementById('posted_by').innerHTML = image["name"];
         document.getElementById('created_at').innerHTML = image["created_at"];
       },

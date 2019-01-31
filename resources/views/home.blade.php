@@ -44,8 +44,8 @@
 
 
   <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+  <link href="{{ url('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i') }}" rel="stylesheet">
+  <link href="{{ url('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i') }}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="{{ asset('css/business-casual.min.css') }}" rel="stylesheet">
@@ -360,7 +360,7 @@
                    
             <div class="col-lg-4 col-md-6" id="img{{$image['id']}}">
              <div class="explorebox" style="border-radius: 10px;">
-              <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 imghover" src="{{$image['thumbnail']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
+              <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 imghover" src="{{$image['thumbnail']}}" id="{{$image['id']}}" data-src="{{$image['url']}}" data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
               <div class="explore-top" style="position: relative;top:-400px; ">
                 @php
                 $likes = DB::table('likes')->where('pic_id', $image['id'])->count();
@@ -660,7 +660,7 @@ document.getElementById("defaultOpen").click();
 <script>
   $(function() {
     $('.product-item-img').on('click', function() {
-      $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
+      $('.enlargeImageModalSource').attr('src', $(this).attr('data-src'));
       $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
       $('#myModal').modal('show');
       var formData = {
@@ -691,7 +691,7 @@ document.getElementById("defaultOpen").click();
         success: function(response)
         {
           var image = response;
-          document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+          document.getElementById('profile').href = "{{ url('/profile_index/') }}" + image["rollno"];
           document.getElementById('posted_by').innerHTML = image["name"];
           document.getElementById('created_at').innerHTML = image["created_at"];
           console.log(document.getElementById('image').src);
