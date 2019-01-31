@@ -68,7 +68,7 @@ class HomeController extends Controller{
         public function search()
         {
 
-          $name = strtok(request('search'), " ");
+          $name = strtok(request('search'), "|");
           $user = User::where('name',$name)->get();
 
           if( $user->isNotEmpty()){
