@@ -192,7 +192,7 @@
                 }else{
 
 
-                  echo '<button type="button" class="btn btn-success approve app'.$i.'"  data-no="'.json_encode($i).'" data-id="'.json_encode($id).'" id= "'.json_encode($rollno).'" );" >Approve</button> <div class="text_show'.$i.'" style= "padding-left: 15px;"></div>';
+                  echo '<button type="button" class="btn btn-success approve app'.$i.'"  data-no="'.json_encode($i).'" data-id="'.json_encode($id).'" id= "'.$rollno.'" );" >Approve</button> <div class="text_show'.$i.'" style= "padding-left: 15px;"></div>';
                 }
 
                 echo '</div></div></div></li>';
@@ -256,7 +256,7 @@
     var query= id;
 
     $.ajax({
-      url: "/approve/"+id,
+      url: "{{ url('/approve') }}"+ '/' +id,
       type: "GET",
       data: {'id': id, 'i': no, 'rollno': rollno,},
 
@@ -281,7 +281,7 @@
     var query= '1';
 
     $.ajax({
-      url: "/disapprove/"+id,
+      url: "{{ url('/disapprove') }}"+ '/' +id,
       type: "GET",
       data: {'id': id, 'i': no, 'rollno': rollno,},
 
