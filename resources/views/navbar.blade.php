@@ -229,7 +229,7 @@
 
 <script>
 	$('.comment_notification').on('click', function() {
-    $('.enlargeImageModalSource').attr('src', '/'+$(this).attr('value'));
+    $('.enlargeImageModalSource').attr('src', $(this).attr('value'));
     $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
     $('#myModal').modal('show');
     var formData = {
@@ -260,8 +260,8 @@
       success: function(response)
       {
         var image = response;
-        document.getElementById('profile').href = "{{ url('/profile_index/') }}" + image["rollno"];
-        document.getElementById('image').innerHTML = "{{ url('/') }}" + image["pic"];
+        document.getElementById('profile').href = "{{ url('/profile_index/') }}" + '/' + image["rollno"];
+        document.getElementById('image').src = image["pic"];
         document.getElementById('posted_by').innerHTML = image["name"];
         document.getElementById('created_at').innerHTML = image["created_at"];
       },

@@ -9,7 +9,7 @@
       <h2>Treat at Kolaghat</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/7" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/7')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -24,7 +24,7 @@
       <h2>Treat at Kolaghat</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/7" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/7')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -46,7 +46,7 @@
       <h2>Jolly Bonfire at Beach</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/8" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/8')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -61,7 +61,7 @@
       <h2>Jolly Bonfire at Beach</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/8" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/8')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -83,7 +83,7 @@
       <h2>“Delicacies” at Little Sisters</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/9" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/9')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -98,7 +98,7 @@
       <h2>“Delicacies” at Little Sisters</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/9" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/9')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>

@@ -10,7 +10,7 @@
       <h2> of Salsa in SF</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/1" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/1')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -27,7 +27,7 @@
       <h2> of Salsa in SF</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/1" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/1')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -50,7 +50,7 @@
       <h2> Archi Building</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/2" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/2')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -66,7 +66,7 @@
       <h2> Archi Building</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/2" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/2')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -88,7 +88,7 @@
       <h2>Sketched graffiti in hall.</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/3" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/3')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -103,7 +103,7 @@
       <h2>Sketched graffiti in hall.</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/3" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/3')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>

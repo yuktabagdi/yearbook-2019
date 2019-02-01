@@ -10,7 +10,7 @@
       <h2>Howrah Bridge</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/4" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/4')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -26,7 +26,7 @@
       <h2>Howrah Bridge</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/4" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/4')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -49,7 +49,7 @@
       <h2>romantic lake</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/5" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/5')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -65,7 +65,7 @@
       <h2>romantic lake</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/5" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/5')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -88,7 +88,7 @@
       <h2>Nalanda top</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/6" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/6')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -104,7 +104,7 @@
       <h2>Nalanda top</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/6" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/6')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>

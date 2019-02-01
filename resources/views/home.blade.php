@@ -457,7 +457,7 @@
        <div class="modal-meta-top">
         <div class="img-poster clearfix">
          <a href="" id="profile">
-          <img class="img-responsive img-circle" src="{{Auth::user()->pro_pic}}" />
+          <img class="img-responsive img-circle" src="{{Auth::user()->thumbnail}}" />
           <strong><span style="font-size: 14px;" id="posted_by"></span></strong>
         </a>
         <span id="created_at"></span><br/>
@@ -696,7 +696,7 @@ document.getElementById("defaultOpen").click();
         success: function(response)
         {
           var image = response;
-          document.getElementById('profile').href = "{{ url('/profile_index/') }}" + image["rollno"];
+          document.getElementById('profile').href = "{{ url('/profile_index') }}" + '/' + image["rollno"];
           document.getElementById('posted_by').innerHTML = image["name"];
           document.getElementById('created_at').innerHTML = image["created_at"];
           console.log(document.getElementById('image').src);

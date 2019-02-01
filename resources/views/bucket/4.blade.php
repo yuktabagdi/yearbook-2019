@@ -9,7 +9,7 @@
       <h2>Trek to Gangtok</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/10" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/10')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -24,7 +24,7 @@
       <h2>Trek to Gangtok</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/10" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/10')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -46,7 +46,7 @@
       <h2>Voyage on local train</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/11" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/11')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -61,7 +61,7 @@
       <h2>Voyage on local train</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/11" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/11')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -84,7 +84,7 @@
       <h2>on 2.2</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/12" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/12')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
@@ -100,7 +100,7 @@
       <h2>on 2.2</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
-      <form action="/bucketpost/12" method="post" enctype="multipart/form-data">
+      <form action="{{ url('/bucketpost/12')}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <input type="file" required="required" name="fileToUpload" >
         <br><br>
