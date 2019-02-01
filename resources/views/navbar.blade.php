@@ -19,7 +19,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ url('index.html') }}"><img src="img/navbar/SACLogo.png" width="150px" height="75px" style="margin-top:-23px;" /></a>
+				<a class="navbar-brand" href="{{ url('index.html') }}"><img src="{{ asset('img/navbar/SACLogo.png') }}" width="150px" height="75px" style="margin-top:-23px;" /></a>
 			</div><!-- /.navbar-header -->
 			<div class="navbar-left">
 				<div class="collapse navbar-collapse" id="navbar-collapse">
@@ -33,7 +33,7 @@
 						<div class="search-dashboard">
 							<form action="{{ url('/search') }}" method="POST" class="form-inline">
 								{{ csrf_field() }}
-								<input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; padding-top: 3px; padding-left: 20px; line-height: 40px; cursor: text; font-size: 14px;">
+								<input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; padding-top: 3px; padding-left: 0px; line-height: 40px; cursor: text; font-size: 14px;">
 								<button type="submit"><i class="fa fa-search"></i></button>
 							</form>
 						</div>              
@@ -156,7 +156,9 @@
 					<a href="{{ url('/profile_index') }}" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 						<span class="avatar w-32">                  
 							@if(!empty(Auth::user()->pro_pic))
-							<img class="img-fluid img-circle" src="/{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;">
+							<img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;">
+							@else
+							<img class="img-fluid img-circle" src="{{ asset('index.png') }}" style="width: 35px; height: 35px;">
 							@endif
 						</span>
 						<!-- hidden-xs hides the username on small devices so only the image appears. -->

@@ -94,7 +94,16 @@
          <div class="post-content">
           <div class="author-post text-center">
             <div>
-              <img class="img-fluid img-circle" src="<?php if (!empty($data[0]['pro_pic'])){echo '/'.$data[0]['pro_pic']; } else { echo '/ind/shot.jpg';}?>" alt="" id="OpenImgUpload" style="cursor: pointer;border-width: 2px">
+              @if(!empty(Auth::user()->pro_pic))
+                  <span data-toggle="modal" data-target="#modal2" data-step="1" data-intro="<center> Upload your profile picture and write a caption here </center> ">
+                  <img class="img-fluid img-circle imghover" style="border-width: 2px;cursor: pointer" src="{{Auth::user()->pro_pic}}" alt="Image" data-toggle="tooltip" title="Upload Profile Picture and Caption"  >
+                  </span>
+                  @else
+                  <span data-toggle="modal" data-target="#modal2" data-step="1" data-intro="<center> Upload your profile picture and write a caption here </center> ">
+                  <img class="img-fluid img-circle imghover" style="border-width: 2px;cursor: pointer" src="{{ asset('index.png') }}" alt="Image" data-toggle="tooltip" title="Upload Profile Picture and Caption"  >
+                  </span>  
+                  
+              @endif
             </div>
           </div><!-- /author -->
         </div><!-- /.post-content -->    
@@ -190,7 +199,7 @@
 
                 <div class="row" id="post-review-box" style="display:none;">
                   <div class="col-md-12">
-                    <form action="/writetestimony/{{$data[0]['rollno']}}" onSubmit="alert('Your views will be added in his yearbook after his registration and approval');" method="POST" style="padding-top: 0;">
+                    <form action="{{ url('/writetestimony/17MA20024') }}" onSubmit="alert('Your views will be added in his yearbook after his registration and approval');" method="POST" style="padding-top: 0;">
                       {{csrf_field()}}
                       <input id="ratings-hidden" name="rating" type="hidden"> 
                       <textarea class="form-control animated" cols="50" id="new-review" name="viewf" placeholder="Enter your review here...(max 144 character)" rows="5" maxlength="144" ></textarea>

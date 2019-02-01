@@ -130,8 +130,7 @@
 
                     <div class="cardbox-item">
                       <span class="section-heading-upper" style="font-family: Aclonica;">&nbsp {{$image['caption']}}</span><br>
-                      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 " src="{{$image['thumbnail']}}" 
-                      id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 100%;height: 380px;">
+                      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 " src="{{$image['thumbnail']}}" data-src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 100%;height: 380px;">
                     </div><!--/ cardbox-item -->
                     <div class="cardbox-like">
                       <ul style="top: 6px; position: relative;">
@@ -307,7 +306,7 @@
       });
     });
     $('.comment_btn').click('.comment_btn', function() {
-      $('.enlargeImageModalSource').attr('src', $(this).attr('value'));       
+      $('.enlargeImageModalSource').attr('src', $(this).attr('data-src'));       
       $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
       $('#myModal').modal('show');
       var formData = {
