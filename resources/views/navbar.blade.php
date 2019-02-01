@@ -33,7 +33,7 @@
 						<div class="search-dashboard">
 							<form action="{{ url('/search') }}" method="POST" class="form-inline">
 								{{ csrf_field() }}
-								<input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; padding-top: 3px; padding-left: 0px; line-height: 40px; cursor: text; font-size: 14px;">
+								<input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search" style="background: none; border: none; padding-top: 3px; padding-left: 20px; line-height: 40px; cursor: text; font-size: 14px;">
 								<button type="submit"><i class="fa fa-search"></i></button>
 							</form>
 						</div>              
@@ -98,7 +98,7 @@
 									@endif
 									@if(count($notifications))
 									@foreach($notifications as $notification)
-									<a href="/read/{{$notification['id']}}" class="dropdown-item notify-item">
+									<a href="{{ url('/read/'.$notification['id']) }}" class="dropdown-item notify-item">
 										@php
 										$pic = App\User::where('name',$notification['user'])->pluck('pro_pic');
 										@endphp
