@@ -122,6 +122,61 @@
     <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php') }}">Contact Us</a></p>
   </div>
 </footer>
+<!-- ==============================================
+   Modal Section
+   =============================================== -->
+   <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+     <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+         <span aria-hidden="true">×</span>
+         <span class="sr-only">Close</span>
+       </button>
+       <div class="row">
+         
+        <div class="col-md-8 modal-image">
+          <img class="img-responsive enlargeImageModalSource" src="" alt="Image"/>
+        </div><!--/ col-md-8 -->
+        <div class="col-md-4 modal-meta">
+         <div class="modal-meta-top">
+          <div class="img-poster clearfix">
+           <a href="" id="profile">
+            <img class="img-responsive img-circle" id="image" src="" />
+            <strong><span style="font-size: 14px;" id="posted_by"></span></strong>
+          </a>
+          <span id="created_at"></span><br/>
+        </div><!--/ img-poster -->
+        <div id="comments"> 
+        </div>
+        
+        <div class="modal-meta-bottom">     
+          <span class="thumb-xs">
+            @if(!empty(Auth::user()->pro_pic))
+            <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;" alt="Image">
+            @endif       
+          </span>
+          <div class="comment-body">
+            <form class="form" id="form-comment" action="{{ url('/comment') }}" method="post">
+              {{csrf_field()}}
+              <input id="comment-token" type="hidden" name="_token" value="{{ csrf_token() }}">
+              <textarea name="comment" id="textarea" class="form-control input-sm" rows="2" type="text" placeholder="Write your comment..." required></textarea>
+              <div align="right">
+                <button class="btn" id="submit" style="margin-top: 10px;"><span>Comment</span></button>
+              </div>
+            </form>
+          </div><!--/ comment-body -->        
+        </div><!--/ modal-meta-bottom -->
+
+      </div><!--/ modal-meta-top -->
+    </div><!--/ col-md-4 -->
+    
+  </div><!--/ row -->
+</div><!--/ modal-body -->
+
+</div><!--/ modal-content -->
+</div><!--/ modal-dialog -->
+</div><!--/ modal -->
 
 <!-- Bootstrap core JavaScript -->
 <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
