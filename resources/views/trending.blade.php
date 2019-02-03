@@ -83,6 +83,7 @@
                     <!--<span class="section-heading-upper">Blended to Perfection</span>-->
                     @php
                     $name = App\User::where('rollno',$image['rollno'])->get()->toArray();
+                    $URL = '/profile_index/'.$image['rollno'];
                     @endphp
                   </h2>
                   <strong></strong>
@@ -115,12 +116,12 @@
                       <!-- END dropdown-->
                       <div class="media m-0">
                         <div class="d-flex mr-3">
-                          <a href="/profile_index/{{$image['rollno']}}">
+                          <a href="{{ url($URL) }}">
                             <img class="img-responsive img-circle" src="{{$name[0]['pro_pic']}}" alt="User">
                           </a>
                         </div>
                         <div class="media-body">
-                          <a href="/profile_index/{{$image['rollno']}}">
+                          <a href="{{ url($URL) }}">
                             <p class="m-0">{{$name[0]['name']}}</p>
                           </a>
                           <small><span>{{$image['created_at']->diffForHumans() }}</span></small>
@@ -221,7 +222,7 @@
           <div class="col-md-4 modal-meta">
            <div class="modal-meta-top">
             <div class="img-poster clearfix">
-             <a href="" id="profile">
+             <a href="{{ url($URL) }}" id="profile">
               <img class="img-responsive img-circle" id="image" src="" />
              <strong><span style="font-size: 14px;" id="posted_by"></span></strong>
              </a>
@@ -234,7 +235,9 @@
               <span class="thumb-xs">
                 @if(!empty(Auth::user()->pro_pic))
                 <img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;" alt="Image">
-                @endif       
+                @else
+                <img class="img-fluid img-circle" src="{{ asset('index.png') }}" style="width: 35px; height: 35px;" alt="Image">  
+                @endif   
               </span>
               <div class="comment-body">
                 <form class="form" id="form-comment" action="{{ url('/comment') }}" method="post">
@@ -337,7 +340,7 @@
         success: function(response)
         {
           var image = response;
-          document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+          // document.getElementById('profile').href = "/profile_index/" + image["rollno"];
           document.getElementById('image').src = image['pic'];
           document.getElementById('posted_by').innerHTML = image["name"];
           document.getElementById('created_at').innerHTML = image["created_at"];
@@ -382,7 +385,7 @@
           success: function(response)
           {
             var image = response;
-            document.getElementById('profile').href = "/profile_index/" + image["rollno"];
+            // document.getElementById('profile').href = "/profile_index/" + image["rollno"];
             document.getElementById('image').src = image['pic'];
             document.getElementById('posted_by').innerHTML = image["name"];
             document.getElementById('created_at').innerHTML = image["created_at"];
