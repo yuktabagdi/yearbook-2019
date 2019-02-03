@@ -95,9 +95,9 @@
           <div class="author-post text-center">
             <div>
               @if(!empty($data[0]['thumbnail']))
-              <img class="img-fluid img-circle imghover" style="border-width: 2px;cursor: pointer" src="{{$data[0]['thumbnail']}}" alt="Image" data-toggle="tooltip" title="Upload Profile Picture and Caption"  >
+              <img class="img-fluid img-circle imghover" style="border-width: 2px;cursor: pointer" src="{{asset('/').$data[0]['thumbnail']}}" alt="Image" >
               @else
-              <img class="img-fluid img-circle imghover" style="border-width: 2px;cursor: pointer" src="{{ asset('index.png') }}" alt="Image" data-toggle="tooltip" title="Upload Profile Picture and Caption"  >
+              <img class="img-fluid img-circle imghover" style="border-width: 2px;cursor: pointer" src="{{ asset('/index.png') }}" alt="Image">
               @endif
             </div>
           </div><!-- /author -->
