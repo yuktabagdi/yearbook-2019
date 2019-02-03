@@ -19,6 +19,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "cropper": "^4.0.0"
+        "cropper": "^4.0.0",
+        "intervention/image": "^2.4"
     }
 }
