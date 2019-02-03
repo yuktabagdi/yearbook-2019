@@ -75,7 +75,7 @@ public function new()
     $content = $content.'<img src="'.$pic.'" class="img-responsive img-circle"/>';
   }
   else {
-    $content = $content.'<img src="img/users/10.jpeg" class="img-responsive img-circle"/>';
+    $content = $content.'<img src="index.png" class="img-responsive img-circle"/>';
   }
   $content = $content.'</a>
   </div>
