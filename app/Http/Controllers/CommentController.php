@@ -32,9 +32,9 @@ class CommentController extends Controller
      $content = $content.'
      <li>
      <div class="comment-img">
-     <a href="profile_index/'.$roll.'">';
+     <a href="'.url('profile_index/'.$roll).'">';
      if(!empty($pic)) {
-      $content = $content.'<img src="'.$pic.'" class="img-responsive img-circle"/>';
+      $content = $content.'<img src="'.asset($pic).'" class="img-responsive img-circle"/>';
     }
     else {
       $content = $content.'<img src="index.png" class="img-responsive img-circle"/>';
@@ -42,7 +42,7 @@ class CommentController extends Controller
     $content = $content.'</a>
     </div>
     <div class="comment-text">
-    <strong><a href="profile_index/'.$roll.'">'.$name.'</a></strong>
+    <strong><a href="'.url('profile_index/'.$roll).'">'.$name.'</a></strong>
     <p>'.$view['comments'].'</p> <span class="date sub-text">'.$date.'</span>
     </div>
     </li>
@@ -70,9 +70,9 @@ public function new()
    $content = $content.'
    <li>
    <div class="comment-img">
-   <a href="profile_index/'.$roll.'">';
+   <a href="'.url('profile_index/'.$roll).'">';
    if(!empty($pic)) {
-    $content = $content.'<img src="'.$pic.'" class="img-responsive img-circle"/>';
+    $content = $content.'<img src="'.asset($pic).'" class="img-responsive img-circle"/>';
   }
   else {
     $content = $content.'<img src="index.png" class="img-responsive img-circle"/>';
@@ -80,7 +80,7 @@ public function new()
   $content = $content.'</a>
   </div>
   <div class="comment-text">
-  <strong><a href="profile_index/'.$roll.'">'.$name.'</a></strong>
+  <strong><a href="'.url('profile_index/'.$roll).'">'.$name.'</a></strong>
   <p>'.$view['comments'].'</p> <span class="date sub-text">'.$date.'</span>
   </div>
   </li>

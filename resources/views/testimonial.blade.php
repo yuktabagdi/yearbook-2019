@@ -313,7 +313,7 @@
                       <section class="page-section">
                         <div class="col-lg-4">
                          <div class="explorebox" style="border-radius: 10px;">
-                          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="/{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
+                          <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="{{asset('/'.$image['url'])}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer;width: 360px;height: 400px;border-radius: 10px;" >
                           <div class="explore-top" style="position: relative;top:-400px;">
                             @php
                             $likes = DB::table('likes')->where('pic_id', $image['id'])->count();
@@ -424,7 +424,7 @@
       <div class="modal-meta-bottom">     
         <span class="thumb-xs">
           @if(!empty($data[0]['pro_pic']))
-          <img class="img-fluid img-circle" src="/{{$data[0]['pro_pic']}}" style="width: 35px; height: 35px;" alt="Image">
+          <img class="img-fluid img-circle" src="../{{Auth::user()->thumbnail}}" style="width: 35px; height: 35px;" alt="Image">
           @endif       
         </span>
         <div class="comment-body">
@@ -475,7 +475,8 @@
 <script type="text/javascript">
 
   $(document).ready(function() {
-    
+     var src = $('.pro_pic').attr("src");
+     $('.pro_pic').attr("src", '../' + src);
   });
   function call($id)
   {
@@ -497,50 +498,51 @@
 }
 
 $(function() {
-    $('.product-item-img').on('click', function() {
-      $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
-      $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
-      $('#myModal').modal('show');
-      var formData = {
-        'comments' : $('textarea[name=comment]').val(),
-        'pic_id' : $('.enlargeImageModalSource').attr('id'),
-        '_token' : $('#comment-token').val()
-      }
-      $.ajax({
-        url: "{{ url('/commentadd') }}",
-        type: "POST",
-        data: formData,
-
-        success: function(response)
-        {
-
-          document.getElementById("comments").innerHTML = response;
-        },
-        error: function(data)
-        {
-
+      $('.product-item-img').on('click', function() {
+        $('.enlargeImageModalSource').attr('src', $(this).attr('src'));
+        $('.enlargeImageModalSource').attr('id', $(this).attr('id'));
+        $('#myModal').modal('show');
+        var formData = {
+          'comments' : $('textarea[name=comment]').val(),
+          'pic_id' : $('.enlargeImageModalSource').attr('id'),
+          '_token' : $('#comment-token').val()
         }
+        $.ajax({
+          url: "{{ url('/commentadd') }}",
+          type: "POST",
+          data: formData,
+
+          success: function(response)
+          {
+
+            document.getElementById("comments").innerHTML = response;
+            
+          },
+          error: function(data)
+          {
+
+          }
+        });
+        $.ajax({
+          url: "{{ url('/getimage') }}",
+          type: "POST",
+          data: formData,
+
+          success: function(response)
+          {
+            var image = response;
+            document.getElementById('profile').href = "{{url('/profile_index')}}" + '/' + image["rollno"];
+            document.getElementById('image').src = '../' + image['pic'];
+            document.getElementById('posted_by').innerHTML = image["name"];
+            document.getElementById('created_at').innerHTML = image["created_at"];
+          },
+          error: function(data)
+          {
+
+          }
+        });
       });
-    $.ajax({
-      url: "{{ url('/getimage') }}",
-      type: "POST",
-      data: formData,
-
-      success: function(response)
-      {
-        var image = response;
-        document.getElementById('profile').href = "/profile_index/" + image["rollno"];
-        document.getElementById('image').src = '/'+image['pic'];
-        document.getElementById('posted_by').innerHTML = image["name"];
-        document.getElementById('created_at').innerHTML = image["created_at"];
-      },
-      error: function(data)
-      {
-
-      }
     });
-  });
-  });
 
   $(document).ready(function (e) {
     $('form#form-comment').on('submit', function(e) {

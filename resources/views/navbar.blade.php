@@ -157,9 +157,9 @@
 					<a href="{{ url('/profile_index') }}" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 						<span class="avatar w-32">                  
 							@if(!empty(Auth::user()->pro_pic))
-							<img class="img-fluid img-circle" src="{{Auth::user()->pro_pic}}" style="width: 35px; height: 35px;">
+							<img class="img-fluid img-circle pro_pic" src="{{Auth::user()->thumbnail}}" style="width: 35px; height: 35px;">
 							@else
-							<img class="img-fluid img-circle" src="{{ asset('index.png') }}" style="width: 35px; height: 35px;">
+							<img class="img-fluid img-circle pro_pic" src="{{ asset('index.png') }}" style="width: 35px; height: 35px;">
 							@endif
 						</span>
 						<!-- hidden-xs hides the username on small devices so only the image appears. -->
