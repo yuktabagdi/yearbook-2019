@@ -9,7 +9,7 @@
   <meta name="author" content="">
 
   <title>YB|Writeup</title>
-   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style type="text/css">
   
   .dropdown-menu{
