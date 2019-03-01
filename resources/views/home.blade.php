@@ -150,7 +150,7 @@
                   </span>
                   @else
                   <span data-toggle="modal" data-target="#modal2" data-step="1" data-intro="<center> Upload your profile picture and write a caption here </center> ">
-                  <img class="img-fluid img-circle imghover" style="border-width: 2px;cursor: pointer" src="{{ asset('../index.png') }}" alt="Image" data-toggle="tooltip" title="Upload Profile Picture and Caption"  >
+                  <img class="img-fluid img-circle imghover" style="border-width: 2px;cursor: pointer" src="{{ asset('index.png') }}" alt="Image" data-toggle="tooltip" title="Upload Profile Picture and Caption"  >
                   </span>  
                   
                   @endif
