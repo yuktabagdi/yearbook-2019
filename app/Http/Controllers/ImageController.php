@@ -45,7 +45,7 @@ class ImageController extends Controller
 			$image['filePath'] = $name;
 			$file->move(public_path().'/uploads/', $name);
 			
-			$thumbnail = Image1::make('uploads/'.$name)->resize(200, 200);
+			$thumbnail = Image1::make('uploads/'.$name)->resize(1000, 300);
 			$target = public_path('/thumbnails/'.$name);
 			$thumbnail->save($target);
 			if(!empty(request('caption')))

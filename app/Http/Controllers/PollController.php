@@ -32,7 +32,7 @@ class PollController extends Controller
     }
     public function post($id){
     	$roll = Auth::user()->rollno;
-      if (empty(User::where('name',request('q'.$id))->get()->toArray())) {
+      if (empty(User::where('name',strtok(request('q'.$id), "|"))->get()->toArray())) {
         $e = array($id,"Please Enter Correct name");
         $f = "$id";
         return Redirect::back()->withErrors($e);
@@ -40,12 +40,12 @@ class PollController extends Controller
       if(empty(Poll::where('rollno',$roll)->get()->toArray())){
      		Poll::create([
      			'rollno' =>Auth::user()->rollno,
-      			'q'.$id => request('q'.$id),
+      			'q'.$id => strtok(request('q'.$id), "|"),
     		]);
    		}
    		else{
      		Poll::where('rollno', $roll)->update([
-       			'q'.$id => request('q'.$id),
+       			'q'.$id => strtok(request('q'.$id), "|"),
      		]);
    		}
       
@@ -62,7 +62,7 @@ class PollController extends Controller
       foreach ($polls as $entries) {
         if(!empty($entries['q'.$id]))
         {
-          $roll = User::where('name',$entries['q'.$id])->get()->toArray(); 
+          $roll = User::where('name',$entries['q'.$id])->get()->toArray();
           $roll = $roll[0]['rollno'];
           array_push($box, $roll);
         }
