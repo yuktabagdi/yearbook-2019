@@ -44,8 +44,11 @@ class ImageController extends Controller
            //using array instead of object
 			$image['filePath'] = $name;
 			$file->move(public_path().'/uploads/', $name);
-			
-			$thumbnail = Image1::make('uploads/'.$name)->resize(1000, 300);
+			$width = Image1::make('uploads/'.$name)->width();
+			if($width < 1000)
+				$thumbnail = Image1::make('uploads/'.$name)->resize($width, 300);
+			else
+				$thumbnail = Image1::make('uploads/'.$name)->resize(1000, 300);
 			$target = public_path('/thumbnails/'.$name);
 			$thumbnail->save($target);
 			if(!empty(request('caption')))
