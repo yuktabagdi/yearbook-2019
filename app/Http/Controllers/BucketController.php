@@ -39,12 +39,12 @@ class BucketController extends Controller
       $name = $user->rollno.'_bucket_list_'.$id.'_'.time().'.'.$file->getClientOriginalExtension();
 
 
-      $file->move(public_path(), $name);
+      $file->move(public_path().'/uploads/bucket/', $name);
       $roll = Auth::user()->rollno;
       Bucket::create([
         'roll' => $roll,
         'list' => $id,
-        'pic' => $name,
+        'pic' => 'uploads/bucket/'.$name,
         'totalcount' => '0',
         'finalcount' => '0'
       ]);
