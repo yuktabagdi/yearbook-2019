@@ -12,14 +12,9 @@
 
   <link href="{{ asset('/css/business-casual.min_test.css') }}" rel="stylesheet">
   <link type="text/css" href="{{ asset('/css/demos/photo.css') }}" rel="stylesheet" />
-  <link type="text/css" href="{{ asset('/css/demos/bucketAnimation.css') }}" rel="stylesheet" />
-
-
-  
-  <link rel="icon" href="{{ url('http://themashabrand.com/templates/Fluffs/assets/img/logo.jpg') }}">
-  
+  <link type="text/css" href="{{ asset('/css/demos/bucketAnimation.css') }}" rel="stylesheet" />  
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="{{ url('http://fonts.googleapis.com/icon?family=Material+Icons;') }}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
 
   <style type="text/css">

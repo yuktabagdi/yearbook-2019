@@ -15,14 +15,6 @@
     <meta property="og:url" content="" />
     <meta property="og:description" content="" />   
     
-    <!-- ==============================================
-    Favicons
-    =============================================== --> 
-    <link rel="icon" href="http://themashabrand.com/templates/Fluffs/assets/img/logo.jpg">
-    <link rel="apple-touch-icon" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon-114x114.png">
-    
       <!-- ==============================================
     CSS
     =============================================== -->
@@ -31,7 +23,6 @@
     <!-- ==============================================
     Feauture Detection
     =============================================== -->
-    <script src="http://themashabrand.com/templates/Fluffs/assets/js/modernizr-custom.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

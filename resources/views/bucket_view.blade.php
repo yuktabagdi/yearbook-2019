@@ -35,8 +35,7 @@
         
     <!-- ==============================================
     Feauture Detection
-    =============================================== -->
-      <script src="{{ asset('js/modernizr-custom.js') }}"></script>  
+    =============================================== --> 
     <style type="text/css">
     .back{
       background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');

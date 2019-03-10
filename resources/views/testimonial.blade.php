@@ -18,13 +18,9 @@
     
     <!-- ==============================================
     Favicons
-    =============================================== --> 
-    <link rel="icon" href="http://themashabrand.com/templates/Fluffs/assets/img/logo.jpg">
-    <link rel="apple-touch-icon" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="http://themashabrand.com/templates/Fluffs/img/favicons/apple-touch-icon-114x114.png">
+    =============================================== -->
     <link rel="stylesheet" type="text/css" href="{{ asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css') }}">
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     {{-- <link rel="stylesheet" type="text/css" href="../../css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"> --}}
 
     
@@ -38,7 +34,6 @@
     <!-- ==============================================
     Feauture Detection
     =============================================== -->
-    <script src="http://themashabrand.com/templates/Fluffs/assets/js/modernizr-custom.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -241,9 +236,9 @@
                         {
                          echo ' <div class="timeline">
                         <span class="timeline-icon"></span>
-                        <span class="year"><a href="/profile_index/'.$writtenBy.'">'.$view['user'].'</span></a>
+                        <span class="year"><a href="'.url('/profile_index/'.$writtenBy) .'">'.$view['user'].'</span></a>
                         <div class="timeline-content media_body">
-                        <a href="/profile_index/'.$writtenBy.'">
+                        <a href="'.url('/profile_index/'.$writtenBy) .'">
                          <div align="center"><img src="/'.$pic[0].'" alt="" class="img-responsive img-circle" style="width: 60px; height: 60px;"></div>
                          <p><b style="color: #000">'.$view['user'].'</b></a> wrote for <b>'.$writtenFor.': </b></p>
                          <p>"'.$view['views'].'"</p>
@@ -257,9 +252,9 @@
 
                         <div class="timeline">
                         <span class="timeline-icon"></span>
-                        <span class="year"><a href="/profile_index/'.$writtenBy.'">'.$view['user'].'</span></a>
+                        <span class="year"><a href="'.url('/profile_index/'.$writtenBy) .'">'.$view['user'].'</span></a>
                         <div class="timeline-content media_body">
-                        <a href="/profile_index/'.$writtenBy.'">
+                        <a href="'.url('/profile_index/'.$writtenBy) .'">
                          <div align="center"><img src="/'.$pic[0].'" alt="" class="img-responsive img-circle" style="width: 60px; height: 60px;"></div>
                          <p><b style="color: #000">'.$view['user'].'</b></a> wrote for <b>'.$writtenFor.': </b></p>
                          <p>"'.$view['views'].'"</p>
@@ -424,7 +419,7 @@
       <div class="modal-meta-bottom">     
         <span class="thumb-xs">
           @if(!empty($data[0]['pro_pic']))
-          <img class="img-fluid img-circle" src="../{{Auth::user()->thumbnail}}" style="width: 35px; height: 35px;" alt="Image">
+          <img class="img-fluid img-circle" src="{{Auth::user()->thumbnail}}" style="width: 35px; height: 35px;" alt="Image">
           @endif       
         </span>
         <div class="comment-body">

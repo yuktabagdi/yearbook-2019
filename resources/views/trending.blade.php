@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
 
@@ -43,9 +43,7 @@
         </style>    
         <!-- ==============================================
     Feauture Detection
-    =============================================== -->
-   
-      <script src="{{ asset('js/modernizr-custom.js') }}"></script>  
+    =============================================== --> 
     
     </head>
 

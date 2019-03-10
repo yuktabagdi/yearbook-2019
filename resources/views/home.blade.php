@@ -17,8 +17,7 @@
     
     <!-- ==============================================
     Favicons
-    =============================================== --> 
-    <link rel="icon" href="{{ asset('img/logo.jpg') }}">
+    =============================================== -->
     <link rel="apple-touch-icon" href="{{ asset('img/favicons/apple-touch-icon.png') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/favicons/apple-touch-icon-72x72.png') }}">
     <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/favicons/apple-touch-icon-114x114.png') }}">
@@ -31,8 +30,7 @@
         
     <!-- ==============================================
     Feauture Detection
-    =============================================== -->
-    <script src="{{ asset('js/modernizr-custom.js') }}"></script>
+    =============================================== --> 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>-->
@@ -52,7 +50,6 @@
 
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.7.0/introjs.css">
-<script src="{{ asset('js/canvas-to-blob.min.js') }}"></script>
 
 
     <style>

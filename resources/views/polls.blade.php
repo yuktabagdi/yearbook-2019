@@ -17,22 +17,13 @@
         <!-- ==============================================
         Favicons
         =============================================== -->
-        <link rel="icon" href="{{ asset('img/logo.jpg') }}">
         <link rel="apple-touch-icon" href="{{ asset('img/favicons/apple-touch-icon.png') }}">
         <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/favicons/apple-touch-icon-72x72.png') }}">
         <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/favicons/apple-touch-icon-114x114.png') }}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="{{ asset('js/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/modernizr-custom.js') }}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/base.js') }}"></script>
-        <script src="{{ asset('plugins/slimscroll/jquery.slimscroll.js') }}"></script>
+        {{-- <script src="{{ asset('js/jquery.min.js') }}"></script> --}}
+        
         <!-- ==============================================
         CSS
         =============================================== -->
@@ -60,7 +51,14 @@
     <body>
         <!--Navigation Section -->
         @include('navbar')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/base.js') }}"></script>
+        <script src="{{ asset('plugins/slimscroll/jquery.slimscroll.js') }}"></script>
                
 
         <section class="notifications back">
