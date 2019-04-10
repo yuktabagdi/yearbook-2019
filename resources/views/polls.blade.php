@@ -505,6 +505,807 @@
                                     </form>
                                 </div>
                             </li>
+
+                            <li>
+                                <div class="media first_child">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
+                                    <form action="{{ url('/polls/6') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="media_body">
+                                            <p><b>Gabbar of the Batch</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-sm-8  ">
+                                                <div class="">
+                                                    <div class="input-field">
+                                                        @if(!empty($polls['q6']))
+                                                        <input placeholder="Sample Ans" type="text" name="q6" required="required" id="q6" value="{{$polls['q6']}}">
+                                                        @else
+                                                        <input placeholder="Sample Ans" type="text" name="q6" required="required" id="q6">
+                                                        @endif
+                                                    </div>
+                                                </div>                                     
+                                                </div>
+                                                <div class="col-sm-2" >
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <button type="submit" class="btn btn-success"><i class="material-icons"> done </i></button>                                                    
+                                                </div>
+                                                
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a data-toggle="collapse" data-target="#r6"  class="btn btn-primary">Results</a>
+                                                </div>
+                                                
+                                                </div>
+                                                @if(implode(" ",$errors->get(0))==6)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
+                                                @if(!empty($res[6]))
+                                                <?php $x[6]=array_keys($res[6]);$y[6] = array_values($res[6]); ?>
+                                                <div class ="collapse" id="r6" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart6" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x6 =  <?php echo json_encode($x[6]); ?>;
+                                                        var y6 =  <?php echo json_encode($y[6]); ?>;
+                                                        var ctx6 = document.getElementById("myChart6").getContext('2d');
+                                                        var myChart6 = new Chart(ctx6, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x6,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y6,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                                
+                            </li>
+
+                            <li>
+                                <div class="media first_child">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
+                                    <form action="{{ url('/polls/7') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="media_body">
+                                            <p><b>Monica Geller of The Batch</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-sm-8  ">
+                                                <div class="">
+                                                    <div class="input-field">
+                                                        @if(!empty($polls['q7']))
+                                                        <input placeholder="Sample Ans" type="text" name="q7" required="required" id="q7" value="{{$polls['q7']}}">
+                                                        @else
+                                                        <input placeholder="Sample Ans" type="text" name="q7" required="required" id="q7">
+                                                        @endif
+                                                    </div>
+                                                </div>                                     
+                                                </div>
+                                                <div class="col-sm-2" >
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <button type="submit" class="btn btn-success"><i class="material-icons"> done </i></button>                                                    
+                                                </div>
+                                                
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a data-toggle="collapse" data-target="#r7"  class="btn btn-primary">Results</a>
+                                                </div>
+                                                
+                                                </div>
+                                                @if(implode(" ",$errors->get(0))==7)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
+                                                @if(!empty($res[7]))
+                                                <?php $x[7]=array_keys($res[7]);$y[7] = array_values($res[7]); ?>
+                                                <div class ="collapse" id="r7" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart7" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x7 =  <?php echo json_encode($x[7]); ?>;
+                                                        var y7 =  <?php echo json_encode($y[7]); ?>;
+                                                        var ctx7 = document.getElementById("myChart7").getContext('2d');
+                                                        var myChart7 = new Chart(ctx7, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x7,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y7,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                                
+                            </li>
+
+                            <li>
+                                <div class="media first_child">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
+                                    <form action="{{ url('/polls/8') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="media_body">
+                                            <p><b>Nightingale of The Batch</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-sm-8  ">
+                                                <div class="">
+                                                    <div class="input-field">
+                                                        @if(!empty($polls['q8']))
+                                                        <input placeholder="Sample Ans" type="text" name="q8" required="required" id="q8" value="{{$polls['q8']}}">
+                                                        @else
+                                                        <input placeholder="Sample Ans" type="text" name="q8" required="required" id="q8">
+                                                        @endif
+                                                    </div>
+                                                </div>                                     
+                                                </div>
+                                                <div class="col-sm-2" >
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <button type="submit" class="btn btn-success"><i class="material-icons"> done </i></button>                                                    
+                                                </div>
+                                                
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a data-toggle="collapse" data-target="#r8"  class="btn btn-primary">Results</a>
+                                                </div>
+                                                
+                                                </div>
+                                                @if(implode(" ",$errors->get(0))==8)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
+                                                @if(!empty($res[8]))
+                                                <?php $x[8]=array_keys($res[8]);$y[8] = array_values($res[8]); ?>
+                                                <div class ="collapse" id="r8" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart8" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x8 =  <?php echo json_encode($x[8]); ?>;
+                                                        var y8 =  <?php echo json_encode($y[8]); ?>;
+                                                        var ctx8 = document.getElementById("myChart8").getContext('2d');
+                                                        var myChart8 = new Chart(ctx8, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x8,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y8,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                                
+                            </li>
+
+                            <li>
+                                <div class="media first_child">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
+                                    <form action="{{ url('/polls/9') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="media_body">
+                                            <p><b>Rancho of The Batch</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-sm-8  ">
+                                                <div class="">
+                                                    <div class="input-field">
+                                                        @if(!empty($polls['q9']))
+                                                        <input placeholder="Sample Ans" type="text" name="q9" required="required" id="q9" value="{{$polls['q9']}}">
+                                                        @else
+                                                        <input placeholder="Sample Ans" type="text" name="q9" required="required" id="q9">
+                                                        @endif
+                                                    </div>
+                                                </div>                                     
+                                                </div>
+                                                <div class="col-sm-2" >
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <button type="submit" class="btn btn-success"><i class="material-icons"> done </i></button>                                                    
+                                                </div>
+                                                
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a data-toggle="collapse" data-target="#r9"  class="btn btn-primary">Results</a>
+                                                </div>
+                                                
+                                                </div>
+                                                @if(implode(" ",$errors->get(0))==9)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
+                                                @if(!empty($res[9]))
+                                                <?php $x[9]=array_keys($res[9]);$y[9] = array_values($res[9]); ?>
+                                                <div class ="collapse" id="r9" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart9" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x9 =  <?php echo json_encode($x[9]); ?>;
+                                                        var y9 =  <?php echo json_encode($y[9]); ?>;
+                                                        var ctx9 = document.getElementById("myChart9").getContext('2d');
+                                                        var myChart9 = new Chart(ctx9, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x9,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y9,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                                
+                            </li>
+
+                            <li>
+                                <div class="media first_child">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
+                                    <form action="{{ url('/polls/10') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="media_body">
+                                            <p><b>Mr.Bean of The Batch</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-sm-8  ">
+                                                <div class="">
+                                                    <div class="input-field">
+                                                        @if(!empty($polls['q10']))
+                                                        <input placeholder="Sample Ans" type="text" name="q10" required="required" id="q10" value="{{$polls['q10']}}">
+                                                        @else
+                                                        <input placeholder="Sample Ans" type="text" name="q10" required="required" id="q10">
+                                                        @endif
+                                                    </div>
+                                                </div>                                     
+                                                </div>
+                                                <div class="col-sm-2" >
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <button type="submit" class="btn btn-success"><i class="material-icons"> done </i></button>                                                    
+                                                </div>
+                                                
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a data-toggle="collapse" data-target="#r10"  class="btn btn-primary">Results</a>
+                                                </div>
+                                                
+                                                </div>
+                                                @if(implode(" ",$errors->get(0))==10)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
+                                                @if(!empty($res[10]))
+                                                <?php $x[10]=array_keys($res[10]);$y[10] = array_values($res[10]); ?>
+                                                <div class ="collapse" id="r10" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart11" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x10 =  <?php echo json_encode($x[10]); ?>;
+                                                        var y10 =  <?php echo json_encode($y[10]); ?>;
+                                                        var ctx10 = document.getElementById("myChart10").getContext('2d');
+                                                        var myChart10 = new Chart(ctx10, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x10,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y10,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                                
+                            </li>
+
+                            <li>
+                                <div class="media first_child">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
+                                    <form action="{{ url('/polls/11') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="media_body">
+                                            <p><b>High on Life</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-sm-8  ">
+                                                <div class="">
+                                                    <div class="input-field">
+                                                        @if(!empty($polls['q11']))
+                                                        <input placeholder="Sample Ans" type="text" name="q11" required="required" id="q11" value="{{$polls['q11']}}">
+                                                        @else
+                                                        <input placeholder="Sample Ans" type="text" name="q11" required="required" id="q11">
+                                                        @endif
+                                                    </div>
+                                                </div>                                     
+                                                </div>
+                                                <div class="col-sm-2" >
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <button type="submit" class="btn btn-success"><i class="material-icons"> done </i></button>                                                    
+                                                </div>
+                                                
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a data-toggle="collapse" data-target="#r11"  class="btn btn-primary">Results</a>
+                                                </div>
+                                                
+                                                </div>
+                                                @if(implode(" ",$errors->get(0))==11)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
+                                                @if(!empty($res[11]))
+                                                <?php $x[11]=array_keys($res[11]);$y[11] = array_values($res[11]); ?>
+                                                <div class ="collapse" id="r11" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart11" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x10 =  <?php echo json_encode($x[11]); ?>;
+                                                        var y10 =  <?php echo json_encode($y[11]); ?>;
+                                                        var ctx10 = document.getElementById("myChart11").getContext('2d');
+                                                        var myChart10 = new Chart(ctx10, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x10,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y10,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                                
+                            </li>  
+
+                            <li>
+                                <div class="media first_child">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
+                                    <form action="{{ url('/polls/12') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="media_body">
+                                            <p><b>Mr.Late Lateef</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-sm-8  ">
+                                                <div class="">
+                                                    <div class="input-field">
+                                                        @if(!empty($polls['q12']))
+                                                        <input placeholder="Sample Ans" type="text" name="q12" required="required" id="q12" value="{{$polls['q12']}}">
+                                                        @else
+                                                        <input placeholder="Sample Ans" type="text" name="q12" required="required" id="q12">
+                                                        @endif
+                                                    </div>
+                                                </div>                                     
+                                                </div>
+                                                <div class="col-sm-2" >
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <button type="submit" class="btn btn-success"><i class="material-icons"> done </i></button>                                                    
+                                                </div>
+                                                
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a data-toggle="collapse" data-target="#r12"  class="btn btn-primary">Results</a>
+                                                </div>
+                                                
+                                                </div>
+                                                @if(implode(" ",$errors->get(0))==12)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
+                                                @if(!empty($res[12]))
+                                                <?php $x[12]=array_keys($res[12]);$y[12] = array_values($res[12]); ?>
+                                                <div class ="collapse" id="r12" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart12" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x10 =  <?php echo json_encode($x[12]); ?>;
+                                                        var y10 =  <?php echo json_encode($y[12]); ?>;
+                                                        var ctx10 = document.getElementById("myChart12").getContext('2d');
+                                                        var myChart10 = new Chart(ctx10, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x10,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y10,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                                
+                            </li>   
+
+                            <li>
+                                <div class="media first_child">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
+                                    <form action="{{ url('/polls/13') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="media_body">
+                                            <p><b>Frequent Flyer of The Batch</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-sm-8  ">
+                                                <div class="">
+                                                    <div class="input-field">
+                                                        @if(!empty($polls['q13']))
+                                                        <input placeholder="Sample Ans" type="text" name="q13" required="required" id="q13" value="{{$polls['q13']}}">
+                                                        @else
+                                                        <input placeholder="Sample Ans" type="text" name="q13" required="required" id="q13">
+                                                        @endif
+                                                    </div>
+                                                </div>                                     
+                                                </div>
+                                                <div class="col-sm-2" >
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <button type="submit" class="btn btn-success"><i class="material-icons"> done </i></button>                                                    
+                                                </div>
+                                                
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a data-toggle="collapse" data-target="#r13"  class="btn btn-primary">Results</a>
+                                                </div>
+                                                
+                                                </div>
+                                                @if(implode(" ",$errors->get(0))==13)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
+                                                @if(!empty($res[13]))
+                                                <?php $x[13]=array_keys($res[13]);$y[13] = array_values($res[13]); ?>
+                                                <div class ="collapse" id="r13" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart13" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x10 =  <?php echo json_encode($x[13]); ?>;
+                                                        var y10 =  <?php echo json_encode($y[13]); ?>;
+                                                        var ctx10 = document.getElementById("myChart13").getContext('2d');
+                                                        var myChart10 = new Chart(ctx10, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x10,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y10,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                                
+                            </li>   
+
+                            <li>
+                                <div class="media first_child">
+                                   <img src="{{ asset('img/ques.png') }}" alt="" class="img-responsive img-circle">
+                                    <form action="{{ url('/polls/14') }}" method="POST">
+                                        {{ csrf_field() }}
+                                        <div class="media_body">
+                                            <p><b>Starboy of The Batch</b></p>
+                                            <div class="row" style="display: inline-block;">
+                                                <div class="col-sm-8  ">
+                                                <div class="">
+                                                    <div class="input-field">
+                                                        @if(!empty($polls['q14']))
+                                                        <input placeholder="Sample Ans" type="text" name="q14" required="required" id="q14" value="{{$polls['q14']}}">
+                                                        @else
+                                                        <input placeholder="Sample Ans" type="text" name="q14" required="required" id="q14">
+                                                        @endif
+                                                    </div>
+                                                </div>                                     
+                                                </div>
+                                                <div class="col-sm-2" >
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <button type="submit" class="btn btn-success"><i class="material-icons"> done </i></button>                                                    
+                                                </div>
+                                                
+                                                <div class="form-group" style="margin-left: 20px;">
+                                                    <a data-toggle="collapse" data-target="#r14"  class="btn btn-primary">Results</a>
+                                                </div>
+                                                
+                                                </div>
+                                                @if(implode(" ",$errors->get(0))==14)
+                                                <div class="alert alert-danger">
+                                                  <strong>Error!</strong> {{implode(" ",$errors->get(1))}}
+                                                </div>
+                                                @endif
+                                                @if(!empty($res[14]))
+                                                <?php $x[14]=array_keys($res[14]);$y[14] = array_values($res[14]); ?>
+                                                <div class ="collapse" id="r14" style="width: 300px;height: 300px;">
+                                                    <canvas id="myChart14" width="400" height="400"></canvas>
+                                                    <script>
+                                                        var x10 =  <?php echo json_encode($x[14]); ?>;
+                                                        var y10 =  <?php echo json_encode($y[14]); ?>;
+                                                        var ctx10 = document.getElementById("myChart14").getContext('2d');
+                                                        var myChart10 = new Chart(ctx10, {
+                                                            type: 'bar',
+                                                            data: {
+                                                                labels: x10,
+                                                                datasets: [{
+                                                                    label: '# of Votes',
+                                                                    data: y10,
+                                                                    backgroundColor: [
+                                                                        'rgba(255, 99, 132, 0.2)',
+                                                                        'rgba(54, 162, 235, 0.2)',
+                                                                        'rgba(255, 206, 86, 0.2)',
+                                                                        'rgba(75, 192, 192, 0.2)',
+                                                                        'rgba(153, 102, 255, 0.2)',
+                                                                        'rgba(255, 159, 64, 0.2)'
+                                                                    ],
+                                                                    borderColor: [
+                                                                        'rgba(255,99,132,1)',
+                                                                        'rgba(54, 162, 235, 1)',
+                                                                        'rgba(255, 206, 86, 1)',
+                                                                        'rgba(75, 192, 192, 1)',
+                                                                        'rgba(153, 102, 255, 1)',
+                                                                        'rgba(255, 159, 64, 1)'
+                                                                    ],
+                                                                    borderWidth: 1
+                                                                }]
+                                                            },
+                                                            options: {
+                                                                scales: {
+                                                                    yAxes: [{
+                                                                        ticks: {
+                                                                            beginAtZero:true
+                                                                        }
+                                                                    }]
+                                                                }
+                                                            }
+                                                        });
+                                                    </script>
+                                                    
+                                                </div>
+                                                @endif
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>                                
+                            </li>                    
                         </ul>
                     </div>
                 </div>
@@ -531,27 +1332,7 @@
         <script>
           $('.input-field').children().css({"background-color": "#f4f4f4", "border": "none", "border-radius": "5px", "padding-top": "3px", "padding-left": "5px", "line-height": "33px", "cursor": "text"});
             $(document).ready(function() {
-            $('#q1').autocomplete({
-            source: [names]
-            });
-            });
-            $(document).ready(function() {
-            $('#q2').autocomplete({
-            source: [names]
-            });
-            });
-            $(document).ready(function() {
-            $('#q3').autocomplete({
-            source: [names]
-            });
-            });
-            $(document).ready(function() {
-            $('#q4').autocomplete({
-            source: [names]
-            });
-            });
-            $(document).ready(function() {
-            $('#q5').autocomplete({
+            $('#q1, #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10, #q11, #q12, #q13, #q14').autocomplete({
             source: [names]
             });
             });

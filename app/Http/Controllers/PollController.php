@@ -19,7 +19,7 @@ class PollController extends Controller
     	$roll = Auth::user()->rollno;
     	$user = User::get();
     	$polls = Poll::where('rollno',$roll)->get()->toArray();
-      for ($x = 1; $x <= 5; $x++) {
+      for ($x = 1; $x <= 14; $x++) {
         $res[$x] = PollController::plot($x);        
       }
       
