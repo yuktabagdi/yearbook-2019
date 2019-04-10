@@ -83,7 +83,7 @@ class BucketController extends Controller
      $comment_notification = Comment::where('roll', $roll)->where('seen', '1')->where('user_id', '!=', $id)
           ->latest()->get();
       $notifications = views::where('depmate',$roll)->where('read','1')->get();
-      $buckets = ['','SF Salsa','Old Archi Building','Graffitis','Howrah Bridges','Star Gazing','Twilight View','Treat','Bonfire','Little Sisters','Trek','Local Train','2.2'];
+      $buckets = ['','SF Salsa','Old Archi Building','Graffitis','Howrah Bridge','Star Gazing','Twilight View','Treat','Bonfire','Little Sisters','Trek','Local Train','2.2', 'Explore KGP', 'Movie at Library', 'Lit Hall Day Host', 'How it Started!'];
       return view('bucket_view',compact('comment_notification','images','user','notifications','currentpage','perpage','buckets', 'listid'));
     }
 

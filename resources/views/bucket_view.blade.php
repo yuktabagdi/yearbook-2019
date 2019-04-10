@@ -52,6 +52,8 @@
       .affix {
         top: 20px;
         z-index: 9999 !important;
+        height: 100%;
+        overflow-y: scroll;
       }
     }
     </style>
@@ -96,6 +98,10 @@
          <li id="10"><a href="{{ url('/viewbucket?id=10') }}"><i class="fa fa-users"></i> {{$buckets[10]}}</a></li>
          <li id="11"><a href="{{ url('/viewbucket?id=11') }}"><i class="fa fa-user"></i> {{$buckets[11]}}</a></li>
          <li id="12"><a href="{{ url('/viewbucket?id=12') }}"><i class="fa fa-align-left"></i> {{$buckets[12]}}</a></li>
+         <li id="13"><a href="{{ url('/viewbucket?id=13') }}"><i class="fa fa-users"></i> {{$buckets[13]}}</a></li>
+         <li id="14"><a href="{{ url('/viewbucket?id=14') }}"><i class="fa fa-user"></i> {{$buckets[14]}}</a></li>
+         <li id="15"><a href="{{ url('/viewbucket?id=15') }}"><i class="fa fa-align-left"></i> {{$buckets[15]}}</a></li>
+         <li id="16"><a href="{{ url('/viewbucket?id=16') }}"><i class="fa fa-users"></i> {{$buckets[16]}}</a></li>
        </ul>
      </aside>     
      

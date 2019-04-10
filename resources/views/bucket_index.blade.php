@@ -109,6 +109,12 @@
    <div class="row">
      @include('bucket.4')
    </div> 
+   <div class="row">
+     @include('bucket.5')
+   </div> 
+   <div class="row">
+     @include('bucket.6')
+   </div> 
  </div>
 </section>
 <footer class="footer text-faded text-center py-5">
