@@ -899,7 +899,7 @@
                                                 @if(!empty($res[10]))
                                                 <?php $x[10]=array_keys($res[10]);$y[10] = array_values($res[10]); ?>
                                                 <div class ="collapse" id="r10" style="width: 300px;height: 300px;">
-                                                    <canvas id="myChart11" width="400" height="400"></canvas>
+                                                    <canvas id="myChart10" width="400" height="400"></canvas>
                                                     <script>
                                                         var x10 =  <?php echo json_encode($x[10]); ?>;
                                                         var y10 =  <?php echo json_encode($y[10]); ?>;
