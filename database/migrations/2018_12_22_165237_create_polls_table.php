@@ -21,15 +21,6 @@ class CreatePollsTable extends Migration
             $table->string('q3')->default('');
             $table->string('q4')->default('');
             $table->string('q5')->default('');
-            $table->string('q6')->default('');
-            $table->string('q7')->default('');
-            $table->string('q8')->default('');
-            $table->string('q9')->default('');
-            $table->string('q10')->default('');
-            $table->string('q11')->default('');
-            $table->string('q12')->default('');
-            $table->string('q13')->default('');
-            $table->string('q14')->default('');
             $table->timestamps();
         });
     }
