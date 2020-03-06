@@ -6,7 +6,7 @@
   <aside class="profile-card" style="background: url({{$myview[0]['pic']}}); background-size: 100% 100%; background-repeat: no-repeat;">
     <header>
       <h1>Explore KGP</h1><i class="fa fa-check-circle" style="color: #5cb85c; font-size: 30px;" title="Task Completed!"></i>
-      <h2>Explore Unknown Roads in KGP</h2>
+      <h2>Explore Unknown Roads</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
       <form action="{{ url('/bucketpost/13')}}" method="post" enctype="multipart/form-data">
@@ -21,7 +21,7 @@
   <aside class="profile-card" style="background: url(https://s-media-cache-ak0.pinimg.com/736x/3a/1f/02/3a1f02c10700daa80655a302c5a27acf.jpg);">
     <header>
       <h1>Explore KGP</h1>
-      <h2>Explore Unknown Roads in KGP</h2>
+      <h2>Explore Unknown Roads </h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
       <form action="{{ url('/bucketpost/13')}}" method="post" enctype="multipart/form-data">
@@ -42,7 +42,7 @@
   @if(!empty($myview))
   <aside class="profile-card" style="background: url({{$myview[0]['pic']}}); background-size: 100% 100%; background-repeat: no-repeat;">
     <header>
-      <h1>Movie at Library</h1><i class="fa fa-check-circle" style="color: #5cb85c; font-size: 30px;" title="Task Completed!"></i>
+      <h1>Movie at<br> Library</h1><i class="fa fa-check-circle" style="color: #5cb85c; font-size: 30px;" title="Task Completed!"></i>
       <h2></h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
@@ -57,7 +57,7 @@
   @else
   <aside class="profile-card" style="background: url(https://s-media-cache-ak0.pinimg.com/736x/3a/1f/02/3a1f02c10700daa80655a302c5a27acf.jpg);">
     <header>
-      <h1>Movie at Library</h1>
+      <h1>Movie at <br> Library</h1>
       <h2></h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
@@ -79,7 +79,7 @@
   @if(!empty($myview))
   <aside class="profile-card" style="background: url({{$myview[0]['pic']}}); background-size: 100% 100%; background-repeat: no-repeat;">
     <header>
-      <h1>Lit Hall Day Host</h1><i class="fa fa-check-circle" style="color: #5cb85c; font-size: 30px;" title="Task Completed!"></i>
+      <h1>Lit Hall Day<br> Host</h1><i class="fa fa-check-circle" style="color: #5cb85c; font-size: 30px;" title="Task Completed!"></i>
       <h2></h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
@@ -94,7 +94,7 @@
   @else
   <aside class="profile-card" style="background: url(https://s-media-cache-ak0.pinimg.com/736x/3a/1f/02/3a1f02c10700daa80655a302c5a27acf.jpg);">
     <header>
-      <h1>Lit Hall Day Host</h1>
+      <h1>Lit Hall Day<br> Host</h1>
       <h2></h2>
     </header>
     <div class="profile-bio" style="text-align: center;">

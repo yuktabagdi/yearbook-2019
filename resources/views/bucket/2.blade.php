@@ -5,7 +5,7 @@
   @if(!empty($myview))
   <aside class="profile-card" style="background: url({{$myview[0]['pic']}}); background-size: 100% 100%; background-repeat: no-repeat;">
     <header>
-      <h1>Howrah Bridges</h1><i class="fa fa-check-circle" style="color: #5cb85c; font-size: 30px;" title="Task Completed!" title="Task Completed!"></i>
+      <h1>Howrah <br>Bridges</h1><i class="fa fa-check-circle" style="color: #5cb85c; font-size: 30px;" title="Task Completed!" title="Task Completed!"></i>
       <h2>Cruise ride under the</h2><br> 
       <h2>Howrah Bridge</h2>
     </header>
@@ -21,7 +21,7 @@
   @else
   <aside class="profile-card" style="background: url(https://s-media-cache-ak0.pinimg.com/736x/3a/1f/02/3a1f02c10700daa80655a302c5a27acf.jpg);">
     <header>
-      <h1>Howrah Bridges</h1>
+      <h1>Howrah <br>Bridges</h1>
       <h2>Cruise ride under the</h2><br> 
       <h2>Howrah Bridge</h2>
     </header>
@@ -60,7 +60,7 @@
   @else
   <aside class="profile-card" style="background: url(https://s-media-cache-ak0.pinimg.com/736x/3a/1f/02/3a1f02c10700daa80655a302c5a27acf.jpg);">
     <header>
-      <h1>Star Gazing</h1>
+      <h1>Star <br>Gazing</h1>
       <h2>Star gazing at the</h2><br> 
       <h2>romantic lake</h2>
     </header>
@@ -99,7 +99,7 @@
   @else
   <aside class="profile-card" style="background: url(https://s-media-cache-ak0.pinimg.com/736x/3a/1f/02/3a1f02c10700daa80655a302c5a27acf.jpg);">
     <header>
-      <h1>Twilight View</h1>
+      <h1>Twilight <br> View</h1>
       <h2>Twilight view from</h2><br> 
       <h2>Nalanda top</h2>
     </header>

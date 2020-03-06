@@ -9,18 +9,19 @@
 	{
 		width: 20% !important;
 	}
+	
 </style>
 <header class="tr-header">
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
-			<div class="navbar-header">
+			<div class="navbar-header" style='height:90px;'>
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="https://sac.iitkgp.ac.in/index.php"><img src="{{ asset('img/navbar/SACLogo.png') }}" width="150px" height="75px" style="margin-top:-23px;" /></a>
+				<a class="navbar-brand" href="https://sac.iitkgp.ac.in/index.php"><img src="{{ asset('img/navbar/SACLogo.png') }}" width="230px" height="105px" style="margin-top:-23px;" /></a>
 			</div><!-- /.navbar-header -->
 			<div class="navbar-left">
 				<div class="collapse navbar-collapse" id="navbar-collapse">
@@ -40,13 +41,13 @@
 						</div>              
 					</li>
 					<li class="">
-						<a class="text-uppercase text-expanded" href="{{ url('/home') }}">Home
+						<a class="text-uppercase text-expanded" href="{{ url('/home') }}" style='top:4px'>Home
 							<span class="sr-only">(current)</span>
 						</a>
 					</li>
 
 					<li>
-						<a class="text-uppercase text-expanded" href="{{ url('/trending') }}"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
+						<a class="text-uppercase text-expanded" href="{{ url('/trending') }}"  data-step="6" data-intro="<center> See the most popular photos of Kgpians </center> " style='top:4px'>Trending</a>
 					</li>
 					<li class="dropdown notification-list">
 						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="notification" role="button"
@@ -157,9 +158,9 @@
 					<a href="{{ url('/profile_index') }}" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 						<span class="avatar w-32">                  
 							@if(!empty(Auth::user()->pro_pic))
-							<img class="img-fluid img-circle pro_pic" src="{{Auth::user()->thumbnail}}" style="width: 35px; height: 35px;">
+							<img class="img-fluid img-circle pro_pic" src="{{Auth::user()->thumbnail}}" style="width: 35px; height: 35px; top:3px;">
 							@else
-							<img class="img-fluid img-circle pro_pic" src="{{ asset('index.png') }}" style="width: 35px; height: 35px;">
+							<img class="img-fluid img-circle pro_pic" src="{{ asset('index.png') }}" style="width: 35px; height: 35px; top:3px;">
 							@endif
 						</span>
 						<!-- hidden-xs hides the username on small devices so only the image appears. -->

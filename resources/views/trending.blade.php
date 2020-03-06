@@ -23,7 +23,7 @@
       <link rel="apple-touch-icon" href="{{ asset('img/favicons/apple-touch-icon.png') }}">
       <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/favicons/apple-touch-icon-72x72.png') }}">
       <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/favicons/apple-touch-icon-114x114.png') }}">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://i.pinimg.com/736x/42/9d/76/429d769242867994c24d60a31972db9b.jpg">
     
       <!-- ==============================================
     CSS

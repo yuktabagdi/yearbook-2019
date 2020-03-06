@@ -79,8 +79,8 @@
   @if(!empty($myview))
   <aside class="profile-card" style="background: url({{$myview[0]['pic']}}); background-size: 100% 100%; background-repeat: no-repeat;">
     <header>
-      <h1>Little Sisters</h1><i class="fa fa-check-circle" style="color: #5cb85c; font-size: 30px;" title="Task Completed!"></i>
-      <h2>“Delicacies” at Little Sisters</h2>
+      <h1>Little <br> Sisters</h1><i class="fa fa-check-circle" style="color: #5cb85c; font-size: 30px;" title="Task Completed!"></i>
+      <h2>“Delicacies” at<br> Little Sisters</h2>
     </header>
     <div class="profile-bio" style="text-align: center;">
       <form action="{{ url('/bucketpost/9')}}" method="post" enctype="multipart/form-data">
