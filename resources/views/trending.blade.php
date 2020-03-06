@@ -32,14 +32,44 @@
         <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
         <style type="text/css">
         .back{
-          background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
+            background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
           background-attachment: fixed;
         }
-        @media(max-width: 500px){
-          .product-item-img{
-            height: 200px !important;
-          }
-        }   
+        
+        @media(max-width: 500px)
+                    {
+                        .product-item-img{
+                            height: 200px !important;
+                            }
+                        }   
+                        .panel-body:not(.two-col) {
+                        padding: 0px;
+                    }
+
+                    .glyphicon {
+                        margin-right: 5px;
+                    }
+
+                    .glyphicon-new-window {
+                        margin-left: 5px;
+                    }
+
+                    .panel-body .radio, .panel-body .checkbox {
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                    }
+
+                    .panel-body .list-group {
+                        margin-bottom: 0;
+                    }
+
+                    .margin-bottom-none {
+                        margin-bottom: 0;
+                    }
+
+                    .panel-body .radio label, .panel-body .checkbox label {
+                        display: block;
+                    }
         </style>    
         <!-- ==============================================
     Feauture Detection
@@ -63,143 +93,235 @@
    News Feed Section
    =============================================== --> 
 
-   <section class="newsfeed back">
-    @if(count($images)>0)
-        <br>
-        @php
-        $count= 0;
-        @endphp
-
-        @foreach($images as $image)
-        @if(file_exists($image['thumbnail']))
-        <section class="page-section">
-          <div class="container col-md-3" style="margin-left: 50px;">
-            <div class="product-item">
-              <div class="product-item-title d-flex">
-                <div class="bg-faded p-5 d-flex ml-auto rounded">
-                  <h2 class="section-heading mb-0">
-                    <!--<span class="section-heading-upper">Blended to Perfection</span>-->
-                    @php
-                    $name = App\User::where('rollno',$image['rollno'])->get()->toArray();
-                    @endphp
-                  </h2>
-                  <strong></strong>
-                </div>
-              </div>
-              
-           <!-- <div class="product-item-description d-flex mr-auto">
-              <div class="bg-faded p-5 rounded">
-                <p class="mb-0">{{$image['caption']}}</p>
-              </div>
-            </div>-->
-              </div>
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-6 col-md-7">
-                  <div class="cardbox" id="img{{$image['id']}}">
-                    <div class="cardbox-heading">
-                      <!-- START dropdown-->
-                      @if($image['rollno'] == Auth::user()->rollno)
-                      <div class="dropdown pull-right">
-                        <button class="btn btn-secondary btn-flat btn-flat-icon" title="Click to delete!" type="button" data-toggle="dropdown" aria-expanded="false">
-                          <em class="fa fa-ellipsis-h"></em>
-                        </button>
-                        <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
-                          <a class="dropdown-item delete" href="#" id="{{$image['id']}}" data-token="{{csrf_token()}}">Delete</a>
-                        </div>
-                      </div><!--/ dropdown -->
-                      @endif
-                      <!-- END dropdown-->
-                      <div class="media m-0">
-                        <div class="d-flex mr-3">
-                          <a href="{{ url('/profile_index/'.$image['rollno']) }}">
-                            <img class="img-responsive img-circle" src="{{$name[0]['pro_pic']}}" alt="User">
-                          </a>
-                        </div>
-                        <div class="media-body">
-                          <a href="{{ url('/profile_index/'.$image['rollno']) }}">
-                            <p class="m-0">{{$name[0]['name']}}</p>
-                          </a>
-                          <small><span>{{$image['created_at']->diffForHumans() }}</span></small>
-                        </div>
-                      </div><!--/ media -->
-                    </div><!--/ cardbox-heading -->
-
-                    <div class="cardbox-item">
-                      <span class="section-heading-upper" style="font-family: Aclonica;">&nbsp {{$image['caption']}}</span><br>
-                      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 " src="{{$image['thumbnail']}}" data-src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 100%;height: 380px;">
-                    </div><!--/ cardbox-item -->
-                    <div class="cardbox-like">
-                      <ul style="top: 6px; position: relative;">
-                        <li>
-                          <div id="+{{$image['id']}}+" class="like"></div>  <!-- Like Button -->
-                        </li>
-                        <li>
-                          <button type="button" class="com btn comment_btn" id="{{$image['id']}}" style="border: none; background: none;" value="{{$image['url']}}">
-                            <i class="far fa-comment"></i> Comment
-                          </button>
-                        </li>
-                      </ul>
-                      <script type="text/javascript"> 
-                        $(document).ready(function () {
-                          var formData = {
-                            'pic_id' : {{$image["id"]}},
-                            '_token': '{!! csrf_token() !!}',
-                          }
-                          $.ajax({
-                            url: "{{ url('/likes') }}",
-                            type: "POST",
-                            data: formData,
-
-                            success: function(response)
-                            {
-
-                              document.getElementById('+{{$image['id']}}+').innerHTML = response;
-
-                            },
-                            error: function(data)
-                            {
-
-                            }
-                          });
-                        });
-                      </script>
-
-                    </div><!--/ cardbox-like -->        
-                  </div><!--/ cardbox -->
-                </div>
-              </div>
-            </div>
-      
-      </section>
-      @endif
-      @endforeach
-
-      {{ $images->links('vendor.pagination.bootstrap-4')}}
-      
-      @else
-
-      <section class="page-section cta" style="background-color: rgba(76,71,97,0.55);">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-9 mx-auto">
-              <div class="cta-inner text-center rounded">
-                <h2 class="section-heading mb-4">
-                  <span class="section-heading-upper"></span>
-                  <span class="section-heading-lower">Nothing to show yet</span>
-                </h2>
-                <br>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-      @endif
-</div>
-</section>
+   <div class="row back">
+    <div class="col-sm-2 back" >
+      <ul class="list-group" style="margin:10px">
+            <li class="list-group-item disabled">View Bucket</li>
+            <li class="list-group-item ">SF salsa<div class="form-check">
+                <input type="checkbox" class="form-check-input" id="materialChecked2" checked>
+                <label class="form-check-label" for="materialChecked2">Done!</label>
+              </div></li>
+            <li class="list-group-item">Howrah Bridge<div class="form-check">
+                <input type="checkbox" class="form-check-input" id="materialChecked2" checked>
+                <label class="form-check-label" for="materialChecked2">Done</label>
+              </div></li>
+            <li class="list-group-item">Old Archi building<div class="form-check">
+                <input type="checkbox" class="form-check-input" id="materialChecked2" checked>
+                <label class="form-check-label" for="materialChecked2">Done</label>
+              </div></li>
+            <li class="list-group-item">Grafittis<div class="form-check">
+                <input type="checkbox" class="form-check-input" id="materialChecked2" checked>
+                <label class="form-check-label" for="materialChecked2">Done</label>
+              </div></li>
+            <li class="list-group-item">Star Gazing<div class="form-check">
+                <input type="checkbox" class="form-check-input" id="materialChecked2" checked>
+                <label class="form-check-label" for="materialChecked2">Done</label>
+              </div></li>
+            <li class="list-group-item">Star Gazing<div class="form-check">
+                <input type="checkbox" class="form-check-input" id="materialChecked2" checked>
+                <label class="form-check-label" for="materialChecked2">Done</label>
+              </div></li>
+            <li class="list-group-item">Twilight View<div class="form-check">
+                <input type="checkbox" class="form-check-input" id="materialChecked2" checked>
+                <label class="form-check-label" for="materialChecked2">Done</label>
+              </div></li>
+            <li class="list-group-item">Treat<div class="form-check">
+                <input type="checkbox" class="form-check-input" id="materialChecked2" checked>
+                <label class="form-check-label" for="materialChecked2">Done</label>
+              </div></li>
+          </ul>
+    </div>
     
+    <div class="col-sm-7 back" style="padding-top:-30px" >
+      <section class="newsfeed"> 
+      @if(count($images)>0)
+      <br>
+      @php
+      $count= 0;
+      @endphp
+      <div class="col-sm-6">
+        
+                  @foreach($images as $image)
+                  @if(file_exists($image['thumbnail']))
+                  <section class="page-section">
+                    <div class="container col-md-3" >
+                      <div class="product-item">
+                        <div class="product-item-title d-flex">
+                          <div class="bg-faded p-5 d-flex ml-auto rounded">
+                            <h2 class="section-heading mb-0">
+                              <!--<span class="section-heading-upper">Blended to Perfection</span>-->
+                              @php
+                              $name = App\User::where('rollno',$image['rollno'])->get()->toArray();
+                              @endphp
+                            </h2>
+                            <strong></strong>
+                          </div>
+                        </div>
+                        
+                     <!-- <div class="product-item-description d-flex mr-auto">
+                        <div class="bg-faded p-5 rounded">
+                          <p class="mb-0">{{$image['caption']}}</p>
+                        </div>
+                      </div>-->
+                        </div>
+                      </div>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-lg-6 col-md-7">
+                            <div class="cardbox" id="img{{$image['id']}}">
+                              <div class="cardbox-heading">
+                                <!-- START dropdown-->
+                                @if($image['rollno'] == Auth::user()->rollno)
+                                <div class="dropdown pull-right">
+                                  <button class="btn btn-secondary btn-flat btn-flat-icon" title="Click to delete!" type="button" data-toggle="dropdown" aria-expanded="false">
+                                    <em class="fa fa-ellipsis-h"></em>
+                                  </button>
+                                  <div class="dropdown-menu dropdown-scale dropdown-menu-right" role="menu" style="position: absolute; transform: translate3d(-136px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                    <a class="dropdown-item delete" href="#" id="{{$image['id']}}" data-token="{{csrf_token()}}">Delete</a>
+                                  </div>
+                                </div><!--/ dropdown -->
+                                @endif
+                                <!-- END dropdown-->
+                                <div class="media m-0">
+                                  <div class="d-flex mr-3">
+                                    <a href="{{ url('/profile_index/'.$image['rollno']) }}">
+                                      <img class="img-responsive img-circle" src="{{$name[0]['pro_pic']}}" alt="User">
+                                    </a>
+                                  </div>
+                                  <div class="media-body">
+                                    <a href="{{ url('/profile_index/'.$image['rollno']) }}">
+                                      <p class="m-0">{{$name[0]['name']}}</p>
+                                    </a>
+                                    <small><span>{{$image['created_at']->diffForHumans() }}</span></small>
+                                  </div>
+                                </div><!--/ media -->
+                              </div><!--/ cardbox-heading -->
+          
+                              <div class="cardbox-item">
+                                <span class="section-heading-upper" style="font-family: Aclonica;">&nbsp {{$image['caption']}}</span><br>
+                                <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0 " src="{{$image['thumbnail']}}" data-src="{{$image['url']}}" id="{{$image['id']}}"  data-toggle="tooltip" data-placement="top" title="Click the image!" style="cursor: pointer; width: 100%;height: 380px;">
+                              </div><!--/ cardbox-item -->
+                              <div class="cardbox-like">
+                                <ul style="top: 6px; position: relative;">
+                                  <li>
+                                    <div id="+{{$image['id']}}+" class="like"></div>  <!-- Like Button -->
+                                  </li>
+                                  <li>
+                                    <button type="button" class="com btn comment_btn" id="{{$image['id']}}" style="border: none; background: none;" value="{{$image['url']}}">
+                                      <i class="far fa-comment"></i> Comment
+                                    </button>
+                                  </li>
+                                </ul>
+                                <script type="text/javascript"> 
+                                  $(document).ready(function () {
+                                    var formData = {
+                                      'pic_id' : {{$image["id"]}},
+                                      '_token': '{!! csrf_token() !!}',
+                                    }
+                                    $.ajax({
+                                      url: "{{ url('/likes') }}",
+                                      type: "POST",
+                                      data: formData,
+                                      success: function(response)
+                                      {
+                                        document.getElementById('+{{$image['id']}}+').innerHTML = response;
+                                      },
+                                      error: function(data)
+                                      {
+                                      }
+                                    });
+                                  });
+                                </script>
+          
+                              </div><!--/ cardbox-like -->        
+                            </div><!--/ cardbox -->
+                          </div>
+                        </div>
+                      </div>
+                
+                </section>
+                @endif
+                @endforeach
+          
+                {{ $images->links('vendor.pagination.bootstrap-4')}}
+                
+                @else
+          
+                <section class="page-section cta" style="background-color: rgba(76,71,97,0.55);">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-xl-9 ">
+                        <div class="cta-inner text-center rounded">
+                          <h2 class="section-heading mb-4">
+                            <span class="section-heading-upper"></span>
+                            <span class="section-heading-lower">Nothing to show yet</span>
+                          </h2>
+                          <br>
+                        </div>
+                      </div>
+                    </div>
+          
+                  </div>
+                </section>
+                @endif
+          </div>
+          
+      </section>
+      </div>
+    <div class="col-sm-3 back" style="position: -webkit-sticky; position: sticky; top: 0;" >
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span class="fa fa-line-chart"></span> VOTE FOR!!!!</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="checkbox">
+                         
+                            <label>
+                                <input type="checkbox" data-toggle="modal" data-target="#my-Modal" value=""> Maggu of the batch
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" data-toggle="modal" data-target="#my-Modal" value=""> Richie rich
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" data-toggle="modal" data-target="#my-Modal" value=""> Batch ka crush
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" data-toggle="modal" data-target="#my-Modal" value=""> Rancho of the batch
+                            </label>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" data-toggle="modal" data-target="#my-Modal" value=""> Stud of the batch
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-footer text-center">
+                <button type="button" class="btn btn-primary btn-block btn-sm">
+                    Vote</button>
+                <a href="#" class="small">View Result</a>
+            </div>
+    </div>
+     
+  </div>       
    <!-- ==============================================
    Modal Section
    =============================================== -->
@@ -257,7 +379,25 @@
        </div><!--/ modal-content -->
       </div><!--/ modal-dialog -->
      </div><!--/ modal -->
- 
+     <div id="my-Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <input type="checkbox" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>-
+
+  </div>
+</div>
    
      <!-- ==============================================
    Scripts
@@ -291,13 +431,10 @@
         url: "{{ url('/likeadd') }}",
         type: "POST",
         data: formData,
-
         success: function(response)
         {
-
          document.getElementById(v).innerHTML = response;
          // console.log(response);
-
        },
        error: function(data)
        {
@@ -318,22 +455,18 @@
         url: "{{ url('/commentadd') }}",
         type: "POST",
         data: formData,
-
         success: function(response)
         {
-
           document.getElementById("comments").innerHTML = response;
         },
         error: function(data)
         {
-
         }
       });
       $.ajax({
         url: "{{ url('/getimage') }}",
         type: "POST",
         data: formData,
-
         success: function(response)
         {
           var image = response;
@@ -344,11 +477,9 @@
         },
         error: function(data)
         {
-
         }
       });
     });
-
     $(function() {
       $('.product-item-img').on('click', function() {
         $('.enlargeImageModalSource').attr('src', $(this).attr('data-src'));
@@ -363,22 +494,18 @@
           url: "{{ url('/commentadd') }}",
           type: "POST",
           data: formData,
-
           success: function(response)
           {
-
             document.getElementById("comments").innerHTML = response;
           },
           error: function(data)
           {
-
           }
         });
         $.ajax({
           url: "{{ url('/getimage') }}",
           type: "POST",
           data: formData,
-
           success: function(response)
           {
             var image = response;
@@ -389,7 +516,6 @@
           },
           error: function(data)
           {
-
           }
         });
       });
@@ -404,7 +530,6 @@
         '_token' : $('#comment-token').val()
       }
       // console.log(formData);
-
       $.ajax({
         url: "{{ url('/comment') }}",
         type: "POST",
@@ -431,12 +556,9 @@
           url: "{{ url('/delete') }}",
           type: "POST",
           data: {'id': id, '_token': token, },
-
           success: function(response)
           {
-
            document.getElementById("img"+id).innerHTML = "";
-
          },
          error: function(data)
          {
