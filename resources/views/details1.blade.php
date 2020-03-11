@@ -27,11 +27,11 @@
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <style type="text/css">
   .back{
-    background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
+    background-image: url('img/bg/bgbg.jpg');
     background-attachment: fixed;
   }
   .cover-img{
-  background-image: url('img/bg/1.jpeg');
+  background-image: url('img/bg/1.jpg');
   height:30vw;
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -173,7 +173,7 @@
         <div class="col-sm-6">
           <i class="fas fa-key"></i>&nbsp;
           <label for="password">Password</label>
-          <input name="password"  class="form-control" type="password" required >
+          <input name="password"  value="{{Auth::user()->password}}"class="form-control" type="password" placeholder=" " required >
 
         </div>
 
@@ -196,13 +196,14 @@
 </div>
 </section>
 
-   <footer class="footer text-faded text-center py-5">
+   <!-- <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0 small">Copyright &copy; Yearbook 2019</p>
-        <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php'
-        ) }}">Contact Us</a></p>
+        <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php') }}">Contact Us</a></p>
       </div>
-    </footer>
+    </footer> -->
+
+    @include('footer')
   </body>
   </html>
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>

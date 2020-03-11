@@ -136,14 +136,14 @@
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
 						<i class="fa fa-cog"></i>
 					</a>
-					<div class="dropdown-menu dropdown-menu-right dropdown-lg" style="width: 100px; height:100.983px; left:-160px;">     
-						<div class="dropdown-item noti-title">
+					<div class="dropdown-menu dropdown-menu-right dropdown-lg" style="width: 100px; height:70.983px; left:-160px;">     
+						<!-- <div class="dropdown-item noti-title">
 							<h6 class="m-0">
 								<span class="pull-right">
 									<a href="#" class="text-dark"></a> 
 								</span>Settings
 							</h6>
-						</div>
+						</div> -->
 
 						<div style="height: 35px;">
 							<a class="dropdown-item " href="{{ url('/details') }}"><p style="font-family: 'Abhaya Libre', serif;">Edit Details</p></a>
@@ -213,8 +213,8 @@
     				<button type="button" class="close" data-dismiss="modal">&times;</button>
     				<center><h4 class="modal-title text-uppercase" style="color: #000">Write Testimonials</h4></center>
     			</div>
-    			<div class="modal-body"><center>
-    				<div class="search-dashboard">
+    			<div class="modal-body" style='top:10px;'><center>
+    				<div class="search-dashboard" >
     					<form action="{{ url('/search') }}" method="POST" class="form-inline">
     						{{ csrf_field() }}
     						<input placeholder=" Search Your Friend Here..." type="text" name="search" required="required" id="search1" style="background: none; border: 1px solid; border-radius: 5px; padding-top: 3px; padding-left: 10px; line-height: 40px; cursor: text; font-size: 14px;">

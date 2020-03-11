@@ -83,14 +83,14 @@
 }
 
 .cover-img{
-  background-image: url('img/bg/1.jpeg');
+  background-image: url('img/bg/1.jpg');
   height:30vw;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 
 }
 .back{
-  background-image: url('https://i.pinimg.com/736x/42/9d/76/429d769242867994c24d60a31972db9b.jpg');
+  background-image: url('img/bg/bgbg.jpg');
   background-attachment: fixed;
 }
 @media (max-width: 455px){
@@ -311,7 +311,7 @@
               </div>
       
               <div id="cropp-image-div">
-                <img id="crop-image" style="margin-left: 41%; border-radius: 3px; border-style:outset;" src="" class="img-thumbnail">
+                <img id="crop-image" style="margin-left: 41%; border-radius: 3px; border-style:none;" src="" class="img-thumbnail">
               </div>
         <div class="form-group">
           <label for="caption" style="margin-left:48%"><h5 style="color:#88898a"><b>Caption:</b></h5></label>
@@ -661,6 +661,7 @@ document.getElementById("defaultOpen").click();
   });
 });
 </script>
+@include('footer')
 </body>
 </html>
 <script>

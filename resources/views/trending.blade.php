@@ -33,8 +33,13 @@
   
 
         <style type="text/css">
+<<<<<<< HEAD
         /* .back{
             background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
+=======
+        .back{
+          background-image: url('img/bg/bgbg.jpg');
+>>>>>>> f9c07a84c5e945debbc52f975f8a3d1a3411f95f
           background-attachment: fixed;
         } */
         
@@ -186,6 +191,7 @@
 
         </div>
 
+<<<<<<< HEAD
         <div class="row-1">
             <div class="card">
               <div class="image">
@@ -200,6 +206,18 @@
                   Old Archi Building
                 </div>
               
+=======
+      <section class="page-section cta" style="background-color: rgba(76,71,97,0.55); ">
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-9 mx-auto">
+              <div class="cta-inner text-center rounded">
+                <h2 class="section-heading mb-4">
+                  <span class="section-heading-upper"></span>
+                  <span class="section-heading-lower">Nothing to show yet</span>
+                </h2>
+                <br>
+>>>>>>> f9c07a84c5e945debbc52f975f8a3d1a3411f95f
               </div>
             </div>
         </div>
@@ -632,5 +650,7 @@
       });
     });
   </script>
+
+  @include('footer')
   </body>
 </html>
