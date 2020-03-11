@@ -53,11 +53,14 @@
   }
   .back
   {
-    background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg') !important;
+    background-image: url('https://i.pinimg.com/736x/42/9d/76/429d769242867994c24d60a31972db9b.jpg') !important;
     background-attachment: fixed;
   }
   #search{
     margin-left: -20  px;
+  }
+  header{
+    bottom: -50px;
   }
 </style>
 

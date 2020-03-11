@@ -33,7 +33,7 @@
     <style>
     
     .cover-img{
-      background-image: url('img/bg/1.jpeg');
+      background-image: url('img/bg/2.2.jpg');
       height:30vw;
       background-size: 100% 100%;
       background-repeat: no-repeat;

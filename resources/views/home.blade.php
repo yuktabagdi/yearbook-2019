@@ -90,7 +90,7 @@
 
 }
 .back{
-  background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
+  background-image: url('https://i.pinimg.com/736x/42/9d/76/429d769242867994c24d60a31972db9b.jpg');
   background-attachment: fixed;
 }
 @media (max-width: 455px){
@@ -311,7 +311,7 @@
               </div>
       
               <div id="cropp-image-div">
-                <img id="crop-image" style="margin-left: 41%" src="" class="img-thumbnail">
+                <img id="crop-image" style="margin-left: 41%; border-radius: 3px; border-style:outset;" src="" class="img-thumbnail">
               </div>
         <div class="form-group">
           <label for="caption" style="margin-left:48%"><h5 style="color:#88898a"><b>Caption:</b></h5></label>
@@ -592,6 +592,9 @@ document.getElementById("defaultOpen").click();
 
             </script>
 <script type="text/javascript">
+
+            //to remove the circular border on uploading the image
+
  /*jslint browser: true, white: true, eqeq: true, plusplus: true, sloppy: true, vars: true*/
  /*global $, console, alert, FormData, FileReader*/
  function selectImage(e) {
@@ -634,6 +637,7 @@ document.getElementById("defaultOpen").click();
         alert('Your pic has been succesfully added.');
         $('#loading').hide();
         $('#cropp-image-div').css("display", "none");
+        $('#cropp-image-div').css("border-style", "none");
         var $el = $('#image');
         $el.wrap('<form>').closest('form').get(0).reset();
         $el.unwrap();

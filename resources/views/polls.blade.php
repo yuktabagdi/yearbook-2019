@@ -34,7 +34,7 @@
         =============================================== -->
         <style type="text/css">
         .back{
-          background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
+          background-image: url('https://i.pinimg.com/736x/42/9d/76/429d769242867994c24d60a31972db9b.jpg');
           background-attachment: fixed;
         }
         @media(max-width: 500px){
