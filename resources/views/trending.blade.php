@@ -32,7 +32,7 @@
         <link href='https://fonts.googleapis.com/css?family=Aclonica' rel='stylesheet'>
         <style type="text/css">
         .back{
-          background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
+          background-image: url('img/bg/bgbg.jpg');
           background-attachment: fixed;
         }
         @media(max-width: 500px){
@@ -180,7 +180,7 @@
       
       @else
 
-      <section class="page-section cta" style="background-color: rgba(76,71,97,0.55);">
+      <section class="page-section cta" style="background-color: rgba(76,71,97,0.55); ">
         <div class="container">
           <div class="row">
             <div class="col-xl-9 mx-auto">
@@ -446,5 +446,7 @@
       });
     });
   </script>
+
+  @include('footer')
   </body>
 </html>

@@ -50,7 +50,7 @@
 
     }
     .back{
-      background-image: url('https://i.pinimg.com/736x/42/9d/76/429d769242867994c24d60a31972db9b.jpg');
+      background-image: url('img/bg/bgbg.jpg');
       background-attachment: fixed;
     }
     @media (min-width: 768px) { 
@@ -443,12 +443,12 @@
 </div><!--/ modal-content -->
 </div><!--/ modal-dialog -->
 </div><!--/ modal -->
-<footer class="footer text-faded text-center py-5" style=" color: #fff;background-color: grey;">
+<!-- <footer class="footer text-faded text-center py-5" style=" color: #fff;background-color: grey;">
   <div class="container">
     <p class="m-0 small">Copyright &copy; Yearbook 2019</p>
     <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php') }}">Contact Us</a></p>
   </div>
-</footer>
+</footer> -->
      <!-- ==============================================
    Scripts
    =============================================== -->
@@ -464,6 +464,8 @@
       size:"8px",
     });   
   </script>
+
+  @include('footer')
 
 </body>
 </html>

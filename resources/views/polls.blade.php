@@ -1340,5 +1340,7 @@
             $('[data-toggle="tooltip"]').tooltip()
             })
         </script>
+
+        @include('footer')
     </body>
 </html>

@@ -33,14 +33,14 @@
     <style>
     
     .cover-img{
-      background-image: url('img/bg/2.2.jpg');
+      background-image: url('img/bg/1.jpg');
       height:30vw;
       background-size: 100% 100%;
       background-repeat: no-repeat;
 
     }
     .back{
-      background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
+      background-image: url('img/bg/bgbg.jpg');
       background-attachment: fixed;
     }
     @media (min-width: 768px) { 
@@ -205,12 +205,12 @@
       </div><!--/ container -->
     </section><!--/ profile -->
   </div>
-  <footer class="footer text-faded text-center py-5" style=" color: #fff;background-color: grey;">
+  <!-- <footer class="footer text-faded text-center py-5" style=" color: #fff;background-color: grey;">
   <div class="container">
     <p class="m-0 small">Copyright &copy; Yearbook 2019</p>
     <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php') }}">Contact Us</a></p>
   </div>
-</footer>
+</footer> -->
      <!-- ==============================================
    Scripts
    =============================================== -->
@@ -226,6 +226,8 @@
       size:"8px",
     });   
   </script>
+
+@include('footer')
 
 </body>
 </html>

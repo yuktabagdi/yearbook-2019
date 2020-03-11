@@ -38,7 +38,7 @@
     =============================================== --> 
     <style type="text/css">
     .back{
-      background-image: url('https://i.pinimg.com/736x/42/9d/76/429d769242867994c24d60a31972db9b.jpg');
+      background-image: url('img/bg/bgbg.jpg');
       background-attachment: fixed;
     }
     .article{
@@ -56,11 +56,12 @@
         overflow-y: scroll;
       }
     }
+    
     </style>
 
     </head>
 
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="15">
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="10">
 
      <!-- ==============================================
      Navigation Section
@@ -79,8 +80,8 @@
 
    <section class="newsfeed back">
     <section class="channel-one">
-    <div class="container-fluid">
-     <div class="row">
+    <div class="container-fluid" >
+     <div class="row" >
      
       <div class="col-md-3 col-sm-4" id="myScrollspy">
        <aside class="sidebar">      
@@ -112,8 +113,8 @@
      <section class="page-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-10 col-md-10 col-sm-9 mx-auto" align="center">
-            <div class=" text-center rounded article" style="width:70%;padding: 1vw" >
+          <div class="col-lg-10 col-md-10 col-sm-9 mx-auto" align="center" style='left:-7px;'>
+            <div class=" text-center rounded article" style="width:59%;padding: 1vw;" >
               <h2 class="section-heading mb-4">
                 <span class="section-heading-lower">ITCH LIST</span>
               </h2><br>
@@ -347,5 +348,6 @@
     });
     $('#<?php echo $listid; ?>').addClass('active');
   </script>
+<!-- @include('footer') -->
 </body>
 </html>
