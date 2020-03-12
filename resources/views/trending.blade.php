@@ -55,99 +55,41 @@
           background-image: url('img/bg/bgbg.jpg');
           background-attachment: fixed;
         }
-        
 
-        /* Make the image fully responsive */
-        .carousel-inner img {
-          width: 100%;
-          height: 100%;
+        @media(max-width: 500px){
+          .product-item-img{
+              height: 200px !important;
+          }
+        }   
+        .panel-body:not(.two-col) {
+              padding: 0px;
+          }
+
+          .glyphicon {
+              margin-right: 5px;
+          }
+
+          .glyphicon-new-window {
+              margin-left: 5px;
+          }
+
+          .panel-body .radio, .panel-body .checkbox {
+              margin-top: 0px;
+              margin-bottom: 0px;
+          }
+
+          .panel-body .list-group {
+              margin-bottom: 0;
+          }
+
+          .margin-bottom-none {
+              margin-bottom: 0;
+          }
+
+          .panel-body .radio label, .panel-body .checkbox label {
+              display: block;
+          }
         }
-
-        @media(max-width: 500px)
-                    {
-                        .product-item-img{
-                            height: 200px !important;
-                            }
-                        }   
-                        .panel-body:not(.two-col) {
-                        padding: 0px;
-                    }
-
-                    .glyphicon {
-                        margin-right: 5px;
-                    }
-
-                    .glyphicon-new-window {
-                        margin-left: 5px;
-                    }
-
-                    .panel-body .radio, .panel-body .checkbox {
-                        margin-top: 0px;
-                        margin-bottom: 0px;
-                    }
-
-                    .panel-body .list-group {
-                        margin-bottom: 0;
-                    }
-
-                    .margin-bottom-none {
-                        margin-bottom: 0;
-                    }
-
-                    .panel-body .radio label, .panel-body .checkbox label {
-                        display: block;
-                    }
-                   
-                                                          
-
-                                      .card {
-                                        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-                                        transition: all 0.2s ease-in-out;
-                                        box-sizing: border-box;
-                                        margin-top:10px;
-                                        margin-bottom:10px;
-                                        background-color:#FFF;
-                                      }
-
-                                      .card:hover {
-                                        box-shadow: 0 5px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-                                      }
-                                      .card > .card-inner {
-                                        padding:10px;
-                                      }
-                                      .card .header h2, h3 {
-                                        margin-bottom: 0px;
-                                        margin-top:0px;
-                                      }
-                                      .card .header {
-                                        margin-bottom:5px;
-                                      }
-                                      .card img{
-                                        width:100%;
-                                      }
-                      
-
-                .form-group input[type="checkbox"] {
-                        display: none;
-                    }
-
-                    .form-group input[type="checkbox"] + .btn-group > label span {
-                        width: 50px;
-                    }
-
-                    .form-group input[type="checkbox"] + .btn-group > label span:first-child {
-                        display: none;
-                    }
-                    .form-group input[type="checkbox"] + .btn-group > label span:last-child {
-                        display: inline-block;   
-                    }
-
-                    .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
-                        display: inline-block;
-                    }
-                    .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
-                        display: none;   
-                    }          
         </style>    
         <!-- ==============================================
     Feauture Detection
@@ -175,8 +117,8 @@
 
     <div class="col-md-3 back" style="padding-top:  2.7%;">
       <section style="margin-left: 5%">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
+      <div class="panel panel-primary" style = "border-width : 0px">
+        <div class="panel-heading" style = "background-color : #0FC19E; border-width : 0px">
             <h3 class="panel-title"><span class="fas fa-list"></span> ITCH LISTS</h3>
         </div>
         <div class="panel-body" >
@@ -267,7 +209,7 @@
     
         </div>
         <div class="panel-footer text-center">
-        <a href = "{{ url('/bucket') }}"> <button type="button" class="btn btn-primary btn-block btn-sm">
+        <a href = "{{ url('/bucket') }}"> <button type="button" class="btn btn-primary btn-block btn-sm" style = "background-color : #0FC19E; border-width : 0px">
                     Finish the List!
                 </button> </a>
                 <a href="{{ url('/viewbucket') }}" class="small" style = "color : black">View other buckets</a>
@@ -438,8 +380,8 @@
 
     <div class="col-md-3 back" style="padding-top: 2.8%;" >
       <div style="margin-right: 5%">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
+      <div class="panel panel-primary" style = "border-width : 0px">
+        <div class="panel-heading" style = "background-color : #0FC19E; border-width : 0px">
                 <h3 class="panel-title"><span class="fa fa-line-chart"></span> POLLS</h3>
             </div>
             <div class="panel-body" >
@@ -452,7 +394,7 @@
               </div>
             </div>
             <div class="panel-footer text-center">
-                <button type="button" class="btn btn-primary btn-block btn-sm">
+                <button type="button" class="btn btn-primary btn-block btn-sm" style = "background-color : #0FC19E; border-width : 0px">
                     <a href = "javascript:void(0)"> Vote </a>
                 </button>
                 <a href="javascript:void(0)" class="small" style = "color : black">View Result</a>
