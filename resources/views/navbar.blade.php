@@ -9,7 +9,6 @@
 	{
 		width: 20% !important;
 	}
-	
 </style>
 <header class="tr-header">
 	<nav class="navbar navbar-default">
@@ -29,7 +28,7 @@
 					</ul>
 				</div>
 			</div><!-- /.navbar-left -->
-			<div class="navbar-right">                          
+			<div class="navbar-right" style = "margin-top : 2vh">                          
 				<ul class="nav navbar-nav">
 					<li>
 						<div class="search-dashboard">
@@ -181,7 +180,7 @@
 <section class="nav-sec">
     <div class="d-flex justify-content-between">
      <div id="polls" class="p-2 nav-icon-lg dark-black">
-     <a class="nav-icon" href="{{ url('/polls') }}"><i class="fas fa-chart-bar" style="font-size: 30px;padding: 0px 0px 10px 0px;"></i><span>Polls</span>
+     <a class="nav-icon" href="javascript:void(0)"><i class="fas fa-chart-bar" style="font-size: 30px;padding: 0px 0px 10px 0px;"></i><span>Polls</span>
      </a>
      </div>
      <div class="p-2 nav-icon-lg clean-black">

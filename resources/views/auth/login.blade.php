@@ -44,7 +44,7 @@
   <div class="clock-toogle__toogle"></div>
 </div>           
 <br>
-Welcome to<b> Yearbook'19</b> Portal </h3>
+Welcome to<b> Yearbook'20</b> Portal </h3>
 
    <form method="post" action="{{ route('login') }}" class="form main-title center">
 
@@ -54,7 +54,7 @@ Welcome to<b> Yearbook'19</b> Portal </h3>
 
                     <div class="input-field col s12 l6 m12 " >                   
                         <input name="rollno" id="rollno" autofocus placeholder="Roll Number" type="text" style="margin-top: 5px;" required>
-                        <label for="rollno"><h5 style="font-size: 140%;  color: #004d33;">Roll Number (14THXXXXX)</h5></label>
+                        <label for="rollno"><h5 style="font-size: 140%;  color: #004d33;">Roll Number (16THXXXXX)</h5></label>
                     </div>
                     <div class="input-field col s12 l6 m12 ">                   
                         <input name="password" id="dob" placeholder="Date of Birth" pattern="\d{1,2}-\d{1,2}-\d{4}" type="text" style="margin-top: 5px;" required>
@@ -68,7 +68,7 @@ Welcome to<b> Yearbook'19</b> Portal </h3>
                 </div>
             </form>
 
-            <p class=" center sub-title main-title" >Contact us at:<br> <a href="mailto:iitkgpyearbook2019@gmail.com"> iitkgpyearbook2019@gmail.com<a><i class="material-icons">error_outline</i><span class="tooltip">If you are not graduating this year, but want to write about your friends who are graduating, send us the testimonials via mail at iitkgpyearbook2019@gmail.com</span></a></p>
+            <p class=" center sub-title main-title" >Contact us at:<br> <a href="mailto:iitkgpyearbook2020@gmail.com"> iitkgpyearbook2020@gmail.com<a><i class="material-icons">error_outline</i><span class="tooltip">If you are not graduating this year, but want to write about your friends who are graduating, send us the testimonials via mail at iitkgpyearbook2019@gmail.com</span></a></p>
 
             </small></h1>
   </div>

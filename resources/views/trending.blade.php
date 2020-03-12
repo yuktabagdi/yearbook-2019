@@ -23,7 +23,7 @@
       <link rel="apple-touch-icon" href="{{ asset('img/favicons/apple-touch-icon.png') }}">
       <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/favicons/apple-touch-icon-72x72.png') }}">
       <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/favicons/apple-touch-icon-114x114.png') }}">
-      <link rel="stylesheet" href="https://i.pinimg.com/736x/42/9d/76/429d769242867994c24d60a31972db9b.jpg">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     
       <!-- ==============================================
     CSS
@@ -33,17 +33,30 @@
   
 
         <style type="text/css">
-<<<<<<< HEAD
-        /* .back{
-            background-image: url('http://svite-league-apps-content.s3.amazonaws.com/bgimages/subtle-checkers.jpg');
-=======
+        #myBtn {
+          display: none;
+          position: fixed;
+          bottom: 20px;
+          right: 30px;
+          z-index: 99;
+          font-size: 12px;
+          border: none;
+          outline: none;
+          color: white;
+          cursor: pointer;
+          padding: 15px;
+          border-radius: 4px;
+        }
+
+        #myBtn:hover {
+          background-color: #555;
+        }
         .back{
           background-image: url('img/bg/bgbg.jpg');
->>>>>>> f9c07a84c5e945debbc52f975f8a3d1a3411f95f
           background-attachment: fixed;
-        } */
+        }
         
-        <style>
+
         /* Make the image fully responsive */
         .carousel-inner img {
           width: 100%;
@@ -160,68 +173,106 @@
 
   <div class="row back" >
 
-    <div class="col-md-3 back" style="padding-top:  2.3%;">
+    <div class="col-md-3 back" style="padding-top:  2.7%;">
       <section style="margin-left: 5%">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><span class="fas fa-list"></span> ITCH LISTS</h3>
+        </div>
+        <div class="panel-body" >
+        
 
-        <div class="row-1">
-            <div class="card">
-              <div class="card-inner">
-                <button type="button" class="btn btn-outline-default waves-effect">View Bucket</button>
-              </div>
-            </div>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner"  role="listbox">
+
+        <div class="item active">
+          <div class="image" style = "height : 40vh; opacity : 0.5">
+            <img src="bon.jpeg">
+          </div>
+          <div class="carousel-caption" style = "margin-bottom : 12vh; color : black">
+            <h3>Bonfire</h3><br>
+            <p>Jolly Bonfire at Beach</p>
+          </div>
         </div>
 
-        <div class="row-1">
-
-            <div class="card">
-              <div class="image">
-                <img src="21.jpeg" />
-              </div>
-              <div class="card-inner">
-                <div class="header">
-                  SF Salsa
-                  <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                    <label class="custom-control-label" for="customCheck"></label>
-                  </div>
-                </div>
-              
-              </div>
-            </div>
-
+        <div class="item">
+        <div class="image" style = "height : 40vh; opacity : 0.5">
+          <img src="ls.webp">
+          </div>
+          <div class="carousel-caption" style = "margin-bottom : 8vh; color : black">
+            <h3>Little Sisters</h3><br>
+            <p>“Delicacies” at Little Sisters</p>
+          </div>
+        </div>
+      
+        <div class="item">
+        <div class="image" style = "height : 40vh; opacity : 0.5"><img src="graf.jpg"></div>
+          <div class="carousel-caption" style = "margin-bottom : 8vh; color : black">
+            <h3>Graffiti</h3><br>
+            <p>Sketched pure art on the walls</p>
+          </div>
         </div>
 
-<<<<<<< HEAD
-        <div class="row-1">
-            <div class="card">
-              <div class="image">
-                <img src="12.jpg" />
-              </div>
-              <div class="card-inner">
-                <div class="header">
-                  <div class="custom-control custom-checkbox" style = "float : left">
-                    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                    <label class="custom-control-label" for="customCheck"></label>
-                  </div>
-                  Old Archi Building
-                </div>
-              
-=======
-      <section class="page-section cta" style="background-color: rgba(76,71,97,0.55); ">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-9 mx-auto">
-              <div class="cta-inner text-center rounded">
-                <h2 class="section-heading mb-4">
-                  <span class="section-heading-upper"></span>
-                  <span class="section-heading-lower">Nothing to show yet</span>
-                </h2>
-                <br>
->>>>>>> f9c07a84c5e945debbc52f975f8a3d1a3411f95f
-              </div>
-            </div>
+        <div class="item">
+        <div class="image" style = "height : 40vh; opacity : 0.5"><img src="50.jpg"></div>
+          <div class="carousel-caption" style = "margin-bottom : 8vh; color : black">
+            <h3>Explore KGP</h3><br>
+            <p>Ventured into unknown paths.</p>
+          </div>
         </div>
-     
+
+        <div class="item">
+        <div class="image" style = "height : 40vh; opacity : 0.5"><img src="two.webp"></div>
+          <div class="carousel-caption" style = "margin-bottom : 8vh; color : black">
+            <h3>2.2</h3><br>
+            <p>Took long walks at night</p>
+          </div>
+        </div>
+
+        <div class="item">
+        <div class="image" style = "height : 40vh; opacity : 0.5"><img src="lbs.jpg"></div>
+          <div class="carousel-caption" style = "margin-bottom : 4vh; color : black">
+            <h3>How it all started?</h3><br>
+            <p>Memories from fresher year</p>
+          </div>
+        </div>
+
+
+        <div class="item">
+        <div class="image" style = "height : 40vh; opacity : 0.5"><img src="hd.jpg"></div>
+          <div class="carousel-caption" style = "margin-bottom : 8vh; color : black">
+            <h3>Hall Day</h3><br>
+            <p>Hosted the noisiest and the best parties</p>
+          </div>
+        </div>
+    
+      </div>
+      
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      </a>
+    </div>
+
+    
+        </div>
+        <div class="panel-footer text-center">
+        <a href = "{{ url('/bucket') }}"> <button type="button" class="btn btn-primary btn-block btn-sm">
+                    Finish the List!
+                </button> </a>
+                <a href="{{ url('/viewbucket') }}" class="small" style = "color : black">View other buckets</a>
+            </div>  
+      </div>
      </section>
     </div>
     
@@ -391,18 +442,24 @@
             <div class="panel-heading">
                 <h3 class="panel-title"><span class="fa fa-line-chart"></span> POLLS</h3>
             </div>
-            <div class="panel-body">
+            <div class="panel-body" >
               <div class="container">
-                  <span> Polls will be up soon!</span>
+                  <br><br><br><br><br><br>
+                  
+                  <span style = "margin-left : 2vw"> Polls will be up soon, stay tuned!</span>
+                  
+                  <br><br><br><br><br><br><br>
+              </div>
             </div>
             <div class="panel-footer text-center">
                 <button type="button" class="btn btn-primary btn-block btn-sm">
-                    Vote</button>
-                <a href="#" class="small">View Result</a>
+                    <a href = "javascript:void(0)"> Vote </a>
+                </button>
+                <a href="javascript:void(0)" class="small" style = "color : black">View Result</a>
             </div>
         </div>
     </div>
-     
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class = "fa fa-chevron-circle-up" style = "font-size : 28px"></i><br><br>Scroll to top!</button>   
   </div>       
    <!-- ==============================================
    Modal Section
@@ -487,6 +544,26 @@
   <script src="{{ asset('js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('js/base.js') }}"></script>
   <script src="{{ asset('plugins/slimscroll/jquery.slimscroll.js') }}"></script>
+  <script>
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
   <script>
   $('#Slim,#Slim2').slimScroll({
           height:"auto",
@@ -650,7 +727,5 @@
       });
     });
   </script>
-
-  @include('footer')
   </body>
 </html>
