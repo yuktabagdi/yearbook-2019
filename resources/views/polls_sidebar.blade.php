@@ -5,12 +5,12 @@
                 <h3 class="panel-title"><span class="fa fa-line-chart"></span> POLLS</h3>
             </div>
             <div class="panel-body" >
-            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div id="myCarousel1" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
             <ol class="carousel-indicators">
-              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel1" data-slide-to="1"></li>
+              <li data-target="#myCarousel1" data-slide-to="2"></li>
             </ol>
 
       <!-- Wrapper for slides -->
@@ -355,9 +355,9 @@
           </div>
           
           <!-- Left and right controls -->
-          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <a class="left carousel-control" href="#myCarousel1" role="button" data-slide="prev">
           </a>
-          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <a class="right carousel-control" href="#myCarousel1" role="button" data-slide="next">
           </a>
         </div>
             </div>
