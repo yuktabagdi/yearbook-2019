@@ -43,14 +43,14 @@
     
     <style>
     .cover-img{
-      background-image: url('../img/bg/1.jpeg');
+      background-image: url('../img/bg/1.jpg') !important;
       height:30vw;
       background-size: 100% 100%;
       background-repeat: no-repeat;
 
     }
     .back{
-      background-image: url('img/bg/bgbg.jpg');
+      background-image: url('../img/bg/bgbg.jpg');
       background-attachment: fixed;
     }
     @media (min-width: 768px) { 
