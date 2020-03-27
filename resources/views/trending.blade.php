@@ -33,6 +33,7 @@
   
 
         <style type="text/css">
+        
         #myBtn {
           display: none;
           position: fixed;
@@ -94,7 +95,13 @@
         <!-- ==============================================
     Feauture Detection
     =============================================== --> 
-    
+    <script>
+  $('.carousel').carousel({
+          interval: 2000,
+          cycle: true,
+          pause: "null"
+      })
+  </script>
     </head>
 
 <body>
@@ -131,14 +138,17 @@
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
         <li data-target="#myCarousel" data-slide-to="3"></li>
+        <li data-target="#myCarousel" data-slide-to="4"></li>
+        <li data-target="#myCarousel" data-slide-to="5"></li>
+        <li data-target="#myCarousel" data-slide-to="6"></li>
       </ol>
 
       <!-- Wrapper for slides -->
       <div class="carousel-inner"  role="listbox">
 
         <div class="item active">
-          <div class="image" style = "height : 40vh; opacity : 0.5">
-            <img src="bon.jpeg">
+          <div class="image">
+            <img src="bon.jpeg" style = "height : 50vh; opacity : 0.5">
           </div>
           <div class="carousel-caption" style = "margin-bottom : 12vh; color : black">
             <h3>Bonfire</h3><br>
@@ -147,8 +157,8 @@
         </div>
 
         <div class="item">
-        <div class="image" style = "height : 40vh; opacity : 0.5">
-          <img src="ls.webp">
+        <div class="image">
+          <img src="ls.webp" style = "height : 50vh; opacity : 0.5">
           </div>
           <div class="carousel-caption" style = "margin-bottom : 8vh; color : black">
             <h3>Little Sisters</h3><br>
@@ -157,7 +167,7 @@
         </div>
       
         <div class="item">
-        <div class="image" style = "height : 40vh; opacity : 0.5"><img src="graf.jpg"></div>
+        <div class="image"><img src="graf.jpg" style = "height : 50vh; opacity : 0.5"></div>
           <div class="carousel-caption" style = "margin-bottom : 8vh; color : black">
             <h3>Graffiti</h3><br>
             <p>Sketched pure art on the walls</p>
@@ -165,7 +175,7 @@
         </div>
 
         <div class="item">
-        <div class="image" style = "height : 40vh; opacity : 0.5"><img src="50.jpg"></div>
+        <div class="image"><img src="50.jpg" style = "height : 50vh; opacity : 0.5"></div>
           <div class="carousel-caption" style = "margin-bottom : 8vh; color : black">
             <h3>Explore KGP</h3><br>
             <p>Ventured into unknown paths.</p>
@@ -173,7 +183,7 @@
         </div>
 
         <div class="item">
-        <div class="image" style = "height : 40vh; opacity : 0.5"><img src="two.webp"></div>
+        <div class="image"><img src="two.webp" style = "height : 50vh; opacity : 0.5"></div>
           <div class="carousel-caption" style = "margin-bottom : 8vh; color : black">
             <h3>2.2</h3><br>
             <p>Took long walks at night</p>
@@ -181,7 +191,7 @@
         </div>
 
         <div class="item">
-        <div class="image" style = "height : 40vh; opacity : 0.5"><img src="lbs.jpg"></div>
+        <div class="image"><img src="lbs.jpg" style = "height : 50vh; opacity : 0.5"></div>
           <div class="carousel-caption" style = "margin-bottom : 4vh; color : black">
             <h3>How it all started?</h3><br>
             <p>Memories from fresher year</p>
@@ -190,7 +200,7 @@
 
 
         <div class="item">
-        <div class="image" style = "height : 40vh; opacity : 0.5"><img src="hd.jpg"></div>
+        <div class="image"><img src="hd.jpg" style = "height : 50vh; opacity : 0.5"></div>
           <div class="carousel-caption" style = "margin-bottom : 8vh; color : black">
             <h3>Hall Day</h3><br>
             <p>Hosted the noisiest and the best parties</p>
@@ -268,7 +278,11 @@
                                 <div class="media m-0">
                                   <div class="d-flex mr-3">
                                     <a href="{{ url('/profile_index/'.$image['rollno']) }}">
+                                      @if(!empty($name[0]['pro_pic']))
                                       <img class="img-responsive img-circle" src="{{$name[0]['pro_pic']}}" alt="User">
+                                      @else
+                                      <img class="img-fluid img-circle pro_pic" src="{{ asset('index.png') }}" style="width: 35px; height: 35px; top:3px;">
+                                      @endif
                                     </a>
                                   </div>
                                   <div class="media-body">
@@ -378,29 +392,7 @@
           </div>   
     </div>
 
-    <div class="col-md-3 back" style="padding-top: 2.8%;" >
-      <div style="margin-right: 5%">
-      <div class="panel panel-primary" style = "border-width : 0px">
-        <div class="panel-heading" style = "background-color : #0FC19E; border-width : 0px">
-                <h3 class="panel-title"><span class="fa fa-line-chart"></span> POLLS</h3>
-            </div>
-            <div class="panel-body" >
-              <div class="container">
-                  <br><br><br><br><br><br>
-                  
-                  <span style = "margin-left : 2vw"> Polls will be up soon, stay tuned!</span>
-                  
-                  <br><br><br><br><br><br><br>
-              </div>
-            </div>
-            <div class="panel-footer text-center">
-                <button type="button" class="btn btn-primary btn-block btn-sm" style = "background-color : #0FC19E; border-width : 0px">
-                    <a href = "javascript:void(0)"> Vote </a>
-                </button>
-                <a href="javascript:void(0)" class="small" style = "color : black">View Result</a>
-            </div>
-        </div>
-    </div>
+    @include('polls_sidebar');
     <button onclick="topFunction()" id="myBtn" title="Go to top"><i class = "fa fa-chevron-circle-up" style = "font-size : 28px"></i><br><br>Scroll to top!</button>   
   </div>       
    <!-- ==============================================
@@ -423,7 +415,9 @@
            <div class="modal-meta-top">
             <div class="img-poster clearfix">
              <a href="" id="profile">
-              <img class="img-responsive img-circle" id="image" src="" />
+              
+             <img class="img-responsive img-circle" id="image" src="" />
+              
              <strong><span style="font-size: 14px;" id="posted_by"></span></strong>
              </a>
              <span id="created_at"></span><br/>
@@ -460,22 +454,7 @@
        </div><!--/ modal-content -->
       </div><!--/ modal-dialog -->
      </div><!--/ modal -->
-     <div id="my-Modal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <input type="checkbox" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
-      </div>
-      <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>-
+    
 
   </div>
 </div>
@@ -519,8 +498,21 @@ function topFunction() {
     $('#trending').removeClass('p-2 nav-icon-lg dark-black');
     $('#trending').addClass('p-2 nav-icon-lg mint-green');            
   </script>
-
   <script>
+    $('.input-field').children().css({"background-color": "#f4f4f4", "border": "none", "border-radius": "5px", "padding-top": "3px", "padding-left": "5px", "line-height": "33px", "cursor": "text"});
+      $(document).ready(function() {
+      $('#q1, #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10, #q11, #q12, #q13, #q14').autocomplete({
+      source: [names]
+      });
+      });
+      $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+      })
+  </script>
+
+  
+  <script>
+      
     $('.like').click('.like', function() {
       var v = $(this).attr('id');
       var formData = {
@@ -668,6 +660,8 @@ function topFunction() {
       });
       });
     });
+
+    
   </script>
   </body>
 </html>
