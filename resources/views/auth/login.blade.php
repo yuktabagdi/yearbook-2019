@@ -68,7 +68,7 @@ Welcome to<b> Yearbook'20</b> Portal </h3>
                 </div>
             </form>
 
-            <p class=" center sub-title main-title" >Contact us at:<br> <a href="mailto:iitkgpyearbook2020@gmail.com"> iitkgpyearbook2020@gmail.com<a><i class="material-icons">error_outline</i><span class="tooltip">If you are not graduating this year, but want to write about your friends who are graduating, send us the testimonials via mail at iitkgpyearbook2019@gmail.com</span></a></p>
+            <p class=" center sub-title main-title" >Contact us at:<br> <a href="mailto:iitkgpyearbook2020@gmail.com"> iitkgpyearbook2020@gmail.com<a><i class="material-icons">error_outline</i><span class="tooltip">If you are not graduating this year, but want to write about your friends who are graduating, send us the testimonials via mail at iitkgpyearbook2020@gmail.com</span></a></p>
 
             </small></h1>
   </div>
