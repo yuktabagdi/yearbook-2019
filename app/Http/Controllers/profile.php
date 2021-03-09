@@ -40,6 +40,7 @@ class profile extends Controller
        return view('testimonial',compact('data','myviews','writeups','images','user','notifications','comment_notification'));
    }
 
+
    public function updateread()
    {
         //changing the default value of 1 to 0

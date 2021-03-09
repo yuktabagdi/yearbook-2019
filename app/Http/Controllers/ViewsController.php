@@ -60,14 +60,26 @@ class ViewsController extends Controller
         ]);
 
 
-        $mydata = User::where('rollno',$roll)->get();
+        // $mydata = User::where('rollno',$roll)->get();
 
-        $myviews = views::where('depmate',$roll)->get();
+        // $myviews = views::where('depmate',$roll)->get();
         
 
         
         return redirect('/profile_index/'.$roll) ;
     }
+    public function write_public()
+    {
+        views::create([
+            'depmate' => '19MT10011',
+            'views' => 'cjsdjvcsbdjoj',
+            'user' => 'Tanwir Singh',
+            'approval' => '0',
+            
+        ]);
+        return redirect('https://www.google.com/') ;
+    }
+
     public function read($id)
     {
        $post = views::find($id);

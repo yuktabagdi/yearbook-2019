@@ -5,7 +5,7 @@
   }
   .soc{
     position: relative;
-    left:-757px;
+    left:-40vw;
   }
 </style>
 

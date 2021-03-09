@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Yearbook</title>
-  
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -19,7 +19,7 @@
 
       <link rel="stylesheet" href="{{ asset('css/style1.css') }}">
 
-  
+
 </head>
 
 <body>
@@ -42,28 +42,35 @@
 </div>
 <div class="clock-toogle">
   <div class="clock-toogle__toogle"></div>
-</div>           
+</div>
 <br>
-Welcome to<b> Yearbook'20</b> Portal </h3><br>
-  
-    <form method ="post" action="{{ url('/writepublic') }}" onsubmit="alert('hi')">
+Enter Testimonials for<b> 2021 Graduating Batch </b>here! </h3><br>
+
+    <!-- <form method ="post" action="{{ url('/writepublic') }}" onsubmit="alert('hi')">
       <input type="text" name="req_roll" placeholder="Enter roll no here">
       <textarea name="viewx" cols="50" placeholder="Enter your review here...(max 144 character)" rows="5" maxlength="144" >
       </textarea>
       <button type="submit">Submit</button>
-    </form>
-   <form method="post" class="form main-title center" action="{{ route('login') }}">
+    </form> -->
+   <form method="post" class="form main-title center" action="nonGradTestimonials">
 
                 {{ csrf_field() }}
                 <div class="row" style="margin-bottom: 0px; text-align : center">
-                   
-                    <div class="input-field col s12 l6 m12 " >                   
+
+                    <div class='row'>
+                      <div class="input-field col-sm-6" >
+                        <input name="name" id="name" autofocus placeholder="Name" type="text" style="margin-top: 5px;" required>
+                        <label for="name"><h5 style="font-size: 140%;  color: #004d33;">Name </h5></label>
+                    </div>
+                    <div class="input-field col-sm-6" >
                         <input name="rollno" id="rollno" autofocus placeholder="Roll Number" type="text" style="margin-top: 5px;" required>
                         <label for="rollno"><h5 style="font-size: 140%;  color: #004d33;">Roll Number (16THXXXXX)</h5></label>
                     </div>
-                    <div class="input-field col s12 l6 m12 ">                   
-                        <input name="password" id="dob" placeholder="Date of Birth" pattern="\d{1,2}-\d{1,2}-\d{4}" type="text" style="margin-top: 5px;" required>
-                        <label for="dob"><h5 style="font-size: 140%; color: #004d33;">Date of Birth (dd-mm-yyyy)</h5></label>
+                  </div>
+
+                    <div class="input-field col-sm-12 ">
+                        <input name="testimonial-non-grad" id="testinomial-non-grad" placeholder="Testimonials" type="text" style="margin-top: 5px;" required>
+                        <label for="testinomial-non-grad"><h5 style="font-size: 140%; color: #004d33;">Testimonial</h5></label>
                     </div>
                 </div>
                 <div class="row">
@@ -85,7 +92,7 @@ Welcome to<b> Yearbook'20</b> Portal </h3><br>
   <div class="slideshow-image" style="background-image: url('2.jpg')"></div>
   <div class="slideshow-image" style="background-image: url('50.jpg')"></div>
 </div> -->
-  
+
 
 
 

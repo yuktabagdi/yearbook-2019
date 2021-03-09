@@ -5,11 +5,11 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style type="text/css">
-	.nav-icon-lg
-	{
-		width: 20% !important;
-	}
 	
+	.navbar{
+		width : 100%;
+		z-index : 1;
+	}
 </style>
 <header class="tr-header">
 	<nav class="navbar navbar-default">
@@ -29,7 +29,7 @@
 					</ul>
 				</div>
 			</div><!-- /.navbar-left -->
-			<div class="navbar-right">                          
+			<div class="navbar-right" style = "margin-top : 2vh">                          
 				<ul class="nav navbar-nav">
 					<li>
 						<div class="search-dashboard">
@@ -49,6 +49,22 @@
 					<li>
 						<a class="text-uppercase text-expanded" href="{{ url('/trending') }}"  data-step="6" data-intro="<center> See the most popular photos of Kgpians </center> " style='top:4px'>Trending</a>
 					</li>
+
+					<li class="dropdown" style = "top:4px">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Itch List
+						</a>
+						<ul class="dropdown-menu" style = "width : 50%; padding-left : 10px">
+						<li><a href="{{ url('/bucket') }}">Fill Itch List</a></li><br>
+						<li><a href="{{ url('/viewbucket') }}">View Itch List</a></li>
+						</ul>
+					</li>
+
+				    <li>
+						<a class="test" href="#" data-toggle="modal" data-target="#modal_test" style='top:4px'>
+							Testimonials
+						</a>
+					</li>
+
 					<li class="dropdown notification-list">
 						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="notification" role="button"
 						aria-haspopup="false" aria-expanded="false">
@@ -177,34 +193,7 @@
 </nav><!-- /.navbar -->
 
 </header>
-<!-- Page Header --> 
-<section class="nav-sec">
-    <div class="d-flex justify-content-between">
-     <div id="polls" class="p-2 nav-icon-lg dark-black">
-     <a class="nav-icon" href="{{ url('/polls') }}"><i class="fas fa-chart-bar" style="font-size: 30px;padding: 0px 0px 10px 0px;"></i><span>Polls</span>
-     </a>
-     </div>
-     <div class="p-2 nav-icon-lg clean-black">
-     <a class="nav-icon test" href="#" data-toggle="modal" data-target="#modal_test"><i class="fas fa-marker" style="font-size: 30px;padding: 0px 0px 10px 0px;"></i>
-    <span>Testimonials</span>
-     </a>
-     </div>
-     <div id="fillbucket" class="p-2 nav-icon-lg dark-black">
-     <a class="nav-icon" href="{{ url('/bucket') }}"><i class="fa fa-bitbucket" style="font-size: 30px;padding: 0px 0px 10px 0px;"></i>
-    <span>Fill Bucket</span>
-     </a>
-     </div>
-     <div id="viewbucket" class="p-2 nav-icon-lg clean-black">
-     <a class="nav-icon" href="{{ url('/viewbucket') }}"><em class="fa fa-align-left"></em>
-    <span>View Bucket</span>
-     </a>
-     </div>
-     <div id="trending" class="p-2 nav-icon-lg dark-black">
-     <a class="nav-icon" href="{{ url('/trending') }}"><i class="fab fa-gripfire" style="font-size: 35px;padding: 0px 0px 10px 0px;"></i>
-    <span>Trending</span>
-     </a>
-     </div>
-    </div>
+
     <div id="modal_test" class="modal fade" role="dialog">
     	<div class="modal-dialog">
     		<!-- Modal content-->

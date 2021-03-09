@@ -16,7 +16,7 @@ use App\User;
 
 use App\views;
 
-
+use App\Poll;
 
 use DB;
 
@@ -35,11 +35,14 @@ class CountController extends Controller
         $user = User::get();
         $roll = Auth::user()->rollno;
         $id = Auth::user()->id;
+        $polls = Poll::where('rollno',$roll)->get()->toArray();
+        if(!empty($polls))
+      		$polls = $polls[0];
         $notifications = views::where('depmate',$roll)->where('read','1')->latest()->get();
         $comment_notification = Comment::where('roll', $roll)->where('seen', '1')->where('user_id', '!=', $id)
         ->latest()->get();
         
-        return view('trending',compact('images','user','notifications','currentpage','perpage', 'comment_notification'));
+        return view('trending',compact('images','user','notifications','currentpage','perpage', 'comment_notification', 'polls'));
     }
 
 
